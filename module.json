@@ -1,0 +1,31 @@
+{
+  "name": "typhonjs",
+  "title": "TyphonJS Runtime Library",
+  "description": "Provides a common runtime library module for Foundry VTT distributing @typhonjs-fvtt/svelte, @typhonjs-plugin/manager, @typhonjs-plugin/eventbus, dompurify, `collect.js`.",
+  "author": "Michael Leahy (TyphonJS) - MLeahy#4299",
+  "authors": [
+    {
+      "name": "Michael Leahy (TyphonJS) - MLeahy#4299",
+      "url": "https://www.typhonjs.io"
+    }
+  ],
+  "url": "https://github.com/typhonjs-fvtt-lib/typhonjs",
+  "readme": "https://github.com/typhonjs-fvtt-lib/typhonjs/blob/master/README.md",
+  "bugs": "https://github.com/typhonjs-fvtt-lib/typhonjs/issues",
+  "changelog": "https://github.com/typhonjs-fvtt-lib/typhonjs/releases/latest/",
+  "version": "0.0.0",
+  "minimumCoreVersion": "0.8.6",
+  "compatibleCoreVersion": "0.8.9",
+  "scripts": [],
+  "styles": [
+    "./svelte/component/typhonjs-lib-component.css"
+  ],
+  "system": [],
+  "dependencies": [],
+  "socket": false,
+  "manifest": "https://github.com/typhonjs-fvtt-lib/typhonjs/releases/latest/download/module.json",
+  "download": "https://github.com/typhonjs-fvtt-lib/typhonjs/releases/download/0.8.0-alpha1/module.zip",
+  "protected": false,
+  "coreTranslation": false,
+  "library": true
+}

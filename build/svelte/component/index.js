@@ -1,0 +1,1 @@
+export * from '../../../node_modules/@typhonjs-fvtt/svelte/src/modules/component/index.js';
