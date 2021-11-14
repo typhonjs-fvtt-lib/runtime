@@ -17,8 +17,9 @@
   "minimumCoreVersion": "0.8.6",
   "compatibleCoreVersion": "0.8.9",
   "scripts": [],
+  "esmodules": ["./tinymce/oembed.js"],
   "styles": [
-    "./svelte/component/typhonjs-lib-component.css"
+    "./svelte/css/component.css"
   ],
   "system": [],
   "dependencies": [],

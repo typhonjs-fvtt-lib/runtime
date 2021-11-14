@@ -1,5 +1,8 @@
 .github/
 dist/
 docs/
-styles/
-templates/
+collectjs/
+dompurify/
+plugin/
+svelte/
+tinymce/

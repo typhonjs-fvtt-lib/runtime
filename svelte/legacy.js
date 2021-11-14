@@ -1,5 +1,6 @@
+import { ApplicationShell } from '/modules/typhonjs/svelte/component.js';
+import { SvelteApplication } from '/modules/typhonjs/svelte/index.js';
 import { outroAndDestroy, isApplicationShell, hasGetter, parseSvelteConfig } from '/modules/typhonjs/svelte/util.js';
-import { DialogShell, TJSContextMenu } from '/modules/typhonjs/svelte/component.js';
 
 function noop() { }
 function run(fn) {
@@ -293,42 +294,6 @@ function _defineProperty(obj, key, value) {
   return obj;
 }
 
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
-}
-
-function _objectWithoutProperties(source, excluded) {
-  if (source == null) return {};
-
-  var target = _objectWithoutPropertiesLoose(source, excluded);
-
-  var key, i;
-
-  if (Object.getOwnPropertySymbols) {
-    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
-
-    for (i = 0; i < sourceSymbolKeys.length; i++) {
-      key = sourceSymbolKeys[i];
-      if (excluded.indexOf(key) >= 0) continue;
-      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
-      target[key] = source[key];
-    }
-  }
-
-  return target;
-}
-
 function _classPrivateFieldGet(receiver, privateMap) {
   var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get");
 
@@ -351,24 +316,6 @@ function _classExtractFieldDescriptor(receiver, privateMap, action) {
   return privateMap.get(receiver);
 }
 
-function _classStaticPrivateFieldSpecGet(receiver, classConstructor, descriptor) {
-  _classCheckPrivateStaticAccess(receiver, classConstructor);
-
-  _classCheckPrivateStaticFieldDescriptor(descriptor, "get");
-
-  return _classApplyDescriptorGet(receiver, descriptor);
-}
-
-function _classStaticPrivateFieldSpecSet(receiver, classConstructor, descriptor, value) {
-  _classCheckPrivateStaticAccess(receiver, classConstructor);
-
-  _classCheckPrivateStaticFieldDescriptor(descriptor, "set");
-
-  _classApplyDescriptorSet(receiver, descriptor, value);
-
-  return value;
-}
-
 function _classApplyDescriptorGet(receiver, descriptor) {
   if (descriptor.get) {
     return descriptor.get.call(receiver);
@@ -386,18 +333,6 @@ function _classApplyDescriptorSet(receiver, descriptor, value) {
     }
 
     descriptor.value = value;
-  }
-}
-
-function _classCheckPrivateStaticAccess(receiver, classConstructor) {
-  if (receiver !== classConstructor) {
-    throw new TypeError("Private static access of wrong provenance");
-  }
-}
-
-function _classCheckPrivateStaticFieldDescriptor(descriptor, action) {
-  if (descriptor === undefined) {
-    throw new TypeError("attempted to " + action + " private static field before its declaration");
   }
 }
 
@@ -425,6 +360,98 @@ function _classPrivateMethodInitSpec(obj, privateSet) {
   _checkPrivateRedeclaration(obj, privateSet);
 
   privateSet.add(obj);
+}
+
+var _orignalPopOut$1 = /*#__PURE__*/new WeakMap();
+
+class HandlebarsApplication extends SvelteApplication {
+  /**
+   * Temporarily holds the original popOut value when rendering.
+   *
+   * @type {boolean}
+   */
+
+  /**
+   * @inheritDoc
+   */
+  constructor(options) {
+    super(options);
+
+    _classPrivateFieldInitSpec(this, _orignalPopOut$1, {
+      writable: true,
+      value: void 0
+    });
+
+    if (this.popOut) {
+      this.options.svelte = foundry.utils.mergeObject(typeof this.options.svelte === 'object' ? this.options.svelte : {}, {
+        class: ApplicationShell,
+        intro: true,
+        target: document.body
+      });
+    }
+  }
+  /**
+   * Temporarily set popOut to false to only render inner HTML. This inner HTML will be appended to the content area
+   * of ApplicationShell if the original popOut value is true.
+   *
+   * @inheritDoc
+   */
+
+
+  async _render(force, options) {
+    _classPrivateFieldSet(this, _orignalPopOut$1, this.options.popOut);
+
+    this.options.popOut = false;
+    await super._render(force, options);
+    this.options.popOut = _classPrivateFieldGet(this, _orignalPopOut$1);
+  }
+
+  _injectHTML(html) {
+    var _this$svelte, _this$svelte$applicat;
+
+    // Mounts any Svelte components.
+    super._injectHTML(html); // Appends inner HTML content to application shell content element.
+
+
+    if ((_this$svelte = this.svelte) !== null && _this$svelte !== void 0 && (_this$svelte$applicat = _this$svelte.applicationShell) !== null && _this$svelte$applicat !== void 0 && _this$svelte$applicat.elementContent) {
+      this.svelte.applicationShell.elementContent.appendChild(...html);
+    }
+  }
+  /**
+   * Override replacing HTML as Svelte components control the rendering process. Only potentially change the outer
+   * application frame / title for pop-out applications.
+   *
+   * @override
+   * @inheritDoc
+   */
+
+
+  _replaceHTML(element, html) // eslint-disable-line no-unused-vars
+  {
+    var _this$svelte2, _this$svelte2$applica;
+
+    if (!element.length) {
+      return;
+    }
+
+    super._replaceHTML(element, html);
+
+    if ((_this$svelte2 = this.svelte) !== null && _this$svelte2 !== void 0 && (_this$svelte2$applica = _this$svelte2.applicationShell) !== null && _this$svelte2$applica !== void 0 && _this$svelte2$applica.elementContent) {
+      const elementContent = this.svelte.applicationShell.elementContent; // Remove existing children.
+
+      while (elementContent.firstChild && !elementContent.lastChild.remove()) {} // eslint-disable-line no-empty
+
+
+      elementContent.appendChild(...html); // Use the setter from `SvelteFormApplication` to set the title store.
+
+      this.title = this.title; // eslint-disable-line no-self-assign
+    } else {
+      element.replaceWith(html);
+      this._element = html;
+      this.elementTarget = html[0];
+    }
+  }
+
 }
 
 var _applicationShellHolder$1 = /*#__PURE__*/new WeakMap();
@@ -569,12 +596,11 @@ Object.freeze(GetSvelteData);
  */
 
 /**
- * Provides a Svelte aware extension to Application to control the app lifecycle appropriately. You can declaratively
- * load one or more components from `defaultOptions`. For the time being please refer to this temporary demo code
- * in `typhonjs-quest-log` for examples of how to declare Svelte components.
- * {@link https://github.com/typhonjs-fvtt/typhonjs-quest-log/tree/master/src/view/demo}
+ * Provides a Svelte aware extension to FormApplication to control the app lifecycle appropriately.
  *
- * A repository of demos will be available soon.
+ * NOTE: THIS IS ONLY TO BE USED FOR {@link HandlebarsFormApplication}.
+ *
+ * @see SvelteApplication
  */
 
 var _applicationShellHolder = /*#__PURE__*/new WeakMap();
@@ -605,7 +631,7 @@ var _storesSubscribe = /*#__PURE__*/new WeakSet();
 
 var _storesUnsubscribe = /*#__PURE__*/new WeakSet();
 
-class SvelteApplication extends Application {
+class SvelteFormApplication extends FormApplication {
   /**
    * Stores the first mounted component which follows the application shell contract.
    *
@@ -676,8 +702,8 @@ class SvelteApplication extends Application {
   /**
    * @inheritDoc
    */
-  constructor(options) {
-    super(options);
+  constructor(object, options) {
+    super(object, options);
 
     _classPrivateMethodInitSpec(this, _storesUnsubscribe);
 
@@ -862,7 +888,7 @@ class SvelteApplication extends Application {
 
   set elementContent(content) {
     if (!(content instanceof HTMLElement)) {
-      throw new TypeError(`SvelteApplication - set elementContent error: 'content' is not an HTMLElement.`);
+      throw new TypeError(`SvelteFormApplication - set elementContent error: 'content' is not an HTMLElement.`);
     }
 
     _classPrivateFieldSet(this, _elementContent, content);
@@ -876,7 +902,7 @@ class SvelteApplication extends Application {
 
   set elementTarget(target) {
     if (!(target instanceof HTMLElement)) {
-      throw new TypeError(`SvelteApplication - set elementTarget error: 'target' is not an HTMLElement.`);
+      throw new TypeError(`SvelteFormApplication - set elementTarget error: 'target' is not an HTMLElement.`);
     }
 
     _classPrivateFieldSet(this, _elementTarget, target);
@@ -1608,314 +1634,114 @@ function s_LOAD_CONFIG(app, html, config, storeAppOptions, storeUIOptions) {
   return result;
 }
 
-/**
- * Provides a Foundry API compatible dialog alternative implemented w/ Svelte. There are several features including
- * a glasspane / modal option with various styling and transition capabilities.
- */
+var _orignalPopOut = /*#__PURE__*/new WeakMap();
 
-var _data = /*#__PURE__*/new WeakMap();
+class HandlebarsFormApplication extends SvelteFormApplication {
+  /**
+   * Temporarily holds the original popOut value when rendering.
+   *
+   * @type {boolean}
+   */
 
-class TJSDialog extends SvelteApplication {
-  constructor(data, options) {
-    super(options);
+  /**
+   * @inheritDoc
+   */
+  constructor(object, options) {
+    super(object, options);
 
-    _classPrivateFieldInitSpec(this, _data, {
+    _classPrivateFieldInitSpec(this, _orignalPopOut, {
       writable: true,
       value: void 0
     });
 
-    _classPrivateFieldSet(this, _data, data);
-  }
-
-  static get defaultOptions() {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      classes: ['dialog'],
-      width: 400,
-      svelte: {
-        class: DialogShell,
+    if (this.popOut) {
+      this.options.svelte = foundry.utils.mergeObject(typeof this.options.svelte === 'object' ? this.options.svelte : {}, {
+        class: ApplicationShell,
         intro: true,
-        target: document.body,
-        props: function () {
-          return {
-            data: _classPrivateFieldGet(this, _data)
-          };
-        }
-      }
-    });
-  }
-
-  get content() {
-    return this.getDialogData('content');
-  }
-
-  get data() {
-    return _classPrivateFieldGet(this, _data);
-  }
-
-  set content(content) {
-    this.setDialogData('content', content);
-  }
-
-  set data(data) {
-    _classPrivateFieldSet(this, _data, data);
-
-    const component = this.svelte.applicationShell;
-
-    if (component !== null && component !== void 0 && component.data) {
-      component.data = data;
+        target: document.body
+      });
     }
   }
   /**
-   * Implemented only for backwards compatibility w/ default Foundry {@link Dialog} API.
+   * Temporarily set popOut to false to only render inner HTML. This inner HTML will be appended to the content area
+   * of ApplicationShell if the original popOut value is true.
    *
-   * @param {JQuery}   html - JQuery element for content area.
+   * @inheritDoc
    */
 
 
-  activateListeners(html) {
-    super.activateListeners(html);
+  async _render(force, options) {
+    _classPrivateFieldSet(this, _orignalPopOut, this.options.popOut);
 
-    if (this.data.render instanceof Function) {
-      this.data.render(this.options.jQuery ? html : html[0]);
-    }
-  }
-
-  async close(options) {
-    /**
-     * Implemented only for backwards compatibility w/ default Foundry {@link Dialog} API.
-     */
-    if (this.data.close instanceof Function) {
-      this.data.close(this.options.jQuery ? this.element : this.element[0]);
-    }
-
-    return super.close(options);
-  }
-
-  getDialogData(accessor, defaultValue) {
-    return safeAccess(_classPrivateFieldGet(this, _data), accessor, defaultValue);
-  }
-
-  mergeDialogData(data) {
-    this.data = foundry.utils.mergeObject(_classPrivateFieldGet(this, _data), data, {
-      inplace: false
-    });
+    this.options.popOut = false;
+    await super._render(force, options);
+    this.options.popOut = _classPrivateFieldGet(this, _orignalPopOut);
   }
   /**
-   * Provides a way to safely set this dialogs data given an accessor string which describes the
-   * entries to walk. To access deeper entries into the object format the accessor string with `.` between entries
-   * to walk.
+   * Duplicates the FormApplication `_renderInner` method as SvelteFormApplication does not defer to super
+   * implementations.
    *
-   * Automatically the dialog data will be updated in the associated DialogShell Svelte component.
-   *
-   * // TODO DOCUMENT the accessor in more detail.
-   *
-   * @param {string}   accessor - The path / key to set. You can set multiple levels.
-   *
-   * @param {*}        value - Value to set.
+   * @inheritDoc
    */
 
 
-  setDialogData(accessor, value) {
-    const success = safeSet(_classPrivateFieldGet(this, _data), accessor, value); // If `this.options` modified then update the app options store.
+  async _renderInner(data) {
+    const html = await super._renderInner(data);
+    this.form = html.filter((i, el) => el instanceof HTMLFormElement)[0];
 
-    if (success) {
-      const component = this.svelte.component(0);
-
-      if (component !== null && component !== void 0 && component.data) {
-        component.data = _classPrivateFieldGet(this, _data);
-      }
+    if (!this.form) {
+      this.form = html.find('form')[0];
     }
-  } // ---------------------------------------------------------------------------------------------------------------
 
-
-  static async confirm({
-    title,
-    content,
-    yes,
-    no,
-    render,
-    defaultYes = true,
-    rejectClose = false,
-    options = {},
-    buttons = {},
-    draggable = true,
-    modal = false,
-    modalOptions = {},
-    popOut = true,
-    resizable = false,
-    transition = {},
-    zIndex
-  } = {}) {
-    // Allow overwriting of default icon and labels.
-    const mergedButtons = foundry.utils.mergeObject({
-      yes: {
-        icon: '<i class="fas fa-check"></i>',
-        label: game.i18n.localize('Yes')
-      },
-      no: {
-        icon: '<i class="fas fa-times"></i>',
-        label: game.i18n.localize('No')
-      }
-    }, buttons);
-    return new Promise((resolve, reject) => {
-      const dialog = new this({
-        title,
-        content,
-        render,
-        draggable,
-        modal,
-        modalOptions,
-        popOut,
-        resizable,
-        zIndex,
-        transition,
-        buttons: foundry.utils.mergeObject(mergedButtons, {
-          yes: {
-            callback: html => {
-              const result = yes ? yes(html) : true;
-              resolve(result);
-            }
-          },
-          no: {
-            callback: html => {
-              const result = no ? no(html) : false;
-              resolve(result);
-            }
-          }
-        }),
-        default: defaultYes ? "yes" : "no",
-        close: () => {
-          if (rejectClose) {
-            reject('The confirmation Dialog was closed without a choice being made.');
-          } else {
-            resolve(null);
-          }
-        }
-      }, options);
-      dialog.render(true);
-    });
+    return html;
   }
 
-  static async prompt({
-    title,
-    content,
-    label,
-    callback,
-    render,
-    rejectClose = false,
-    options = {},
-    draggable = true,
-    icon = '<i class="fas fa-check"></i>',
-    modal = false,
-    modalOptions = {},
-    popOut = true,
-    resizable = false,
-    transition = {},
-    zIndex
-  } = {}) {
-    return new Promise((resolve, reject) => {
-      const dialog = new this({
-        title,
-        content,
-        render,
-        draggable,
-        modal,
-        modalOptions,
-        popOut,
-        resizable,
-        transition,
-        zIndex,
-        buttons: {
-          ok: {
-            icon,
-            label,
-            callback: html => {
-              const result = callback ? callback(html) : null;
-              resolve(result);
-            }
-          }
-        },
-        default: 'ok',
-        close: () => {
-          if (rejectClose) {
-            reject(new Error('The Dialog prompt was closed without being accepted.'));
-          } else {
-            resolve(null);
-          }
-        }
-      }, options);
-      dialog.render(true);
-    });
+  _injectHTML(html) {
+    var _this$svelte, _this$svelte$applicat;
+
+    // Mounts any Svelte components.
+    super._injectHTML(html); // Appends inner HTML content to application shell content element.
+
+
+    if ((_this$svelte = this.svelte) !== null && _this$svelte !== void 0 && (_this$svelte$applicat = _this$svelte.applicationShell) !== null && _this$svelte$applicat !== void 0 && _this$svelte$applicat.elementContent) {
+      this.svelte.applicationShell.elementContent.appendChild(...html);
+    }
   }
-
-}
-
-const _excluded = ["id", "x", "y", "items", "zIndex"];
-/**
- * Provides game wide menu functionality.
- */
-
-class TJSMenu {
   /**
-   * Stores any active context menu.
+   * Override replacing HTML as Svelte components control the rendering process. Only potentially change the outer
+   * application frame / title for pop-out applications.
+   *
+   * @override
+   * @inheritDoc
    */
 
-  /**
-   * Creates and manages a game wide context menu.
-   *
-   * @param {object}   opts - Optional parameters.
-   *
-   * @param {string}   [opts.id] - A custom CSS ID to add to the menu.
-   *
-   * @param {number}   opts.x - X position for the top / left of the menu.
-   *
-   * @param {number}   opts.y - Y position for the top / left of the menu.
-   *
-   * @param {object[]} opts.items - Menu items to display.
-   *
-   * @param {number}   [opts.zIndex=10000] - Z-index for context menu.
-   *
-   * @param {...*}     [opts.transitionOptions] - The rest of opts defined the slideFade transition options.
-   */
-  static createContext(_ref = {}) {
-    let {
-      id = '',
-      x = 0,
-      y = 0,
-      items = [],
-      zIndex = 10000
-    } = _ref,
-        transitionOptions = _objectWithoutProperties(_ref, _excluded);
 
-    if (_classStaticPrivateFieldSpecGet(this, TJSMenu, _contextMenu) !== void 0) {
+  _replaceHTML(element, html) // eslint-disable-line no-unused-vars
+  {
+    var _this$svelte2, _this$svelte2$applica;
+
+    if (!element.length) {
       return;
-    } // Create the new context menu with the last click x / y point.
+    }
+
+    super._replaceHTML(element, html);
+
+    if ((_this$svelte2 = this.svelte) !== null && _this$svelte2 !== void 0 && (_this$svelte2$applica = _this$svelte2.applicationShell) !== null && _this$svelte2$applica !== void 0 && _this$svelte2$applica.elementContent) {
+      const elementContent = this.svelte.applicationShell.elementContent; // Remove existing children.
+
+      while (elementContent.firstChild && !elementContent.lastChild.remove()) {} // eslint-disable-line no-empty
 
 
-    _classStaticPrivateFieldSpecSet(this, TJSMenu, _contextMenu, new TJSContextMenu({
-      target: document.body,
-      intro: true,
-      props: {
-        id,
-        x,
-        y,
-        items,
-        zIndex,
-        transitionOptions
-      }
-    })); // Register an event listener to remove any active context menu if closed from a menu selection or pointer
-    // down event to `document.body`.
+      elementContent.appendChild(...html); // Use the setter from `SvelteFormApplication` to set the title store.
 
-
-    _classStaticPrivateFieldSpecGet(this, TJSMenu, _contextMenu).$on('close', () => {
-      _classStaticPrivateFieldSpecSet(this, TJSMenu, _contextMenu, void 0);
-    });
+      this.title = this.title; // eslint-disable-line no-self-assign
+    } else {
+      element.replaceWith(html);
+      this._element = html;
+      this.elementTarget = html[0];
+    }
   }
 
 }
-var _contextMenu = {
-  writable: true,
-  value: void 0
-};
 
-export { SvelteApplication, TJSDialog, TJSMenu };
+export { HandlebarsApplication, HandlebarsFormApplication };
