@@ -17,7 +17,7 @@ const s_COMPRESS = false;
 const s_SOURCEMAPS = false;
 
 const postcssMain = postcssConfig({
-   extract: 'css/component.css',
+   extract: 'core.css',
    compress: s_COMPRESS,
    sourceMap: s_SOURCEMAPS
 });
@@ -203,10 +203,10 @@ const s_MODULES_SVELTE = [
       ]
    },
    {
-      input: '.build/svelte/component.js',
-      external: getExternal('@typhonjs-fvtt/svelte/component'),
+      input: '.build/svelte/component/core.js',
+      external: getExternal('@typhonjs-fvtt/svelte/component/core'),
       output: {
-         file: 'svelte/component.js',
+         file: 'svelte/component/core.js',
          format: 'es',
          plugins: [svelteSharedRuntime(), ...outputPlugins],
          preferConst: true,

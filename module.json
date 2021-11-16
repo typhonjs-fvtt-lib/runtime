@@ -1,7 +1,7 @@
 {
   "name": "typhonjs",
   "title": "TyphonJS Runtime Library",
-  "description": "Provides a common runtime library module for Foundry VTT distributing @typhonjs-fvtt/svelte, @typhonjs-plugin/manager, and DOMPurify.",
+  "description": "Provides a common runtime library distributing: @typhonjs-fvtt/svelte, @typhonjs-plugin/manager, and DOMPurify.",
   "author": "Michael Leahy (TyphonJS) - MLeahy#4299",
   "authors": [
     {
@@ -18,7 +18,7 @@
   "compatibleCoreVersion": "0.8.9",
   "scripts": [],
   "styles": [
-    "./svelte/css/component.css"
+    "./svelte/component/core.css"
   ],
   "system": [],
   "dependencies": [],
