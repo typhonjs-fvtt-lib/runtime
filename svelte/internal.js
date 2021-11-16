@@ -935,8 +935,6 @@ function set_current_component(component) {
 }
 
 function get_current_component() {
-console.log(`!!!! svelte-internal - get_current_component.mjs 2`);
-console.trace();
     if (!current_component)
         throw new Error('Function called outside component initialization');
     return current_component;

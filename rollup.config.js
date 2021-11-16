@@ -51,10 +51,10 @@ export default () =>
 {
    return [
     ...s_MODULES_SVELTE,
-    // ...s_MODULES_TINYMCE,
-    // ...s_MODULES_PLUGIN,
-    // ...s_MODULES_DOMPURIFY,
-    // ...s_MODULES_COLLECTJS
+    ...s_MODULES_TINYMCE,
+    ...s_MODULES_PLUGIN,
+    ...s_MODULES_DOMPURIFY,
+    ...s_MODULES_COLLECTJS
    ];
 };
 
@@ -110,30 +110,17 @@ const s_MODULES_PLUGIN = [
          resolve({ browser: true }),
          sourcemaps()
       ]
-   },
-   {
-      input: '.build/plugin/eventbus.js',
-      output: {
-         file: 'plugin/eventbus.js',
-         format: 'es',
-         plugins: outputPlugins,
-         preferConst: true,
-         sourcemap,
-         // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
-      },
-      plugins: [
-         resolve({ browser: true }),
-         sourcemaps()
-      ]
    }
 ];
 
 const s_MODULES_TINYMCE = [
    {
-      input: '.build/tinymce/oembed.js',
+      input: '.build/tinymce/initializePlugins.js',
       output: {
-         file: 'tinymce/oembed.js',
+         dir: 'tinymce',
+         // file: 'tinymce/initializePlugins.js',
          format: 'es',
+         inlineDynamicImports: false,
          plugins: outputPlugins,
          preferConst: true,
          sourcemap,
@@ -153,7 +140,6 @@ const s_MODULES_SVELTE = [
       output: {
          file: 'svelte/internal.js',
          format: 'es',
-         // paths: s_LIBRARY_PATHS,
          plugins: outputPlugins,
          preferConst: true,
          sourcemap,
@@ -171,7 +157,6 @@ const s_MODULES_SVELTE = [
       output: {
          file: 'svelte/index.js',
          format: 'es',
-         // paths: s_LIBRARY_PATHS,
          plugins: outputPlugins,
          preferConst: true,
          sourcemap,
@@ -189,7 +174,6 @@ const s_MODULES_SVELTE = [
       output: {
          file: 'svelte/action.js',
          format: 'es',
-         // paths: s_LIBRARY_PATHS,
          plugins: outputPlugins,
          preferConst: true,
          sourcemap,
@@ -207,7 +191,6 @@ const s_MODULES_SVELTE = [
       output: {
          file: 'svelte/legacy.js',
          format: 'es',
-         // paths: s_LIBRARY_PATHS,
          plugins: outputPlugins,
          preferConst: true,
          sourcemap,
@@ -225,7 +208,6 @@ const s_MODULES_SVELTE = [
       output: {
          file: 'svelte/component.js',
          format: 'es',
-         // paths: s_LIBRARY_PATHS,
          plugins: [svelteSharedRuntime(), ...outputPlugins],
          preferConst: true,
          sourcemap,
@@ -266,7 +248,6 @@ const s_MODULES_SVELTE = [
       output: {
          file: 'svelte/easing.js',
          format: 'es',
-         // paths: s_LIBRARY_PATHS,
          plugins: outputPlugins,
          preferConst: true,
          sourcemap,
@@ -284,7 +265,6 @@ const s_MODULES_SVELTE = [
       output: {
          file: 'svelte/gsap.js',
          format: 'es',
-         // paths: s_LIBRARY_PATHS,
          plugins: outputPlugins,
          preferConst: true,
          sourcemap,
@@ -302,7 +282,6 @@ const s_MODULES_SVELTE = [
       output: {
          file: 'svelte/handler.js',
          format: 'es',
-         // paths: s_LIBRARY_PATHS,
          plugins: outputPlugins,
          preferConst: true,
          sourcemap,
@@ -320,7 +299,6 @@ const s_MODULES_SVELTE = [
       output: {
          file: 'svelte/helper.js',
          format: 'es',
-         // paths: s_LIBRARY_PATHS,
          plugins: outputPlugins,
          preferConst: true,
          sourcemap,
@@ -338,7 +316,6 @@ const s_MODULES_SVELTE = [
       output: {
          file: 'svelte/store.js',
          format: 'es',
-         // paths: s_LIBRARY_PATHS,
          plugins: outputPlugins,
          preferConst: true,
          sourcemap,
@@ -356,7 +333,6 @@ const s_MODULES_SVELTE = [
       output: {
          file: 'svelte/transition.js',
          format: 'es',
-         // paths: s_LIBRARY_PATHS,
          plugins: outputPlugins,
          preferConst: true,
          sourcemap,
@@ -374,7 +350,6 @@ const s_MODULES_SVELTE = [
       output: {
          file: 'svelte/util.js',
          format: 'es',
-         // paths: s_LIBRARY_PATHS,
          plugins: outputPlugins,
          preferConst: true,
          sourcemap,
@@ -392,7 +367,6 @@ const s_MODULES_SVELTE = [
       output: {
          file: 'svelte/plugin/data.js',
          format: 'es',
-         // paths: s_LIBRARY_PATHS,
          plugins: outputPlugins,
          preferConst: true,
          sourcemap,
@@ -410,7 +384,6 @@ const s_MODULES_SVELTE = [
       output: {
          file: 'svelte/plugin/system.js',
          format: 'es',
-         // paths: s_LIBRARY_PATHS,
          plugins: outputPlugins,
          preferConst: true,
          sourcemap,

@@ -1,7 +1,7 @@
 {
   "name": "typhonjs",
   "title": "TyphonJS Runtime Library",
-  "description": "Provides a common runtime library module for Foundry VTT distributing @typhonjs-fvtt/svelte, @typhonjs-plugin/manager, @typhonjs-plugin/eventbus, dompurify, `collect.js`.",
+  "description": "Provides a common runtime library module for Foundry VTT distributing @typhonjs-fvtt/svelte, @typhonjs-plugin/manager, and DOMPurify.",
   "author": "Michael Leahy (TyphonJS) - MLeahy#4299",
   "authors": [
     {
@@ -17,7 +17,6 @@
   "minimumCoreVersion": "0.8.6",
   "compatibleCoreVersion": "0.8.9",
   "scripts": [],
-  "esmodules": ["./tinymce/oembed.js"],
   "styles": [
     "./svelte/css/component.css"
   ],
