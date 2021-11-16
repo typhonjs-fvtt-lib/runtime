@@ -866,9 +866,9 @@ function create_animation(node, from, fn, params) {
     const to = node.getBoundingClientRect();
     if (from.left === to.left && from.right === to.right && from.top === to.top && from.bottom === to.bottom)
         return noop;
-    const { delay = 0, duration = 300, easing = identity, 
+    const { delay = 0, duration = 300, easing = identity,
     // @ts-ignore todo: should this be separated from destructuring? Or start/end added to public api and documentation?
-    start: start_time = now() + delay, 
+    start: start_time = now() + delay,
     // @ts-ignore todo:
     end = start_time + duration, tick = noop, css } = fn(node, { from, to }, params);
     let running = true;
@@ -933,7 +933,10 @@ let current_component;
 function set_current_component(component) {
     current_component = component;
 }
+
 function get_current_component() {
+console.log(`!!!! svelte-internal - get_current_component.mjs 2`);
+console.trace();
     if (!current_component)
         throw new Error('Function called outside component initialization');
     return current_component;
