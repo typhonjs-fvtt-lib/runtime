@@ -47,7 +47,7 @@ const s_MODULES_DOMPURIFY = [
    {
       input: '.build/dompurify/DOMPurify.js',
       output: {
-         file: 'dompurify/DOMPurify.js',
+         file: 'DOMPurify.js',
          format: 'es',
          plugins: outputPlugins,
          preferConst: true,
