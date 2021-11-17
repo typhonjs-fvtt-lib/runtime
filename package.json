@@ -9,6 +9,9 @@
     "Michael Leahy <support@typhonjs.io> (https://github.com/typhonrt)"
   ],
   "exports": {
+    ".": {
+      "import": "./test.js"
+    },
     "./package.json": "./package.json",
     "./rollup": {
       "import": "./.rollup/remote/index.js"
