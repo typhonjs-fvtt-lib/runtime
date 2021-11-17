@@ -1,7 +1,7 @@
-import { externalPathsLocal } from '../local/externalPathsLocal.js';
+import { externalPathsLib } from '../local/externalPathsLocal.js';
 
 export const externalPathsRemote = {
-   ...externalPathsLocal,
+   ...externalPathsLib,
 
    '@typhonjs-fvtt/runtime/svelte': '/modules/typhonjs/svelte/index.js',
    '@typhonjs-fvtt/runtime/svelte/action': '/modules/typhonjs/svelte/action.js',

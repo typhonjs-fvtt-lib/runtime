@@ -1,4 +1,4 @@
-export const externalPathsLocal = {
+export const externalPathsLib = {
    '@typhonjs-fvtt/svelte': '/modules/typhonjs/svelte/index.js',
    '@typhonjs-fvtt/svelte/action': '/modules/typhonjs/svelte/action.js',
    '@typhonjs-fvtt/svelte/component/core': '/modules/typhonjs/svelte/component/core.js',
@@ -14,8 +14,11 @@ export const externalPathsLocal = {
 
    '@typhonjs-plugin/manager': '/modules/typhonjs/plugin/manager.js',
 
+   'svelte/animate': '/modules/typhonjs/svelte/animate.js',
    'svelte/easing': '/modules/typhonjs/svelte/easing.js',
    'svelte/internal': '/modules/typhonjs/svelte/internal.js',
+   'svelte/motion': '/modules/typhonjs/svelte/motion.js',
+   'svelte/store': '/modules/typhonjs/svelte/store.js',
    'svelte/transition': '/modules/typhonjs/svelte/transition.js',
 
    'foundry-gsap': '/scripts/greensock/esm/all.js'

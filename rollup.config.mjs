@@ -1,18 +1,17 @@
-import postcss       from 'rollup-plugin-postcss';
-import resolve       from '@rollup/plugin-node-resolve';
-import sourcemaps    from 'rollup-plugin-sourcemaps';
-import svelte        from 'rollup-plugin-svelte';
-import { terser }    from 'rollup-plugin-terser';
+import postcss             from 'rollup-plugin-postcss';
+import resolve             from '@rollup/plugin-node-resolve';
+import sourcemaps          from 'rollup-plugin-sourcemaps';
+import svelte              from 'rollup-plugin-svelte';
+import { terser }          from 'rollup-plugin-terser';
 
-import {
-   getExternal,
-   typhonjsRuntime } from './.rollup/local/index.js';
+import { typhonjsRuntime } from './.rollup/local/index.js';
 
-import terserConfig  from './terser.config.js';
-import postcssConfig from './postcssConfig.js';
+import terserConfig        from './terser.config.js';
+import postcssConfig       from './postcssConfig.js';
 
-const s_COMPRESS = false;
+const s_COMPRESS = true;
 const s_SOURCEMAPS = false;
+const s_IS_MODULE_LIB = true;
 
 const postcssMain = postcssConfig({
    extract: 'core.css',
@@ -98,26 +97,9 @@ const s_MODULES_TINYMCE = [
 ];
 
 const s_MODULES_SVELTE = [
-   {
-      input: '.build/svelte/internal.js',
-      external: getExternal('svelte/internal'),
-      output: {
-         file: 'svelte/internal.js',
-         format: 'es',
-         plugins: outputPlugins,
-         preferConst: true,
-         sourcemap,
-         // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
-      },
-      plugins: [
-         typhonjsRuntime({ includeExternal: false }),
-         resolve({ browser: true }),
-         sourcemaps()
-      ]
-   },
+   // TODO: rename to application
    {
       input: '.build/svelte/index.js',
-      external: getExternal('@typhonjs-fvtt/svelte'),
       output: {
          file: 'svelte/index.js',
          format: 'es',
@@ -127,14 +109,13 @@ const s_MODULES_SVELTE = [
          // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
       },
       plugins: [
-         typhonjsRuntime({ includeExternal: false }),
+         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['@typhonjs-fvtt/svelte'] }),
          resolve({ browser: true }),
          sourcemaps()
       ]
    },
    {
       input: '.build/svelte/action.js',
-      external: getExternal('@typhonjs-fvtt/svelte/action'),
       output: {
          file: 'svelte/action.js',
          format: 'es',
@@ -144,16 +125,15 @@ const s_MODULES_SVELTE = [
          // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
       },
       plugins: [
-         typhonjsRuntime({ includeExternal: false }),
+         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['@typhonjs-fvtt/svelte/action'] }),
          resolve({ browser: true }),
          sourcemaps()
       ]
    },
    {
-      input: '.build/svelte/legacy.js',
-      external: getExternal('@typhonjs-fvtt/svelte/legacy'),
+      input: '.build/svelte/animate.js',
       output: {
-         file: 'svelte/legacy.js',
+         file: 'svelte/animate.js',
          format: 'es',
          plugins: outputPlugins,
          preferConst: true,
@@ -161,34 +141,23 @@ const s_MODULES_SVELTE = [
          // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
       },
       plugins: [
-         typhonjsRuntime({ includeExternal: false }),
+         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['svelte/animate'] }),
          resolve({ browser: true }),
          sourcemaps()
       ]
    },
    {
       input: '.build/svelte/component/core.js',
-      external: getExternal('@typhonjs-fvtt/svelte/component/core'),
       output: {
          file: 'svelte/component/core.js',
          format: 'es',
-         plugins: [typhonjsRuntime({ output: true }), ...outputPlugins],
+         plugins: s_IS_MODULE_LIB ? [typhonjsRuntime({ output: true }), ...outputPlugins] : outputPlugins,
          preferConst: true,
          sourcemap,
          // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
       },
       plugins: [
-         // alias({
-         //    entries: [
-         //       { find: 'get_current_component', replacement: '/modules/typhonjs/svelte/internal.js' }
-         //    ]
-         // }),
          svelte({
-
-            // emitCss: true,
-            // compilerOptions: {
-            //    customElement: true
-            // },
             onwarn: (warning, handler) =>
             {
                // Suppress `a11y-missing-attribute` for missing href in <a> links.
@@ -203,12 +172,11 @@ const s_MODULES_SVELTE = [
             browser: true,
             dedupe: ['svelte']
          }),
-         typhonjsRuntime({ includeExternal: false }),
+         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['@typhonjs-fvtt/svelte/component/core'] }),
       ]
    },
    {
       input: '.build/svelte/easing.js',
-      external: getExternal('svelte/easing'),
       output: {
          file: 'svelte/easing.js',
          format: 'es',
@@ -218,14 +186,13 @@ const s_MODULES_SVELTE = [
          // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
       },
       plugins: [
-         typhonjsRuntime({ includeExternal: false }),
+         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['svelte/easing'] }),
          resolve({ browser: true }),
          sourcemaps()
       ]
    },
    {
       input: '.build/svelte/gsap.js',
-      external: getExternal('@typhonjs-fvtt/svelte/gsap'),
       output: {
          file: 'svelte/gsap.js',
          format: 'es',
@@ -235,14 +202,13 @@ const s_MODULES_SVELTE = [
          // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
       },
       plugins: [
-         typhonjsRuntime({ includeExternal: false }),
+         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['@typhonjs-fvtt/svelte/gsap'] }),
          resolve({ browser: true }),
          sourcemaps()
       ]
    },
    {
       input: '.build/svelte/handler.js',
-      external: getExternal('@typhonjs-fvtt/svelte/handler'),
       output: {
          file: 'svelte/handler.js',
          format: 'es',
@@ -252,14 +218,13 @@ const s_MODULES_SVELTE = [
          // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
       },
       plugins: [
-         typhonjsRuntime({ includeExternal: false }),
+         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['@typhonjs-fvtt/svelte/handler'] }),
          resolve({ browser: true }),
          sourcemaps()
       ]
    },
    {
       input: '.build/svelte/helper.js',
-      external: getExternal('@typhonjs-fvtt/svelte/helper'),
       output: {
          file: 'svelte/helper.js',
          format: 'es',
@@ -269,14 +234,62 @@ const s_MODULES_SVELTE = [
          // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
       },
       plugins: [
-         typhonjsRuntime({ includeExternal: false }),
+         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['@typhonjs-fvtt/svelte/helper'] }),
+         resolve({ browser: true }),
+         sourcemaps()
+      ]
+   },
+   {
+      input: '.build/svelte/internal.js',
+      output: {
+         file: 'svelte/internal.js',
+         format: 'es',
+         plugins: outputPlugins,
+         preferConst: true,
+         sourcemap,
+         // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+      },
+      plugins: [
+         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['svelte/internal'] }),
+         resolve({ browser: true }),
+         sourcemaps()
+      ]
+   },
+   // TODO: rename to application/legacy
+   {
+      input: '.build/svelte/legacy.js',
+      output: {
+         file: 'svelte/legacy.js',
+         format: 'es',
+         plugins: outputPlugins,
+         preferConst: true,
+         sourcemap,
+         // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+      },
+      plugins: [
+         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['@typhonjs-fvtt/svelte/legacy'] }),
+         resolve({ browser: true }),
+         sourcemaps()
+      ]
+   },
+   {
+      input: '.build/svelte/motion.js',
+      output: {
+         file: 'svelte/motion.js',
+         format: 'es',
+         plugins: outputPlugins,
+         preferConst: true,
+         sourcemap,
+         // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+      },
+      plugins: [
+         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['svelte/motion'] }),
          resolve({ browser: true }),
          sourcemaps()
       ]
    },
    {
       input: '.build/svelte/store.js',
-      external: getExternal('@typhonjs-fvtt/svelte/store'),
       output: {
          file: 'svelte/store.js',
          format: 'es',
@@ -286,14 +299,13 @@ const s_MODULES_SVELTE = [
          // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
       },
       plugins: [
-         typhonjsRuntime({ includeExternal: false }),
+         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['@typhonjs-fvtt/svelte/store', 'svelte/store'] }),
          resolve({ browser: true }),
          sourcemaps()
       ]
    },
    {
       input: '.build/svelte/transition.js',
-      external: getExternal('@typhonjs-fvtt/svelte/transition', 'svelte/transition'),
       output: {
          file: 'svelte/transition.js',
          format: 'es',
@@ -303,14 +315,13 @@ const s_MODULES_SVELTE = [
          // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
       },
       plugins: [
-         typhonjsRuntime({ includeExternal: false }),
+         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['@typhonjs-fvtt/svelte/transition', 'svelte/transition'] }),
          resolve({ browser: true }),
          sourcemaps()
       ]
    },
    {
       input: '.build/svelte/util.js',
-      external: getExternal('@typhonjs-fvtt/svelte/util'),
       output: {
          file: 'svelte/util.js',
          format: 'es',
@@ -320,14 +331,13 @@ const s_MODULES_SVELTE = [
          // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
       },
       plugins: [
-         typhonjsRuntime({ includeExternal: false }),
+         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['@typhonjs-fvtt/svelte/util'] }),
          resolve({ browser: true }),
          sourcemaps()
       ]
    },
    {
       input: '.build/svelte/plugin/data.js',
-      external: getExternal('@typhonjs-fvtt/svelte/plugin/data'),
       output: {
          file: 'svelte/plugin/data.js',
          format: 'es',
@@ -337,14 +347,13 @@ const s_MODULES_SVELTE = [
          // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
       },
       plugins: [
-         typhonjsRuntime({ includeExternal: false }),
+         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['@typhonjs-fvtt/svelte/plugin/data'] }),
          resolve({ browser: true }),
          sourcemaps()
       ]
    },
    {
       input: '.build/svelte/plugin/system.js',
-      external: getExternal('@typhonjs-fvtt/svelte/plugin/system'),
       output: {
          file: 'svelte/plugin/system.js',
          format: 'es',
@@ -354,7 +363,7 @@ const s_MODULES_SVELTE = [
          // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
       },
       plugins: [
-         typhonjsRuntime({ includeExternal: false }),
+         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['@typhonjs-fvtt/svelte/plugin/system'] }),
          resolve({ browser: true }),
          sourcemaps()
       ]

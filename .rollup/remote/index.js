@@ -1,7 +1,8 @@
 import { externalPathsRemote }   from './externalPathsRemote.js';
 import { generatePlugin }        from '../generatePlugin.js';
+import { generatePluginOutput }  from '../generatePluginOutput.js';
 
-export function typhonjsRuntime(options = {})
+export function typhonjsRuntime({ output = false } = {})
 {
-   return generatePlugin(options, externalPathsRemote);
+   return output ? generatePluginOutput() : generatePlugin(externalPathsRemote);
 }

@@ -1,12 +1,10 @@
-import { externalPathsLocal } from './externalPathsLocal.js';
-import { generatePlugin }     from '../generatePlugin.js';
+import { externalPathsLib }      from './externalPathsLib.js';
+import { externalPathsNPM }      from './externalPathsNPM.js';
 
-export function typhonjsRuntime(options = {})
-{
-   return generatePlugin(options, externalPathsLocal);
-}
+import { generatePlugin }        from '../generatePlugin.js';
+import { generatePluginOutput }  from '../generatePluginOutput.js';
 
-export function getExternal(...exclude)
+export function typhonjsRuntime({ isLib = true, output = false, exclude = []} = {})
 {
-   return Object.keys(externalPathsLocal).filter((entry) => !exclude.includes(entry));
+   return output ? generatePluginOutput() : generatePlugin(isLib ? externalPathsLib : externalPathsNPM, exclude);
 }
