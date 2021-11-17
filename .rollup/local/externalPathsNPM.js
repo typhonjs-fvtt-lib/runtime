@@ -14,6 +14,7 @@ export const externalPathsNPM = {
 
    '@typhonjs-plugin/manager': '@typhonjs-fvtt/runtime/plugin/manager',
 
+   'svelte': '@typhonjs-fvtt/runtime/svelte',
    'svelte/animate': '@typhonjs-fvtt/runtime/svelte/animate',
    'svelte/easing': '@typhonjs-fvtt/runtime/svelte/easing',
    'svelte/internal': '@typhonjs-fvtt/runtime/svelte/internal',

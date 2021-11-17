@@ -14,6 +14,7 @@ export const externalPathsLib = {
 
    '@typhonjs-plugin/manager': '/modules/typhonjs/plugin/manager.js',
 
+   'svelte': '/modules/typhonjs/svelte/index.js',
    'svelte/animate': '/modules/typhonjs/svelte/animate.js',
    'svelte/easing': '/modules/typhonjs/svelte/easing.js',
    'svelte/internal': '/modules/typhonjs/svelte/internal.js',
