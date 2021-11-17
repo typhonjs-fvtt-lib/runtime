@@ -9,9 +9,8 @@ import { typhonjsRuntime } from './.rollup/local/index.js';
 import terserConfig        from './terser.config.js';
 import postcssConfig       from './postcssConfig.js';
 
-const s_COMPRESS = false;
+const s_COMPRESS = true;
 const s_SOURCEMAPS = false;
-const s_IS_MODULE_LIB = true;
 
 const postcssLib = postcssConfig({
    extract: 'core.css',
