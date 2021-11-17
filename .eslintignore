@@ -1,7 +1,10 @@
 .github/
 dist/
 docs/
-dompurify/
 plugin/
 svelte/
 tinymce/
+plugin/
+svelte/
+tinymce/
+DOMPurify.js

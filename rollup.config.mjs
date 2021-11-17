@@ -115,7 +115,7 @@ const s_MODULES_TINYMCE = [
       output: {
          dir: 'tinymce',
          format: 'es',
-         inlineDynamicImports: false,
+         inlineDynamicImports: true,
          plugins: outputPlugins,
          preferConst: true,
          sourcemap,
@@ -131,7 +131,7 @@ const s_MODULES_TINYMCE = [
       output: {
          dir: 'dist/tinymce',
          format: 'es',
-         inlineDynamicImports: false,
+         inlineDynamicImports: true,
          plugins: outputPlugins,
          preferConst: true,
          sourcemap,
