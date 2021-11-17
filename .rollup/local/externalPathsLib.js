@@ -1,11 +1,11 @@
 export const externalPathsLib = {
-   '@typhonjs-fvtt/svelte': '/modules/typhonjs/svelte/index.js',
    '@typhonjs-fvtt/svelte/action': '/modules/typhonjs/svelte/action.js',
+   '@typhonjs-fvtt/svelte/application': '/modules/typhonjs/svelte/application.js',
+   '@typhonjs-fvtt/svelte/application/legacy': '/modules/typhonjs/svelte/application/legacy.js',
    '@typhonjs-fvtt/svelte/component/core': '/modules/typhonjs/svelte/component/core.js',
    '@typhonjs-fvtt/svelte/gsap': '/modules/typhonjs/svelte/gsap.js',
    '@typhonjs-fvtt/svelte/handler': '/modules/typhonjs/svelte/handler.js',
    '@typhonjs-fvtt/svelte/helper': '/modules/typhonjs/svelte/helper.js',
-   '@typhonjs-fvtt/svelte/legacy': '/modules/typhonjs/svelte/legacy.js',
    '@typhonjs-fvtt/svelte/plugin/data': '/modules/typhonjs/svelte/plugin/data.js',
    '@typhonjs-fvtt/svelte/plugin/system': '/modules/typhonjs/svelte/plugin/system.js',
    '@typhonjs-fvtt/svelte/store': '/modules/typhonjs/svelte/store.js',

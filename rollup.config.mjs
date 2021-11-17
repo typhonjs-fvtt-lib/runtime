@@ -97,23 +97,6 @@ const s_MODULES_TINYMCE = [
 ];
 
 const s_MODULES_SVELTE = [
-   // TODO: rename to application
-   {
-      input: '.build/svelte/index.js',
-      output: {
-         file: 'svelte/index.js',
-         format: 'es',
-         plugins: outputPlugins,
-         preferConst: true,
-         sourcemap,
-         // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
-      },
-      plugins: [
-         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['@typhonjs-fvtt/svelte'] }),
-         resolve({ browser: true }),
-         sourcemaps()
-      ]
-   },
    {
       input: '.build/svelte/action.js',
       output: {
@@ -126,6 +109,38 @@ const s_MODULES_SVELTE = [
       },
       plugins: [
          typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['@typhonjs-fvtt/svelte/action'] }),
+         resolve({ browser: true }),
+         sourcemaps()
+      ]
+   },
+   {
+      input: '.build/svelte/application.js',
+      output: {
+         file: 'svelte/application.js',
+         format: 'es',
+         plugins: outputPlugins,
+         preferConst: true,
+         sourcemap,
+         // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+      },
+      plugins: [
+         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['@typhonjs-fvtt/svelte/application'] }),
+         resolve({ browser: true }),
+         sourcemaps()
+      ]
+   },
+   {
+      input: '.build/svelte/application/legacy.js',
+      output: {
+         file: 'svelte/application/legacy.js',
+         format: 'es',
+         plugins: outputPlugins,
+         preferConst: true,
+         sourcemap,
+         // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+      },
+      plugins: [
+         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['@typhonjs-fvtt/svelte/application/legacy'] }),
          resolve({ browser: true }),
          sourcemaps()
       ]
@@ -251,23 +266,6 @@ const s_MODULES_SVELTE = [
       },
       plugins: [
          typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['svelte/internal'] }),
-         resolve({ browser: true }),
-         sourcemaps()
-      ]
-   },
-   // TODO: rename to application/legacy
-   {
-      input: '.build/svelte/legacy.js',
-      output: {
-         file: 'svelte/legacy.js',
-         format: 'es',
-         plugins: outputPlugins,
-         preferConst: true,
-         sourcemap,
-         // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
-      },
-      plugins: [
-         typhonjsRuntime({ isLib: s_IS_MODULE_LIB, exclude: ['@typhonjs-fvtt/svelte/legacy'] }),
          resolve({ browser: true }),
          sourcemaps()
       ]

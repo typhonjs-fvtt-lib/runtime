@@ -1,11 +1,11 @@
 export const externalPathsNPM = {
-   '@typhonjs-fvtt/svelte': '@typhonjs-fvtt/runtime/svelte',
    '@typhonjs-fvtt/svelte/action': '@typhonjs-fvtt/runtime/svelte/action',
+   '@typhonjs-fvtt/svelte/application': '@typhonjs-fvtt/runtime/application',
+   '@typhonjs-fvtt/svelte/application/legacy': '@typhonjs-fvtt/runtime/svelte/application/legacy',
    '@typhonjs-fvtt/svelte/component/core': '@typhonjs-fvtt/runtime/svelte/component/core',
    '@typhonjs-fvtt/svelte/gsap': '@typhonjs-fvtt/runtime/svelte/gsap',
    '@typhonjs-fvtt/svelte/handler': '@typhonjs-fvtt/runtime/svelte/handler',
    '@typhonjs-fvtt/svelte/helper': '@typhonjs-fvtt/runtime/svelte/helper',
-   '@typhonjs-fvtt/svelte/legacy': '@typhonjs-fvtt/runtime/svelte/legacy',
    '@typhonjs-fvtt/svelte/plugin/data': '@typhonjs-fvtt/runtime/svelte/plugin/data',
    '@typhonjs-fvtt/svelte/plugin/system': '@typhonjs-fvtt/runtime/svelte/plugin/system',
    '@typhonjs-fvtt/svelte/store': '@typhonjs-fvtt/runtime/svelte/store',
