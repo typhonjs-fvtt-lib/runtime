@@ -1,4 +1,4 @@
-import { externalPathsLib } from '../local/externalPathsLocal.js';
+import { externalPathsLib } from '../local/externalPathsLib.js';
 
 export const externalPathsRemote = {
    ...externalPathsLib,
