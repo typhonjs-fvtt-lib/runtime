@@ -1,5 +1,3 @@
-// import alias         from '@rollup/plugin-alias';
-import commonjs      from '@rollup/plugin-commonjs';
 import postcss       from 'rollup-plugin-postcss';
 import resolve       from '@rollup/plugin-node-resolve';
 import sourcemaps    from 'rollup-plugin-sourcemaps';
@@ -36,32 +34,12 @@ if (s_COMPRESS)
 export default () =>
 {
    return [
-    ...s_MODULES_SVELTE,
-    ...s_MODULES_TINYMCE,
-    ...s_MODULES_PLUGIN,
-    ...s_MODULES_DOMPURIFY,
-    ...s_MODULES_COLLECTJS
+      ...s_MODULES_DOMPURIFY,
+      ...s_MODULES_PLUGIN,
+      ...s_MODULES_SVELTE,
+      ...s_MODULES_TINYMCE
    ];
 };
-
-const s_MODULES_COLLECTJS = [
-   {
-      input: '.build/collectjs/collect.js',
-      output: {
-         file: 'collectjs/collect.js',
-         format: 'es',
-         plugins: outputPlugins,
-         preferConst: true,
-         sourcemap,
-         // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
-      },
-      plugins: [
-         resolve({ browser: true }),
-         commonjs(),
-         sourcemaps()
-      ]
-   }
-];
 
 const s_MODULES_DOMPURIFY = [
    {

@@ -7,7 +7,6 @@ import { fade } from '/modules/typhonjs/svelte/transition.js';
 
 
 
-
 function createEventDispatcher() {
     const component = get_current_component();
     return (type, detail) => {

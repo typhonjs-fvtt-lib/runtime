@@ -1,1 +1,0 @@
-export { collect as default } from '../../node_modules/collect.js/src/index.js';
