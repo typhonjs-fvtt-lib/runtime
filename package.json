@@ -8,14 +8,14 @@
   "contributors": [
     "Michael Leahy <support@typhonjs.io> (https://github.com/typhonrt)"
   ],
+  "main": "index.js",
+  "module": "index.js",
   "exports": {
     ".": {
-      "import": "./test.js"
+      "import": "./index.js"
     },
     "./package.json": "./package.json",
-    "./rollup": {
-      "import": "./.rollup/remote/index.js"
-    }
+    "./rollup": "./.rollup/remote/index.js"
   },
   "dependencies": {
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte",
