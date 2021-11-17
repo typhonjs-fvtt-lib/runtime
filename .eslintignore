@@ -1,7 +1,6 @@
 .github/
 dist/
 docs/
-collectjs/
 dompurify/
 plugin/
 svelte/

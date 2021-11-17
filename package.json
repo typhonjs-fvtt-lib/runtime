@@ -8,50 +8,8 @@
     "Michael Leahy <support@typhonjs.io> (https://github.com/typhonrt)"
   ],
   "exports": {
-    "./dompurify": {
-      "import": "./dist/dompurify/DOMPurify.js"
-    },
-    "./plugin/manager": {
-      "import": "./dist/plugin/manager.js"
-    },
-    "./svelte/action": {
-      "import": "./dist/svelte/action.js"
-    },
-    "./svelte/component/core": {
-      "import": "./dist/svelte/component-core.js"
-    },
-    "./svelte/gsap": {
-      "import": "./dist/svelte/gsap.js"
-    },
-    "./svelte/handler": {
-      "import": "./dist/svelte/handler.js"
-    },
-    "./svelte/helper": {
-      "import": "./dist/svelte/helper.js"
-    },
-    "./svelte/legacy": {
-      "import": "./dist/svelte/application-legacy.js"
-    },
-    "./svelte/store": {
-      "import": "./dist/svelte/store.js"
-    },
-    "./svelte/transition": {
-      "import": "./dist/svelte/transition.js"
-    },
-    "./svelte/util": {
-      "import": "./dist/svelte/util.js"
-    },
-    "./svelte/plugin/data": {
-      "import": "./dist/svelte/data.js"
-    },
-    "./svelte/plugin/system": {
-      "import": "./dist/svelte/system.js"
-    },
     "./rollup": {
       "import": "./.rollup/remote/index.js"
-    },
-    "./tinymce": {
-      "import": "./dist/tinymce/index.js"
     },
     "./package.json": "./package.json"
   },
@@ -59,8 +17,6 @@
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte",
     "@typhonjs-plugin/manager": "^0.0.11",
     "@typhonjs-tinymce/oembed": "^0.1.0",
-    "@typhonjs-utils/object": "^0.0.3",
-    "collect.js": "^4",
     "dompurify": "^2",
     "magic-string": "^0.25.0",
     "svelte": "^3"
