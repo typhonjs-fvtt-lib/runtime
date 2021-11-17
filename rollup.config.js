@@ -8,7 +8,7 @@ import { terser }    from 'rollup-plugin-terser';
 
 import {
    getExternal,
-   typhonjsRuntime } from '.rollup/typhonjsRuntime';
+   typhonjsRuntime } from './.rollup/local/index.js';
 
 import terserConfig  from './terser.config.js';
 import postcssConfig from './postcssConfig.js';
@@ -32,20 +32,6 @@ if (s_COMPRESS)
 {
    outputPlugins.push(terser(terserConfig));
 }
-
-const svelteSharedRuntime = () =>
-{
-   return {
-      name: 'svelte-shared-runtime',
-      generateBundle(options, bundle, isWrite)
-      {
-         // bundle.code = bundle.code.replace(`} from '/modules/typhonjs/svelte/internal.js'`, `, get_current_component } from '/modules/typhonjs/svelte/internal.js'`);
-         // console.log(bundle.modules[`S:\\\\win10-64\\\\programs\\\\games\\\\FoundryVTT-Data\\\\Data\\\\modules\\\\typhonjs\\\\node_modules\\\\svelte\\\\internal\\\\index.mjs`]);
-         // console.log(bundle['component.js'].modules[`S:\\\\win10-64\\\\programs\\\\games\\\\FoundryVTT-Data\\\\Data\\\\modules\\\\typhonjs\\\\node_modules\\\\svelte\\\\internal\\\\index.mjs`]);
-         // console.log(bundle['component.js'].modules);
-      }
-   };
-};
 
 export default () =>
 {
@@ -208,13 +194,12 @@ const s_MODULES_SVELTE = [
       output: {
          file: 'svelte/component/core.js',
          format: 'es',
-         plugins: [svelteSharedRuntime(), ...outputPlugins],
+         plugins: [typhonjsRuntime({ output: true }), ...outputPlugins],
          preferConst: true,
          sourcemap,
          // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
       },
       plugins: [
-         typhonjsRuntime({ includeExternal: false }),
          // alias({
          //    entries: [
          //       { find: 'get_current_component', replacement: '/modules/typhonjs/svelte/internal.js' }
@@ -240,6 +225,7 @@ const s_MODULES_SVELTE = [
             browser: true,
             dedupe: ['svelte']
          }),
+         typhonjsRuntime({ includeExternal: false }),
       ]
    },
    {
