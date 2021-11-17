@@ -102,7 +102,8 @@ const s_MODULES_SVELTE = [
       output: {
          file: 'svelte/index.js',
          format: 'es',
-         plugins: outputPlugins,
+         plugins: s_IS_MODULE_LIB ? [typhonjsRuntime({ output: true }), ...outputPlugins] : outputPlugins,
+         // plugins: outputPlugins,
          preferConst: true,
          sourcemap,
          // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
@@ -182,7 +183,8 @@ const s_MODULES_SVELTE = [
       output: {
          file: 'svelte/component/core.js',
          format: 'es',
-         plugins: s_IS_MODULE_LIB ? [typhonjsRuntime({ output: true }), ...outputPlugins] : outputPlugins,
+         plugins: outputPlugins,
+         // plugins: s_IS_MODULE_LIB ? [typhonjsRuntime({ output: true }), ...outputPlugins] : outputPlugins,
          preferConst: true,
          sourcemap,
          // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
