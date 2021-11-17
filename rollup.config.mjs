@@ -9,7 +9,7 @@ import { typhonjsRuntime } from './.rollup/local/index.js';
 import terserConfig        from './terser.config.js';
 import postcssConfig       from './postcssConfig.js';
 
-const s_COMPRESS = false;
+const s_COMPRESS = true;
 const s_SOURCEMAPS = false;
 const s_IS_MODULE_LIB = true;
 
@@ -103,7 +103,6 @@ const s_MODULES_SVELTE = [
          file: 'svelte/index.js',
          format: 'es',
          plugins: s_IS_MODULE_LIB ? [typhonjsRuntime({ output: true }), ...outputPlugins] : outputPlugins,
-         // plugins: outputPlugins,
          preferConst: true,
          sourcemap,
          // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
@@ -184,7 +183,6 @@ const s_MODULES_SVELTE = [
          file: 'svelte/component/core.js',
          format: 'es',
          plugins: outputPlugins,
-         // plugins: s_IS_MODULE_LIB ? [typhonjsRuntime({ output: true }), ...outputPlugins] : outputPlugins,
          preferConst: true,
          sourcemap,
          // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
