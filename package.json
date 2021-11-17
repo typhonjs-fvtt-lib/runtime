@@ -8,12 +8,7 @@
   "contributors": [
     "Michael Leahy <support@typhonjs.io> (https://github.com/typhonrt)"
   ],
-  "main": "index.js",
-  "module": "index.js",
   "exports": {
-    ".": {
-      "import": "./index.js"
-    },
     "./package.json": "./package.json",
     "./rollup": "./.rollup/remote/index.js"
   },
