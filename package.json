@@ -47,7 +47,7 @@
     "./svelte/plugin/system": {
       "import": "./dist/svelte/system.js"
     },
-    "./rollup/plugin": {
+    "./rollup": {
       "import": "./.rollup/remote/index.js"
     },
     "./tinymce": {
@@ -104,6 +104,7 @@
     "svelte"
   ],
   "files": [
+    "/.rollup",
     "/dist"
   ],
   "directories": {},
