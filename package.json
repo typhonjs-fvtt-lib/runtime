@@ -1,8 +1,7 @@
 {
-  "name": "typhonjs",
-  "description": "Provides a common runtime library module for Foundry VTT distributing @typhonjs-fvtt/svelte, @typhonjs-plugin/manager, @typhonjs-plugin/eventbus, dompurify, `collect.js`.",
+  "name": "@typhonjs-fvtt/runtime",
+  "description": "Provides a common runtime library module for Foundry VTT distributing: @typhonjs-fvtt/svelte, @typhonjs-plugin/manager, and DOMPurify.",
   "license": "MPL-2.0",
-  "private": true,
   "type": "module",
   "author": "Michael Leahy <support@typhonjs.io> (https://github.com/typhonrt)",
   "contributors": [
@@ -95,5 +94,19 @@
     "build-dist-watch": "rollup --watch --config",
     "eslint": "eslint .",
     "esdoc": "esdoc"
-  }
+  },
+  "homepage": "https://github.com/typhonjs-fvtt-lib/typhonjs#readme",
+  "keywords": [
+    "foundry vtt",
+    "fvtt",
+    "typhonjs",
+    "runtime",
+    "svelte"
+  ],
+  "files": [
+    "/dist"
+  ],
+  "directories": {},
+  "repository": "github:typhonjs-fvtt-lib/typhonjs",
+  "bugs": "https://github.com/typhonjs-fvtt-lib/typhonjs/issues"
 }
