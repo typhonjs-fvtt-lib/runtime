@@ -6,6 +6,8 @@ export const externalPathsLocal = {
    '@typhonjs-fvtt/svelte/handler': '/modules/typhonjs/svelte/handler.js',
    '@typhonjs-fvtt/svelte/helper': '/modules/typhonjs/svelte/helper.js',
    '@typhonjs-fvtt/svelte/legacy': '/modules/typhonjs/svelte/legacy.js',
+   '@typhonjs-fvtt/svelte/plugin/data': '/modules/typhonjs/svelte/plugin/data.js',
+   '@typhonjs-fvtt/svelte/plugin/system': '/modules/typhonjs/svelte/plugin/system.js',
    '@typhonjs-fvtt/svelte/store': '/modules/typhonjs/svelte/store.js',
    '@typhonjs-fvtt/svelte/transition': '/modules/typhonjs/svelte/transition.js',
    '@typhonjs-fvtt/svelte/util': '/modules/typhonjs/svelte/util.js',

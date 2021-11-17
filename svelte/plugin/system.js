@@ -214,8 +214,8 @@ function generator(storage) {
   };
 }
 
-var storage$1$1 = typeof window !== "undefined" ? window.localStorage : void 0;
-var g$1 = generator(storage$1$1);
+var storage$1 = typeof window !== "undefined" ? window.localStorage : void 0;
+var g$1 = generator(storage$1);
 var writable$1 = g$1.writable;
 
 var _stores$1 = /*#__PURE__*/new WeakMap();
@@ -285,8 +285,8 @@ function s_CREATE_STORE$1(itemId, defaultValue = void 0) {
   return store;
 }
 
-var storage$2 = typeof window !== "undefined" ? window.sessionStorage : void 0;
-var g = generator(storage$2);
+var storage = typeof window !== "undefined" ? window.sessionStorage : void 0;
+var g = generator(storage);
 var writable = g.writable;
 
 var _stores = /*#__PURE__*/new WeakMap();
@@ -356,33 +356,35 @@ function s_CREATE_STORE(itemId, defaultValue = void 0) {
   return store;
 }
 
-const storage$1 = new LocalStorage$1();
-
 class LocalStorage
 {
-   static onPluginLoad(ev)
+   #storage = new LocalStorage$1();
+
+   onPluginLoad(ev)
    {
       const prepend = typeof ev?.pluginOptions?.eventPrepend === 'string' ? `${ev.pluginOptions.eventPrepend}:` : '';
 
-      ev.eventbus.on(`${prepend}storage:local:item:get`, storage$1.getItem, storage$1, { guard: true });
-      ev.eventbus.on(`${prepend}storage:local:item:boolean:swap`, storage$1.swapItemBoolean, storage$1, { guard: true });
-      ev.eventbus.on(`${prepend}storage:local:item:set`, storage$1.setItem, storage$1, { guard: true });
-      ev.eventbus.on(`${prepend}storage:local:store:get`, storage$1.getStore, storage$1, { guard: true });
+      ev.eventbus.on(`${prepend}storage:local:item:get`, this.#storage.getItem, this.#storage, { guard: true });
+      ev.eventbus.on(`${prepend}storage:local:item:boolean:swap`, this.#storage.swapItemBoolean, this.#storage,
+       { guard: true });
+      ev.eventbus.on(`${prepend}storage:local:item:set`, this.#storage.setItem, this.#storage, { guard: true });
+      ev.eventbus.on(`${prepend}storage:local:store:get`, this.#storage.getStore, this.#storage, { guard: true });
    }
 }
 
-const storage = new SessionStorage$1();
-
 class SessionStorage
 {
-   static onPluginLoad(ev)
+   #storage = new SessionStorage$1();
+
+   onPluginLoad(ev)
    {
       const prepend = typeof ev?.pluginOptions?.eventPrepend === 'string' ? `${ev.pluginOptions.eventPrepend}:` : '';
 
-      ev.eventbus.on(`${prepend}storage:session:item:get`, storage.getItem, storage, { guard: true });
-      ev.eventbus.on(`${prepend}storage:session:item:boolean:swap`, storage.swapItemBoolean, storage, { guard: true });
-      ev.eventbus.on(`${prepend}storage:session:item:set`, storage.setItem, storage, { guard: true });
-      ev.eventbus.on(`${prepend}storage:session:store:get`, storage.getStore, storage, { guard: true });
+      ev.eventbus.on(`${prepend}storage:session:item:get`, this.#storage.getItem, this.#storage, { guard: true });
+      ev.eventbus.on(`${prepend}storage:session:item:boolean:swap`, this.#storage.swapItemBoolean, this.#storage,
+       { guard: true });
+      ev.eventbus.on(`${prepend}storage:session:item:set`, this.#storage.setItem, this.#storage, { guard: true });
+      ev.eventbus.on(`${prepend}storage:session:store:get`, this.#storage.getStore, this.#storage, { guard: true });
    }
 }
 
