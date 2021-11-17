@@ -11,7 +11,7 @@ const s_MATCH_SET_CURRENT = /function set_current_component\([\w]*\)\s\{[\w\s()=
  *
  * @returns {{code: string, map: SourceMap}}
  */
-export function generatePluginOutput()
+export function generatePluginOutput(isLib)
 {
    return {
       name: 'typhonjs-fvtt-runtime-lib-output',
@@ -43,7 +43,8 @@ export function generatePluginOutput()
          }
 
          magicString.prepend(
-          `import { get_current_component, set_current_component } from '/modules/typhonjs/svelte/internal.js';\n`)
+          `import { get_current_component, set_current_component } from ${isLib ? 
+           `'/modules/typhonjs/svelte/internal.js'` : `'@typhonjs-fvtt/runtime/svelte/internal'`};\n`);
 
          const map = magicString.generateMap({
             includeContent: true,

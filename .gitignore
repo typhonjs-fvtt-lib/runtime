@@ -1,8 +1,6 @@
-foundry.js
 package-lock.json
 empty.js
 .idea/
-dist/
 docs/
 lang/untranslated.json
 node_modules/

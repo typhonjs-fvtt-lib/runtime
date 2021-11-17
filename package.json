@@ -10,7 +10,69 @@
   ],
   "exports": {
     "./package.json": "./package.json",
-    "./rollup": "./.rollup/remote/index.js"
+    "./rollup": {
+      "import": "./.rollup/remote/index.js"
+    },
+    "./dompurify": {
+      "import": "./dist/dompurify/index.js"
+    },
+    "./plugin/manager": {
+      "import": "./dist/plugin/manager/index.js"
+    },
+    "./svelte": {
+      "import": "./dist/svelte/main/index.js"
+    },
+    "./svelte/action": {
+      "import": "./dist/svelte/action/index.js"
+    },
+    "./svelte/animate": {
+      "import": "./dist/svelte/animate/index.js"
+    },
+    "./svelte/application": {
+      "import": "./dist/svelte/application/index.js"
+    },
+    "./svelte/application/legacy": {
+      "import": "./dist/svelte/application/legacy/index.js"
+    },
+    "./svelte/component/core": {
+      "import": "./dist/svelte/component-core.js"
+    },
+    "./svelte/easing": {
+      "import": "./dist/svelte/easing/index.js"
+    },
+    "./svelte/gsap": {
+      "import": "./dist/svelte/gsap/index.js"
+    },
+    "./svelte/handler": {
+      "import": "./dist/svelte/handler/index.js"
+    },
+    "./svelte/helper": {
+      "import": "./dist/svelte/helper/index.js"
+    },
+    "./svelte/internal": {
+      "import": "./dist/svelte/internal/index.js"
+    },
+    "./svelte/motion": {
+      "import": "./dist/svelte/motion/index.js"
+    },
+    "./svelte/plugin/data": {
+      "import": "./dist/svelte/plugin/data/index.js"
+    },
+    "./svelte/plugin/system": {
+      "import": "./dist/svelte/plugin/system/index.js"
+    },
+    "./svelte/store": {
+      "import": "./dist/svelte/store/index.js"
+    },
+    "./svelte/transition": {
+      "import": "./dist/svelte/transition/index.js"
+    },
+    "./svelte/util": {
+      "import": "./dist/svelte/util/index.js"
+    },
+    "./tinymce": {
+      "import": "./dist/tinymce/initializePlugins.js"
+    }
   },
   "dependencies": {
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte",

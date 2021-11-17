@@ -1,0 +1,5 @@
+{
+  "main": "./initializePlugins.js",
+  "module": "./initializePlugins.js",
+  "type": "module"
+}

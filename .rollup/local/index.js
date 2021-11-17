@@ -6,5 +6,5 @@ import { generatePluginOutput }  from '../generatePluginOutput.js';
 
 export function typhonjsRuntime({ isLib = true, output = false, exclude = []} = {})
 {
-   return output ? generatePluginOutput() : generatePlugin(isLib ? externalPathsLib : externalPathsNPM, exclude);
+   return output ? generatePluginOutput(isLib) : generatePlugin(isLib ? externalPathsLib : externalPathsNPM, exclude);
 }
