@@ -1,4 +1,4 @@
-import { linear } from '@typhonjs-fvtt/runtime/svelte/easing';
+import { linear } from 'svelte/easing';
 
 const identity = x => x;
 function assign(tar, src) {

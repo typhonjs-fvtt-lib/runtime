@@ -14,11 +14,18 @@ export const externalPathsNPM = {
 
    '@typhonjs-plugin/manager': '@typhonjs-fvtt/runtime/plugin/manager',
 
-   'svelte': '@typhonjs-fvtt/runtime/svelte',
-   'svelte/animate': '@typhonjs-fvtt/runtime/svelte/animate',
-   'svelte/easing': '@typhonjs-fvtt/runtime/svelte/easing',
-   'svelte/internal': '@typhonjs-fvtt/runtime/svelte/internal',
-   'svelte/motion': '@typhonjs-fvtt/runtime/svelte/motion',
-   'svelte/store': '@typhonjs-fvtt/runtime/svelte/store',
-   'svelte/transition': '@typhonjs-fvtt/runtime/svelte/transition'
+   // 'svelte': '@typhonjs-fvtt/runtime/svelte',
+   // 'svelte/animate': '@typhonjs-fvtt/runtime/svelte/animate',
+   // 'svelte/easing': '@typhonjs-fvtt/runtime/svelte/easing',
+   // 'svelte/internal': '@typhonjs-fvtt/runtime/svelte/internal',
+   // 'svelte/motion': '@typhonjs-fvtt/runtime/svelte/motion',
+   // 'svelte/store': '@typhonjs-fvtt/runtime/svelte/store',
+   // 'svelte/transition': '@typhonjs-fvtt/runtime/svelte/transition'
+   'svelte': 'svelte',
+   'svelte/animate': 'svelte/animate',
+   'svelte/easing': 'svelte/easing',
+   'svelte/internal': 'svelte/internal',
+   'svelte/motion': 'svelte/motion',
+   'svelte/store': 'svelte/store',
+   'svelte/transition': 'svelte/transition'
 };

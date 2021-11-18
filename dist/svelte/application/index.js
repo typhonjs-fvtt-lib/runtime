@@ -1,4 +1,4 @@
-import { writable, derived } from '@typhonjs-fvtt/runtime/svelte/store';
+import { writable, derived } from 'svelte/store';
 import { outroAndDestroy, isApplicationShell, hasGetter, parseSvelteConfig } from '@typhonjs-fvtt/runtime/svelte/util';
 import { DialogShell, TJSContextMenu } from '@typhonjs-fvtt/runtime/svelte/component/core';
 

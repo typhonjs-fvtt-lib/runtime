@@ -1,5 +1,5 @@
-import { get, writable as writable$2 } from '@typhonjs-fvtt/runtime/svelte/store';
-import { noop, run_all, is_function } from '@typhonjs-fvtt/runtime/svelte/internal';
+import { get, writable as writable$2 } from 'svelte/store';
+import { noop, run_all, is_function } from 'svelte/internal';
 
 function _classPrivateFieldGet(receiver, privateMap) {
   var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get");

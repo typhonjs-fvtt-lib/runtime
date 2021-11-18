@@ -1,4 +1,4 @@
-import { noop as noop$1, run_all as run_all$1, is_function as is_function$1 } from '@typhonjs-fvtt/runtime/svelte/internal';
+import { noop as noop$1, run_all as run_all$1, is_function as is_function$1 } from 'svelte/internal';
 
 function noop() { }
 function run(fn) {

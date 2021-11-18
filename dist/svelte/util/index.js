@@ -1,4 +1,4 @@
-import { group_outros, transition_out, check_outros } from '@typhonjs-fvtt/runtime/svelte/internal';
+import { group_outros, transition_out, check_outros } from 'svelte/internal';
 
 /**
  * Provides a method to determine if the passed in Svelte component has a getter accessor.
