@@ -1,0 +1,113 @@
+import postcss          from 'rollup-plugin-postcss';
+import resolve          from '@rollup/plugin-node-resolve';
+import sourcemaps       from 'rollup-plugin-sourcemaps';
+import svelte           from 'rollup-plugin-svelte';
+import {
+   typhonjsRuntime,
+   typhonjsRuntimeOut } from './index.js';
+import virtual          from '@rollup/plugin-virtual';
+
+const bundleMap = {
+   // These are handled manually below:
+   // 'svelte': ['svelte'],
+   // 'svelte/component/core': ['../../node_modules/@typhonjs-fvtt/svelte/src/component/core'],
+   'svelte/action': ['@typhonjs-fvtt/svelte/action'],
+   'svelte/animate': ['svelte/animate'],
+   'svelte/application': ['@typhonjs-fvtt/svelte/application'],
+   'svelte/application/legacy': ['@typhonjs-fvtt/svelte/application/legacy'],
+   'svelte/easing': ['svelte/easing'],
+   'svelte/gsap': ['@typhonjs-fvtt/svelte/gsap'],
+   'svelte/handler': ['@typhonjs-fvtt/svelte/handler'],
+   'svelte/helper': ['@typhonjs-fvtt/svelte/helper'],
+   'svelte/internal': ['svelte/internal'],
+   'svelte/motion': ['svelte/motion'],
+   'svelte/plugin/data': ['@typhonjs-fvtt/svelte/plugin/data'],
+   'svelte/plugin/system': ['@typhonjs-fvtt/svelte/plugin/system'],
+   'svelte/store': ['svelte/store', '@typhonjs-fvtt/svelte/store'],
+   'svelte/transition': ['svelte/transition', '@typhonjs-fvtt/svelte/transition'],
+   'svelte/util': ['@typhonjs-fvtt/svelte/util'],
+};
+
+export function createSvelteLibConfig({ sourcemap, outputPlugins, postcssCore })
+{
+   const isLib = true;
+
+   // Provide special handling for `svelte` and `@typhonjs-fvtt/svelte/component/core`.
+   const config = [
+      {
+         input: 'pack',
+         output: {
+            file: 'svelte/index.js',
+            format: 'es',
+            plugins: [typhonjsRuntimeOut({ isLib }), ...outputPlugins],
+            preferConst: true,
+            sourcemap,
+            // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+         },
+         plugins: [
+            virtual({
+               pack: `export * from 'svelte';`
+            }),
+            typhonjsRuntime({ isLib, exclude: ['svelte'] }),
+            resolve({ browser: true }),
+            sourcemaps()
+         ]
+      },
+      {
+         input: 'pack',
+         output: {
+            file: './svelte/component/core.js',
+            format: 'es',
+            plugins: outputPlugins,
+            preferConst: true,
+            sourcemap,
+            // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+         },
+         plugins: [
+            virtual({
+               pack: `export * from './node_modules/@typhonjs-fvtt/svelte/src/component/core';`
+            }),
+            svelte({
+               onwarn: (warning, handler) =>
+               {
+                  // Suppress `a11y-missing-attribute` for missing href in <a> links.
+                  if (warning.message.includes(`<a> element should have an href attribute`)) { return; }
+
+                  // Let Rollup handle all other warnings normally.
+                  handler(warning);
+               }
+            }),
+            postcss(postcssCore),
+            resolve({
+               browser: true,
+               dedupe: ['svelte']
+            }),
+            typhonjsRuntime({ isLib, exclude: ['@typhonjs-fvtt/svelte/component/core'] }),
+         ]
+      }];
+
+   for (const [key, value] of Object.entries(bundleMap))
+   {
+      const pack = value.map((entry) => `export * from '${entry}';`).join('\n');
+
+      config.push({
+         input: 'pack',
+         output: {
+            file: `${key}.js`,
+            format: 'es',
+            plugins: outputPlugins,
+            preferConst: true,
+            sourcemap,
+            // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+         },
+         plugins: [
+            virtual({ pack }),
+            typhonjsRuntime({ isLib, exclude: value }),
+            resolve({ browser: true }),
+            sourcemaps()
+         ]
+      });
+   }
+
+   return config;
+}
