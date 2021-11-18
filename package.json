@@ -96,7 +96,6 @@
   },
   "scripts": {
     "build-dist": "rollup --config",
-    "build-dist-watch": "rollup --watch --config",
     "eslint": "eslint .",
     "esdoc": "esdoc"
   },

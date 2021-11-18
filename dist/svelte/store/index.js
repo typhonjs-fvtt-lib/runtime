@@ -246,16 +246,16 @@ class SessionStorage {
   }
 
   getStore(itemId, defaultValue) {
-    return s_GET_STORE(_classPrivateFieldGet(this, _stores), itemId, defaultValue);
+    return s_GET_STORE$2(_classPrivateFieldGet(this, _stores), itemId, defaultValue);
   }
 
   setItem(itemId, value) {
-    const store = s_GET_STORE(_classPrivateFieldGet(this, _stores), itemId);
+    const store = s_GET_STORE$2(_classPrivateFieldGet(this, _stores), itemId);
     store.set(value);
   }
 
   swapItemBoolean(itemId, defaultValue) {
-    const store = s_GET_STORE(_classPrivateFieldGet(this, _stores), itemId, defaultValue);
+    const store = s_GET_STORE$2(_classPrivateFieldGet(this, _stores), itemId, defaultValue);
     const value = store.get();
     const newValue = typeof value === 'boolean' ? !value : false;
     store.set(newValue);
@@ -264,18 +264,18 @@ class SessionStorage {
 
 }
 
-function s_GET_STORE(stores, itemId, defaultValue = void 0) {
+function s_GET_STORE$2(stores, itemId, defaultValue = void 0) {
   let store = stores.get(itemId);
 
   if (store === void 0) {
-    store = s_CREATE_STORE(itemId, defaultValue);
+    store = s_CREATE_STORE$2(itemId, defaultValue);
     stores.set(itemId, store);
   }
 
   return store;
 }
 
-function s_CREATE_STORE(itemId, defaultValue = void 0) {
+function s_CREATE_STORE$2(itemId, defaultValue = void 0) {
   try {
     if (sessionStorage.getItem(itemId)) {
       defaultValue = JSON.parse(sessionStorage.getItem(itemId));
@@ -291,5 +291,142 @@ function s_CREATE_STORE(itemId, defaultValue = void 0) {
   return store;
 }
 
-export { LocalStorage, SessionStorage };
+/**
+ * Provides common object manipulation utilities including depth traversal, obtaining accessors, safely setting values /
+ * equality tests, and validation.
+ */
+
+/**
+ * Tests for whether an object is iterable.
+ *
+ * @param {object} object - An object.
+ *
+ * @returns {boolean} Whether object is iterable.
+ */
+function isIterable(object)
+{
+   if (object === null || object === void 0 || typeof object !== 'object') { return false; }
+
+   return typeof object[Symbol.iterator] === 'function';
+}
+
+/**
+ * Registers game settings and creates a backing Svelte store for each setting. It is possible to add multiple
+ * `onChange` callbacks on registration.
+ */
+class TJSGameSettings
+{
+   /**
+    * @type {*}
+    */
+   #stores = new Map();
+
+   getStore(key)
+   {
+      if (!this.#stores.has(key))
+      {
+         console.warn(`TJSGameSettings - getStore: '${key}' is not a registered setting.`);
+         return;
+      }
+
+      return s_GET_STORE(this.#stores, key);
+   }
+
+   register(moduleId, key, options = {})
+   {
+      if (typeof options !== 'object') { throw new TypeError(`TJSGameSettings - register: options is not an object.`); }
+
+      const onchangeFunctions = [];
+
+      // Handle loading any existing `onChange` callbacks.
+      if (isIterable(options?.onChange))
+      {
+         for (const entry of options.onChange)
+         {
+            if (typeof entry === 'function') { onchangeFunctions.push(entry); }
+         }
+      }
+      else if (typeof options.onChange === 'function')
+      {
+         onchangeFunctions.push(options.onChange);
+      }
+
+      // Provides an `onChange` callback to update the associated store.
+      onchangeFunctions.push((value) =>
+      {
+         const store = s_GET_STORE(this.#stores, key);
+         if (store) { store.set(value); }
+      });
+
+      // Provides the final onChange callback that iterates over all the stored onChange callbacks.
+      const onChange = (value) =>
+      {
+         for (const entry of onchangeFunctions) { entry(value); }
+      };
+
+      game.settings.register(moduleId, key, { ...options, onChange });
+
+      // Set new store value with existing setting or default value.
+      const newStore = s_GET_STORE(this.#stores, key);
+      newStore.set(game.settings.get(moduleId, key));
+   }
+
+   /**
+    * Registers multiple settings.
+    *
+    * @param {Iterable<GameSetting>} settings - An iterable list of game setting configurations to register.
+    */
+   registerAll(settings)
+   {
+      if (!isIterable(settings)) { throw new TypeError(`TJSGameSettings - registerAll: settings is not iterable.`); }
+
+      for (const entry of settings)
+      {
+         if (typeof entry !== 'object')
+         {
+            throw new TypeError(`TJSGameSettings - registerAll: entry in settings is not an object.`);
+         }
+
+         if (typeof entry.moduleId !== 'string')
+         {
+            throw new TypeError(`TJSGameSettings - registerAll: entry in settings missing 'moduleId' attribute.`);
+         }
+
+         if (typeof entry.key !== 'string')
+         {
+            throw new TypeError(`TJSGameSettings - registerAll: entry in settings missing 'key' attribute.`);
+         }
+
+         if (typeof entry.options !== 'object')
+         {
+            throw new TypeError(`TJSGameSettings - registerAll: entry in settings missing 'options' attribute.`);
+         }
+
+         this.register(entry.moduleId, entry.key, entry.options);
+      }
+   }
+}
+
+
+function s_GET_STORE(stores, key)
+{
+   let store = stores.get(key);
+   if (store === void 0)
+   {
+      store = s_CREATE_STORE();
+      stores.set(key, store);
+   }
+
+   return store;
+}
+
+function s_CREATE_STORE()
+{
+   const store = writable$2(void 0);
+   store.get = () => get(store);
+
+   return store;
+}
+
+export { LocalStorage, SessionStorage, TJSGameSettings };
 //# sourceMappingURL=index.js.map
