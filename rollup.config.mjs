@@ -4,10 +4,17 @@ import sourcemaps          from 'rollup-plugin-sourcemaps';
 import svelte              from 'rollup-plugin-svelte';
 import { terser }          from 'rollup-plugin-terser';
 
-import { typhonjsRuntime } from './.rollup/local/index.js';
+import {
+   typhonjsRuntime,
+   typhonjsRuntimeOut }    from './.rollup/local/index.js';
 
 import terserConfig        from './terser.config.js';
 import postcssConfig       from './postcssConfig.js';
+
+import fs                  from 'fs-extra';
+
+fs.ensureDirSync('./dist/svelte');
+fs.copySync('./node_modules/@typhonjs-fvtt/svelte/dist', './dist/svelte');
 
 const s_COMPRESS = false;
 const s_SOURCEMAPS = false;
@@ -37,7 +44,7 @@ export default () =>
       ...s_MODULES_DOMPURIFY,
       ...s_MODULES_PLUGIN,
       ...createSvelteConfig(true, s_OUTPUT_MAP_LIB, postcssLib),
-      ...createSvelteConfig(false, s_OUTPUT_MAP_NPM, postcssNPM),
+      // ...createSvelteConfig(false, s_OUTPUT_MAP_NPM, postcssNPM),
       ...s_MODULES_TINYMCE
    ];
 };
@@ -221,7 +228,7 @@ function createSvelteConfig(isLib, outputMap, postcssCore)
          output: {
             file: outputMap['.build/svelte/index.js'],
             format: 'es',
-            plugins: isLib ? [typhonjsRuntime({ isLib, output: true }), ...outputPlugins] : outputPlugins,
+            plugins: isLib ? [typhonjsRuntimeOut({ isLib }), ...outputPlugins] : outputPlugins,
             preferConst: true,
             sourcemap,
             // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)

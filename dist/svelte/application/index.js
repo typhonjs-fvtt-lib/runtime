@@ -1,6 +1,6 @@
 import { writable, derived } from 'svelte/store';
-import { outroAndDestroy, isApplicationShell, hasGetter, parseSvelteConfig } from '@typhonjs-fvtt/runtime/svelte/util';
-import { DialogShell, TJSContextMenu } from '@typhonjs-fvtt/runtime/svelte/component/core';
+import { outroAndDestroy, isApplicationShell, hasGetter, parseSvelteConfig } from '@typhonjs-fvtt/svelte/util';
+import { DialogShell, TJSContextMenu } from '@typhonjs-fvtt/svelte/component/core';
 
 function ownKeys(object, enumerableOnly) {
   var keys = Object.keys(object);
@@ -1809,3 +1809,4 @@ var _contextMenu = {
 };
 
 export { SvelteApplication, TJSDialog, TJSMenu };
+//# sourceMappingURL=index.js.map

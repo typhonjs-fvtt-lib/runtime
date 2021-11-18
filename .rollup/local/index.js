@@ -8,3 +8,8 @@ export function typhonjsRuntime({ isLib = true, output = false, exclude = []} = 
 {
    return output ? generatePluginOutput(isLib) : generatePlugin(isLib ? externalPathsLib : externalPathsNPM, exclude);
 }
+
+export function typhonjsRuntimeOut({ isLib = true } = {})
+{
+   return generatePluginOutput(isLib);
+}

@@ -8,6 +8,7 @@
   "contributors": [
     "Michael Leahy <support@typhonjs.io> (https://github.com/typhonrt)"
   ],
+  "svelte": "./dist/svelte/component/core/index.js",
   "exports": {
     "./package.json": "./package.json",
     "./rollup": {
@@ -22,14 +23,8 @@
     "./plugin/manager": {
       "import": "./dist/plugin/manager/index.js"
     },
-    "./svelte": {
-      "import": "./dist/svelte/main/index.js"
-    },
     "./svelte/action": {
       "import": "./dist/svelte/action/index.js"
-    },
-    "./svelte/animate": {
-      "import": "./dist/svelte/animate/index.js"
     },
     "./svelte/application": {
       "import": "./dist/svelte/application/index.js"
@@ -40,9 +35,6 @@
     "./svelte/component/core": {
       "import": "./dist/svelte/component/core/index.js"
     },
-    "./svelte/easing": {
-      "import": "./dist/svelte/easing/index.js"
-    },
     "./svelte/gsap": {
       "import": "./dist/svelte/gsap/index.js"
     },
@@ -51,12 +43,6 @@
     },
     "./svelte/helper": {
       "import": "./dist/svelte/helper/index.js"
-    },
-    "./svelte/internal": {
-      "import": "./dist/svelte/internal/index.js"
-    },
-    "./svelte/motion": {
-      "import": "./dist/svelte/motion/index.js"
     },
     "./svelte/plugin/data": {
       "import": "./dist/svelte/plugin/data/index.js"
@@ -98,6 +84,7 @@
     "cssnano": "^5",
     "dompurify": "^2",
     "eslint": "^8",
+    "fs-extra": "^10",
     "magic-string": "^0.25.0",
     "postcss": "^8",
     "postcss-preset-env": "^6",
