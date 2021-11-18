@@ -17,4 +17,3 @@ function animate(node, { type, ...args })
 }
 
 export { animate };
-//# sourceMappingURL=index.js.map

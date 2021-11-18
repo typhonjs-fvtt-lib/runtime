@@ -151,4 +151,3 @@ function draggable(node, { positionable, booleanStore })
 }
 
 export { draggable };
-//# sourceMappingURL=index.js.map

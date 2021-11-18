@@ -4,9 +4,11 @@ import { externalPathsNPM }      from './externalPathsNPM.js';
 import { generatePlugin }        from '../generatePlugin.js';
 import { generatePluginOutput }  from '../generatePluginOutput.js';
 
-export function typhonjsRuntime({ isLib = true, output = false, exclude = []} = {})
+export *                         from  './createSvelteNPMConfig.js'
+
+export function typhonjsRuntime({ isLib = true, exclude = []} = {})
 {
-   return output ? generatePluginOutput(isLib) : generatePlugin(isLib ? externalPathsLib : externalPathsNPM, exclude);
+   return generatePlugin(isLib ? externalPathsLib : externalPathsNPM, exclude);
 }
 
 export function typhonjsRuntimeOut({ isLib = true } = {})

@@ -5,16 +5,12 @@ import svelte              from 'rollup-plugin-svelte';
 import { terser }          from 'rollup-plugin-terser';
 
 import {
+   createSvelteNPMConfig,
    typhonjsRuntime,
    typhonjsRuntimeOut }    from './.rollup/local/index.js';
 
 import terserConfig        from './terser.config.js';
 import postcssConfig       from './postcssConfig.js';
-
-import fs                  from 'fs-extra';
-
-fs.ensureDirSync('./dist/svelte');
-fs.copySync('./node_modules/@typhonjs-fvtt/svelte/dist', './dist/svelte');
 
 const s_COMPRESS = false;
 const s_SOURCEMAPS = false;
@@ -25,7 +21,7 @@ const postcssLib = postcssConfig({
    sourceMap: s_SOURCEMAPS
 });
 
-const postcssNPM = postcssConfig({
+const postcssCore = postcssConfig({
    extract: 'core.css',
    compress: s_COMPRESS,
    sourceMap: s_SOURCEMAPS
@@ -38,12 +34,17 @@ const sourcemap = s_SOURCEMAPS;
 // minified / mangled.
 const outputPlugins = s_COMPRESS ? [terser(terserConfig)] : [];
 
+const npmConfig = createSvelteNPMConfig({ sourcemap: s_SOURCEMAPS, outputPlugins, postcssCore });
+
+console.log(npmConfig);
+
 export default () =>
 {
    return [
       ...s_MODULES_DOMPURIFY,
       ...s_MODULES_PLUGIN,
       ...createSvelteConfig(true, s_OUTPUT_MAP_LIB, postcssLib),
+      ...createSvelteNPMConfig({ sourcemap: s_SOURCEMAPS, outputPlugins, postcssCore }),
       // ...createSvelteConfig(false, s_OUTPUT_MAP_NPM, postcssNPM),
       ...s_MODULES_TINYMCE
    ];
@@ -68,7 +69,7 @@ const s_MODULES_DOMPURIFY = [
    {
       input: '.build/dompurify/DOMPurify.js',
       output: {
-         file: 'dist/dompurify/main/index.js',
+         file: 'dist/dompurify/index.js',
          format: 'es',
          plugins: outputPlugins,
          preferConst: true,

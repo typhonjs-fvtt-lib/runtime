@@ -292,4 +292,3 @@ function s_CREATE_STORE(itemId, defaultValue = void 0) {
 }
 
 export { LocalStorage, SessionStorage };
-//# sourceMappingURL=index.js.map

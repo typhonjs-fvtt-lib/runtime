@@ -16,4 +16,3 @@ function localize(stringId, data)
 }
 
 export { localize };
-//# sourceMappingURL=index.js.map

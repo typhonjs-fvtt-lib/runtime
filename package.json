@@ -15,7 +15,7 @@
       "import": "./.rollup/remote/index.js"
     },
     "./dompurify": {
-      "import": "./dist/dompurify/main/index.js"
+      "import": "./dist/dompurify/index.js"
     },
     "./dompurify/plugin/system": {
       "import": "./dist/dompurify/plugin/system/index.js"
@@ -84,7 +84,6 @@
     "cssnano": "^5",
     "dompurify": "^2",
     "eslint": "^8",
-    "fs-extra": "^10",
     "magic-string": "^0.25.0",
     "postcss": "^8",
     "postcss-preset-env": "^6",

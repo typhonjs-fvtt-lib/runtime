@@ -1,7 +1,7 @@
-import { SvelteApplication } from '@typhonjs-fvtt/svelte/application';
-import { ApplicationShell } from '@typhonjs-fvtt/svelte/component/core';
+import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
+import { ApplicationShell } from '@typhonjs-fvtt/runtime/svelte/component/core';
 import { writable, derived } from 'svelte/store';
-import { outroAndDestroy, isApplicationShell, hasGetter, parseSvelteConfig } from '@typhonjs-fvtt/svelte/util';
+import { outroAndDestroy, isApplicationShell, hasGetter, parseSvelteConfig } from '@typhonjs-fvtt/runtime/svelte/util';
 
 function ownKeys(object, enumerableOnly) {
   var keys = Object.keys(object);
@@ -1635,4 +1635,3 @@ class HandlebarsFormApplication extends SvelteFormApplication {
 }
 
 export { HandlebarsApplication, HandlebarsFormApplication };
-//# sourceMappingURL=index.js.map

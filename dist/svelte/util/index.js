@@ -370,4 +370,3 @@ function isApplicationShell(component)
 }
 
 export { hasAccessor, hasGetter, hasSetter, isApplicationShell, isSvelteComponent, outroAndDestroy, parseSvelteConfig };
-//# sourceMappingURL=index.js.map

@@ -146,4 +146,3 @@ const s_DEFAULT_TRANSITION = () => void 0;
 const s_DEFAULT_TRANSITION_OPTIONS = {};
 
 export { rotate, rotateFade, s_DEFAULT_TRANSITION, s_DEFAULT_TRANSITION_OPTIONS, slideFade };
-//# sourceMappingURL=index.js.map
