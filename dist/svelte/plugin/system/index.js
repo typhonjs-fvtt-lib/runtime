@@ -1,1 +1,326 @@
-import{get as t,writable as e}from"@typhonjs-fvtt/runtime/svelte/store";import{noop as s,run_all as n,is_function as o}from"@typhonjs-fvtt/runtime/svelte/internal";function r(t,e){var s=function(t,e,s){if(!e.has(t))throw new TypeError("attempted to get private field on non-instance");return e.get(t)}(t,e);return function(t,e){return e.get?e.get.call(t):e.value}(t,s)}function i(t,e,s){!function(t,e){if(e.has(t))throw new TypeError("Cannot initialize the same private elements twice on an object")}(t,e),e.set(t,s)}function a(r){function i(t,e,s){return{subscribe:a(t,e,s).subscribe}}function a(n,o,i=s){r&&(r.getItem(n)&&(o=JSON.parse(r.getItem(n))),r.setItem(n,JSON.stringify(o)));const a=e(o,i?function(t){return i((function(e){return r&&r.setItem(n,JSON.stringify(e)),t(e)}))}:void 0);function g(t){r&&r.setItem(n,JSON.stringify(t)),a.set(t)}return{set:g,update:function(e){g(e(t(a)))},subscribe:function(t,e=s){return a.subscribe(t,e)}}}return{readable:i,writable:a,derived:function(t,e,a,g){const u=!Array.isArray(e),c=u?[e]:e;return r&&r.getItem(t)&&(g=JSON.parse(r.getItem(t))),i(t,g,(t=>{let e=!1;const r=[];let i=0,g=s;const l=()=>{if(i)return;g();const e=u?r[0]:r;if(a.length<2)t(a(e));else{const n=a(e,t);g=o(n)?n:s}},p=c.map(((t,s)=>t.subscribe((t=>{r[s]=t,i&=~(1<<s),e&&l()}),(()=>{i|=1<<s}))));return e=!0,l(),function(){n(p),g()}}))},get:t}}var g=a("undefined"!=typeof window?window.localStorage:void 0).writable,u=new WeakMap;class c{constructor(){i(this,u,{writable:!0,value:new Map})}getItem(t,e){let s;const n=localStorage.getItem(t);return void 0!==n&&(s=JSON.parse(n)),s}getStore(t,e){return l(r(this,u),t,e)}setItem(t,e){l(r(this,u),t).set(e)}swapItemBoolean(t,e){const s=l(r(this,u),t,e),n=s.get(),o="boolean"==typeof n&&!n;return s.set(o),o}}function l(e,s,n){let o=e.get(s);return void 0===o&&(o=function(e,s){try{localStorage.getItem(e)&&(s=JSON.parse(localStorage.getItem(e)))}catch(t){}const n=g(e,s);return n.get=()=>t(n),n}(s,n),e.set(s,o)),o}var p=a("undefined"!=typeof window?window.sessionStorage:void 0).writable,m=new WeakMap;class f{constructor(){i(this,m,{writable:!0,value:new Map})}getItem(t){let e;const s=sessionStorage.getItem(t);return void 0!==s&&(e=JSON.parse(s)),e}getStore(t,e){return d(r(this,m),t,e)}setItem(t,e){d(r(this,m),t).set(e)}swapItemBoolean(t,e){const s=d(r(this,m),t,e),n=s.get(),o="boolean"==typeof n&&!n;return s.set(o),o}}function d(e,s,n){let o=e.get(s);return void 0===o&&(o=function(e,s){try{sessionStorage.getItem(e)&&(s=JSON.parse(sessionStorage.getItem(e)))}catch(t){}const n=p(e,s);return n.get=()=>t(n),n}(s,n),e.set(s,o)),o}class h{#t=new c;onPluginLoad(t){const e="string"==typeof t?.pluginOptions?.eventPrepend?`${t.pluginOptions.eventPrepend}:`:"";t.eventbus.on(`${e}storage:local:item:get`,this.#t.getItem,this.#t,{guard:!0}),t.eventbus.on(`${e}storage:local:item:boolean:swap`,this.#t.swapItemBoolean,this.#t,{guard:!0}),t.eventbus.on(`${e}storage:local:item:set`,this.#t.setItem,this.#t,{guard:!0}),t.eventbus.on(`${e}storage:local:store:get`,this.#t.getStore,this.#t,{guard:!0})}}class v{#t=new f;onPluginLoad(t){const e="string"==typeof t?.pluginOptions?.eventPrepend?`${t.pluginOptions.eventPrepend}:`:"";t.eventbus.on(`${e}storage:session:item:get`,this.#t.getItem,this.#t,{guard:!0}),t.eventbus.on(`${e}storage:session:item:boolean:swap`,this.#t.swapItemBoolean,this.#t,{guard:!0}),t.eventbus.on(`${e}storage:session:item:set`,this.#t.setItem,this.#t,{guard:!0}),t.eventbus.on(`${e}storage:session:store:get`,this.#t.getStore,this.#t,{guard:!0})}}export{h as LocalStorage,v as SessionStorage};
+import { get, writable as writable$2 } from '@typhonjs-fvtt/runtime/svelte/store';
+import { noop, run_all, is_function } from '@typhonjs-fvtt/runtime/svelte/internal';
+
+function _classPrivateFieldGet(receiver, privateMap) {
+  var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get");
+
+  return _classApplyDescriptorGet(receiver, descriptor);
+}
+
+function _classExtractFieldDescriptor(receiver, privateMap, action) {
+  if (!privateMap.has(receiver)) {
+    throw new TypeError("attempted to " + action + " private field on non-instance");
+  }
+
+  return privateMap.get(receiver);
+}
+
+function _classApplyDescriptorGet(receiver, descriptor) {
+  if (descriptor.get) {
+    return descriptor.get.call(receiver);
+  }
+
+  return descriptor.value;
+}
+
+function _checkPrivateRedeclaration(obj, privateCollection) {
+  if (privateCollection.has(obj)) {
+    throw new TypeError("Cannot initialize the same private elements twice on an object");
+  }
+}
+
+function _classPrivateFieldInitSpec(obj, privateMap, value) {
+  _checkPrivateRedeclaration(obj, privateMap);
+
+  privateMap.set(obj, value);
+}
+
+// src/generator.ts
+
+function isSimpleDeriver(deriver) {
+  return deriver.length < 2;
+}
+
+function generator(storage) {
+  function readable(key, value, start) {
+    return {
+      subscribe: writable(key, value, start).subscribe
+    };
+  }
+
+  function writable(key, value, start = noop) {
+    function wrap_start(ogSet) {
+      return start(function wrap_set(new_value) {
+        if (storage) {
+          storage.setItem(key, JSON.stringify(new_value));
+        }
+
+        return ogSet(new_value);
+      });
+    }
+
+    if (storage) {
+      if (storage.getItem(key)) {
+        value = JSON.parse(storage.getItem(key));
+      }
+
+      storage.setItem(key, JSON.stringify(value));
+    }
+
+    const ogStore = writable$2(value, start ? wrap_start : void 0);
+
+    function set(new_value) {
+      if (storage) {
+        storage.setItem(key, JSON.stringify(new_value));
+      }
+
+      ogStore.set(new_value);
+    }
+
+    function update(fn) {
+      set(fn(get(ogStore)));
+    }
+
+    function subscribe(run, invalidate = noop) {
+      return ogStore.subscribe(run, invalidate);
+    }
+
+    return {
+      set,
+      update,
+      subscribe
+    };
+  }
+
+  function derived(key, stores, fn, initial_value) {
+    const single = !Array.isArray(stores);
+    const stores_array = single ? [stores] : stores;
+
+    if (storage && storage.getItem(key)) {
+      initial_value = JSON.parse(storage.getItem(key));
+    }
+
+    return readable(key, initial_value, set => {
+      let inited = false;
+      const values = [];
+      let pending = 0;
+      let cleanup = noop;
+
+      const sync = () => {
+        if (pending) {
+          return;
+        }
+
+        cleanup();
+        const input = single ? values[0] : values;
+
+        if (isSimpleDeriver(fn)) {
+          set(fn(input));
+        } else {
+          const result = fn(input, set);
+          cleanup = is_function(result) ? result : noop;
+        }
+      };
+
+      const unsubscribers = stores_array.map((store, i) => store.subscribe(value => {
+        values[i] = value;
+        pending &= ~(1 << i);
+
+        if (inited) {
+          sync();
+        }
+      }, () => {
+        pending |= 1 << i;
+      }));
+      inited = true;
+      sync();
+      return function stop() {
+        run_all(unsubscribers);
+        cleanup();
+      };
+    });
+  }
+
+  return {
+    readable,
+    writable,
+    derived,
+    get: get
+  };
+}
+
+var storage$1 = typeof window !== "undefined" ? window.localStorage : void 0;
+var g$1 = generator(storage$1);
+var writable$1 = g$1.writable;
+
+var _stores$1 = /*#__PURE__*/new WeakMap();
+
+class LocalStorage$1 {
+  constructor() {
+    _classPrivateFieldInitSpec(this, _stores$1, {
+      writable: true,
+      value: new Map()
+    });
+  }
+
+  getItem(itemId, defaultValue) {
+    let value;
+    const storageValue = localStorage.getItem(itemId);
+
+    if (storageValue !== void 0) {
+      value = JSON.parse(storageValue);
+    }
+
+    return value;
+  }
+
+  getStore(itemId, defaultValue) {
+    return s_GET_STORE$1(_classPrivateFieldGet(this, _stores$1), itemId, defaultValue);
+  }
+
+  setItem(itemId, value) {
+    const store = s_GET_STORE$1(_classPrivateFieldGet(this, _stores$1), itemId);
+    store.set(value);
+  }
+
+  swapItemBoolean(itemId, defaultValue) {
+    const store = s_GET_STORE$1(_classPrivateFieldGet(this, _stores$1), itemId, defaultValue);
+    const value = store.get();
+    const newValue = typeof value === 'boolean' ? !value : false;
+    store.set(newValue);
+    return newValue;
+  }
+
+}
+
+function s_GET_STORE$1(stores, itemId, defaultValue = void 0) {
+  let store = stores.get(itemId);
+
+  if (store === void 0) {
+    store = s_CREATE_STORE$1(itemId, defaultValue);
+    stores.set(itemId, store);
+  }
+
+  return store;
+}
+
+function s_CREATE_STORE$1(itemId, defaultValue = void 0) {
+  try {
+    if (localStorage.getItem(itemId)) {
+      defaultValue = JSON.parse(localStorage.getItem(itemId));
+    }
+  } catch (err) {
+    /**/
+  }
+
+  const store = writable$1(itemId, defaultValue);
+
+  store.get = () => get(store);
+
+  return store;
+}
+
+var storage = typeof window !== "undefined" ? window.sessionStorage : void 0;
+var g = generator(storage);
+var writable = g.writable;
+
+var _stores = /*#__PURE__*/new WeakMap();
+
+class SessionStorage$1 {
+  constructor() {
+    _classPrivateFieldInitSpec(this, _stores, {
+      writable: true,
+      value: new Map()
+    });
+  }
+
+  getItem(itemId) {
+    let value;
+    const storageValue = sessionStorage.getItem(itemId);
+
+    if (storageValue !== void 0) {
+      value = JSON.parse(storageValue);
+    }
+
+    return value;
+  }
+
+  getStore(itemId, defaultValue) {
+    return s_GET_STORE(_classPrivateFieldGet(this, _stores), itemId, defaultValue);
+  }
+
+  setItem(itemId, value) {
+    const store = s_GET_STORE(_classPrivateFieldGet(this, _stores), itemId);
+    store.set(value);
+  }
+
+  swapItemBoolean(itemId, defaultValue) {
+    const store = s_GET_STORE(_classPrivateFieldGet(this, _stores), itemId, defaultValue);
+    const value = store.get();
+    const newValue = typeof value === 'boolean' ? !value : false;
+    store.set(newValue);
+    return newValue;
+  }
+
+}
+
+function s_GET_STORE(stores, itemId, defaultValue = void 0) {
+  let store = stores.get(itemId);
+
+  if (store === void 0) {
+    store = s_CREATE_STORE(itemId, defaultValue);
+    stores.set(itemId, store);
+  }
+
+  return store;
+}
+
+function s_CREATE_STORE(itemId, defaultValue = void 0) {
+  try {
+    if (sessionStorage.getItem(itemId)) {
+      defaultValue = JSON.parse(sessionStorage.getItem(itemId));
+    }
+  } catch (err) {
+    /**/
+  }
+
+  const store = writable(itemId, defaultValue);
+
+  store.get = () => get(store);
+
+  return store;
+}
+
+class LocalStorage
+{
+   #storage = new LocalStorage$1();
+
+   onPluginLoad(ev)
+   {
+      const prepend = typeof ev?.pluginOptions?.eventPrepend === 'string' ? `${ev.pluginOptions.eventPrepend}:` : '';
+
+      ev.eventbus.on(`${prepend}storage:local:item:get`, this.#storage.getItem, this.#storage, { guard: true });
+      ev.eventbus.on(`${prepend}storage:local:item:boolean:swap`, this.#storage.swapItemBoolean, this.#storage,
+       { guard: true });
+      ev.eventbus.on(`${prepend}storage:local:item:set`, this.#storage.setItem, this.#storage, { guard: true });
+      ev.eventbus.on(`${prepend}storage:local:store:get`, this.#storage.getStore, this.#storage, { guard: true });
+   }
+}
+
+class SessionStorage
+{
+   #storage = new SessionStorage$1();
+
+   onPluginLoad(ev)
+   {
+      const prepend = typeof ev?.pluginOptions?.eventPrepend === 'string' ? `${ev.pluginOptions.eventPrepend}:` : '';
+
+      ev.eventbus.on(`${prepend}storage:session:item:get`, this.#storage.getItem, this.#storage, { guard: true });
+      ev.eventbus.on(`${prepend}storage:session:item:boolean:swap`, this.#storage.swapItemBoolean, this.#storage,
+       { guard: true });
+      ev.eventbus.on(`${prepend}storage:session:item:set`, this.#storage.setItem, this.#storage, { guard: true });
+      ev.eventbus.on(`${prepend}storage:session:store:get`, this.#storage.getStore, this.#storage, { guard: true });
+   }
+}
+
+export { LocalStorage, SessionStorage };

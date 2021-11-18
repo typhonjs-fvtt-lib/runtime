@@ -1,1 +1,1637 @@
-import{SvelteApplication as t}from"@typhonjs-fvtt/runtime/svelte/application";import{ApplicationShell as e}from"@typhonjs-fvtt/runtime/svelte/component/core";import{writable as i,derived as n}from"@typhonjs-fvtt/runtime/svelte/store";import{outroAndDestroy as s,isApplicationShell as o,hasGetter as r,parseSvelteConfig as l}from"@typhonjs-fvtt/runtime/svelte/util";function a(t,e){var i=Object.keys(t);if(Object.getOwnPropertySymbols){var n=Object.getOwnPropertySymbols(t);e&&(n=n.filter((function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable}))),i.push.apply(i,n)}return i}function h(t){for(var e=1;e<arguments.length;e++){var i=null!=arguments[e]?arguments[e]:{};e%2?a(Object(i),!0).forEach((function(e){p(t,e,i[e])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(i)):a(Object(i)).forEach((function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(i,e))}))}return t}function p(t,e,i){return e in t?Object.defineProperty(t,e,{value:i,enumerable:!0,configurable:!0,writable:!0}):t[e]=i,t}function c(t,e){return function(t,e){return e.get?e.get.call(t):e.value}(t,f(t,e,"get"))}function u(t,e,i){return function(t,e,i){if(e.set)e.set.call(t,i);else{if(!e.writable)throw new TypeError("attempted to set read only private field");e.value=i}}(t,f(t,e,"set"),i),i}function f(t,e,i){if(!e.has(t))throw new TypeError("attempted to "+i+" private field on non-instance");return e.get(t)}function m(t,e,i){if(!e.has(t))throw new TypeError("attempted to get private field on non-instance");return i}function d(t,e){if(e.has(t))throw new TypeError("Cannot initialize the same private elements twice on an object")}function g(t,e,i){d(t,e),e.set(t,i)}function b(t,e){d(t,e),e.add(t)}var v=new WeakMap;class y extends t{constructor(t){super(t),g(this,v,{writable:!0,value:void 0}),this.popOut&&(this.options.svelte=foundry.utils.mergeObject("object"==typeof this.options.svelte?this.options.svelte:{},{class:e,intro:!0,target:document.body}))}async _render(t,e){u(this,v,this.options.popOut),this.options.popOut=!1,await super._render(t,e),this.options.popOut=c(this,v)}_injectHTML(t){var e,i;super._injectHTML(t),null!==(e=this.svelte)&&void 0!==e&&null!==(i=e.applicationShell)&&void 0!==i&&i.elementContent&&this.svelte.applicationShell.elementContent.appendChild(...t)}_replaceHTML(t,e){var i,n;if(t.length)if(super._replaceHTML(t,e),null!==(i=this.svelte)&&void 0!==i&&null!==(n=i.applicationShell)&&void 0!==n&&n.elementContent){const t=this.svelte.applicationShell.elementContent;for(;t.firstChild&&!t.lastChild.remove(););t.appendChild(...e),this.title=this.title}else t.replaceWith(e),this._element=e,this.elementTarget=e[0]}}var w=new WeakMap,O=new WeakMap;class T{constructor(t,e){g(this,w,{writable:!0,value:void 0}),g(this,O,{writable:!0,value:void 0}),u(this,w,t),u(this,O,e)}get applicationShell(){return c(this,w)[0]}component(t){const e=c(this,O)[t];return"object"==typeof e?null==e?void 0:e.component:void 0}*componentEntries(){for(let t=0;t<c(this,O).length;t++)yield[t,c(this,O)[t].component]}*componentValues(){for(let t=0;t<c(this,O).length;t++)yield c(this,O)[t].component}data(t){return c(this,O)[t]}dataEntries(){return c(this,O).entries()}dataValues(){return c(this,O).values()}get length(){return c(this,O).length}}Object.freeze(T);var _=new WeakMap,M=new WeakMap,j=new WeakMap,E=new WeakMap,H=new WeakMap,S=new WeakMap,z=new WeakMap,L=new WeakMap,C=new WeakMap,W=new WeakMap,I=new WeakMap,x=new WeakSet,A=new WeakSet,k=new WeakSet;class N extends FormApplication{constructor(t,e){super(t,e),b(this,k),b(this,A),b(this,x),g(this,M,{get:D,set:void 0}),g(this,_,{writable:!0,value:[null]}),g(this,j,{writable:!0,value:null}),g(this,E,{writable:!0,value:null}),g(this,H,{writable:!0,value:void 0}),g(this,S,{writable:!0,value:void 0}),g(this,z,{writable:!0,value:void 0}),g(this,L,{writable:!0,value:void 0}),g(this,C,{writable:!0,value:[]}),g(this,W,{writable:!0,value:[]}),g(this,I,{writable:!0,value:new T(c(this,_),c(this,W))}),m(this,x,F).call(this)}static get defaultOptions(){return foundry.utils.mergeObject(super.defaultOptions,{draggable:!0,headerButtonNoLabel:!1,jqueryCloseAnimation:!0,zIndex:null})}get draggable(){return this.options.draggable}get elementContent(){return c(this,E)}get elementTarget(){return c(this,j)}get popOut(){return super.popOut}get resizable(){return this.options.resizable}get svelte(){return c(this,I)}get title(){return super.title}get zIndex(){return this.options.zIndex}set draggable(t){"boolean"==typeof t&&this.setOptions("draggable",t)}set elementContent(t){if(!(t instanceof HTMLElement))throw new TypeError("SvelteFormApplication - set elementContent error: 'content' is not an HTMLElement.");u(this,E,t)}set elementTarget(t){if(!(t instanceof HTMLElement))throw new TypeError("SvelteFormApplication - set elementTarget error: 'target' is not an HTMLElement.");u(this,j,t)}set popOut(t){"boolean"==typeof t&&this.setOptions("popOut",t)}set resizable(t){"boolean"==typeof t&&this.setOptions("resizable",t)}set title(t){"string"==typeof t&&this.setOptions("title",t)}set zIndex(t){this.setOptions("zIndex",Number.isInteger(t)?t:null)}async close(t={}){const e=Application.RENDER_STATES;if(!t.force&&![e.RENDERED,e.ERROR].includes(this._state))return;m(this,k,B).call(this),this._state=e.CLOSING;const i=$(c(this,j));if(!i)return this._state=e.CLOSED;for(const t of this.constructor._getInheritanceChain())Hooks.call(`close${t.name}`,this,i);("boolean"!=typeof this.options.jqueryCloseAnimation||this.options.jqueryCloseAnimation)&&(i[0].style.minHeight="0",await new Promise((t=>{i.slideUp(200,(()=>t()))})));const n=[];for(const t of c(this,W)){n.push(s(t.component));const e=t.config.eventbus;"object"==typeof e&&"function"==typeof e.off&&(e.off(),t.config.eventbus=void 0)}await Promise.all(n),c(this,W).length=0,i.remove(),c(this,_)[0]=null,this._element=null,u(this,E,null),u(this,j,null),delete ui.windows[this.appId],this._minimized=!1,this._scrollPositions=null,this._state=e.CLOSED,c(this,L).call(this,(t=>foundry.utils.mergeObject(t,{minimized:this._minimized})))}getOptions(t,e){return function(t,e,i){if("object"!=typeof t)return i;if("string"!=typeof e)return i;const n=e.split(".");for(let e=0;e<n.length;e++){if(void 0===t[n[e]]||null===t[n[e]])return i;t=t[n[e]]}return t}(this.options,t,e)}_injectHTML(t){if(this.popOut&&0===t.length&&Array.isArray(this.options.svelte))throw new Error("SvelteApplication - _injectHTML - A popout app with no template can only support one Svelte component.");if(this.updateHeaderButtons(),Array.isArray(this.options.svelte))for(const e of this.options.svelte){const i=R(this,t,e,c(this,H),c(this,z));if(o(i.component)){if(null!==c(this,M))throw new Error(`SvelteApplication - _injectHTML - An application shell is already mounted; offending config: \n                    ${JSON.stringify(e)}`);c(this,_)[0]=i.component}c(this,W).push(i)}else if("object"==typeof this.options.svelte){const e=R(this,t,this.options.svelte,c(this,H),c(this,z));if(o(e.component)){if(null!==c(this,M))throw new Error(`SvelteApplication - _injectHTML - An application shell is already mounted; offending config: \n                 ${JSON.stringify(this.options.svelte)}`);c(this,_)[0]=e.component}c(this,W).push(e)}const e=t.length&&t[0]instanceof DocumentFragment;let i=!0;for(const t of c(this,W))if(!t.injectHTML){i=!1;break}if(i&&super._injectHTML(t),null!==c(this,M))this._element=$(c(this,M).elementRoot),u(this,E,r(c(this,M),"elementContent")?c(this,M).elementContent:null),u(this,j,r(c(this,M),"elementTarget")?c(this,M).elementTarget:null);else if(e)for(const t of c(this,W))if(t.element instanceof HTMLElement){this._element=$(t.element);break}if(null===c(this,j)){const t="string"==typeof this.options.selectorTarget?this._element.find(this.options.selectorTarget):this._element;u(this,j,t[0])}if(null===c(this,j)||void 0===c(this,j)||0===c(this,j).length)throw new Error(`SvelteApplication - _injectHTML: Target element '${this.options.selectorTarget}' not found.`);setTimeout((()=>m(this,A,P).call(this)),0),this.onSvelteMount({element:this._element[0],elementContent:c(this,E),elementTarget:c(this,j)})}async maximize(){if(this.popOut&&![!1,null].includes(this._minimized))return c(this,L).call(this,(t=>foundry.utils.mergeObject(t,{minimized:!1}))),super.maximize()}async minimize(){if(this.rendered&&this.popOut&&![!0,null].includes(this._minimized))return c(this,L).call(this,(t=>foundry.utils.mergeObject(t,{minimized:!0}))),super.minimize()}mergeOptions(t){c(this,S).call(this,(e=>foundry.utils.mergeObject(e,t)))}onSvelteMount({element:t,elementContent:e,elementTarget:i}){}_replaceHTML(t,e){t.length&&this.updateHeaderButtons()}async _renderInner(t){const e="string"==typeof this.template?await renderTemplate(this.template,t):document.createDocumentFragment();return $(e)}setOptions(t,e){const i=function(t,e,i,n="set",s=!0){if("object"!=typeof t)throw new TypeError("safeSet Error: 'data' is not an 'object'.");if("string"!=typeof e)throw new TypeError("safeSet Error: 'accessor' is not a 'string'.");const o=e.split(".");for(let e=0;e<o.length;e++){if(Array.isArray(t)){const t=+o[e];if(!Number.isInteger(t)||t<0)return!1}if(e===o.length-1)switch(n){case"add":t[o[e]]+=i;break;case"div":t[o[e]]/=i;break;case"mult":t[o[e]]*=i;break;case"set":t[o[e]]=i;break;case"set-undefined":void 0===t[o[e]]&&(t[o[e]]=i);break;case"sub":t[o[e]]-=i}else{if(s&&void 0===t[o[e]]&&(t[o[e]]={}),null===t[o[e]]||"object"!=typeof t[o[e]])return!1;t=t[o[e]]}}return!0}(this.options,t,e);i&&c(this,S).call(this,(()=>this.options))}setPosition({left:t,top:e,width:i,height:n,scale:s,noHeight:o=!1,noWidth:r=!1}={}){const l=this.elementTarget,a=this.position,h=globalThis.getComputedStyle(l);if(!l.style.width||i){const e=i||l.offsetWidth,n=parseInt(h.minWidth)||MIN_WINDOW_WIDTH,s=l.style.maxWidth||globalThis.innerWidth;a.width=i=Math.clamped(e,n,s),r||(l.style.width=`${i}px`),i+a.left>globalThis.innerWidth&&(t=a.left)}if(i=l.offsetWidth,!l.style.height||n){const t=n||l.offsetHeight+1,i=parseInt(h.minHeight)||MIN_WINDOW_HEIGHT,s=l.style.maxHeight||globalThis.innerHeight;a.height=n=Math.clamped(t,i,s),o||(l.style.height=`${n}px`),n+a.top>globalThis.innerHeight+1&&(e=a.top-1)}if(n=l.offsetHeight,!l.style.left||Number.isFinite(t)){const e=Number.isFinite(t)?t:(globalThis.innerWidth-i)/2,n=Math.max(globalThis.innerWidth-i,0);a.left=t=Math.clamped(e,0,n),l.style.left=`${t}px`}if(!l.style.top||Number.isFinite(e)){const t=Number.isFinite(e)?e:(globalThis.innerHeight-n)/2,i=Math.max(globalThis.innerHeight-n,0);a.top=e=Math.clamped(t,0,i),l.style.top=`${a.top}px`}return s&&(a.scale=Math.max(s,0),l.style.transform=1===s?"":`scale(${s})`),a}updateHeaderButtons(){const t=this._getHeaderButtons();if("boolean"==typeof this.options.headerButtonNoLabel&&this.options.headerButtonNoLabel)for(const e of t)e.label=void 0;c(this,L).call(this,(e=>(e.headerButtons=t,e)))}}function D(){return c(this,_)[0]}function F(){const t=i(this.options);u(this,S,t.update);const e={subscribe:t.subscribe,draggable:n(t,((t,e)=>e(t.draggable))),minimizable:n(t,((t,e)=>e(t.minimizable))),popOut:n(t,((t,e)=>e(t.popOut))),resizable:n(t,((t,e)=>e(t.resizable))),title:n(t,((t,e)=>e(t.title))),zIndex:n(t,((t,e)=>e(Number.isInteger(t.zIndex)?t.zIndex:null)))};Object.freeze(e),u(this,H,e);const s=i({headerButtons:[],minimized:this._minimized});u(this,L,s.update);const o={subscribe:s.subscribe,headerButtons:n(s,((t,e)=>e(t.headerButtons))),minimized:n(s,((t,e)=>e(t.minimized)))};Object.freeze(o),u(this,z,o)}function P(){c(this,C).push(c(this,H).popOut.subscribe((t=>{t&&this.rendered?ui.windows[this.appId]=this:delete ui.windows[this.appId]}))),c(this,C).push(c(this,H).zIndex.subscribe((t=>{null!==this._element&&(this._element[0].style.zIndex=t)})))}function B(){c(this,C).forEach((t=>t())),u(this,C,[])}function R(t,e,i,n,s){const r="object"==typeof i.options?i.options:{};let a;if(a=i.target instanceof HTMLElement?i.target:"string"==typeof i.target?e.find(i.target).get(0):document.createDocumentFragment(),void 0===a)throw new Error(`SvelteApplication - s_LOAD_CONFIG - could not find target selector: ${i.target} for config:\n${JSON.stringify(i)}`);const p=i.class,c=l(h(h({},i),{},{target:a}),t),u=c.context.get("external");let f;u.foundryApp=t,u.storeAppOptions=n,u.storeUIOptions=s,"object"==typeof t._eventbus&&"function"==typeof t._eventbus.createProxy&&(f=t._eventbus.createProxy(),u.eventbus=f);const m=new p(c);let d;if(c.eventbus=f,o(m)&&(d=m.elementRoot),i.target instanceof DocumentFragment&&a.firstElementChild)void 0===d&&(d=a.firstElementChild),e.append(a);else if(i.target instanceof HTMLElement&&void 0===d){if(i.target instanceof HTMLElement&&"string"!=typeof r.selectorElement)throw new Error(`SvelteApplication - s_LOAD_CONFIG - HTMLElement target with no 'selectorElement' defined for config:\n${JSON.stringify(i)}`);if(d=a.querySelector(r.selectorElement),null==d)throw new Error(`SvelteApplication - s_LOAD_CONFIG - HTMLElement target - could not find 'selectorElement' for config:\n${JSON.stringify(i)}`)}const g={config:c,component:m,element:d,injectHTML:!(i.target instanceof HTMLElement)};return Object.freeze(g),g}var G=new WeakMap;class J extends N{constructor(t,i){super(t,i),g(this,G,{writable:!0,value:void 0}),this.popOut&&(this.options.svelte=foundry.utils.mergeObject("object"==typeof this.options.svelte?this.options.svelte:{},{class:e,intro:!0,target:document.body}))}async _render(t,e){u(this,G,this.options.popOut),this.options.popOut=!1,await super._render(t,e),this.options.popOut=c(this,G)}async _renderInner(t){const e=await super._renderInner(t);return this.form=e.filter(((t,e)=>e instanceof HTMLFormElement))[0],this.form||(this.form=e.find("form")[0]),e}_injectHTML(t){var e,i;super._injectHTML(t),null!==(e=this.svelte)&&void 0!==e&&null!==(i=e.applicationShell)&&void 0!==i&&i.elementContent&&this.svelte.applicationShell.elementContent.appendChild(...t)}_replaceHTML(t,e){var i,n;if(t.length)if(super._replaceHTML(t,e),null!==(i=this.svelte)&&void 0!==i&&null!==(n=i.applicationShell)&&void 0!==n&&n.elementContent){const t=this.svelte.applicationShell.elementContent;for(;t.firstChild&&!t.lastChild.remove(););t.appendChild(...e),this.title=this.title}else t.replaceWith(e),this._element=e,this.elementTarget=e[0]}}export{y as HandlebarsApplication,J as HandlebarsFormApplication};
+import { SvelteApplication } from '@typhonjs-fvtt/runtime/svelte/application';
+import { ApplicationShell } from '@typhonjs-fvtt/runtime/svelte/component/core';
+import { writable, derived } from '@typhonjs-fvtt/runtime/svelte/store';
+import { outroAndDestroy, isApplicationShell, hasGetter, parseSvelteConfig } from '@typhonjs-fvtt/runtime/svelte/util';
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+
+    if (enumerableOnly) {
+      symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+    }
+
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _classPrivateFieldGet(receiver, privateMap) {
+  var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get");
+
+  return _classApplyDescriptorGet(receiver, descriptor);
+}
+
+function _classPrivateFieldSet(receiver, privateMap, value) {
+  var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set");
+
+  _classApplyDescriptorSet(receiver, descriptor, value);
+
+  return value;
+}
+
+function _classExtractFieldDescriptor(receiver, privateMap, action) {
+  if (!privateMap.has(receiver)) {
+    throw new TypeError("attempted to " + action + " private field on non-instance");
+  }
+
+  return privateMap.get(receiver);
+}
+
+function _classApplyDescriptorGet(receiver, descriptor) {
+  if (descriptor.get) {
+    return descriptor.get.call(receiver);
+  }
+
+  return descriptor.value;
+}
+
+function _classApplyDescriptorSet(receiver, descriptor, value) {
+  if (descriptor.set) {
+    descriptor.set.call(receiver, value);
+  } else {
+    if (!descriptor.writable) {
+      throw new TypeError("attempted to set read only private field");
+    }
+
+    descriptor.value = value;
+  }
+}
+
+function _classPrivateMethodGet(receiver, privateSet, fn) {
+  if (!privateSet.has(receiver)) {
+    throw new TypeError("attempted to get private field on non-instance");
+  }
+
+  return fn;
+}
+
+function _checkPrivateRedeclaration(obj, privateCollection) {
+  if (privateCollection.has(obj)) {
+    throw new TypeError("Cannot initialize the same private elements twice on an object");
+  }
+}
+
+function _classPrivateFieldInitSpec(obj, privateMap, value) {
+  _checkPrivateRedeclaration(obj, privateMap);
+
+  privateMap.set(obj, value);
+}
+
+function _classPrivateMethodInitSpec(obj, privateSet) {
+  _checkPrivateRedeclaration(obj, privateSet);
+
+  privateSet.add(obj);
+}
+
+var _orignalPopOut$1 = /*#__PURE__*/new WeakMap();
+
+class HandlebarsApplication extends SvelteApplication {
+  /**
+   * Temporarily holds the original popOut value when rendering.
+   *
+   * @type {boolean}
+   */
+
+  /**
+   * @inheritDoc
+   */
+  constructor(options) {
+    super(options);
+
+    _classPrivateFieldInitSpec(this, _orignalPopOut$1, {
+      writable: true,
+      value: void 0
+    });
+
+    if (this.popOut) {
+      this.options.svelte = foundry.utils.mergeObject(typeof this.options.svelte === 'object' ? this.options.svelte : {}, {
+        class: ApplicationShell,
+        intro: true,
+        target: document.body
+      });
+    }
+  }
+  /**
+   * Temporarily set popOut to false to only render inner HTML. This inner HTML will be appended to the content area
+   * of ApplicationShell if the original popOut value is true.
+   *
+   * @inheritDoc
+   */
+
+
+  async _render(force, options) {
+    _classPrivateFieldSet(this, _orignalPopOut$1, this.options.popOut);
+
+    this.options.popOut = false;
+    await super._render(force, options);
+    this.options.popOut = _classPrivateFieldGet(this, _orignalPopOut$1);
+  }
+
+  _injectHTML(html) {
+    var _this$svelte, _this$svelte$applicat;
+
+    // Mounts any Svelte components.
+    super._injectHTML(html); // Appends inner HTML content to application shell content element.
+
+
+    if ((_this$svelte = this.svelte) !== null && _this$svelte !== void 0 && (_this$svelte$applicat = _this$svelte.applicationShell) !== null && _this$svelte$applicat !== void 0 && _this$svelte$applicat.elementContent) {
+      this.svelte.applicationShell.elementContent.appendChild(...html);
+    }
+  }
+  /**
+   * Override replacing HTML as Svelte components control the rendering process. Only potentially change the outer
+   * application frame / title for pop-out applications.
+   *
+   * @override
+   * @inheritDoc
+   */
+
+
+  _replaceHTML(element, html) // eslint-disable-line no-unused-vars
+  {
+    var _this$svelte2, _this$svelte2$applica;
+
+    if (!element.length) {
+      return;
+    }
+
+    super._replaceHTML(element, html);
+
+    if ((_this$svelte2 = this.svelte) !== null && _this$svelte2 !== void 0 && (_this$svelte2$applica = _this$svelte2.applicationShell) !== null && _this$svelte2$applica !== void 0 && _this$svelte2$applica.elementContent) {
+      const elementContent = this.svelte.applicationShell.elementContent; // Remove existing children.
+
+      while (elementContent.firstChild && !elementContent.lastChild.remove()) {} // eslint-disable-line no-empty
+
+
+      elementContent.appendChild(...html); // Use the setter from `SvelteFormApplication` to set the title store.
+
+      this.title = this.title; // eslint-disable-line no-self-assign
+    } else {
+      element.replaceWith(html);
+      this._element = html;
+      this.elementTarget = html[0];
+    }
+  }
+
+}
+
+/**
+ * Provides common object manipulation utilities including depth traversal, obtaining accessors, safely setting values /
+ * equality tests, and validation.
+ */
+/**
+ * Provides a way to safely access an objects data / entries given an accessor string which describes the
+ * entries to walk. To access deeper entries into the object format the accessor string with `.` between entries
+ * to walk.
+ *
+ * @param {object}   data - An object to access entry data.
+ *
+ * @param {string}   accessor - A string describing the entries to access.
+ *
+ * @param {*}        defaultValue - (Optional) A default value to return if an entry for accessor is not found.
+ *
+ * @returns {object} The data object.
+ */
+
+function safeAccess(data, accessor, defaultValue = void 0) {
+  if (typeof data !== 'object') {
+    return defaultValue;
+  }
+
+  if (typeof accessor !== 'string') {
+    return defaultValue;
+  }
+
+  const access = accessor.split('.'); // Walk through the given object by the accessor indexes.
+
+  for (let cntr = 0; cntr < access.length; cntr++) {
+    // If the next level of object access is undefined or null then return the empty string.
+    if (typeof data[access[cntr]] === 'undefined' || data[access[cntr]] === null) {
+      return defaultValue;
+    }
+
+    data = data[access[cntr]];
+  }
+
+  return data;
+}
+/**
+ * Provides a way to safely set an objects data / entries given an accessor string which describes the
+ * entries to walk. To access deeper entries into the object format the accessor string with `.` between entries
+ * to walk.
+ *
+ * @param {object}   data - An object to access entry data.
+ *
+ * @param {string}   accessor - A string describing the entries to access.
+ *
+ * @param {*}        value - A new value to set if an entry for accessor is found.
+ *
+ * @param {string}   [operation='set'] - Operation to perform including: 'add', 'div', 'mult', 'set',
+ *                                       'set-undefined', 'sub'.
+ *
+ * @param {boolean}  [createMissing=true] - If true missing accessor entries will be created as objects
+ *                                          automatically.
+ *
+ * @returns {boolean} True if successful.
+ */
+
+function safeSet(data, accessor, value, operation = 'set', createMissing = true) {
+  if (typeof data !== 'object') {
+    throw new TypeError(`safeSet Error: 'data' is not an 'object'.`);
+  }
+
+  if (typeof accessor !== 'string') {
+    throw new TypeError(`safeSet Error: 'accessor' is not a 'string'.`);
+  }
+
+  const access = accessor.split('.'); // Walk through the given object by the accessor indexes.
+
+  for (let cntr = 0; cntr < access.length; cntr++) {
+    // If data is an array perform validation that the accessor is a positive integer otherwise quit.
+    if (Array.isArray(data)) {
+      const number = +access[cntr];
+
+      if (!Number.isInteger(number) || number < 0) {
+        return false;
+      }
+    }
+
+    if (cntr === access.length - 1) {
+      switch (operation) {
+        case 'add':
+          data[access[cntr]] += value;
+          break;
+
+        case 'div':
+          data[access[cntr]] /= value;
+          break;
+
+        case 'mult':
+          data[access[cntr]] *= value;
+          break;
+
+        case 'set':
+          data[access[cntr]] = value;
+          break;
+
+        case 'set-undefined':
+          if (typeof data[access[cntr]] === 'undefined') {
+            data[access[cntr]] = value;
+          }
+
+          break;
+
+        case 'sub':
+          data[access[cntr]] -= value;
+          break;
+      }
+    } else {
+      // If createMissing is true and the next level of object access is undefined then create a new object entry.
+      if (createMissing && typeof data[access[cntr]] === 'undefined') {
+        data[access[cntr]] = {};
+      } // Abort if the next level is null or not an object and containing a value.
+
+
+      if (data[access[cntr]] === null || typeof data[access[cntr]] !== 'object') {
+        return false;
+      }
+
+      data = data[access[cntr]];
+    }
+  }
+
+  return true;
+}
+
+var _applicationShellHolder$1 = /*#__PURE__*/new WeakMap();
+
+var _svelteData$1 = /*#__PURE__*/new WeakMap();
+
+/**
+ * Provides a helper class for {@link SvelteApplication} by combining all methods that work on the {@link SvelteData[]}
+ * of mounted components. This class is instantiated and can be retrieved by the getter `svelte` via SvelteApplication.
+ */
+class GetSvelteData {
+  /**
+   * @type {ApplicationShell|null[]}
+   */
+
+  /**
+   * @type {SvelteData[]}
+   */
+
+  /**
+   * Keep a direct reference to the SvelteData array in an associated {@link SvelteApplication}.
+   *
+   * @param {ApplicationShell|null[]}  applicationShellHolder - A reference to the ApplicationShell array.
+   *
+   * @param {SvelteData[]}  svelteData - A reference to the SvelteData array of mounted components.
+   */
+  constructor(applicationShellHolder, svelteData) {
+    _classPrivateFieldInitSpec(this, _applicationShellHolder$1, {
+      writable: true,
+      value: void 0
+    });
+
+    _classPrivateFieldInitSpec(this, _svelteData$1, {
+      writable: true,
+      value: void 0
+    });
+
+    _classPrivateFieldSet(this, _applicationShellHolder$1, applicationShellHolder);
+
+    _classPrivateFieldSet(this, _svelteData$1, svelteData);
+  }
+  /**
+   * Returns any mounted {@link ApplicationShell}.
+   *
+   * @returns {ApplicationShell|null} Any mounted application shell.
+   */
+
+
+  get applicationShell() {
+    return _classPrivateFieldGet(this, _applicationShellHolder$1)[0];
+  }
+  /**
+   * Returns the indexed Svelte component.
+   *
+   * @param {number}   index -
+   *
+   * @returns {object} The loaded Svelte component.
+   */
+
+
+  component(index) {
+    const data = _classPrivateFieldGet(this, _svelteData$1)[index];
+
+    return typeof data === 'object' ? data === null || data === void 0 ? void 0 : data.component : void 0;
+  }
+  /**
+   * Returns the Svelte component entries iterator.
+   *
+   * @returns {Generator<(number|*)[], void, *>} Svelte component entries iterator.
+   * @yields
+   */
+
+
+  *componentEntries() {
+    for (let cntr = 0; cntr < _classPrivateFieldGet(this, _svelteData$1).length; cntr++) {
+      yield [cntr, _classPrivateFieldGet(this, _svelteData$1)[cntr].component];
+    }
+  }
+  /**
+   * Returns the Svelte component values iterator.
+   *
+   * @returns {Generator<*, void, *>} Svelte component values iterator.
+   * @yields
+   */
+
+
+  *componentValues() {
+    for (let cntr = 0; cntr < _classPrivateFieldGet(this, _svelteData$1).length; cntr++) {
+      yield _classPrivateFieldGet(this, _svelteData$1)[cntr].component;
+    }
+  }
+  /**
+   * Returns the indexed SvelteData entry.
+   *
+   * @param {number}   index -
+   *
+   * @returns {object} The loaded Svelte config + component.
+   */
+
+
+  data(index) {
+    return _classPrivateFieldGet(this, _svelteData$1)[index];
+  }
+  /**
+   * Returns the SvelteData entries iterator.
+   *
+   * @returns {IterableIterator<[number, Object]>} SvelteData entries iterator.
+   */
+
+
+  dataEntries() {
+    return _classPrivateFieldGet(this, _svelteData$1).entries();
+  }
+  /**
+   * Returns the SvelteData values iterator.
+   *
+   * @returns {IterableIterator<Object>} SvelteData values iterator.
+   */
+
+
+  dataValues() {
+    return _classPrivateFieldGet(this, _svelteData$1).values();
+  }
+
+  get length() {
+    return _classPrivateFieldGet(this, _svelteData$1).length;
+  }
+
+}
+
+Object.freeze(GetSvelteData);
+/**
+ * @typedef {object} SvelteData
+ *
+ * @property {object}            config -
+ *
+ * @property {SvelteComponent}   component -
+ *
+ * @property {HTMLElement}       element -
+ *
+ * @property {Eventbus}          eventbus -
+ */
+
+/**
+ * Provides a Svelte aware extension to FormApplication to control the app lifecycle appropriately.
+ *
+ * NOTE: THIS IS ONLY TO BE USED FOR {@link HandlebarsFormApplication}.
+ *
+ * @see SvelteApplication
+ */
+
+var _applicationShellHolder = /*#__PURE__*/new WeakMap();
+
+var _applicationShell = /*#__PURE__*/new WeakMap();
+
+var _elementTarget = /*#__PURE__*/new WeakMap();
+
+var _elementContent = /*#__PURE__*/new WeakMap();
+
+var _storeAppOptions = /*#__PURE__*/new WeakMap();
+
+var _storeAppOptionsUpdate = /*#__PURE__*/new WeakMap();
+
+var _storeUIOptions = /*#__PURE__*/new WeakMap();
+
+var _storeUIOptionsUpdate = /*#__PURE__*/new WeakMap();
+
+var _storeUnsubscribe = /*#__PURE__*/new WeakMap();
+
+var _svelteData = /*#__PURE__*/new WeakMap();
+
+var _getSvelteData = /*#__PURE__*/new WeakMap();
+
+var _storesInitialize = /*#__PURE__*/new WeakSet();
+
+var _storesSubscribe = /*#__PURE__*/new WeakSet();
+
+var _storesUnsubscribe = /*#__PURE__*/new WeakSet();
+
+class SvelteFormApplication extends FormApplication {
+  /**
+   * Stores the first mounted component which follows the application shell contract.
+   *
+   * @type {ApplicationShell|null[]} Application shell.
+   */
+
+  /**
+   * Get the current application shell.
+   *
+   * @returns {ApplicationShell|null} The first mounted component which follows the application shell contract.
+   */
+
+  /**
+   * Stores the target element which may not necessarily be the main element.
+   *
+   * @type {HTMLElement}
+   */
+
+  /**
+   * Stores the content element which is set for application shells.
+   *
+   * @type {HTMLElement}
+   */
+
+  /**
+   * The Application option store which is injected into mounted Svelte component context under the `external` key.
+   *
+   * @type {StoreAppOptions}
+   */
+
+  /**
+   * Stores the update function for `#storeAppOptions`.
+   *
+   * @type {import('svelte/store').Writable.update}
+   */
+
+  /**
+   * The UI option store which is injected into mounted Svelte component context under the `external` key.
+   *
+   * @type {StoreUIOptions}
+   */
+
+  /**
+   * Stores the update function for `#storeUIOptions`.
+   *
+   * @type {import('svelte/store').Writable.update}
+   */
+
+  /**
+   * Stores the unsubscribe functions from local store subscriptions.
+   *
+   * @type {import('svelte/store').Unsubscriber[]}
+   */
+
+  /**
+   * Stores SvelteData entries with instantiated Svelte components.
+   *
+   * @type {SvelteData[]}
+   */
+
+  /**
+   * Provides a helper class that combines multiple methods for interacting with the mounted components tracked in
+   * {@link #svelteData}.
+   *
+   * @type {GetSvelteData}
+   */
+
+  /**
+   * @inheritDoc
+   */
+  constructor(object, options) {
+    super(object, options);
+
+    _classPrivateMethodInitSpec(this, _storesUnsubscribe);
+
+    _classPrivateMethodInitSpec(this, _storesSubscribe);
+
+    _classPrivateMethodInitSpec(this, _storesInitialize);
+
+    _classPrivateFieldInitSpec(this, _applicationShell, {
+      get: _get_applicationShell,
+      set: void 0
+    });
+
+    _classPrivateFieldInitSpec(this, _applicationShellHolder, {
+      writable: true,
+      value: [null]
+    });
+
+    _classPrivateFieldInitSpec(this, _elementTarget, {
+      writable: true,
+      value: null
+    });
+
+    _classPrivateFieldInitSpec(this, _elementContent, {
+      writable: true,
+      value: null
+    });
+
+    _classPrivateFieldInitSpec(this, _storeAppOptions, {
+      writable: true,
+      value: void 0
+    });
+
+    _classPrivateFieldInitSpec(this, _storeAppOptionsUpdate, {
+      writable: true,
+      value: void 0
+    });
+
+    _classPrivateFieldInitSpec(this, _storeUIOptions, {
+      writable: true,
+      value: void 0
+    });
+
+    _classPrivateFieldInitSpec(this, _storeUIOptionsUpdate, {
+      writable: true,
+      value: void 0
+    });
+
+    _classPrivateFieldInitSpec(this, _storeUnsubscribe, {
+      writable: true,
+      value: []
+    });
+
+    _classPrivateFieldInitSpec(this, _svelteData, {
+      writable: true,
+      value: []
+    });
+
+    _classPrivateFieldInitSpec(this, _getSvelteData, {
+      writable: true,
+      value: new GetSvelteData(_classPrivateFieldGet(this, _applicationShellHolder), _classPrivateFieldGet(this, _svelteData))
+    });
+
+    _classPrivateMethodGet(this, _storesInitialize, _storesInitialize2).call(this);
+  }
+  /**
+   * Specifies the default options that SvelteApplication supports.
+   *
+   * @returns {object} options - Application options.
+   * @see https://foundryvtt.com/api/Application.html#options
+   */
+
+
+  static get defaultOptions() {
+    return foundry.utils.mergeObject(super.defaultOptions, {
+      draggable: true,
+      // If true then application shells are draggable.
+      headerButtonNoLabel: false,
+      // If true then header button labels are removed for application shells.
+      jqueryCloseAnimation: true,
+      // If false the Foundry JQuery close animation is not run.
+      zIndex: null // When set the zIndex is manually controlled.
+
+    });
+  }
+  /**
+   * Returns the draggable app option.
+   *
+   * @returns {boolean} Draggable app option.
+   */
+
+
+  get draggable() {
+    return this.options.draggable;
+  }
+  /**
+   * Returns the content element if an application shell is mounted.
+   *
+   * @returns {HTMLElement} Content element.
+   */
+
+
+  get elementContent() {
+    return _classPrivateFieldGet(this, _elementContent);
+  }
+  /**
+   * Returns the target element or main element if no target defined.
+   *
+   * @returns {HTMLElement} Target element.
+   */
+
+
+  get elementTarget() {
+    return _classPrivateFieldGet(this, _elementTarget);
+  }
+  /**
+   * @inheritDoc
+   */
+
+
+  get popOut() {
+    return super.popOut;
+  }
+  /**
+   * Returns the resizable option.
+   *
+   * @returns {boolean} Resizable app option.
+   */
+
+
+  get resizable() {
+    return this.options.resizable;
+  }
+  /**
+   * Returns the Svelte helper class w/ various methods to access mounted Svelte components.
+   *
+   * @returns {GetSvelteData} GetSvelteData
+   */
+
+
+  get svelte() {
+    return _classPrivateFieldGet(this, _getSvelteData);
+  }
+  /**
+   * Returns the title accessor from the parent Application class.
+   * TODO: Application v2; note that super.title localizes `this.options.title`; IMHO it shouldn't.
+   *
+   * @returns {string} Title.
+   */
+
+
+  get title() {
+    return super.title;
+  }
+  /**
+   * Returns the zIndex app option.
+   *
+   * @returns {number} z-index app option.
+   */
+
+
+  get zIndex() {
+    return this.options.zIndex;
+  }
+  /**
+   * Sets `this.options.draggable` which is reactive for application shells.
+   *
+   * @param {boolean}  draggable - Sets the draggable option.
+   */
+
+
+  set draggable(draggable) {
+    if (typeof draggable === 'boolean') {
+      this.setOptions('draggable', draggable);
+    }
+  }
+  /**
+   * Sets the content element.
+   *
+   * @param {HTMLElement} content - Content element.
+   */
+
+
+  set elementContent(content) {
+    if (!(content instanceof HTMLElement)) {
+      throw new TypeError(`SvelteFormApplication - set elementContent error: 'content' is not an HTMLElement.`);
+    }
+
+    _classPrivateFieldSet(this, _elementContent, content);
+  }
+  /**
+   * Sets the target element or main element if no target defined.
+   *
+   * @param {HTMLElement} target - Target element.
+   */
+
+
+  set elementTarget(target) {
+    if (!(target instanceof HTMLElement)) {
+      throw new TypeError(`SvelteFormApplication - set elementTarget error: 'target' is not an HTMLElement.`);
+    }
+
+    _classPrivateFieldSet(this, _elementTarget, target);
+  }
+  /**
+   * Sets `this.options.popOut` which is reactive for application shells. This will add / remove this application
+   * from `ui.windows`.
+   *
+   * @param {boolean}  popOut - Sets the popOut option.
+   */
+
+
+  set popOut(popOut) {
+    if (typeof popOut === 'boolean') {
+      this.setOptions('popOut', popOut);
+    }
+  }
+  /**
+   * Sets `this.options.resizable` which is reactive for application shells.
+   *
+   * @param {boolean}  resizable - Sets the resizable option.
+   */
+
+
+  set resizable(resizable) {
+    if (typeof resizable === 'boolean') {
+      this.setOptions('resizable', resizable);
+    }
+  }
+  /**
+   * Sets `this.options.title` which is reactive for application shells.
+   *
+   * @param {string}   title - Application title; will be localized, so a translation key is fine.
+   */
+
+
+  set title(title) {
+    if (typeof title === 'string') {
+      this.setOptions('title', title);
+    }
+  }
+  /**
+   * Sets `this.options.zIndex` which is reactive for application shells.
+   *
+   * @param {number}   zIndex - Application z-index.
+   */
+
+
+  set zIndex(zIndex) {
+    this.setOptions('zIndex', Number.isInteger(zIndex) ? zIndex : null);
+  }
+  /**
+   * Note: This method is fully overridden and duplicated as Svelte components need to be destroyed manually and the
+   * best visual result is to destroy them after the default JQuery slide up animation occurs, but before the element
+   * is removed from the DOM.
+   *
+   * If you destroy the Svelte components before the slide up animation the Svelte elements are removed immediately
+   * from the DOM. The purpose of overriding ensures the slide up animation is always completed before
+   * the Svelte components are destroyed and then the element is removed from the DOM.
+   *
+   * Close the application and un-register references to it within UI mappings.
+   * This function returns a Promise which resolves once the window closing animation concludes
+   *
+   * @param {object}   options - Optional parameters.
+   *
+   * @param {boolean}  options.force - Force close regardless of render state.
+   *
+   * @returns {Promise<void|number>}    A Promise which resolves once the application is closed
+   */
+
+
+  async close(options = {}) {
+    const states = Application.RENDER_STATES;
+
+    if (!options.force && ![states.RENDERED, states.ERROR].includes(this._state)) {
+      return;
+    } // Unsubscribe from any local stores.
+
+
+    _classPrivateMethodGet(this, _storesUnsubscribe, _storesUnsubscribe2).call(this);
+
+    this._state = states.CLOSING;
+    /**
+     * Get the element.
+     *
+     * @type {JQuery}
+     */
+
+    const el = $(_classPrivateFieldGet(this, _elementTarget));
+
+    if (!el) {
+      return this._state = states.CLOSED;
+    } // Dispatch Hooks for closing the base and subclass applications
+
+
+    for (const cls of this.constructor._getInheritanceChain()) {
+      /**
+       * A hook event that fires whenever this Application is closed.
+       *
+       * @param {Application} app                     The Application instance being closed
+       *
+       * @param {jQuery[]} html                       The application HTML when it is closed
+       *
+       * @function closeApplication
+       *
+       * @memberof hookEvents
+       */
+      Hooks.call(`close${cls.name}`, this, el);
+    } // If options `jqueryCloseAnimation` is false then do not execute the standard JQuery slide up animation.
+    // This allows Svelte components to provide any out transition. Application shells will automatically set
+    // `jqueryCloseAnimation` based on any out transition set or unset.
+
+
+    const animate = typeof this.options.jqueryCloseAnimation === 'boolean' ? this.options.jqueryCloseAnimation : true;
+
+    if (animate) {
+      // Await on JQuery to slide up the main element.
+      el[0].style.minHeight = '0';
+      await new Promise(resolve => {
+        el.slideUp(200, () => resolve());
+      });
+    } // Stores the Promises returned from running outro transitions and destroying each Svelte component.
+
+
+    const svelteDestroyPromises = []; // Manually invoke the destroy callbacks for all Svelte components.
+
+    for (const entry of _classPrivateFieldGet(this, _svelteData)) {
+      // Use `outroAndDestroy` to run outro transitions before destroying.
+      svelteDestroyPromises.push(outroAndDestroy(entry.component)); // If any proxy eventbus has been added then remove all event registrations from the component.
+
+      const eventbus = entry.config.eventbus;
+
+      if (typeof eventbus === 'object' && typeof eventbus.off === 'function') {
+        eventbus.off();
+        entry.config.eventbus = void 0;
+      }
+    } // Await all Svelte components to destroy.
+
+
+    await Promise.all(svelteDestroyPromises); // Reset SvelteData like this to maintain reference to GetSvelteData / `this.svelte`.
+
+    _classPrivateFieldGet(this, _svelteData).length = 0; // Use JQuery to remove `this._element` from the DOM. Most SvelteComponents have already removed it.
+
+    el.remove(); // Clean up data
+
+    _classPrivateFieldGet(this, _applicationShellHolder)[0] = null;
+    this._element = null;
+
+    _classPrivateFieldSet(this, _elementContent, null);
+
+    _classPrivateFieldSet(this, _elementTarget, null);
+
+    delete ui.windows[this.appId];
+    this._minimized = false;
+    this._scrollPositions = null;
+    this._state = states.CLOSED; // Update the minimized UI store options.
+
+    _classPrivateFieldGet(this, _storeUIOptionsUpdate).call(this, storeOptions => foundry.utils.mergeObject(storeOptions, {
+      minimized: this._minimized
+    }));
+  }
+  /**
+   * Provides a way to safely get this applications options given an accessor string which describes the
+   * entries to walk. To access deeper entries into the object format the accessor string with `.` between entries
+   * to walk.
+   *
+   * // TODO DOCUMENT the accessor in more detail.
+   *
+   * @param {string}   accessor - The path / key to set. You can set multiple levels.
+   *
+   * @param {*}        [defaultValue] - A default value returned if the accessor is not found.
+   *
+   * @returns {*} Value at the accessor.
+   */
+
+
+  getOptions(accessor, defaultValue) {
+    return safeAccess(this.options, accessor, defaultValue);
+  }
+  /**
+   * Inject the Svelte components defined in `this.options.svelte`. The Svelte component can attach to the existing
+   * pop-out of Application or provide no template and render into a document fragment which is then attached to the
+   * DOM.
+   *
+   * @param {JQuery} html -
+   *
+   * @override
+   * @inheritDoc
+   */
+
+
+  _injectHTML(html) {
+    if (this.popOut && html.length === 0 && Array.isArray(this.options.svelte)) {
+      throw new Error('SvelteApplication - _injectHTML - A popout app with no template can only support one Svelte component.');
+    } // Make sure the store is updated with the latest header buttons. Also allows filtering buttons before display.
+
+
+    this.updateHeaderButtons();
+
+    if (Array.isArray(this.options.svelte)) {
+      for (const svelteConfig of this.options.svelte) {
+        const svelteData = s_LOAD_CONFIG(this, html, svelteConfig, _classPrivateFieldGet(this, _storeAppOptions), _classPrivateFieldGet(this, _storeUIOptions));
+
+        if (isApplicationShell(svelteData.component)) {
+          if (_classPrivateFieldGet(this, _applicationShell) !== null) {
+            throw new Error(`SvelteApplication - _injectHTML - An application shell is already mounted; offending config: 
+                    ${JSON.stringify(svelteConfig)}`);
+          }
+
+          _classPrivateFieldGet(this, _applicationShellHolder)[0] = svelteData.component;
+        }
+
+        _classPrivateFieldGet(this, _svelteData).push(svelteData);
+      }
+    } else if (typeof this.options.svelte === 'object') {
+      const svelteData = s_LOAD_CONFIG(this, html, this.options.svelte, _classPrivateFieldGet(this, _storeAppOptions), _classPrivateFieldGet(this, _storeUIOptions));
+
+      if (isApplicationShell(svelteData.component)) {
+        // A sanity check as shouldn't hit this case as only one component is being mounted.
+        if (_classPrivateFieldGet(this, _applicationShell) !== null) {
+          throw new Error(`SvelteApplication - _injectHTML - An application shell is already mounted; offending config: 
+                 ${JSON.stringify(this.options.svelte)}`);
+        }
+
+        _classPrivateFieldGet(this, _applicationShellHolder)[0] = svelteData.component;
+      }
+
+      _classPrivateFieldGet(this, _svelteData).push(svelteData);
+    } // TODO EVALUATE; COMMENTED OUT WHILE WORKING ON HandlebarsApplication.
+    // else
+    // {
+    //    throw new TypeError(`SvelteApplication - _injectHTML - this.options.svelte not an array or object.`);
+    // }
+    // Detect if this is a synthesized DocumentFragment.
+
+
+    const isDocumentFragment = html.length && html[0] instanceof DocumentFragment; // If any of the Svelte components mounted directly targets an HTMLElement then do not inject HTML.
+
+    let injectHTML = true;
+
+    for (const svelteData of _classPrivateFieldGet(this, _svelteData)) {
+      if (!svelteData.injectHTML) {
+        injectHTML = false;
+        break;
+      }
+    }
+
+    if (injectHTML) {
+      super._injectHTML(html);
+    }
+
+    if (_classPrivateFieldGet(this, _applicationShell) !== null) {
+      this._element = $(_classPrivateFieldGet(this, _applicationShell).elementRoot); // Detect if the application shell exports an `elementContent` accessor.
+
+      _classPrivateFieldSet(this, _elementContent, hasGetter(_classPrivateFieldGet(this, _applicationShell), 'elementContent') ? _classPrivateFieldGet(this, _applicationShell).elementContent : null); // Detect if the application shell exports an `elementTarget` accessor.
+
+
+      _classPrivateFieldSet(this, _elementTarget, hasGetter(_classPrivateFieldGet(this, _applicationShell), 'elementTarget') ? _classPrivateFieldGet(this, _applicationShell).elementTarget : null);
+    } else if (isDocumentFragment) // Set the element of the app to the first child element in order of Svelte components mounted.
+      {
+        for (const svelteData of _classPrivateFieldGet(this, _svelteData)) {
+          if (svelteData.element instanceof HTMLElement) {
+            this._element = $(svelteData.element);
+            break;
+          }
+        }
+      } // Potentially retrieve a specific target element if `selectorTarget` is defined otherwise make the target the
+    // main element.
+
+
+    if (_classPrivateFieldGet(this, _elementTarget) === null) {
+      const element = typeof this.options.selectorTarget === 'string' ? this._element.find(this.options.selectorTarget) : this._element;
+
+      _classPrivateFieldSet(this, _elementTarget, element[0]);
+    } // TODO VERIFY THIS CHECK ESPECIALLY `this.#elementTarget.length === 0`.
+
+
+    if (_classPrivateFieldGet(this, _elementTarget) === null || _classPrivateFieldGet(this, _elementTarget) === void 0 || _classPrivateFieldGet(this, _elementTarget).length === 0) {
+      throw new Error(`SvelteApplication - _injectHTML: Target element '${this.options.selectorTarget}' not found.`);
+    } // Subscribe to local store handling. Defer to next clock tick for the render cycle to complete.
+
+
+    setTimeout(() => _classPrivateMethodGet(this, _storesSubscribe, _storesSubscribe2).call(this), 0);
+    this.onSvelteMount({
+      element: this._element[0],
+      elementContent: _classPrivateFieldGet(this, _elementContent),
+      elementTarget: _classPrivateFieldGet(this, _elementTarget)
+    });
+  }
+  /**
+   * Provides a mechanism to update the UI options store for minimized.
+   *
+   * Note: the sanity check is duplicated from {@link Application.maximize} and the store is updated _before_
+   * the actual parent method is invoked. This allows application shells to remove / show any resize handlers
+   * correctly.
+   *
+   * @inheritDoc
+   */
+
+
+  async maximize() {
+    if (!this.popOut || [false, null].includes(this._minimized)) {
+      return;
+    }
+
+    _classPrivateFieldGet(this, _storeUIOptionsUpdate).call(this, options => foundry.utils.mergeObject(options, {
+      minimized: false
+    }));
+
+    return super.maximize();
+  }
+  /**
+   * Provides a mechanism to update the UI options store for minimized.
+   *
+   * Note: the sanity check is duplicated from {@link Application.minimize} and the store is updated _before_
+   * the actual parent method is invoked. This allows application shells to remove / show any resize handlers
+   * correctly.
+   *
+   * @inheritDoc
+   */
+
+
+  async minimize() {
+    if (!this.rendered || !this.popOut || [true, null].includes(this._minimized)) {
+      return;
+    }
+
+    _classPrivateFieldGet(this, _storeUIOptionsUpdate).call(this, options => foundry.utils.mergeObject(options, {
+      minimized: true
+    }));
+
+    return super.minimize();
+  }
+  /**
+   * Provides a way to merge `options` into this applications options and update the appOptions store.
+   *
+   * @param {object}   options - The options object to merge with `this.options`.
+   */
+
+
+  mergeOptions(options) {
+    _classPrivateFieldGet(this, _storeAppOptionsUpdate).call(this, instanceOptions => foundry.utils.mergeObject(instanceOptions, options));
+  }
+  /**
+   * Provides a callback after all Svelte components are initialized.
+   *
+   * @param {object}      [opts] - Optional parameters.
+   *
+   * @param {HTMLElement} [opts.element] - HTMLElement container for main application element.
+   *
+   * @param {HTMLElement} [opts.elementContent] - HTMLElement container for content area of application shells.
+   *
+   * @param {HTMLElement} [opts.elementTarget] - HTMLElement container for main application target element.
+   */
+
+
+  onSvelteMount({
+    element,
+    elementContent,
+    elementTarget
+  }) {} // eslint-disable-line no-unused-vars
+
+  /**
+   * Override replacing HTML as Svelte components control the rendering process. Only potentially change the outer
+   * application frame / title for pop-out applications.
+   *
+   * @override
+   * @inheritDoc
+   */
+
+
+  _replaceHTML(element, html) // eslint-disable-line no-unused-vars
+  {
+    if (!element.length) {
+      return;
+    }
+
+    this.updateHeaderButtons();
+  }
+  /**
+   * Render the inner application content. Only render a template if one is defined otherwise provide an empty
+   * JQuery element.
+   *
+   * @param {Object} data         The data used to render the inner template
+   *
+   * @returns {Promise.<JQuery>}   A promise resolving to the constructed jQuery object
+   *
+   * @override
+   * @private
+   */
+
+
+  async _renderInner(data) {
+    const html = typeof this.template === 'string' ? await renderTemplate(this.template, data) : document.createDocumentFragment();
+    return $(html);
+  }
+  /**
+   * Provides a way to safely set this applications options given an accessor string which describes the
+   * entries to walk. To access deeper entries into the object format the accessor string with `.` between entries
+   * to walk.
+   *
+   * Additionally if an application shell Svelte component is mounted and exports the `appOptions` property then
+   * the application options is set to `appOptions` potentially updating the application shell / Svelte component.
+   *
+   * // TODO DOCUMENT the accessor in more detail.
+   *
+   * @param {string}   accessor - The path / key to set. You can set multiple levels.
+   *
+   * @param {*}        value - Value to set.
+   */
+
+
+  setOptions(accessor, value) {
+    const success = safeSet(this.options, accessor, value); // If `this.options` modified then update the app options store.
+
+    if (success) {
+      _classPrivateFieldGet(this, _storeAppOptionsUpdate).call(this, () => this.options);
+    }
+  }
+  /**
+   * Modified Application `setPosition` to support QuestTrackerApp for switchable resizable globalThis.
+   * Set the application position and store its new location.
+   *
+   * @param {object}               [opts] - Optional parameters.
+   *
+   * @param {number|null}          [opts.left] - The left offset position in pixels
+   *
+   * @param {number|null}          [opts.top] - The top offset position in pixels
+   *
+   * @param {number|null}          [opts.width] - The application width in pixels
+   *
+   * @param {number|string|null}   [opts.height] - The application height in pixels
+   *
+   * @param {number|null}          [opts.scale] - The application scale as a numeric factor where 1.0 is default
+   *
+   * @param {boolean}              [opts.noHeight] - When true no element height is modified.
+   *
+   * @param {boolean}              [opts.noWidth] - When true no element width is modified.
+   *
+   * @returns {{left: number, top: number, width: number, height: number, scale:number}}
+   * The updated position object for the application containing the new values
+   */
+
+
+  setPosition({
+    left,
+    top,
+    width,
+    height,
+    scale,
+    noHeight = false,
+    noWidth = false
+  } = {}) {
+    const el = this.elementTarget;
+    const currentPosition = this.position;
+    const styles = globalThis.getComputedStyle(el); // Update width if an explicit value is passed, or if no width value is set on the element
+
+    if (!el.style.width || width) {
+      const tarW = width || el.offsetWidth;
+      const minW = parseInt(styles.minWidth) || MIN_WINDOW_WIDTH;
+      const maxW = el.style.maxWidth || globalThis.innerWidth;
+      currentPosition.width = width = Math.clamped(tarW, minW, maxW);
+
+      if (!noWidth) {
+        el.style.width = `${width}px`;
+      }
+
+      if (width + currentPosition.left > globalThis.innerWidth) {
+        left = currentPosition.left;
+      }
+    }
+
+    width = el.offsetWidth; // Update height if an explicit value is passed, or if no height value is set on the element
+
+    if (!el.style.height || height) {
+      const tarH = height || el.offsetHeight + 1;
+      const minH = parseInt(styles.minHeight) || MIN_WINDOW_HEIGHT;
+      const maxH = el.style.maxHeight || globalThis.innerHeight;
+      currentPosition.height = height = Math.clamped(tarH, minH, maxH);
+
+      if (!noHeight) {
+        el.style.height = `${height}px`;
+      }
+
+      if (height + currentPosition.top > globalThis.innerHeight + 1) {
+        top = currentPosition.top - 1;
+      }
+    }
+
+    height = el.offsetHeight; // Update Left
+
+    if (!el.style.left || Number.isFinite(left)) {
+      const tarL = Number.isFinite(left) ? left : (globalThis.innerWidth - width) / 2;
+      const maxL = Math.max(globalThis.innerWidth - width, 0);
+      currentPosition.left = left = Math.clamped(tarL, 0, maxL);
+      el.style.left = `${left}px`;
+    } // Update Top
+
+
+    if (!el.style.top || Number.isFinite(top)) {
+      const tarT = Number.isFinite(top) ? top : (globalThis.innerHeight - height) / 2;
+      const maxT = Math.max(globalThis.innerHeight - height, 0);
+      currentPosition.top = top = Math.clamped(tarT, 0, maxT);
+      el.style.top = `${currentPosition.top}px`;
+    } // Update Scale
+
+
+    if (scale) {
+      currentPosition.scale = Math.max(scale, 0);
+
+      if (scale === 1) {
+        el.style.transform = "";
+      } else {
+        el.style.transform = `scale(${scale})`;
+      }
+    } // Return the updated position object
+
+
+    return currentPosition;
+  }
+  /**
+   * Initializes the Svelte stores and derived stores for the application options and UI state.
+   *
+   * While writable stores are created the update method is stored in private variables locally and derived Readable
+   * stores are provided for essential options which are commonly used.
+   *
+   * These stores are injected into all Svelte components mounted under the `external` context: `storeAppOptions` and
+   * ` storeUIOptions`.
+   */
+
+
+  /**
+   * Updates the UI Options store with the current header buttons. You may dynamically add / remove header buttons
+   * if using an application shell Svelte component. In either overriding `_getHeaderButtons` or responding to the
+   * Hooks fired return a new button array and the uiOptions store is updated and the application shell will render
+   * the new buttons.
+   *
+   * Optionally you can set in the Foundry app options `headerButtonNoLabel` to true and labels will be removed from
+   * the header buttons.
+   */
+  updateHeaderButtons() {
+    const buttons = this._getHeaderButtons(); // Remove labels if this.options.headerButtonNoLabel is true;
+
+
+    if (typeof this.options.headerButtonNoLabel === 'boolean' && this.options.headerButtonNoLabel) {
+      for (const button of buttons) {
+        button.label = void 0;
+      }
+    }
+
+    _classPrivateFieldGet(this, _storeUIOptionsUpdate).call(this, options => {
+      options.headerButtons = buttons;
+      return options;
+    });
+  }
+
+}
+/**
+ * Instantiates and attaches a Svelte component to the main inserted HTML.
+ *
+ * @param {SvelteApplication} app - The application
+ *
+ * @param {JQuery}            html - The inserted HTML.
+ *
+ * @param {object}            config - Svelte component options
+ *
+ * @param {StoreAppOptions}   storeAppOptions - Svelte store for app options.
+ *
+ * @param {StoreUIOptions}    storeUIOptions - Svelte store for UI options.
+ *
+ * @returns {object} The config + instantiated Svelte component.
+ */
+
+function _get_applicationShell() {
+  return _classPrivateFieldGet(this, _applicationShellHolder)[0];
+}
+
+function _storesInitialize2() {
+  const writtableAppOptions = writable(this.options); // Keep the update function locally, but make the store essentially readable.
+
+  _classPrivateFieldSet(this, _storeAppOptionsUpdate, writtableAppOptions.update);
+  /**
+   * @type {StoreAppOptions}
+   */
+
+
+  const storeAppOptions = {
+    subscribe: writtableAppOptions.subscribe,
+    draggable: derived(writtableAppOptions, ($options, set) => set($options.draggable)),
+    minimizable: derived(writtableAppOptions, ($options, set) => set($options.minimizable)),
+    popOut: derived(writtableAppOptions, ($options, set) => set($options.popOut)),
+    resizable: derived(writtableAppOptions, ($options, set) => set($options.resizable)),
+    title: derived(writtableAppOptions, ($options, set) => set($options.title)),
+    zIndex: derived(writtableAppOptions, ($options, set) => set(Number.isInteger($options.zIndex) ? $options.zIndex : null))
+  };
+  Object.freeze(storeAppOptions);
+
+  _classPrivateFieldSet(this, _storeAppOptions, storeAppOptions); // Create a store for UI state data.
+
+
+  const writableUIOptions = writable({
+    headerButtons: [],
+    minimized: this._minimized
+  }); // Keep the update function locally, but make the store essentially readable.
+
+  _classPrivateFieldSet(this, _storeUIOptionsUpdate, writableUIOptions.update);
+  /**
+   * @type {StoreUIOptions}
+   */
+
+
+  const storeUIOptions = {
+    subscribe: writableUIOptions.subscribe,
+    headerButtons: derived(writableUIOptions, ($options, set) => set($options.headerButtons)),
+    minimized: derived(writableUIOptions, ($options, set) => set($options.minimized))
+  };
+  Object.freeze(storeUIOptions); // Initialize the store with options set in the Application constructor.
+
+  _classPrivateFieldSet(this, _storeUIOptions, storeUIOptions);
+}
+
+function _storesSubscribe2() {
+  // Register local subscriptions.
+  _classPrivateFieldGet(this, _storeUnsubscribe).push(_classPrivateFieldGet(this, _storeAppOptions).popOut.subscribe(value => {
+    if (value && this.rendered) {
+      ui.windows[this.appId] = this;
+    } else {
+      delete ui.windows[this.appId];
+    }
+  })); // Handles directly updating the element root `z-index` style when `zIndex` changes.
+
+
+  _classPrivateFieldGet(this, _storeUnsubscribe).push(_classPrivateFieldGet(this, _storeAppOptions).zIndex.subscribe(value => {
+    if (this._element !== null) {
+      this._element[0].style.zIndex = value;
+    }
+  }));
+}
+
+function _storesUnsubscribe2() {
+  _classPrivateFieldGet(this, _storeUnsubscribe).forEach(unsubscribe => unsubscribe());
+
+  _classPrivateFieldSet(this, _storeUnsubscribe, []);
+}
+
+function s_LOAD_CONFIG(app, html, config, storeAppOptions, storeUIOptions) {
+  const svelteOptions = typeof config.options === 'object' ? config.options : {}; // TODO EVALUATE; COMMENTED OUT WHILE WORKING ON HandlebarsApplication.
+  // if (typeof app.template === 'string' && typeof config.target !== 'string')
+  // {
+  //    throw new TypeError(
+  //     `SvelteApplication - s_LOAD_CONFIG - Template defined and target selector not a string for config:\n${
+  //      JSON.stringify(config)}`);
+  // }
+
+  let target;
+
+  if (config.target instanceof HTMLElement) // A specific HTMLElement to append Svelte component.
+    {
+      target = config.target;
+    } else if (typeof config.target === 'string') // A string target defines a selector to find in existing HTML.
+    {
+      target = html.find(config.target).get(0);
+    } else // No target defined, create a document fragment.
+    {
+      target = document.createDocumentFragment();
+    }
+
+  if (target === void 0) {
+    throw new Error(`SvelteApplication - s_LOAD_CONFIG - could not find target selector: ${config.target} for config:\n${JSON.stringify(config)}`);
+  }
+
+  const NewSvelteComponent = config.class;
+  const svelteConfig = parseSvelteConfig(_objectSpread2(_objectSpread2({}, config), {}, {
+    target
+  }), app);
+  const externalContext = svelteConfig.context.get('external'); // Inject the Foundry application instance as a Svelte prop.
+
+  externalContext.foundryApp = app; // Always inject the appOptions and uiOptions stores.
+
+  externalContext.storeAppOptions = storeAppOptions;
+  externalContext.storeUIOptions = storeUIOptions;
+  let eventbus; // Potentially inject any TyphonJS eventbus and track the proxy in the SvelteData instance.
+
+  if (typeof app._eventbus === 'object' && typeof app._eventbus.createProxy === 'function') {
+    eventbus = app._eventbus.createProxy();
+    externalContext.eventbus = eventbus;
+  } // Create the Svelte component.
+
+
+  const component = new NewSvelteComponent(svelteConfig); // Set any eventbus to the config.
+
+  svelteConfig.eventbus = eventbus;
+  let element; // We can directly get the root element from components which follow the application store contract.
+
+  if (isApplicationShell(component)) {
+    element = component.elementRoot;
+  } // Detect if target is a synthesized DocumentFragment with an child element. Child elements will be present
+  // if the Svelte component mounts and renders initial content into the document fragment.
+
+
+  if (config.target instanceof DocumentFragment && target.firstElementChild) {
+    if (element === void 0) {
+      element = target.firstElementChild;
+    }
+
+    html.append(target);
+  } else if (config.target instanceof HTMLElement && element === void 0) {
+    if (config.target instanceof HTMLElement && typeof svelteOptions.selectorElement !== 'string') {
+      throw new Error(`SvelteApplication - s_LOAD_CONFIG - HTMLElement target with no 'selectorElement' defined for config:\n${JSON.stringify(config)}`);
+    } // The target is an HTMLElement so find the Application element from `selectorElement` option.
+
+
+    element = target.querySelector(svelteOptions.selectorElement);
+
+    if (element === null || element === void 0) {
+      throw new Error(`SvelteApplication - s_LOAD_CONFIG - HTMLElement target - could not find 'selectorElement' for config:\n${JSON.stringify(config)}`);
+    }
+  } // If the configuration / original target is an HTML element then do not inject HTML.
+
+
+  const injectHTML = !(config.target instanceof HTMLElement);
+  const result = {
+    config: svelteConfig,
+    component,
+    element,
+    injectHTML
+  };
+  Object.freeze(result);
+  return result;
+}
+
+var _orignalPopOut = /*#__PURE__*/new WeakMap();
+
+class HandlebarsFormApplication extends SvelteFormApplication {
+  /**
+   * Temporarily holds the original popOut value when rendering.
+   *
+   * @type {boolean}
+   */
+
+  /**
+   * @inheritDoc
+   */
+  constructor(object, options) {
+    super(object, options);
+
+    _classPrivateFieldInitSpec(this, _orignalPopOut, {
+      writable: true,
+      value: void 0
+    });
+
+    if (this.popOut) {
+      this.options.svelte = foundry.utils.mergeObject(typeof this.options.svelte === 'object' ? this.options.svelte : {}, {
+        class: ApplicationShell,
+        intro: true,
+        target: document.body
+      });
+    }
+  }
+  /**
+   * Temporarily set popOut to false to only render inner HTML. This inner HTML will be appended to the content area
+   * of ApplicationShell if the original popOut value is true.
+   *
+   * @inheritDoc
+   */
+
+
+  async _render(force, options) {
+    _classPrivateFieldSet(this, _orignalPopOut, this.options.popOut);
+
+    this.options.popOut = false;
+    await super._render(force, options);
+    this.options.popOut = _classPrivateFieldGet(this, _orignalPopOut);
+  }
+  /**
+   * Duplicates the FormApplication `_renderInner` method as SvelteFormApplication does not defer to super
+   * implementations.
+   *
+   * @inheritDoc
+   */
+
+
+  async _renderInner(data) {
+    const html = await super._renderInner(data);
+    this.form = html.filter((i, el) => el instanceof HTMLFormElement)[0];
+
+    if (!this.form) {
+      this.form = html.find('form')[0];
+    }
+
+    return html;
+  }
+
+  _injectHTML(html) {
+    var _this$svelte, _this$svelte$applicat;
+
+    // Mounts any Svelte components.
+    super._injectHTML(html); // Appends inner HTML content to application shell content element.
+
+
+    if ((_this$svelte = this.svelte) !== null && _this$svelte !== void 0 && (_this$svelte$applicat = _this$svelte.applicationShell) !== null && _this$svelte$applicat !== void 0 && _this$svelte$applicat.elementContent) {
+      this.svelte.applicationShell.elementContent.appendChild(...html);
+    }
+  }
+  /**
+   * Override replacing HTML as Svelte components control the rendering process. Only potentially change the outer
+   * application frame / title for pop-out applications.
+   *
+   * @override
+   * @inheritDoc
+   */
+
+
+  _replaceHTML(element, html) // eslint-disable-line no-unused-vars
+  {
+    var _this$svelte2, _this$svelte2$applica;
+
+    if (!element.length) {
+      return;
+    }
+
+    super._replaceHTML(element, html);
+
+    if ((_this$svelte2 = this.svelte) !== null && _this$svelte2 !== void 0 && (_this$svelte2$applica = _this$svelte2.applicationShell) !== null && _this$svelte2$applica !== void 0 && _this$svelte2$applica.elementContent) {
+      const elementContent = this.svelte.applicationShell.elementContent; // Remove existing children.
+
+      while (elementContent.firstChild && !elementContent.lastChild.remove()) {} // eslint-disable-line no-empty
+
+
+      elementContent.appendChild(...html); // Use the setter from `SvelteFormApplication` to set the title store.
+
+      this.title = this.title; // eslint-disable-line no-self-assign
+    } else {
+      element.replaceWith(html);
+      this._element = html;
+      this.elementTarget = html[0];
+    }
+  }
+
+}
+
+export { HandlebarsApplication, HandlebarsFormApplication };
