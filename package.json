@@ -38,7 +38,7 @@
       "import": "./dist/svelte/application/legacy/index.js"
     },
     "./svelte/component/core": {
-      "import": "./dist/svelte/component-core.js"
+      "import": "./dist/svelte/component/core/index.js"
     },
     "./svelte/easing": {
       "import": "./dist/svelte/easing/index.js"
