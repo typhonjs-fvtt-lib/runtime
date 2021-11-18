@@ -324,3 +324,4 @@ class SessionStorage
 }
 
 export { LocalStorage, SessionStorage };
+//# sourceMappingURL=system.js.map

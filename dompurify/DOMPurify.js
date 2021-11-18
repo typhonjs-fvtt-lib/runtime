@@ -1414,3 +1414,4 @@ purify.sanitizeWithVideo = (dirty) =>
 };
 
 export { purify as default };
+//# sourceMappingURL=DOMPurify.js.map

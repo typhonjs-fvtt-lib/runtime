@@ -343,3 +343,4 @@ const s_DEFAULT_TRANSITION = () => void 0;
 const s_DEFAULT_TRANSITION_OPTIONS = {};
 
 export { blur, crossfade, draw, fade, fly, rotate, rotateFade, s_DEFAULT_TRANSITION, s_DEFAULT_TRANSITION_OPTIONS, scale, slide, slideFade };
+//# sourceMappingURL=transition.js.map

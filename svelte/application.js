@@ -1809,3 +1809,4 @@ var _contextMenu = {
 };
 
 export { SvelteApplication, TJSDialog, TJSMenu };
+//# sourceMappingURL=application.js.map

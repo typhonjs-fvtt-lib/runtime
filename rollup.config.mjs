@@ -13,7 +13,7 @@ import terserConfig        from './terser.config.js';
 import postcssConfig       from './postcssConfig.js';
 
 const s_COMPRESS = false;
-const s_SOURCEMAPS = false;
+const s_SOURCEMAPS = true;
 
 const postcssLib = postcssConfig({
    extract: 'core.css',

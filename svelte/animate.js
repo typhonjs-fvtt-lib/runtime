@@ -30,3 +30,4 @@ function flip(node, { from, to }, params = {}) {
 }
 
 export { flip };
+//# sourceMappingURL=animate.js.map

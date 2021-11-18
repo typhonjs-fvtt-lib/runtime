@@ -1437,3 +1437,4 @@ class DOMPurify
 }
 
 export { DOMPurify };
+//# sourceMappingURL=index.js.map

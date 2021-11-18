@@ -217,3 +217,4 @@ class SvelteComponentTyped extends SvelteComponentDev {
 }
 
 export { SvelteComponentDev as SvelteComponent, SvelteComponentTyped, afterUpdate, beforeUpdate, createEventDispatcher, getAllContexts, getContext, hasContext, onDestroy, onMount, setContext, tick };
+//# sourceMappingURL=index.js.map

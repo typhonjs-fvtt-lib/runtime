@@ -301,3 +301,4 @@ function tweened(value, defaults = {}) {
 }
 
 export { spring, tweened };
+//# sourceMappingURL=motion.js.map

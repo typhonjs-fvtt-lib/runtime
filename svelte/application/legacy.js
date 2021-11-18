@@ -1635,3 +1635,4 @@ class HandlebarsFormApplication extends SvelteFormApplication {
 }
 
 export { HandlebarsApplication, HandlebarsFormApplication };
+//# sourceMappingURL=legacy.js.map
