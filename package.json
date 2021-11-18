@@ -14,7 +14,10 @@
       "import": "./.rollup/remote/index.js"
     },
     "./dompurify": {
-      "import": "./dist/dompurify/index.js"
+      "import": "./dist/dompurify/main/index.js"
+    },
+    "./dompurify/plugin/system": {
+      "import": "./dist/dompurify/plugin/system/index.js"
     },
     "./plugin/manager": {
       "import": "./dist/plugin/manager/index.js"

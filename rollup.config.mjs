@@ -46,7 +46,7 @@ const s_MODULES_DOMPURIFY = [
    {
       input: '.build/dompurify/DOMPurify.js',
       output: {
-         file: 'DOMPurify.js',
+         file: 'dompurify/DOMPurify.js',
          format: 'es',
          plugins: outputPlugins,
          preferConst: true,
@@ -61,7 +61,37 @@ const s_MODULES_DOMPURIFY = [
    {
       input: '.build/dompurify/DOMPurify.js',
       output: {
-         file: 'dist/dompurify/index.js',
+         file: 'dist/dompurify/main/index.js',
+         format: 'es',
+         plugins: outputPlugins,
+         preferConst: true,
+         sourcemap,
+         // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+      },
+      plugins: [
+         resolve({ browser: true }),
+         sourcemaps()
+      ]
+   },
+   {
+      input: '.build/dompurify/plugin/system/index.js',
+      output: {
+         file: 'dompurify/plugin/system.js',
+         format: 'es',
+         plugins: outputPlugins,
+         preferConst: true,
+         sourcemap,
+         // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+      },
+      plugins: [
+         resolve({ browser: true }),
+         sourcemaps()
+      ]
+   },
+   {
+      input: '.build/dompurify/plugin/system/index.js',
+      output: {
+         file: 'dist/dompurify/plugin/system/index.js',
          format: 'es',
          plugins: outputPlugins,
          preferConst: true,

@@ -3,7 +3,8 @@ import { externalPathsLib } from '../local/externalPathsLib.js';
 export const externalPathsRemote = {
    ...externalPathsLib,
 
-   '@typhonjs-fvtt/runtime/dompurify': '/modules/typhonjs/DOMPurify.js',
+   '@typhonjs-fvtt/runtime/dompurify': '/modules/typhonjs/dompurify/DOMPurify.js',
+   '@typhonjs-fvtt/runtime/dompurify/plugin/system': '/modules/typhonjs/dompurify/plugin/system.js',
 
    '@typhonjs-fvtt/runtime/plugin/manager': '/modules/typhonjs/plugin/manager.js',
 
