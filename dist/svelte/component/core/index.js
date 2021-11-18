@@ -894,7 +894,7 @@ function get_each_context$2(ctx, list, i) {
 	return child_ctx;
 }
 
-// (46:4) {#each $storeHeaderButtons as button}
+// (54:4) {#each $storeHeaderButtons as button}
 function create_each_block$2(ctx) {
 	let tjsheaderbutton;
 	let current;
@@ -1061,7 +1061,13 @@ function instance$6($$self, $$props, $$invalidate) {
 	const context = getContext('external');
 	const foundryApp = context.foundryApp;
 
-	const bringToTop = typeof foundryApp.options.popOut === 'boolean' && foundryApp.options.popOut
+	const bringToTop = () => {
+		if (typeof foundryApp.options.popOut === 'boolean' && foundryApp.options.popOut) {
+			foundryApp.bringToTop.call(foundryApp);
+		}
+	};
+
+	typeof foundryApp.options.popOut === 'boolean' && foundryApp.options.popOut
 	? () => foundryApp.bringToTop.call(foundryApp)
 	: () => void 0;
 

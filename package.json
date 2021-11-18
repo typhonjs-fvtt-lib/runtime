@@ -8,7 +8,6 @@
   "contributors": [
     "Michael Leahy <support@typhonjs.io> (https://github.com/typhonrt)"
   ],
-  "svelte": "./dist/svelte/component/core/index.js",
   "exports": {
     "./package.json": "./package.json",
     "./rollup": {
@@ -64,7 +63,6 @@
     }
   },
   "dependencies": {
-    "svelte": "^3.44.0"
   },
   "devDependencies": {
     "@itsjamie/esdoc-core": "^0.3",
@@ -93,6 +91,7 @@
     "rollup-plugin-svelte": "^7",
     "rollup-plugin-terser": "^7",
     "sass": "^1",
+    "svelte": "^3.44.0",
     "svelte-preprocess": "^4"
   },
   "scripts": {
