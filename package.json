@@ -78,12 +78,7 @@
     }
   },
   "dependencies": {
-    "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte",
-    "@typhonjs-plugin/manager": "^0.0.11",
-    "@typhonjs-tinymce/oembed": "^0.1.0",
-    "dompurify": "^2",
-    "magic-string": "^0.25.0",
-    "svelte": "^3"
+    "svelte": "^3.44.0"
   },
   "devDependencies": {
     "@itsjamie/esdoc-core": "^0.3",
@@ -96,9 +91,14 @@
     "@types/jquery": "^3",
     "@typhonjs-config/eslint-config": "^0.3.0",
     "@typhonjs-fvtt/eslint-config-foundry.js": "^0.8.0",
+    "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte",
+    "@typhonjs-plugin/manager": "^0.0.11",
+    "@typhonjs-tinymce/oembed": "^0.1.0",
     "autoprefixer": "^10",
     "cssnano": "^5",
+    "dompurify": "^2",
     "eslint": "^8",
+    "magic-string": "^0.25.0",
     "postcss": "^8",
     "postcss-preset-env": "^6",
     "rollup": "^2",
