@@ -221,7 +221,7 @@ function createSvelteConfig(isLib, outputMap, postcssCore)
          output: {
             file: outputMap['.build/svelte/index.js'],
             format: 'es',
-            plugins: [typhonjsRuntime({ isLib, output: true }), ...outputPlugins],
+            plugins: isLib ? [typhonjsRuntime({ isLib, output: true }), ...outputPlugins] : outputPlugins,
             preferConst: true,
             sourcemap,
             // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)

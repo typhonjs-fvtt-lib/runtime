@@ -1,4 +1,3 @@
-import { get_current_component, set_current_component } from '@typhonjs-fvtt/runtime/svelte/internal';
 function noop() { }
 function run(fn) {
     return fn();
@@ -15,9 +14,15 @@ function custom_event(type, detail, bubbles = false) {
     return e;
 }
 
-
-
-
+let current_component;
+function set_current_component(component) {
+    current_component = component;
+}
+function get_current_component() {
+    if (!current_component)
+        throw new Error('Function called outside component initialization');
+    return current_component;
+}
 function beforeUpdate(fn) {
     get_current_component().$$.before_update.push(fn);
 }
