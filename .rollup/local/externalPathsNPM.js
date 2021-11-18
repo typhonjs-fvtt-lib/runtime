@@ -1,24 +1,16 @@
-import { exportsSveltePackage } from './exportsSveltePackage.js';
-
-const exportsSvelteRemapped = Object.fromEntries(exportsSveltePackage.map(
- (entry) => [`@typhonjs-fvtt/svelte${entry}`, `@typhonjs-fvtt/runtime/svelte${entry}`]));
-
-// console.log(exportsSvelteRemapped);
-
 export const externalPathsNPM = {
-   ...exportsSvelteRemapped,
-   // '@typhonjs-fvtt/svelte/action': '@typhonjs-fvtt/runtime/svelte/action',
-   // '@typhonjs-fvtt/svelte/application': '@typhonjs-fvtt/runtime/svelte/application',
-   // '@typhonjs-fvtt/svelte/application/legacy': '@typhonjs-fvtt/runtime/svelte/application/legacy',
-   // '@typhonjs-fvtt/svelte/component/core': '@typhonjs-fvtt/runtime/svelte/component/core',
-   // '@typhonjs-fvtt/svelte/gsap': '@typhonjs-fvtt/runtime/svelte/gsap',
-   // '@typhonjs-fvtt/svelte/handler': '@typhonjs-fvtt/runtime/svelte/handler',
-   // '@typhonjs-fvtt/svelte/helper': '@typhonjs-fvtt/runtime/svelte/helper',
-   // '@typhonjs-fvtt/svelte/plugin/data': '@typhonjs-fvtt/runtime/svelte/plugin/data',
-   // '@typhonjs-fvtt/svelte/plugin/system': '@typhonjs-fvtt/runtime/svelte/plugin/system',
-   // '@typhonjs-fvtt/svelte/store': '@typhonjs-fvtt/runtime/svelte/store',
-   // '@typhonjs-fvtt/svelte/transition': '@typhonjs-fvtt/runtime/svelte/transition',
-   // '@typhonjs-fvtt/svelte/util': '@typhonjs-fvtt/runtime/svelte/util',
+   '@typhonjs-fvtt/svelte/action': '@typhonjs-fvtt/runtime/svelte/action',
+   '@typhonjs-fvtt/svelte/application': '@typhonjs-fvtt/runtime/svelte/application',
+   '@typhonjs-fvtt/svelte/application/legacy': '@typhonjs-fvtt/runtime/svelte/application/legacy',
+   '@typhonjs-fvtt/svelte/component/core': '@typhonjs-fvtt/runtime/svelte/component/core',
+   '@typhonjs-fvtt/svelte/gsap': '@typhonjs-fvtt/runtime/svelte/gsap',
+   '@typhonjs-fvtt/svelte/handler': '@typhonjs-fvtt/runtime/svelte/handler',
+   '@typhonjs-fvtt/svelte/helper': '@typhonjs-fvtt/runtime/svelte/helper',
+   '@typhonjs-fvtt/svelte/plugin/data': '@typhonjs-fvtt/runtime/svelte/plugin/data',
+   '@typhonjs-fvtt/svelte/plugin/system': '@typhonjs-fvtt/runtime/svelte/plugin/system',
+   '@typhonjs-fvtt/svelte/store': '@typhonjs-fvtt/runtime/svelte/store',
+   '@typhonjs-fvtt/svelte/transition': '@typhonjs-fvtt/runtime/svelte/transition',
+   '@typhonjs-fvtt/svelte/util': '@typhonjs-fvtt/runtime/svelte/util',
 
    '@typhonjs-plugin/manager': '@typhonjs-fvtt/runtime/plugin/manager',
 
