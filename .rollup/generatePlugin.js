@@ -22,6 +22,7 @@ export function generatePlugin(externalPaths, exclude = [])
             opts.output.paths = typeof opts.output.paths === 'object' ? { ...opts.output.paths, ...externalPaths } :
              externalPaths;
          }
+console.log(`!!! generatePlugin - opts:\n${JSON.stringify(opts, null, 2)}`)
       }
    };
 }

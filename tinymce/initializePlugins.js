@@ -1,5 +1,8 @@
 let initialized = false;
 
+/**
+ * Initializes and loads TinyMCE plugins once upon invocation.
+ */
 function initializePlugins()
 {
    if (!initialized)

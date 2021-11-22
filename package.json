@@ -11,54 +11,71 @@
   "exports": {
     "./package.json": "./package.json",
     "./rollup": {
+      "types": "./.rollup/remote/index.d.ts",
       "import": "./.rollup/remote/index.js"
     },
     "./dompurify": {
+      "types": "./dist/dompurify/index.d.ts",
       "import": "./dist/dompurify/index.js"
     },
     "./dompurify/plugin/system": {
+      "types": "./dist/dompurify/plugin/system/index.d.ts",
       "import": "./dist/dompurify/plugin/system/index.js"
     },
     "./plugin/manager": {
+      "types": "./dist/plugin/manager/index.d.ts",
       "import": "./dist/plugin/manager/index.js"
     },
     "./svelte/action": {
+      "types": "./dist/svelte/action/index.d.ts",
       "import": "./dist/svelte/action/index.js"
     },
     "./svelte/application": {
+      "types": "./dist/svelte/application/index.d.ts",
       "import": "./dist/svelte/application/index.js"
     },
     "./svelte/application/legacy": {
+      "types": "./dist/svelte/application/legacy/index.d.ts",
       "import": "./dist/svelte/application/legacy/index.js"
     },
     "./svelte/component/core": {
+      "types": "./dist/svelte/component/index.d.ts",
       "import": "./dist/svelte/component/core/index.js"
     },
     "./svelte/gsap": {
+      "types": "./dist/svelte/gsap/index.d.ts",
       "import": "./dist/svelte/gsap/index.js"
     },
     "./svelte/handler": {
+      "types": "./dist/svelte/handler/index.d.ts",
       "import": "./dist/svelte/handler/index.js"
     },
     "./svelte/helper": {
+      "types": "./dist/svelte/helper/index.d.ts",
       "import": "./dist/svelte/helper/index.js"
     },
     "./svelte/plugin/data": {
+      "types": "./dist/svelte/plugin/data/index.d.ts",
       "import": "./dist/svelte/plugin/data/index.js"
     },
     "./svelte/plugin/system": {
+      "types": "./dist/svelte/plugin/system/index.d.ts",
       "import": "./dist/svelte/plugin/system/index.js"
     },
     "./svelte/store": {
+      "types": "./dist/svelte/store/index.d.ts",
       "import": "./dist/svelte/store/index.js"
     },
     "./svelte/transition": {
+      "types": "./dist/svelte/transition/index.d.ts",
       "import": "./dist/svelte/transition/index.js"
     },
     "./svelte/util": {
+      "types": "./dist/svelte/util/index.d.ts",
       "import": "./dist/svelte/util/index.js"
     },
     "./tinymce": {
+      "types": "./dist/tinymce/initializePlugins.d.ts",
       "import": "./dist/tinymce/initializePlugins.js"
     }
   },
@@ -73,10 +90,11 @@
     "@rollup/plugin-node-resolve": "^13",
     "@rollup/plugin-virtual": "^2",
     "@types/jquery": "^3",
+    "@typhonjs-build-test/esm-d-ts": "^0.0.1",
     "@typhonjs-config/eslint-config": "^0.3.0",
     "@typhonjs-fvtt/eslint-config-foundry.js": "^0.8.0",
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte",
-    "@typhonjs-plugin/manager": "^0.0.11",
+    "@typhonjs-plugin/manager": "^0.0.12",
     "@typhonjs-tinymce/oembed": "^0.1.0",
     "autoprefixer": "^10",
     "cssnano": "^5",
@@ -86,13 +104,16 @@
     "postcss": "^8",
     "postcss-preset-env": "^6",
     "rollup": "^2",
+    "rollup-plugin-dts": "^4",
     "rollup-plugin-postcss": "^4",
     "rollup-plugin-sourcemaps": "^0.6",
     "rollup-plugin-svelte": "^7",
     "rollup-plugin-terser": "^7",
     "sass": "^1",
     "svelte": "^3.44.0",
-    "svelte-preprocess": "^4"
+    "svelte-preprocess": "^4",
+    "typescript": "^4.5.0",
+    "virtual-tsc": "^0.6.0"
   },
   "scripts": {
     "build-dist": "rollup --config",

@@ -1,6 +1,6 @@
 import { writable, derived } from 'svelte/store';
-import { outroAndDestroy, isApplicationShell, hasGetter, parseSvelteConfig } from '@typhonjs-fvtt/runtime/svelte/util';
-import { DialogShell, TJSContextMenu } from '@typhonjs-fvtt/runtime/svelte/component/core';
+import { outroAndDestroy, isApplicationShell, hasGetter, parseSvelteConfig } from '@typhonjs-fvtt/svelte/util';
+import { DialogShell, TJSContextMenu } from '@typhonjs-fvtt/svelte/component/core';
 
 function ownKeys(object, enumerableOnly) {
   var keys = Object.keys(object);
@@ -327,7 +327,7 @@ var _svelteData$1 = /*#__PURE__*/new WeakMap();
  */
 class GetSvelteData {
   /**
-   * @type {ApplicationShell|null[]}
+   * @type {ApplicationShell[]|null[]}
    */
 
   /**
@@ -337,7 +337,7 @@ class GetSvelteData {
   /**
    * Keep a direct reference to the SvelteData array in an associated {@link SvelteApplication}.
    *
-   * @param {ApplicationShell|null[]}  applicationShellHolder - A reference to the ApplicationShell array.
+   * @param {ApplicationShell[]|null[]}  applicationShellHolder - A reference to the ApplicationShell array.
    *
    * @param {SvelteData[]}  svelteData - A reference to the SvelteData array of mounted components.
    */
@@ -499,7 +499,7 @@ class SvelteApplication extends Application {
   /**
    * Stores the first mounted component which follows the application shell contract.
    *
-   * @type {ApplicationShell|null[]} Application shell.
+   * @type {ApplicationShell[]|null[]} Application shell.
    */
 
   /**
@@ -953,7 +953,6 @@ class SvelteApplication extends Application {
    *
    * @param {JQuery} html -
    *
-   * @override
    * @inheritDoc
    */
 
@@ -1133,7 +1132,6 @@ class SvelteApplication extends Application {
    * Override replacing HTML as Svelte components control the rendering process. Only potentially change the outer
    * application frame / title for pop-out applications.
    *
-   * @override
    * @inheritDoc
    */
 
@@ -1154,7 +1152,6 @@ class SvelteApplication extends Application {
    *
    * @returns {Promise.<JQuery>}   A promise resolving to the constructed jQuery object
    *
-   * @override
    * @private
    */
 

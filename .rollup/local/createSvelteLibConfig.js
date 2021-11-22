@@ -1,4 +1,5 @@
 import postcss          from 'rollup-plugin-postcss';
+import postcssConfig    from '../../postcssConfig.js';
 import resolve          from '@rollup/plugin-node-resolve';
 import sourcemaps       from 'rollup-plugin-sourcemaps';
 import svelte           from 'rollup-plugin-svelte';
@@ -28,9 +29,15 @@ const bundleMap = {
    'svelte/util': ['@typhonjs-fvtt/svelte/util'],
 };
 
-export function createSvelteLibConfig({ sourcemap, outputPlugins, postcssCore })
+export function createSvelteLibConfig({ sourcemap, outputPlugins })
 {
    const isLib = true;
+
+   const postcssCore = postcssConfig({
+      extract: 'core.css',
+      compress: true,
+      sourceMap: sourcemap
+   });
 
    // Provide special handling for `svelte` and `@typhonjs-fvtt/svelte/component/core`.
    const config = [

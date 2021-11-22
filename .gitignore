@@ -1,6 +1,6 @@
 package-lock.json
 empty.js
+.dts/
 .idea/
 docs/
-lang/untranslated.json
 node_modules/
