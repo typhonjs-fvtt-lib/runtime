@@ -132,7 +132,8 @@
     "svelte"
   ],
   "files": [
-    "/.rollup",
+    "/.rollup/*.js",
+    "/.rollup/remote",
     "/dist"
   ],
   "repository": "github:typhonjs-fvtt-lib/typhonjs",
