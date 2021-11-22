@@ -132,7 +132,8 @@
     "svelte"
   ],
   "files": [
-    "/.rollup/*.js",
+    "/.rollup/generatePlugin.js",
+    "/.rollup/local/externalPathsLib.js",
     "/.rollup/remote",
     "/dist"
   ],
