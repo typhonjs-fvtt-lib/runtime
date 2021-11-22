@@ -189,30 +189,30 @@ const rollupPluginsNPM = [
    ...s_MODULES_TINYMCE_NPM
 ];
 
-// for (const config of rollupPluginsNPM)
-// {
-//    const bundle = await rollup(config.input);
-//
-//    await bundle.write(config.output);
-//
-//    // closes the bundle
-//    await bundle.close();
-//
-//    const dtsFile = config.output.dtsFile || config.output.output.file || config.output.file;
-//    const outFile = config.output.output.file || config.output.file;
-//
-//    await generateTSDef({
-//       main: dtsFile,
-//       output: upath.changeExt(outFile, '.d.ts')
-//    });
-//
-//    fs.writeJSONSync(`${path.dirname(outFile)}/package.json`, {
-//       main: './index.js',
-//       module: './index.js',
-//       type: 'module',
-//       types: './index.d.ts'
-//    });
-// }
+for (const config of rollupPluginsNPM)
+{
+   const bundle = await rollup(config.input);
+
+   await bundle.write(config.output);
+
+   // closes the bundle
+   await bundle.close();
+
+   const dtsFile = config.output.dtsFile || config.output.output.file || config.output.file;
+   const outFile = config.output.output.file || config.output.file;
+
+   await generateTSDef({
+      main: dtsFile,
+      output: upath.changeExt(outFile, '.d.ts')
+   });
+
+   fs.writeJSONSync(`${path.dirname(outFile)}/package.json`, {
+      main: './index.js',
+      module: './index.js',
+      type: 'module',
+      types: './index.d.ts'
+   });
+}
 
 // We use rollup as per normal to generate the library bundles.
 export default () =>

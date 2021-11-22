@@ -81,6 +81,9 @@
   },
   "dependencies": {
   },
+  "peerDependencies": {
+    "svelte": "3.44.2"
+  },
   "devDependencies": {
     "@itsjamie/esdoc-core": "^0.3",
     "@itsjamie/esdoc-cli": "^0.3",
@@ -110,7 +113,7 @@
     "rollup-plugin-svelte": "^7",
     "rollup-plugin-terser": "^7",
     "sass": "^1",
-    "svelte": "^3.44.0",
+    "svelte": "^3.44.2",
     "svelte-preprocess": "^4",
     "typescript": "^4.5.0",
     "virtual-tsc": "^0.6.0"
