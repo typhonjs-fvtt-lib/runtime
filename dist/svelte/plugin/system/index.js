@@ -1,6 +1,6 @@
 import { get, writable as writable$2 } from 'svelte/store';
 import { noop, run_all, is_function } from 'svelte/internal';
-import { TJSGameSettings as TJSGameSettings$1 } from '@typhonjs-fvtt/svelte/store';
+import { TJSGameSettings as TJSGameSettings$1 } from '@typhonjs-fvtt/runtime/svelte/store';
 
 function _classPrivateFieldGet(receiver, privateMap) {
   var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get");

@@ -1,17 +1,14 @@
 import postcss                   from 'rollup-plugin-postcss';
-import postcssConfig             from '../../postcssConfig.js';
 import resolve                   from '@rollup/plugin-node-resolve';
 import sourcemaps                from 'rollup-plugin-sourcemaps';
 import svelte                    from 'rollup-plugin-svelte';
-import { typhonjsRuntime }       from './index.js';
 import virtual                   from '@rollup/plugin-virtual';
 
+import postcssConfig             from '../../postcssConfig.js';
+import { typhonjsRuntime }       from './index.js';
+
 import { exportsSveltePackage }  from './exportsSveltePackage.js';
-
-// const exportsSvelteRemapped = Object.fromEntries(exportsSveltePackage.map(
-//  (entry) => [`@typhonjs-fvtt/svelte${entry}`, `@typhonjs-fvtt/runtime/svelte${entry}`]));
-
-// console.log(exportsSvelteRemapped);
+import { externalPathsNPM }      from './externalPathsNPM.js';
 
 export function createSvelteNPMConfig({ sourcemap, outputPlugins })
 {
@@ -58,6 +55,7 @@ export function createSvelteNPMConfig({ sourcemap, outputPlugins })
                output: {
                   file: './dist/svelte/component/core/index.js',
                   format: 'es',
+                  paths: externalPathsNPM,
                   plugins: outputPlugins,
                   preferConst: true,
                   sourcemap,
@@ -84,6 +82,8 @@ export function createSvelteNPMConfig({ sourcemap, outputPlugins })
                output: {
                   file: `./dist/svelte${entry}/index.js`,
                   format: 'es',
+                  paths: externalPathsNPM,
+                  plugins: outputPlugins,
                   preferConst: true,
                   sourcemap,
                   // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
