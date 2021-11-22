@@ -70,7 +70,6 @@ const s_MODULES_DOMPURIFY_NPM = [
          output: {
             file: 'dist/dompurify/index.js',
             format: 'es',
-            plugins: outputPlugins,
             preferConst: true,
             sourcemap,
             // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
@@ -89,7 +88,6 @@ const s_MODULES_DOMPURIFY_NPM = [
          output: {
             file: 'dist/dompurify/plugin/system/index.js',
             format: 'es',
-            plugins: outputPlugins,
             preferConst: true,
             sourcemap,
             // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
@@ -130,7 +128,6 @@ const s_MODULES_PLUGIN_NPM = [
          output: {
             file: 'dist/plugin/manager/index.js',
             format: 'es',
-            plugins: outputPlugins,
             preferConst: true,
             sourcemap,
             // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
@@ -173,7 +170,6 @@ const s_MODULES_TINYMCE_NPM = [
             dir: 'dist/tinymce',
             format: 'es',
             inlineDynamicImports: true,
-            plugins: outputPlugins,
             preferConst: true,
             sourcemap,
             // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
