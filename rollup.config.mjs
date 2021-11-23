@@ -212,7 +212,7 @@ for (const config of rollupPluginsNPM)
 }
 
 // Handle @typhonjs-fvtt/svelte/application & application/legacy by copying the source and converting all import
-// package references.
+// package references from `@typhonjs-fvtt/svelte` to `@typhonjs-fvtt/runtime/svelte`.
 fs.emptyDirSync('./_dist/svelte/application');
 fs.copySync('./node_modules/@typhonjs-fvtt/svelte/src/application', './_dist/svelte/application');
 const appFiles = await getFileList({ dir: './_dist/svelte/application' });
@@ -221,6 +221,12 @@ for (const appFile of appFiles)
    const fileData = fs.readFileSync(appFile, 'utf-8').toString();
    fs.writeFileSync(appFile, fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/'));
 }
+
+// Generate types for remote rollup plugin.
+await generateTSDef({
+   main: './.rollup/remote/index.js',
+   output: './.rollup/remote/index.d.ts',
+});
 
 // We use rollup as per normal to generate the library bundles.
 export default () =>
