@@ -13,28 +13,34 @@
  *
  * @returns {function(): void} The gated multi-click handler.
  */
-function createMultiClick({ single, double, delay = 400, _clicks = 0,
- _timer = void 0 } = {})
-{
-   return () =>
-   {
-      _clicks++;
+function createMultiClick({
+  single,
+  double,
+  delay = 400,
+  _clicks = 0,
+  _timer = void 0
+} = {}) {
+  return () => {
+    _clicks++;
 
-      if (_clicks === 1)
-      {
-         _timer = setTimeout(() =>
-         {
-            if (typeof single === 'function') { single(); }
-            _clicks = 0;
-         }, delay);
+    if (_clicks === 1) {
+      _timer = setTimeout(() => {
+        if (typeof single === 'function') {
+          single();
+        }
+
+        _clicks = 0;
+      }, delay);
+    } else {
+      clearTimeout(_timer);
+
+      if (typeof double === 'function') {
+        double();
       }
-      else
-      {
-         clearTimeout(_timer);
-         if (typeof double === 'function') { double(); }
-         _clicks = 0;
-      }
-   };
+
+      _clicks = 0;
+    }
+  };
 }
 
 export { createMultiClick };

@@ -9,10 +9,9 @@
  *
  * @returns {string} The translated and formatted string
  */
-function localize(stringId, data)
-{
-   const result = typeof data !== 'object' ? game.i18n.localize(stringId) : game.i18n.format(stringId, data);
-   return result !== void 0 ? result : '';
+function localize(stringId, data) {
+  const result = typeof data !== 'object' ? game.i18n.localize(stringId) : game.i18n.format(stringId, data);
+  return result !== void 0 ? result : '';
 }
 
 export { localize };

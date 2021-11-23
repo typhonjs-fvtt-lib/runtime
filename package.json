@@ -33,7 +33,6 @@
       "import": "./_dist/svelte/application/index.js"
     },
     "./svelte/application/legacy": {
-      "types": "./_dist/svelte/application/legacy/index.d.ts",
       "import": "./_dist/svelte/application/legacy/index.js"
     },
     "./svelte/component/core": {
@@ -96,9 +95,9 @@
     "svelte": "3.44.2"
   },
   "devDependencies": {
-    "@itsjamie/esdoc-core": "^0.3",
-    "@itsjamie/esdoc-cli": "^0.3",
-    "@itsjamie/esdoc-standard-plugin": "^0.3",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@rollup/plugin-babel": "^5",
     "@rollup/plugin-node-resolve": "^13",
     "@rollup/plugin-virtual": "^2",
     "@types/jquery": "^3",
@@ -108,11 +107,14 @@
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte",
     "@typhonjs-plugin/manager": "^0.0.12",
     "@typhonjs-tinymce/oembed": "^0.1.0",
+    "@typhonjs-utils/file-util": "^0.0.3",
     "dompurify": "^2",
     "eslint": "^8",
+    "fs-extra": "^10",
     "magic-string": "^0.25.0",
     "rollup": "^2",
-    "svelte": "^3.44.2"
+    "svelte": "^3.44.2",
+    "upath": "^2"
   },
   "scripts": {
     "build-dist": "rollup --config",

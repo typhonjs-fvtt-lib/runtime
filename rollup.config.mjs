@@ -2,6 +2,7 @@ import path                from 'path';
 
 import resolve             from '@rollup/plugin-node-resolve';
 import { generateTSDef }   from '@typhonjs-build-test/esm-d-ts';
+import { getFileList }     from '@typhonjs-utils/file-util';
 import fs                  from 'fs-extra';
 import { rollup }          from 'rollup';
 import sourcemaps          from 'rollup-plugin-sourcemaps';
@@ -208,6 +209,17 @@ for (const config of rollupPluginsNPM)
       type: 'module',
       types: './index.d.ts'
    });
+}
+
+// Handle @typhonjs-fvtt/svelte/application & application/legacy by copying the source and converting all import
+// package references.
+fs.emptyDirSync('./_dist/svelte/application');
+fs.copySync('./node_modules/@typhonjs-fvtt/svelte/src/application', './_dist/svelte/application');
+const appFiles = await getFileList({ dir: './_dist/svelte/application' });
+for (const appFile of appFiles)
+{
+   const fileData = fs.readFileSync(appFile, 'utf-8').toString();
+   fs.writeFileSync(appFile, fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/'));
 }
 
 // We use rollup as per normal to generate the library bundles.

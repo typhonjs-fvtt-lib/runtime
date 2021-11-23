@@ -1,3 +1,4 @@
+import { babel }           from '@rollup/plugin-babel';
 import resolve             from '@rollup/plugin-node-resolve';
 import virtual             from '@rollup/plugin-virtual';
 import postcss             from 'rollup-plugin-postcss';
@@ -112,7 +113,13 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins })
             virtual({ pack }),
             typhonjsRuntime({ isLib, exclude: value }),
             resolve({ browser: true }),
-            sourcemaps()
+            sourcemaps(),
+            babel({
+               babelHelpers: 'bundled',
+               presets: [
+                  ['@babel/preset-env', { bugfixes: true, shippedProposals: true, targets: { esmodules: true } }]
+               ]
+            })
          ]
       });
    }

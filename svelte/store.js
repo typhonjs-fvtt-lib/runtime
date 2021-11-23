@@ -1,29 +1,36 @@
 import { noop as noop$1, run_all as run_all$1, is_function as is_function$1 } from '/modules/typhonjs/svelte/internal.js';
 
-function noop() { }
+function noop() {}
+
 function run(fn) {
-    return fn();
+  return fn();
 }
+
 function run_all(fns) {
-    fns.forEach(run);
+  fns.forEach(run);
 }
+
 function is_function(thing) {
-    return typeof thing === 'function';
+  return typeof thing === 'function';
 }
+
 function safe_not_equal(a, b) {
-    return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+  return a != a ? b == b : a !== b || a && typeof a === 'object' || typeof a === 'function';
 }
+
 function subscribe(store, ...callbacks) {
-    if (store == null) {
-        return noop;
-    }
-    const unsub = store.subscribe(...callbacks);
-    return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
+  if (store == null) {
+    return noop;
+  }
+
+  const unsub = store.subscribe(...callbacks);
+  return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
 }
+
 function get_store_value(store) {
-    let value;
-    subscribe(store, _ => value = _)();
-    return value;
+  let value;
+  subscribe(store, _ => value = _)();
+  return value;
 }
 Promise.resolve();
 
@@ -33,97 +40,206 @@ const subscriber_queue = [];
  * @param value initial value
  * @param {StartStopNotifier}start start and stop notifications for subscriptions
  */
+
 function readable(value, start) {
-    return {
-        subscribe: writable$2(value, start).subscribe
-    };
+  return {
+    subscribe: writable$2(value, start).subscribe
+  };
 }
 /**
  * Create a `Writable` store that allows both updating and reading by subscription.
  * @param {*=}value initial value
  * @param {StartStopNotifier=}start start and stop notifications for subscriptions
  */
+
+
 function writable$2(value, start = noop) {
-    let stop;
-    const subscribers = new Set();
-    function set(new_value) {
-        if (safe_not_equal(value, new_value)) {
-            value = new_value;
-            if (stop) { // store is ready
-                const run_queue = !subscriber_queue.length;
-                for (const subscriber of subscribers) {
-                    subscriber[1]();
-                    subscriber_queue.push(subscriber, value);
-                }
-                if (run_queue) {
-                    for (let i = 0; i < subscriber_queue.length; i += 2) {
-                        subscriber_queue[i][0](subscriber_queue[i + 1]);
-                    }
-                    subscriber_queue.length = 0;
-                }
-            }
+  let stop;
+  const subscribers = new Set();
+
+  function set(new_value) {
+    if (safe_not_equal(value, new_value)) {
+      value = new_value;
+
+      if (stop) {
+        // store is ready
+        const run_queue = !subscriber_queue.length;
+
+        for (const subscriber of subscribers) {
+          subscriber[1]();
+          subscriber_queue.push(subscriber, value);
         }
-    }
-    function update(fn) {
-        set(fn(value));
-    }
-    function subscribe(run, invalidate = noop) {
-        const subscriber = [run, invalidate];
-        subscribers.add(subscriber);
-        if (subscribers.size === 1) {
-            stop = start(set) || noop;
+
+        if (run_queue) {
+          for (let i = 0; i < subscriber_queue.length; i += 2) {
+            subscriber_queue[i][0](subscriber_queue[i + 1]);
+          }
+
+          subscriber_queue.length = 0;
         }
-        run(value);
-        return () => {
-            subscribers.delete(subscriber);
-            if (subscribers.size === 0) {
-                stop();
-                stop = null;
-            }
-        };
+      }
     }
-    return { set, update, subscribe };
+  }
+
+  function update(fn) {
+    set(fn(value));
+  }
+
+  function subscribe(run, invalidate = noop) {
+    const subscriber = [run, invalidate];
+    subscribers.add(subscriber);
+
+    if (subscribers.size === 1) {
+      stop = start(set) || noop;
+    }
+
+    run(value);
+    return () => {
+      subscribers.delete(subscriber);
+
+      if (subscribers.size === 0) {
+        stop();
+        stop = null;
+      }
+    };
+  }
+
+  return {
+    set,
+    update,
+    subscribe
+  };
 }
+
 function derived(stores, fn, initial_value) {
-    const single = !Array.isArray(stores);
-    const stores_array = single
-        ? [stores]
-        : stores;
-    const auto = fn.length < 2;
-    return readable(initial_value, (set) => {
-        let inited = false;
-        const values = [];
-        let pending = 0;
-        let cleanup = noop;
-        const sync = () => {
-            if (pending) {
-                return;
-            }
-            cleanup();
-            const result = fn(single ? values[0] : values, set);
-            if (auto) {
-                set(result);
-            }
-            else {
-                cleanup = is_function(result) ? result : noop;
-            }
-        };
-        const unsubscribers = stores_array.map((store, i) => subscribe(store, (value) => {
-            values[i] = value;
-            pending &= ~(1 << i);
-            if (inited) {
-                sync();
-            }
-        }, () => {
-            pending |= (1 << i);
-        }));
-        inited = true;
+  const single = !Array.isArray(stores);
+  const stores_array = single ? [stores] : stores;
+  const auto = fn.length < 2;
+  return readable(initial_value, set => {
+    let inited = false;
+    const values = [];
+    let pending = 0;
+    let cleanup = noop;
+
+    const sync = () => {
+      if (pending) {
+        return;
+      }
+
+      cleanup();
+      const result = fn(single ? values[0] : values, set);
+
+      if (auto) {
+        set(result);
+      } else {
+        cleanup = is_function(result) ? result : noop;
+      }
+    };
+
+    const unsubscribers = stores_array.map((store, i) => subscribe(store, value => {
+      values[i] = value;
+      pending &= ~(1 << i);
+
+      if (inited) {
         sync();
-        return function stop() {
-            run_all(unsubscribers);
-            cleanup();
-        };
+      }
+    }, () => {
+      pending |= 1 << i;
+    }));
+    inited = true;
+    sync();
+    return function stop() {
+      run_all(unsubscribers);
+      cleanup();
+    };
+  });
+}
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+
+    if (enumerableOnly) {
+      symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+    }
+
+    keys.push.apply(keys, symbols);
+  }
+
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
     });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _classPrivateFieldGet$1(receiver, privateMap) {
+  var descriptor = _classExtractFieldDescriptor$1(receiver, privateMap, "get");
+
+  return _classApplyDescriptorGet$1(receiver, descriptor);
+}
+
+function _classExtractFieldDescriptor$1(receiver, privateMap, action) {
+  if (!privateMap.has(receiver)) {
+    throw new TypeError("attempted to " + action + " private field on non-instance");
+  }
+
+  return privateMap.get(receiver);
+}
+
+function _classApplyDescriptorGet$1(receiver, descriptor) {
+  if (descriptor.get) {
+    return descriptor.get.call(receiver);
+  }
+
+  return descriptor.value;
+}
+
+function _checkPrivateRedeclaration$1(obj, privateCollection) {
+  if (privateCollection.has(obj)) {
+    throw new TypeError("Cannot initialize the same private elements twice on an object");
+  }
+}
+
+function _classPrivateFieldInitSpec$1(obj, privateMap, value) {
+  _checkPrivateRedeclaration$1(obj, privateMap);
+
+  privateMap.set(obj, value);
 }
 
 function _classPrivateFieldGet(receiver, privateMap) {
@@ -158,9 +274,8 @@ function _classPrivateFieldInitSpec(obj, privateMap, value) {
   _checkPrivateRedeclaration(obj, privateMap);
 
   privateMap.set(obj, value);
-}
+} // src/generator.ts
 
-// src/generator.ts
 
 function isSimpleDeriver(deriver) {
   return deriver.length < 2;
@@ -277,7 +392,6 @@ function generator(storage) {
 var storage$1 = typeof window !== "undefined" ? window.localStorage : void 0;
 var g$1 = generator(storage$1);
 var writable$1 = g$1.writable;
-
 /**
  * @typedef {writable & get} LSStore - The backing Svelte store; a writable w/ get method attached.
  */
@@ -291,7 +405,6 @@ class LocalStorage {
       value: new Map()
     });
   }
-
   /**
    * Get value from the localstorage.
    *
@@ -301,6 +414,8 @@ class LocalStorage {
    *
    * @returns {*} Value from local storage or if not defined any default value provided.
    */
+
+
   getItem(key, defaultValue) {
     let value = defaultValue;
     const storageValue = localStorage.getItem(key);
@@ -371,6 +486,7 @@ class LocalStorage {
  * @returns {LSStore} The store for the given key.
  */
 
+
 function s_GET_STORE$1(stores, key, defaultValue = void 0) {
   let store = stores.get(key);
 
@@ -411,7 +527,6 @@ function s_CREATE_STORE$1(key, defaultValue = void 0) {
 var storage = typeof window !== "undefined" ? window.sessionStorage : void 0;
 var g = generator(storage);
 var writable = g.writable;
-
 /**
  * @typedef {writable & get} SSStore - The backing Svelte store; a writable w/ get method attached.
  */
@@ -425,7 +540,6 @@ class SessionStorage {
       value: new Map()
     });
   }
-
   /**
    * Get value from the sessionstorage.
    *
@@ -435,6 +549,8 @@ class SessionStorage {
    *
    * @returns {*} Value from session storage or if not defined any default value provided.
    */
+
+
   getItem(key, defaultValue) {
     let value = defaultValue;
     const storageValue = sessionStorage.getItem(key);
@@ -505,6 +621,7 @@ class SessionStorage {
  * @returns {LSStore} The store for the given key.
  */
 
+
 function s_GET_STORE$2(stores, key, defaultValue = void 0) {
   let store = stores.get(key);
 
@@ -541,7 +658,6 @@ function s_CREATE_STORE$2(key, defaultValue = void 0) {
 
   return store;
 }
-
 /**
  * Provides common object manipulation utilities including depth traversal, obtaining accessors, safely setting values /
  * equality tests, and validation.
@@ -554,13 +670,15 @@ function s_CREATE_STORE$2(key, defaultValue = void 0) {
  *
  * @returns {boolean} Whether object is iterable.
  */
-function isIterable(object)
-{
-   if (object === null || object === void 0 || typeof object !== 'object') { return false; }
 
-   return typeof object[Symbol.iterator] === 'function';
+
+function isIterable(object) {
+  if (object === null || object === void 0 || typeof object !== 'object') {
+    return false;
+  }
+
+  return typeof object[Symbol.iterator] === 'function';
 }
-
 /**
  * @typedef {object} GameSetting - Defines a game setting.
  *
@@ -575,118 +693,118 @@ function isIterable(object)
  * Registers game settings and creates a backing Svelte store for each setting. It is possible to add multiple
  * `onChange` callbacks on registration.
  */
-class TJSGameSettings
-{
-   /**
-    * @type {*}
-    */
-   #stores = new Map();
 
-   getStore(key)
-   {
-      if (!this.#stores.has(key))
-      {
-         console.warn(`TJSGameSettings - getStore: '${key}' is not a registered setting.`);
-         return;
+
+var _stores2 = /*#__PURE__*/new WeakMap();
+
+class TJSGameSettings {
+  constructor() {
+    _classPrivateFieldInitSpec$1(this, _stores2, {
+      writable: true,
+      value: new Map()
+    });
+  }
+
+  getStore(key) {
+    if (!_classPrivateFieldGet$1(this, _stores2).has(key)) {
+      console.warn(`TJSGameSettings - getStore: '${key}' is not a registered setting.`);
+      return;
+    }
+
+    return s_GET_STORE(_classPrivateFieldGet$1(this, _stores2), key);
+  }
+
+  register(moduleId, key, options = {}) {
+    if (typeof options !== 'object') {
+      throw new TypeError(`TJSGameSettings - register: options is not an object.`);
+    }
+
+    const onchangeFunctions = []; // Handle loading any existing `onChange` callbacks.
+
+    if (isIterable(options === null || options === void 0 ? void 0 : options.onChange)) {
+      for (const entry of options.onChange) {
+        if (typeof entry === 'function') {
+          onchangeFunctions.push(entry);
+        }
+      }
+    } else if (typeof options.onChange === 'function') {
+      onchangeFunctions.push(options.onChange);
+    } // Provides an `onChange` callback to update the associated store.
+
+
+    onchangeFunctions.push(value => {
+      const store = s_GET_STORE(_classPrivateFieldGet$1(this, _stores2), key);
+
+      if (store) {
+        store.set(value);
+      }
+    }); // Provides the final onChange callback that iterates over all the stored onChange callbacks.
+
+    const onChange = value => {
+      for (const entry of onchangeFunctions) {
+        entry(value);
+      }
+    };
+
+    game.settings.register(moduleId, key, _objectSpread2(_objectSpread2({}, options), {}, {
+      onChange
+    })); // Set new store value with existing setting or default value.
+
+    const newStore = s_GET_STORE(_classPrivateFieldGet$1(this, _stores2), key);
+    newStore.set(game.settings.get(moduleId, key));
+  }
+  /**
+   * Registers multiple settings.
+   *
+   * @param {Iterable<GameSetting>} settings - An iterable list of game setting configurations to register.
+   */
+
+
+  registerAll(settings) {
+    if (!isIterable(settings)) {
+      throw new TypeError(`TJSGameSettings - registerAll: settings is not iterable.`);
+    }
+
+    for (const entry of settings) {
+      if (typeof entry !== 'object') {
+        throw new TypeError(`TJSGameSettings - registerAll: entry in settings is not an object.`);
       }
 
-      return s_GET_STORE(this.#stores, key);
-   }
-
-   register(moduleId, key, options = {})
-   {
-      if (typeof options !== 'object') { throw new TypeError(`TJSGameSettings - register: options is not an object.`); }
-
-      const onchangeFunctions = [];
-
-      // Handle loading any existing `onChange` callbacks.
-      if (isIterable(options?.onChange))
-      {
-         for (const entry of options.onChange)
-         {
-            if (typeof entry === 'function') { onchangeFunctions.push(entry); }
-         }
-      }
-      else if (typeof options.onChange === 'function')
-      {
-         onchangeFunctions.push(options.onChange);
+      if (typeof entry.moduleId !== 'string') {
+        throw new TypeError(`TJSGameSettings - registerAll: entry in settings missing 'moduleId' attribute.`);
       }
 
-      // Provides an `onChange` callback to update the associated store.
-      onchangeFunctions.push((value) =>
-      {
-         const store = s_GET_STORE(this.#stores, key);
-         if (store) { store.set(value); }
-      });
-
-      // Provides the final onChange callback that iterates over all the stored onChange callbacks.
-      const onChange = (value) =>
-      {
-         for (const entry of onchangeFunctions) { entry(value); }
-      };
-
-      game.settings.register(moduleId, key, { ...options, onChange });
-
-      // Set new store value with existing setting or default value.
-      const newStore = s_GET_STORE(this.#stores, key);
-      newStore.set(game.settings.get(moduleId, key));
-   }
-
-   /**
-    * Registers multiple settings.
-    *
-    * @param {Iterable<GameSetting>} settings - An iterable list of game setting configurations to register.
-    */
-   registerAll(settings)
-   {
-      if (!isIterable(settings)) { throw new TypeError(`TJSGameSettings - registerAll: settings is not iterable.`); }
-
-      for (const entry of settings)
-      {
-         if (typeof entry !== 'object')
-         {
-            throw new TypeError(`TJSGameSettings - registerAll: entry in settings is not an object.`);
-         }
-
-         if (typeof entry.moduleId !== 'string')
-         {
-            throw new TypeError(`TJSGameSettings - registerAll: entry in settings missing 'moduleId' attribute.`);
-         }
-
-         if (typeof entry.key !== 'string')
-         {
-            throw new TypeError(`TJSGameSettings - registerAll: entry in settings missing 'key' attribute.`);
-         }
-
-         if (typeof entry.options !== 'object')
-         {
-            throw new TypeError(`TJSGameSettings - registerAll: entry in settings missing 'options' attribute.`);
-         }
-
-         this.register(entry.moduleId, entry.key, entry.options);
+      if (typeof entry.key !== 'string') {
+        throw new TypeError(`TJSGameSettings - registerAll: entry in settings missing 'key' attribute.`);
       }
-   }
+
+      if (typeof entry.options !== 'object') {
+        throw new TypeError(`TJSGameSettings - registerAll: entry in settings missing 'options' attribute.`);
+      }
+
+      this.register(entry.moduleId, entry.key, entry.options);
+    }
+  }
+
 }
 
+function s_GET_STORE(stores, key) {
+  let store = stores.get(key);
 
-function s_GET_STORE(stores, key)
-{
-   let store = stores.get(key);
-   if (store === void 0)
-   {
-      store = s_CREATE_STORE();
-      stores.set(key, store);
-   }
+  if (store === void 0) {
+    store = s_CREATE_STORE();
+    stores.set(key, store);
+  }
 
-   return store;
+  return store;
 }
 
-function s_CREATE_STORE()
-{
-   const store = writable$2(void 0);
-   store.get = () => get_store_value(store);
+function s_CREATE_STORE() {
+  const store = writable$2(void 0);
 
-   return store;
+  store.get = () => get_store_value(store);
+
+  return store;
 }
 
 export { LocalStorage, SessionStorage, TJSGameSettings, derived, get_store_value as get, readable, writable$2 as writable };
