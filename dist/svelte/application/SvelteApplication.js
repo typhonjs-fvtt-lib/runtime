@@ -5,7 +5,7 @@ import {
    hasGetter,
    isApplicationShell,
    outroAndDestroy,
-   parseSvelteConfig }           from '@typhonjs-fvtt/svelte/util';
+   parseSvelteConfig }           from '@typhonjs-fvtt/runtime/svelte/util';
 
 import { GetSvelteData }         from './GetSvelteData.js';
 
