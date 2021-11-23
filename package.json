@@ -9,13 +9,91 @@
     "Michael Leahy <support@typhonjs.io> (https://github.com/typhonrt)"
   ],
   "exports": {
-    "./dompurify": "./dist/dompurify/index.js",
-    "./tinymce": "./dist/tinymce/initializePlugins.js",
+    "./rollup": {
+      "types": "./.rollup/remote/index.d.ts",
+      "import": "./.rollup/remote/index.js"
+    },
+    "./dompurify": {
+      "types": "./dist/dompurify/index.d.ts",
+      "import": "./dist/dompurify/index.js"
+    },
+    "./dompurify/plugin/system": {
+      "types": "./dist/dompurify/plugin/system/index.d.ts",
+      "import": "./dist/dompurify/plugin/system/index.js"
+    },
+    "./plugin/manager": {
+      "types": "./dist/plugin/manager/index.d.ts",
+      "import": "./dist/plugin/manager/index.js"
+    },
+    "./svelte/action": {
+      "types": "./dist/svelte/action/index.d.ts",
+      "import": "./dist/svelte/action/index.js"
+    },
+    "./svelte/application": {
+      "import": "./dist/svelte/application/index.js"
+    },
+    "./svelte/application/legacy": {
+      "types": "./dist/svelte/application/legacy/index.d.ts",
+      "import": "./dist/svelte/application/legacy/index.js"
+    },
+    "./svelte/component/core": {
+      "types": "./dist/svelte/component/index.d.ts",
+      "import": "./dist/svelte/component/core/index.js"
+    },
+    "./svelte/gsap": {
+      "types": "./dist/svelte/gsap/index.d.ts",
+      "import": "./dist/svelte/gsap/index.js"
+    },
+    "./svelte/handler": {
+      "types": "./dist/svelte/handler/index.d.ts",
+      "import": "./dist/svelte/handler/index.js"
+    },
+    "./svelte/helper": {
+      "types": "./dist/svelte/helper/index.d.ts",
+      "import": "./dist/svelte/helper/index.js"
+    },
+    "./svelte/plugin/data": {
+      "types": "./dist/svelte/plugin/data/index.d.ts",
+      "import": "./dist/svelte/plugin/data/index.js"
+    },
+    "./svelte/plugin/system": {
+      "types": "./dist/svelte/plugin/system/index.d.ts",
+      "import": "./dist/svelte/plugin/system/index.js"
+    },
+    "./svelte/store": {
+      "types": "./dist/svelte/store/index.d.ts",
+      "import": "./dist/svelte/store/index.js"
+    },
+    "./svelte/transition": {
+      "types": "./dist/svelte/transition/index.d.ts",
+      "import": "./dist/svelte/transition/index.js"
+    },
+    "./svelte/util": {
+      "types": "./dist/svelte/util/index.d.ts",
+      "import": "./dist/svelte/util/index.js"
+    },
+    "./tinymce": {
+      "types": "./dist/tinymce/initializePlugins.d.ts",
+      "import": "./dist/tinymce/initializePlugins.js"
+    },
     "./package.json": "./package.json"
   },
   "dependencies": {
+    "@typhonjs-utils/object": "^0.0.3",
+    "autoprefixer": "^10",
+    "cssnano": "^5",
+    "postcss": "^8",
+    "postcss-preset-env": "^6",
+    "rollup-plugin-postcss": "^4",
+    "rollup-plugin-sourcemaps": "^0.6",
+    "rollup-plugin-svelte": "^7",
+    "rollup-plugin-terser": "^7",
+    "sass": "^1",
+    "svelte-preprocess": "^4"
   },
   "peerDependencies": {
+    "rollup": "^2",
+    "svelte": "3.44.2"
   },
   "devDependencies": {
     "@itsjamie/esdoc-core": "^0.3",
