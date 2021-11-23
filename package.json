@@ -79,6 +79,7 @@
     "./package.json": "./package.json"
   },
   "dependencies": {
+    "@typhonjs-utils/object": "^0.0.3",
     "autoprefixer": "^10",
     "cssnano": "^5",
     "postcss": "^8",
