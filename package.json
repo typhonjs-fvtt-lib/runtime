@@ -9,57 +9,23 @@
     "Michael Leahy <support@typhonjs.io> (https://github.com/typhonrt)"
   ],
   "exports": {
-    "./rollup": {
-      "import": "./.rollup/remote/index.js"
-    },
-    "./dompurify": {
-      "import": "./dist/dompurify/index.js"
-    },
-    "./dompurify/plugin/system": {
-      "import": "./dist/dompurify/plugin/system/index.js"
-    },
-    "./plugin/manager": {
-      "import": "./dist/plugin/manager/index.js"
-    },
-    "./svelte/action": {
-      "import": "./dist/svelte/action/index.js"
-    },
-    "./svelte/application": {
-      "import": "./dist/svelte/application/index.js"
-    },
-    "./svelte/application/legacy": {
-      "import": "./dist/svelte/application/legacy/index.js"
-    },
-    "./svelte/component/core": {
-      "import": "./dist/svelte/component/core/index.js"
-    },
-    "./svelte/gsap": {
-      "import": "./dist/svelte/gsap/index.js"
-    },
-    "./svelte/handler": {
-      "import": "./dist/svelte/handler/index.js"
-    },
-    "./svelte/helper": {
-      "import": "./dist/svelte/helper/index.js"
-    },
-    "./svelte/plugin/data": {
-      "import": "./dist/svelte/plugin/data/index.js"
-    },
-    "./svelte/plugin/system": {
-      "import": "./dist/svelte/plugin/system/index.js"
-    },
-    "./svelte/store": {
-      "import": "./dist/svelte/store/index.js"
-    },
-    "./svelte/transition": {
-      "import": "./dist/svelte/transition/index.js"
-    },
-    "./svelte/util": {
-      "import": "./dist/svelte/util/index.js"
-    },
-    "./tinymce": {
-      "import": "./dist/tinymce/initializePlugins.js"
-    },
+    "./rollup": "./.rollup/remote/index.js",
+    "./dompurify": "./dist/dompurify/index.js",
+    "./dompurify/plugin/system": "./dist/dompurify/plugin/system/index.js",
+    "./plugin/manager": "./dist/plugin/manager/index.js",
+    "./svelte/action": "./dist/svelte/action/index.js",
+    "./svelte/application": "./dist/svelte/application/index.js",
+    "./svelte/application/legacy": "./dist/svelte/application/legacy/index.js",
+    "./svelte/component/core": "./dist/svelte/component/core/index.js",
+    "./svelte/gsap": "./dist/svelte/gsap/index.js",
+    "./svelte/handler": "./dist/svelte/handler/index.js",
+    "./svelte/helper": "./dist/svelte/helper/index.js",
+    "./svelte/plugin/data": "./dist/svelte/plugin/data/index.js",
+    "./svelte/plugin/system": "./dist/svelte/plugin/system/index.js",
+    "./svelte/store": "./dist/svelte/store/index.js",
+    "./svelte/transition": "./dist/svelte/transition/index.js",
+    "./svelte/util": "./dist/svelte/util/index.js",
+    "./tinymce": "./dist/tinymce/initializePlugins.js",
     "./package.json": "./package.json"
   },
   "dependencies": {
