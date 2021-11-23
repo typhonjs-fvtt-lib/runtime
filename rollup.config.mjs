@@ -15,7 +15,7 @@ import {
 
 import terserConfig        from './terser.config.js';
 
-const s_COMPRESS = false;     // Compresses the module lib output. Not the NPM distribution bundles.
+const s_COMPRESS = true;     // Compresses the module lib output. Not the NPM distribution bundles.
 const s_SOURCEMAPS = true;
 
 // Defines whether source maps are generated / loaded from the .env file.
