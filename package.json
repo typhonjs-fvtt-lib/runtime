@@ -9,7 +9,6 @@
     "Michael Leahy <support@typhonjs.io> (https://github.com/typhonrt)"
   ],
   "exports": {
-    "./package.json": "./package.json",
     "./rollup": {
       "types": "./.rollup/remote/index.d.ts",
       "import": "./.rollup/remote/index.js"
@@ -31,7 +30,6 @@
       "import": "./dist/svelte/action/index.js"
     },
     "./svelte/application": {
-      "types": "./dist/svelte/application/index.d.ts",
       "import": "./dist/svelte/application/index.js"
     },
     "./svelte/application/legacy": {
@@ -77,7 +75,8 @@
     "./tinymce": {
       "types": "./dist/tinymce/initializePlugins.d.ts",
       "import": "./dist/tinymce/initializePlugins.js"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "dependencies": {
     "autoprefixer": "^10",
