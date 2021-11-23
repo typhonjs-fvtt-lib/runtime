@@ -15,7 +15,7 @@ import cssnano          from 'cssnano';
  *
  * @returns {{extensions: string[], extract, sourceMap: boolean, plugins: (*)[], use: string[], inject: boolean}} PostCSS config
  */
-export default function({ extract, compress = false, sourceMap = false } = {})
+export function postcssConfig({ extract, compress = false, sourceMap = false } = {})
 {
    const plugins = compress ? [autoprefixer, postcssPresetEnv, cssnano] : [autoprefixer, postcssPresetEnv];
 

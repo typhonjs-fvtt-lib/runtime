@@ -4,8 +4,9 @@ import { externalPathsNPM }      from './externalPathsNPM.js';
 import { generatePlugin }        from '../generatePlugin.js';
 import { generatePluginOutput }  from '../generatePluginOutput.js';
 
-export *                         from  './createSvelteLibConfig.js'
-export *                         from  './createSvelteNPMConfig.js'
+export *                         from './createSvelteLibConfig.js'
+export *                         from './createSvelteNPMConfig.js'
+export *                         from '../postcssConfig.js';
 
 /**
  * Creates the TyphonJS runtime library substitution plugin.

@@ -1,6 +1,8 @@
 import { externalPathsRemote }   from './externalPathsRemote.js';
 import { generatePlugin }        from '../generatePlugin.js';
 
+export *                         from '../postcssConfig.js';
+
 /**
  * Returns the TyphonJS Runtime Library module substitution plugin.
  *

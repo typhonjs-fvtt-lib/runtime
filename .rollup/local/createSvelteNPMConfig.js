@@ -1,11 +1,11 @@
-import postcss                   from 'rollup-plugin-postcss';
 import resolve                   from '@rollup/plugin-node-resolve';
+import virtual                   from '@rollup/plugin-virtual';
+import postcss                   from 'rollup-plugin-postcss';
 import sourcemaps                from 'rollup-plugin-sourcemaps';
 import svelte                    from 'rollup-plugin-svelte';
-import virtual                   from '@rollup/plugin-virtual';
 
-import postcssConfig             from '../../postcssConfig.js';
 import { typhonjsRuntime }       from './index.js';
+import { postcssConfig }         from '../postcssConfig.js';
 
 import { exportsSveltePackage }  from './exportsSveltePackage.js';
 import { externalPathsNPM }      from './externalPathsNPM.js';

@@ -80,16 +80,25 @@
     }
   },
   "dependencies": {
+    "autoprefixer": "^10",
+    "cssnano": "^5",
+    "postcss": "^8",
+    "postcss-preset-env": "^6",
+    "rollup-plugin-postcss": "^4",
+    "rollup-plugin-sourcemaps": "^0.6",
+    "rollup-plugin-svelte": "^7",
+    "rollup-plugin-terser": "^7",
+    "sass": "^1",
+    "svelte-preprocess": "^4"
   },
   "peerDependencies": {
+    "rollup": "^2",
     "svelte": "3.44.2"
   },
   "devDependencies": {
     "@itsjamie/esdoc-core": "^0.3",
     "@itsjamie/esdoc-cli": "^0.3",
     "@itsjamie/esdoc-standard-plugin": "^0.3",
-    "@rollup/plugin-alias": "^3",
-    "@rollup/plugin-commonjs": "^19",
     "@rollup/plugin-node-resolve": "^13",
     "@rollup/plugin-virtual": "^2",
     "@types/jquery": "^3",
@@ -99,24 +108,11 @@
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte",
     "@typhonjs-plugin/manager": "^0.0.12",
     "@typhonjs-tinymce/oembed": "^0.1.0",
-    "autoprefixer": "^10",
-    "cssnano": "^5",
     "dompurify": "^2",
     "eslint": "^8",
     "magic-string": "^0.25.0",
-    "postcss": "^8",
-    "postcss-preset-env": "^6",
     "rollup": "^2",
-    "rollup-plugin-dts": "^4",
-    "rollup-plugin-postcss": "^4",
-    "rollup-plugin-sourcemaps": "^0.6",
-    "rollup-plugin-svelte": "^7",
-    "rollup-plugin-terser": "^7",
-    "sass": "^1",
-    "svelte": "^3.44.2",
-    "svelte-preprocess": "^4",
-    "typescript": "^4.5.0",
-    "virtual-tsc": "^0.6.0"
+    "svelte": "^3.44.2"
   },
   "scripts": {
     "build-dist": "rollup --config",
@@ -133,6 +129,7 @@
   ],
   "files": [
     "/.rollup/generatePlugin.js",
+    "/.rollup/postcssConfig.js",
     "/.rollup/local/externalPathsLib.js",
     "/.rollup/remote",
     "/dist"
