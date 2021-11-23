@@ -53,7 +53,7 @@ export function createSvelteNPMConfig({ sourcemap, outputPlugins })
             },
             output: {
                output: {
-                  file: './cool/svelte/component/core/index.js',
+                  file: './_dist/svelte/component/core/index.js',
                   format: 'es',
                   paths: externalPathsNPM,
                   plugins: outputPlugins,
@@ -80,7 +80,7 @@ export function createSvelteNPMConfig({ sourcemap, outputPlugins })
             },
             output: {
                output: {
-                  file: `./cool/svelte${entry}/index.js`,
+                  file: `./_dist/svelte${entry}/index.js`,
                   format: 'es',
                   paths: externalPathsNPM,
                   plugins: outputPlugins,

@@ -14,67 +14,67 @@
       "import": "./.rollup/remote/index.js"
     },
     "./dompurify": {
-      "types": "./cool/dompurify/index.d.ts",
-      "import": "./cool/dompurify/index.js"
+      "types": "./_dist/dompurify/index.d.ts",
+      "import": "./_dist/dompurify/index.js"
     },
     "./dompurify/plugin/system": {
-      "types": "./cool/dompurify/plugin/system/index.d.ts",
-      "import": "./cool/dompurify/plugin/system/index.js"
+      "types": "./_dist/dompurify/plugin/system/index.d.ts",
+      "import": "./_dist/dompurify/plugin/system/index.js"
     },
     "./plugin/manager": {
-      "types": "./cool/plugin/manager/index.d.ts",
-      "import": "./cool/plugin/manager/index.js"
+      "types": "./_dist/plugin/manager/index.d.ts",
+      "import": "./_dist/plugin/manager/index.js"
     },
     "./svelte/action": {
-      "types": "./cool/svelte/action/index.d.ts",
-      "import": "./cool/svelte/action/index.js"
+      "types": "./_dist/svelte/action/index.d.ts",
+      "import": "./_dist/svelte/action/index.js"
     },
     "./svelte/application": {
-      "import": "./cool/svelte/application/index.js"
+      "import": "./_dist/svelte/application/index.js"
     },
     "./svelte/application/legacy": {
-      "types": "./cool/svelte/application/legacy/index.d.ts",
-      "import": "./cool/svelte/application/legacy/index.js"
+      "types": "./_dist/svelte/application/legacy/index.d.ts",
+      "import": "./_dist/svelte/application/legacy/index.js"
     },
     "./svelte/component/core": {
-      "types": "./cool/svelte/component/index.d.ts",
-      "import": "./cool/svelte/component/core/index.js"
+      "types": "./_dist/svelte/component/index.d.ts",
+      "import": "./_dist/svelte/component/core/index.js"
     },
     "./svelte/gsap": {
-      "types": "./cool/svelte/gsap/index.d.ts",
-      "import": "./cool/svelte/gsap/index.js"
+      "types": "./_dist/svelte/gsap/index.d.ts",
+      "import": "./_dist/svelte/gsap/index.js"
     },
     "./svelte/handler": {
-      "types": "./cool/svelte/handler/index.d.ts",
-      "import": "./cool/svelte/handler/index.js"
+      "types": "./_dist/svelte/handler/index.d.ts",
+      "import": "./_dist/svelte/handler/index.js"
     },
     "./svelte/helper": {
-      "types": "./cool/svelte/helper/index.d.ts",
-      "import": "./cool/svelte/helper/index.js"
+      "types": "./_dist/svelte/helper/index.d.ts",
+      "import": "./_dist/svelte/helper/index.js"
     },
     "./svelte/plugin/data": {
-      "types": "./cool/svelte/plugin/data/index.d.ts",
-      "import": "./cool/svelte/plugin/data/index.js"
+      "types": "./_dist/svelte/plugin/data/index.d.ts",
+      "import": "./_dist/svelte/plugin/data/index.js"
     },
     "./svelte/plugin/system": {
-      "types": "./cool/svelte/plugin/system/index.d.ts",
-      "import": "./cool/svelte/plugin/system/index.js"
+      "types": "./_dist/svelte/plugin/system/index.d.ts",
+      "import": "./_dist/svelte/plugin/system/index.js"
     },
     "./svelte/store": {
-      "types": "./cool/svelte/store/index.d.ts",
-      "import": "./cool/svelte/store/index.js"
+      "types": "./_dist/svelte/store/index.d.ts",
+      "import": "./_dist/svelte/store/index.js"
     },
     "./svelte/transition": {
-      "types": "./cool/svelte/transition/index.d.ts",
-      "import": "./cool/svelte/transition/index.js"
+      "types": "./_dist/svelte/transition/index.d.ts",
+      "import": "./_dist/svelte/transition/index.js"
     },
     "./svelte/util": {
-      "types": "./cool/svelte/util/index.d.ts",
-      "import": "./cool/svelte/util/index.js"
+      "types": "./_dist/svelte/util/index.d.ts",
+      "import": "./_dist/svelte/util/index.js"
     },
     "./tinymce": {
-      "types": "./cool/tinymce/initializePlugins.d.ts",
-      "import": "./cool/tinymce/initializePlugins.js"
+      "types": "./_dist/tinymce/initializePlugins.d.ts",
+      "import": "./_dist/tinymce/initializePlugins.js"
     },
     "./package.json": "./package.json"
   },
@@ -132,7 +132,7 @@
     "/.rollup/postcssConfig.js",
     "/.rollup/local/externalPathsLib.js",
     "/.rollup/remote",
-    "/cool"
+    "/_dist"
   ],
   "repository": "github:typhonjs-fvtt-lib/typhonjs",
   "bugs": "https://github.com/typhonjs-fvtt-lib/typhonjs/issues"
