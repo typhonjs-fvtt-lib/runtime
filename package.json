@@ -14,67 +14,67 @@
       "import": "./.rollup/remote/index.js"
     },
     "./dompurify": {
-      "types": "./build/dompurify/index.d.ts",
-      "import": "./build/dompurify/index.js"
+      "types": "./cool/dompurify/index.d.ts",
+      "import": "./cool/dompurify/index.js"
     },
     "./dompurify/plugin/system": {
-      "types": "./build/dompurify/plugin/system/index.d.ts",
-      "import": "./build/dompurify/plugin/system/index.js"
+      "types": "./cool/dompurify/plugin/system/index.d.ts",
+      "import": "./cool/dompurify/plugin/system/index.js"
     },
     "./plugin/manager": {
-      "types": "./build/plugin/manager/index.d.ts",
-      "import": "./build/plugin/manager/index.js"
+      "types": "./cool/plugin/manager/index.d.ts",
+      "import": "./cool/plugin/manager/index.js"
     },
     "./svelte/action": {
-      "types": "./build/svelte/action/index.d.ts",
-      "import": "./build/svelte/action/index.js"
+      "types": "./cool/svelte/action/index.d.ts",
+      "import": "./cool/svelte/action/index.js"
     },
     "./svelte/application": {
-      "import": "./build/svelte/application/index.js"
+      "import": "./cool/svelte/application/index.js"
     },
     "./svelte/application/legacy": {
-      "types": "./build/svelte/application/legacy/index.d.ts",
-      "import": "./build/svelte/application/legacy/index.js"
+      "types": "./cool/svelte/application/legacy/index.d.ts",
+      "import": "./cool/svelte/application/legacy/index.js"
     },
     "./svelte/component/core": {
-      "types": "./build/svelte/component/index.d.ts",
-      "import": "./build/svelte/component/core/index.js"
+      "types": "./cool/svelte/component/index.d.ts",
+      "import": "./cool/svelte/component/core/index.js"
     },
     "./svelte/gsap": {
-      "types": "./build/svelte/gsap/index.d.ts",
-      "import": "./build/svelte/gsap/index.js"
+      "types": "./cool/svelte/gsap/index.d.ts",
+      "import": "./cool/svelte/gsap/index.js"
     },
     "./svelte/handler": {
-      "types": "./build/svelte/handler/index.d.ts",
-      "import": "./build/svelte/handler/index.js"
+      "types": "./cool/svelte/handler/index.d.ts",
+      "import": "./cool/svelte/handler/index.js"
     },
     "./svelte/helper": {
-      "types": "./build/svelte/helper/index.d.ts",
-      "import": "./build/svelte/helper/index.js"
+      "types": "./cool/svelte/helper/index.d.ts",
+      "import": "./cool/svelte/helper/index.js"
     },
     "./svelte/plugin/data": {
-      "types": "./build/svelte/plugin/data/index.d.ts",
-      "import": "./build/svelte/plugin/data/index.js"
+      "types": "./cool/svelte/plugin/data/index.d.ts",
+      "import": "./cool/svelte/plugin/data/index.js"
     },
     "./svelte/plugin/system": {
-      "types": "./build/svelte/plugin/system/index.d.ts",
-      "import": "./build/svelte/plugin/system/index.js"
+      "types": "./cool/svelte/plugin/system/index.d.ts",
+      "import": "./cool/svelte/plugin/system/index.js"
     },
     "./svelte/store": {
-      "types": "./build/svelte/store/index.d.ts",
-      "import": "./build/svelte/store/index.js"
+      "types": "./cool/svelte/store/index.d.ts",
+      "import": "./cool/svelte/store/index.js"
     },
     "./svelte/transition": {
-      "types": "./build/svelte/transition/index.d.ts",
-      "import": "./build/svelte/transition/index.js"
+      "types": "./cool/svelte/transition/index.d.ts",
+      "import": "./cool/svelte/transition/index.js"
     },
     "./svelte/util": {
-      "types": "./build/svelte/util/index.d.ts",
-      "import": "./build/svelte/util/index.js"
+      "types": "./cool/svelte/util/index.d.ts",
+      "import": "./cool/svelte/util/index.js"
     },
     "./tinymce": {
-      "types": "./build/tinymce/initializePlugins.d.ts",
-      "import": "./build/tinymce/initializePlugins.js"
+      "types": "./cool/tinymce/initializePlugins.d.ts",
+      "import": "./cool/tinymce/initializePlugins.js"
     },
     "./package.json": "./package.json"
   },

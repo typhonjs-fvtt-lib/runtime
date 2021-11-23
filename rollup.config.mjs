@@ -68,7 +68,7 @@ const s_MODULES_DOMPURIFY_NPM = [
       },
       output: {
          output: {
-            file: 'build/dompurify/index.js',
+            file: 'cool/dompurify/index.js',
             format: 'es',
             preferConst: true,
             sourcemap,
@@ -86,7 +86,7 @@ const s_MODULES_DOMPURIFY_NPM = [
       },
       output: {
          output: {
-            file: 'build/dompurify/plugin/system/index.js',
+            file: 'cool/dompurify/plugin/system/index.js',
             format: 'es',
             preferConst: true,
             sourcemap,
@@ -126,7 +126,7 @@ const s_MODULES_PLUGIN_NPM = [
       output: {
          dtsFile: '.build/plugin/manager.js',
          output: {
-            file: 'build/plugin/manager/index.js',
+            file: 'cool/plugin/manager/index.js',
             format: 'es',
             preferConst: true,
             sourcemap,
@@ -165,9 +165,9 @@ const s_MODULES_TINYMCE_NPM = [
          ]
       },
       output: {
-         file: './build/tinymce/initializePlugins.js',
+         file: './cool/tinymce/initializePlugins.js',
          output: {
-            dir: 'build/tinymce',
+            dir: 'cool/tinymce',
             format: 'es',
             inlineDynamicImports: true,
             preferConst: true,
