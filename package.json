@@ -132,7 +132,7 @@
     "/.rollup/postcssConfig.js",
     "/.rollup/local/externalPathsLib.js",
     "/.rollup/remote",
-    "/build"
+    "/cool"
   ],
   "repository": "github:typhonjs-fvtt-lib/typhonjs",
   "bugs": "https://github.com/typhonjs-fvtt-lib/typhonjs/issues"
