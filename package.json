@@ -9,41 +9,13 @@
     "Michael Leahy <support@typhonjs.io> (https://github.com/typhonrt)"
   ],
   "exports": {
-    "./rollup": "./.rollup/remote/index.js",
     "./dompurify": "./dist/dompurify/index.js",
-    "./dompurify/plugin/system": "./dist/dompurify/plugin/system/index.js",
-    "./plugin/manager": "./dist/plugin/manager/index.js",
-    "./svelte/action": "./dist/svelte/action/index.js",
-    "./svelte/application": "./dist/svelte/application/index.js",
-    "./svelte/application/legacy": "./dist/svelte/application/legacy/index.js",
-    "./svelte/component/core": "./dist/svelte/component/core/index.js",
-    "./svelte/gsap": "./dist/svelte/gsap/index.js",
-    "./svelte/handler": "./dist/svelte/handler/index.js",
-    "./svelte/helper": "./dist/svelte/helper/index.js",
-    "./svelte/plugin/data": "./dist/svelte/plugin/data/index.js",
-    "./svelte/plugin/system": "./dist/svelte/plugin/system/index.js",
-    "./svelte/store": "./dist/svelte/store/index.js",
-    "./svelte/transition": "./dist/svelte/transition/index.js",
-    "./svelte/util": "./dist/svelte/util/index.js",
     "./tinymce": "./dist/tinymce/initializePlugins.js",
     "./package.json": "./package.json"
   },
   "dependencies": {
-    "@typhonjs-utils/object": "^0.0.3",
-    "autoprefixer": "^10",
-    "cssnano": "^5",
-    "postcss": "^8",
-    "postcss-preset-env": "^6",
-    "rollup-plugin-postcss": "^4",
-    "rollup-plugin-sourcemaps": "^0.6",
-    "rollup-plugin-svelte": "^7",
-    "rollup-plugin-terser": "^7",
-    "sass": "^1",
-    "svelte-preprocess": "^4"
   },
   "peerDependencies": {
-    "rollup": "^2",
-    "svelte": "3.44.2"
   },
   "devDependencies": {
     "@itsjamie/esdoc-core": "^0.3",
