@@ -117,9 +117,8 @@
     "upath": "^2"
   },
   "scripts": {
-    "build-dist": "rollup --config",
-    "eslint": "eslint .",
-    "esdoc": "esdoc"
+    "build": "rollup --config",
+    "eslint": "eslint ."
   },
   "homepage": "https://github.com/typhonjs-fvtt-lib/typhonjs#readme",
   "keywords": [
