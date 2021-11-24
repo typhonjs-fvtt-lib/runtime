@@ -894,7 +894,7 @@ function get_each_context$2(ctx, list, i) {
 	return child_ctx;
 }
 
-// (54:4) {#each $storeHeaderButtons as button}
+// (51:4) {#each $storeHeaderButtons as button}
 function create_each_block$2(ctx) {
 	let tjsheaderbutton;
 	let current;
@@ -1067,10 +1067,6 @@ function instance$6($$self, $$props, $$invalidate) {
 		}
 	};
 
-	typeof foundryApp.options.popOut === 'boolean' && foundryApp.options.popOut
-	? () => foundryApp.bringToTop.call(foundryApp)
-	: () => void 0;
-
 	const storeTitle = context.storeAppOptions.title;
 	component_subscribe($$self, storeTitle, value => $$invalidate(2, $storeTitle = value));
 	const storeDraggable = context.storeAppOptions.draggable;
@@ -1096,7 +1092,7 @@ function instance$6($$self, $$props, $$invalidate) {
 		}
 
 		return {
-			update: ({ booleanStore }) => // eslint-disable-line no-shadow
+			update: booleanStore => // eslint-disable-line no-shadow
 			{
 				if (booleanStore) {
 					activateListeners();
