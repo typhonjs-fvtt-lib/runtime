@@ -90,7 +90,7 @@ export class SvelteFormApplication extends FormApplication
 
    /**
     * Provides a helper class that combines multiple methods for interacting with the mounted components tracked in
-    * {@link #svelteData}.
+    * {@link SvelteData}.
     *
     * @type {GetSvelteData}
     */
@@ -142,6 +142,13 @@ export class SvelteFormApplication extends FormApplication
     * @returns {HTMLElement} Target element.
     */
    get elementTarget() { return this.#elementTarget; }
+
+   /**
+    * Returns the minimizable app option.
+    *
+    * @returns {boolean} Minimizable app option.
+    */
+   get minimizable() { return this.options.minimizable; }
 
    /**
     * @inheritDoc
@@ -213,6 +220,16 @@ export class SvelteFormApplication extends FormApplication
          throw new TypeError(`SvelteFormApplication - set elementTarget error: 'target' is not an HTMLElement.`);
       }
       this.#elementTarget = target;
+   }
+
+   /**
+    * Sets `this.options.minimizable` which is reactive for application shells that are also pop out.
+    *
+    * @param {boolean}  minimizable - Sets the minimizable option.
+    */
+   set minimizable(minimizable)
+   {
+      if (typeof minimizable === 'boolean') { this.setOptions('minimizable', minimizable); }
    }
 
    /**
