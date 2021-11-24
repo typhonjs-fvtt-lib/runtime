@@ -11,9 +11,8 @@ import upath               from 'upath';
 
 import {
    createSvelteLibConfig,
-   createSvelteNPMConfig } from './.rollup/local/index.js';
-
-import terserConfig        from './terser.config.js';
+   createSvelteNPMConfig,
+   terserConfig }          from './.rollup/local/index.js';
 
 const s_COMPRESS = true;     // Compresses the module lib output. Not the NPM distribution bundles.
 const s_SOURCEMAPS = true;
@@ -23,7 +22,7 @@ const sourcemap = s_SOURCEMAPS;
 
 // Defines potential output plugins to use conditionally if the .env file indicates the bundles should be
 // minified / mangled.
-const outputPlugins = s_COMPRESS ? [terser(terserConfig)] : [];
+const outputPlugins = s_COMPRESS ? [terser(terserConfig())] : [];
 
 const s_MODULES_DOMPURIFY_LIB = [
    {

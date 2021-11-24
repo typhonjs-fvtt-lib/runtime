@@ -7,6 +7,7 @@ import { generatePluginOutput }  from '../generatePluginOutput.js';
 export *                         from './createSvelteLibConfig.js'
 export *                         from './createSvelteNPMConfig.js'
 export *                         from '../postcssConfig.js';
+export *                         from '../terserConfig.js';
 
 /**
  * Creates the TyphonJS runtime library substitution plugin.

@@ -1,3 +1,5 @@
+import * as terser from 'terser';
+
 /**
  * Provides a function to return a new PostCSS configuration setting the extract parameter.
  *
@@ -25,6 +27,23 @@ declare function postcssConfig({ extract, compress, sourceMap }?: {
 };
 
 /**
+ * Convenience method to create a Terser config without needing to store a local file.
+ *
+ * @param {object}         [opts] - Optional parameters.
+ *
+ * @param {boolean}        [opts.keep_classnames=undefined] - When true does not mangle class names.
+ *
+ * @param {boolean|RegExp} [opts.keep_fnames=false] - When true does not mangle function names; a RegExp will
+ *                                                    selectively mangle function names.
+ *
+ * @returns {import('terser').MinifyOptions} A Terser configuration file.
+ */
+declare function terserConfig({ keep_classnames, keep_fnames }?: {
+    keep_classnames?: boolean;
+    keep_fnames?: boolean | RegExp;
+}): terser.MinifyOptions;
+
+/**
  * Returns the TyphonJS Runtime Library module substitution plugin.
  *
  * Add this plugin to substitute NPM module paths for the Foundry VTT hosted module.
@@ -36,4 +55,4 @@ declare function typhonjsRuntime(): {
     options(): void;
 };
 
-export { postcssConfig, typhonjsRuntime };
+export { postcssConfig, terserConfig, typhonjsRuntime };
