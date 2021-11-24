@@ -35,6 +35,14 @@ type GameSetting = {
      */
     options: object;
 };
+/**
+ * - The backing Svelte store; a writable w/ get method attached.
+ */
+type GSStore = ((key: any, value: any, start?: typeof noop) => {
+    set: (new_value: any) => void;
+    update: (fn: any) => void;
+    subscribe: (run: any, invalidate?: typeof noop) => svelte_store.Unsubscriber;
+}) & typeof get;
 declare class LocalStorage {
     /**
      * Get value from the localstorage.
@@ -127,11 +135,14 @@ declare class SessionStorage {
  * @property {object} options - Configuration for setting data.
  */
 /**
+ * @typedef {writable & get} GSStore - The backing Svelte store; a writable w/ get method attached.
+ */
+/**
  * Registers game settings and creates a backing Svelte store for each setting. It is possible to add multiple
  * `onChange` callbacks on registration.
  */
 declare class TJSGameSettings {
-    getStore(key: any): any;
+    getStore(key: any): GSStore;
     register(moduleId: any, key: any, options?: {}): void;
     /**
      * Registers multiple settings.
@@ -142,4 +153,4 @@ declare class TJSGameSettings {
     #private;
 }
 
-export { GameSetting, LSStore, LocalStorage, SSStore, SessionStorage, TJSGameSettings };
+export { GSStore, GameSetting, LSStore, LocalStorage, SSStore, SessionStorage, TJSGameSettings };
