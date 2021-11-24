@@ -35,7 +35,7 @@ export class TJSMenu
       this.#contextMenu = new TJSContextMenu({
          target: document.body,
          intro: true,
-         props: { id, x, y, items, zIndex, duration: 200, ...transitionOptions } // Default duration of 200ms
+         props: { id, x, y, items, zIndex, transitionOptions: { duration: 200, ...transitionOptions } }
       });
 
       // Register an event listener to remove any active context menu if closed from a menu selection or pointer
