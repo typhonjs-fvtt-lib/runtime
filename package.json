@@ -131,6 +131,7 @@
   "files": [
     "/.rollup/generatePlugin.js",
     "/.rollup/postcssConfig.js",
+    "/.rollup/terserConfig.js",
     "/.rollup/local/externalPathsLib.js",
     "/.rollup/remote",
     "/_dist"
