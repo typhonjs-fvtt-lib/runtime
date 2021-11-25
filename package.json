@@ -78,6 +78,7 @@
     "./package.json": "./package.json"
   },
   "dependencies": {
+    "@rollup/plugin-node-resolve": "^13",
     "@typhonjs-utils/object": "^0.0.3",
     "autoprefixer": "^10",
     "cssnano": "^5",
@@ -98,7 +99,6 @@
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@rollup/plugin-babel": "^5",
-    "@rollup/plugin-node-resolve": "^13",
     "@rollup/plugin-virtual": "^2",
     "@types/jquery": "^3",
     "@typhonjs-build-test/esm-d-ts": "^0.0.2",
