@@ -289,7 +289,7 @@ export class SvelteFormApplication extends FormApplication
     *
     * @param {boolean}  options.force - Force close regardless of render state.
     *
-    * @returns {Promise<void|number>}    A Promise which resolves once the application is closed
+    * @returns {Promise<void>}    A Promise which resolves once the application is closed
     */
    async close(options = {})
    {
@@ -602,7 +602,7 @@ export class SvelteFormApplication extends FormApplication
     *
     * @returns {Promise.<JQuery>}   A promise resolving to the constructed jQuery object
     *
-    * @private
+    * @protected
     */
    async _renderInner(data)
    {
