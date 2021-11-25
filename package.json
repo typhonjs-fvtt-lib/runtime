@@ -134,7 +134,8 @@
     "/.rollup/terserConfig.js",
     "/.rollup/local/externalPathsLib.js",
     "/.rollup/remote",
-    "/_dist"
+    "/_dist",
+    "/_types"
   ],
   "repository": "github:typhonjs-fvtt-lib/typhonjs",
   "bugs": "https://github.com/typhonjs-fvtt-lib/typhonjs/issues"
