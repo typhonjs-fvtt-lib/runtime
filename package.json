@@ -8,6 +8,7 @@
   "contributors": [
     "Michael Leahy <support@typhonjs.io> (https://github.com/typhonrt)"
   ],
+  "svelte": "_dist/svelte/index-svelte.js",
   "exports": {
     "./rollup": {
       "types": "./.rollup/remote/index.d.ts",
