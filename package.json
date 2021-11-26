@@ -30,9 +30,11 @@
       "import": "./_dist/svelte/action/index.js"
     },
     "./svelte/application": {
+      "types": "./_types/svelte/application/index.d.ts",
       "import": "./_dist/svelte/application/index.js"
     },
     "./svelte/application/legacy": {
+      "types": "./_types/svelte/application/legacy/index.d.ts",
       "import": "./_dist/svelte/application/legacy/index.js"
     },
     "./svelte/component/core": {
