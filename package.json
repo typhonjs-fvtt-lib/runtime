@@ -30,15 +30,13 @@
       "import": "./_dist/svelte/action/index.js"
     },
     "./svelte/application": {
-      "types": "./_types/svelte/application/index.d.ts",
       "import": "./_dist/svelte/application/index.js"
     },
     "./svelte/application/legacy": {
-      "types": "./_types/svelte/application/legacy/index.d.ts",
       "import": "./_dist/svelte/application/legacy/index.js"
     },
     "./svelte/component/core": {
-      "types": "./_dist/svelte/component/index.d.ts",
+      "types": "./_dist/svelte/component/core/index.d.ts",
       "import": "./_dist/svelte/component/core/index.js"
     },
     "./svelte/gsap": {
@@ -98,6 +96,7 @@
     "svelte-preprocess": "4.9.8"
   },
   "devDependencies": {
+    "@league-of-foundry-developers/foundry-vtt-types": "^0.8.9-7",
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@rollup/plugin-babel": "^5",
