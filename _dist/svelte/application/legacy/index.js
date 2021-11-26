@@ -2,7 +2,7 @@ export * from './HandlebarsApplication.js';
 export * from './HandlebarsFormApplication.js';
 
 /**
- * @typedef {object} ApplicationShell - Application shell contract for Svelte components.
+ * @typedef {object} MountedAppShell - Application shell contract for Svelte components.
  *
  * @property {HTMLElement} elementRoot - The root element / exported prop.
  *

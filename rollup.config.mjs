@@ -213,13 +213,22 @@ for (const config of rollupPluginsNPM)
 // Handle @typhonjs-fvtt/svelte/application & application/legacy by copying the source and converting all import
 // package references from `@typhonjs-fvtt/svelte` to `@typhonjs-fvtt/runtime/svelte`.
 fs.emptyDirSync('./_dist/svelte/application');
-// fs.copySync('./node_modules/@typhonjs-fvtt/svelte/src/application', './_dist/svelte/application');
 fs.copySync('./node_modules/@typhonjs-fvtt/svelte/_dist/application', './_dist/svelte/application');
 const appFiles = await getFileList({ dir: './_dist/svelte/application' });
 for (const appFile of appFiles)
 {
    const fileData = fs.readFileSync(appFile, 'utf-8').toString();
    fs.writeFileSync(appFile, fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/'));
+}
+
+// Handle @typhonjs-fvtt/svelte/application & application/legacy types by copying the declarations and converting all
+// import package references from `@typhonjs-fvtt/svelte` to `@typhonjs-fvtt/runtime/svelte`.
+fs.copySync('./node_modules/@typhonjs-fvtt/svelte/_types/application', './_types/svelte/application');
+const dtsFiles = await getFileList({ dir: './_types/svelte/application' });
+for (const dtsFile of dtsFiles)
+{
+   const fileData = fs.readFileSync(dtsFile, 'utf-8').toString();
+   fs.writeFileSync(dtsFile, fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/'));
 }
 
 // Generate types for remote rollup plugin.

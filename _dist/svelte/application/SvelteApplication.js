@@ -22,14 +22,14 @@ export class SvelteApplication extends Application
    /**
     * Stores the first mounted component which follows the application shell contract.
     *
-    * @type {ApplicationShell[]|null[]} Application shell.
+    * @type {MountedAppShell[]|null[]} Application shell.
     */
    #applicationShellHolder = [null];
 
    /**
     * Get the current application shell.
     *
-    * @returns {ApplicationShell|null} The first mounted component which follows the application shell contract.
+    * @returns {MountedAppShell|null} The first mounted component which follows the application shell contract.
     */
    get #applicationShell() { return this.#applicationShellHolder[0]; }
 

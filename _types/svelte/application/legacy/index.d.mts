@@ -1,12 +1,11 @@
 import '@league-of-foundry-developers/foundry-vtt-types';
-import * as svelte_store from 'svelte/store';
+import * as svelte_store        from 'svelte/store';
 
-declare class HandlebarsApplication<P extends Application.Options = Application.Options> extends Application<P> {
-    /**
-     * @inheritDoc
-     */
-    constructor(options: any);
-    #private;
+// @ts-ignore
+import { SvelteApplication }    from '@typhonjs-fvtt/runtime/svelte/application';
+
+declare class HandlebarsApplication<P extends Application.Options = Application.Options> extends SvelteApplication<P> {
+    constructor(options?: Partial<P>);
 }
 
 type SvelteData = {
@@ -27,6 +26,7 @@ type SvelteData = {
      */
     eventbus: any;
 };
+
 /**
  * Provides a helper class for {@link SvelteApplication} by combining all methods that work on the {@link SvelteData[]}
  * of mounted components. This class is instantiated and can be retrieved by the getter `svelte` via SvelteApplication.
@@ -35,15 +35,15 @@ declare class GetSvelteData {
     /**
      * Keep a direct reference to the SvelteData array in an associated {@link SvelteApplication}.
      *
-     * @param {ApplicationShell[]|null[]}  applicationShellHolder - A reference to the ApplicationShell array.
+     * @param {MountedAppShell[]|null[]}  applicationShellHolder - A reference to the MountedAppShell array.
      *
      * @param {SvelteData[]}  svelteData - A reference to the SvelteData array of mounted components.
      */
     constructor(applicationShellHolder: any[] | null[], svelteData: SvelteData[]);
     /**
-     * Returns any mounted {@link ApplicationShell}.
+     * Returns any mounted {@link MountedAppShell}.
      *
-     * @returns {ApplicationShell|null} Any mounted application shell.
+     * @returns {MountedAppShell|null} Any mounted application shell.
      */
     get applicationShell(): any;
     /**
@@ -88,8 +88,13 @@ declare class GetSvelteData {
      * @returns {IterableIterator<Object>} SvelteData values iterator.
      */
     dataValues(): IterableIterator<any>;
+
+    /**
+     * Returns the length of the mounted Svelte component list.
+     *
+     * @returns {number} Length of mounted Svelte component list.
+     */
     get length(): number;
-    #private;
 }
 
 /**
@@ -99,101 +104,117 @@ declare class GetSvelteData {
  *
  * @see SvelteApplication
  */
-declare class SvelteFormApplication<P extends Application.Options = Application.Options> extends Application<P> {
+declare abstract class SvelteFormApplication<
+    Options extends FormApplication.Options = FormApplication.Options,
+    Data extends object = FormApplication.Data<{}, Options>,
+    ConcreteObject = Data extends FormApplication.Data<infer T, Options> ? T : {}
+    > extends FormApplication<Options, Data, ConcreteObject> {
+
     /**
-     * Specifies the default options that SvelteApplication supports.
-     *
-     * @returns {object} options - Application options.
-     * @see https://foundryvtt.com/api/Application.html#options
+     * @param object  - Some object or entity which is the target to be updated.
+     * @param options - Additional options which modify the rendering of the sheet.
+     *                  (default: `{}`)
+     * @remarks Foundry allows passing no value to the constructor at all.
      */
-    static get defaultOptions(): any;
-    /**
-     * @inheritDoc
-     */
-    constructor(object: any, options: any);
+    constructor(object: ConcreteObject, options?: Partial<Options>);
+
     /**
      * Sets `this.options.draggable` which is reactive for application shells.
      *
      * @param {boolean}  draggable - Sets the draggable option.
      */
-    set draggable(arg: boolean);
+    set draggable(draggable);
+
     /**
      * Returns the draggable app option.
      *
      * @returns {boolean} Draggable app option.
      */
     get draggable(): boolean;
+
     /**
      * Sets the content element.
      *
      * @param {HTMLElement} content - Content element.
      */
-    set elementContent(arg: HTMLElement);
+    set elementContent(content: HTMLElement);
+
     /**
      * Returns the content element if an application shell is mounted.
      *
      * @returns {HTMLElement} Content element.
      */
     get elementContent(): HTMLElement;
+
     /**
      * Sets the target element or main element if no target defined.
      *
      * @param {HTMLElement} target - Target element.
      */
-    set elementTarget(arg: HTMLElement);
+    set elementTarget(target: HTMLElement);
+
     /**
      * Returns the target element or main element if no target defined.
      *
      * @returns {HTMLElement} Target element.
      */
     get elementTarget(): HTMLElement;
+
     /**
      * Sets `this.options.minimizable` which is reactive for application shells that are also pop out.
      *
      * @param {boolean}  minimizable - Sets the minimizable option.
      */
-    set minimizable(arg: boolean);
+    set minimizable(minimizable: boolean);
+
     /**
      * Returns the minimizable app option.
      *
      * @returns {boolean} Minimizable app option.
      */
     get minimizable(): boolean;
+
     /**
      * Sets `this.options.popOut` which is reactive for application shells. This will add / remove this application
      * from `ui.windows`.
      *
      * @param {boolean}  popOut - Sets the popOut option.
      */
-    set popOut(arg: boolean);
+    set popOut(popOut: boolean);
+
     /**
      * @inheritDoc
      */
     get popOut(): boolean;
+
     /**
      * Sets `this.options.resizable` which is reactive for application shells.
      *
      * @param {boolean}  resizable - Sets the resizable option.
      */
-    set resizable(arg: boolean);
+    set resizable(resizable: boolean);
+
     /**
      * Returns the resizable option.
      *
      * @returns {boolean} Resizable app option.
      */
     get resizable(): boolean;
+
     /**
      * Returns the Svelte helper class w/ various methods to access mounted Svelte components.
      *
      * @returns {GetSvelteData} GetSvelteData
      */
     get svelte(): GetSvelteData;
+
     /**
      * Sets `this.options.title` which is reactive for application shells.
      *
      * @param {string}   title - Application title; will be localized, so a translation key is fine.
      */
-    set title(arg: string);
+    set title(title: string);
+
     /**
      * Returns the title accessor from the parent Application class.
      * TODO: Application v2; note that super.title localizes `this.options.title`; IMHO it shouldn't.
@@ -201,18 +222,21 @@ declare class SvelteFormApplication<P extends Application.Options = Application.
      * @returns {string} Title.
      */
     get title(): string;
+
     /**
      * Sets `this.options.zIndex` which is reactive for application shells.
      *
      * @param {number}   zIndex - Application z-index.
      */
-    set zIndex(arg: number);
+    set zIndex(zIndex: number);
+
     /**
      * Returns the zIndex app option.
      *
      * @returns {number} z-index app option.
      */
     get zIndex(): number;
+
     /**
      * Note: This method is fully overridden and duplicated as Svelte components need to be destroyed manually and the
      * best visual result is to destroy them after the default JQuery slide up animation occurs, but before the element
@@ -231,13 +255,8 @@ declare class SvelteFormApplication<P extends Application.Options = Application.
      *
      * @returns {Promise<void>}    A Promise which resolves once the application is closed
      */
-    close(options?: {
-        force: boolean;
-    }): Promise<void>;
-    _state: any;
-    _element: JQuery<any>;
-    _minimized: boolean;
-    _scrollPositions: any;
+    override close(options?): Promise<void>;
+
     /**
      * Provides a way to safely get this applications options given an accessor string which describes the
      * entries to walk. To access deeper entries into the object format the accessor string with `.` between entries
@@ -252,42 +271,14 @@ declare class SvelteFormApplication<P extends Application.Options = Application.
      * @returns {*} Value at the accessor.
      */
     getOptions(accessor: string, defaultValue?: any): any;
-    /**
-     * Inject the Svelte components defined in `this.options.svelte`. The Svelte component can attach to the existing
-     * pop-out of Application or provide no template and render into a document fragment which is then attached to the
-     * DOM.
-     *
-     * @param {JQuery} html -
-     *
-     * @inheritDoc
-     */
-    _injectHTML(html: JQuery): void;
-    /**
-     * Provides a mechanism to update the UI options store for minimized.
-     *
-     * Note: the sanity check is duplicated from {@link Application.maximize} and the store is updated _before_
-     * the actual parent method is invoked. This allows application shells to remove / show any resize handlers
-     * correctly.
-     *
-     * @inheritDoc
-     */
-    maximize(): Promise<any>;
-    /**
-     * Provides a mechanism to update the UI options store for minimized.
-     *
-     * Note: the sanity check is duplicated from {@link Application.minimize} and the store is updated _before_
-     * the actual parent method is invoked. This allows application shells to remove / show any resize handlers
-     * correctly.
-     *
-     * @inheritDoc
-     */
-    minimize(): Promise<any>;
+
     /**
      * Provides a way to merge `options` into this applications options and update the appOptions store.
      *
      * @param {object}   options - The options object to merge with `this.options`.
      */
-    mergeOptions(options: object): void;
+    mergeOptions(options: Partial<Options>): void;
+
     /**
      * Provides a callback after all Svelte components are initialized.
      *
@@ -304,24 +295,7 @@ declare class SvelteFormApplication<P extends Application.Options = Application.
         elementContent?: HTMLElement;
         elementTarget?: HTMLElement;
     }): void;
-    /**
-     * Override replacing HTML as Svelte components control the rendering process. Only potentially change the outer
-     * application frame / title for pop-out applications.
-     *
-     * @inheritDoc
-     */
-    _replaceHTML(element: any, html: any): void;
-    /**
-     * Render the inner application content. Only render a template if one is defined otherwise provide an empty
-     * JQuery element.
-     *
-     * @param {Object} data         The data used to render the inner template
-     *
-     * @returns {Promise.<JQuery>}   A promise resolving to the constructed jQuery object
-     *
-     * @protected
-     */
-    protected _renderInner(data: any): Promise<JQuery>;
+
     /**
      * Provides a way to safely set this applications options given an accessor string which describes the
      * entries to walk. To access deeper entries into the object format the accessor string with `.` between entries
@@ -337,6 +311,7 @@ declare class SvelteFormApplication<P extends Application.Options = Application.
      * @param {*}        value - Value to set.
      */
     setOptions(accessor: string, value: any): void;
+
     /**
      * Modified Application `setPosition` to support QuestTrackerApp for switchable resizable globalThis.
      * Set the application position and store its new location.
@@ -375,6 +350,7 @@ declare class SvelteFormApplication<P extends Application.Options = Application.
         height: number;
         scale: number;
     };
+
     /**
      * Updates the UI Options store with the current header buttons. You may dynamically add / remove header buttons
      * if using an application shell Svelte component. In either overriding `_getHeaderButtons` or responding to the
@@ -385,25 +361,19 @@ declare class SvelteFormApplication<P extends Application.Options = Application.
      * the header buttons.
      */
     updateHeaderButtons(): void;
-    #private;
 }
 
-declare class HandlebarsFormApplication<P extends Application.Options = Application.Options> extends SvelteFormApplication<P> {
-    /**
-     * Temporarily set popOut to false to only render inner HTML. This inner HTML will be appended to the content area
-     * of ApplicationShell if the original popOut value is true.
-     *
-     * @inheritDoc
-     */
-    _render(force: any, options: any): Promise<void>;
-    form: HTMLElement;
-    #private;
+declare abstract class HandlebarsFormApplication<
+    Options extends FormApplication.Options = FormApplication.Options,
+    Data extends object = FormApplication.Data<{}, Options>,
+    ConcreteObject = Data extends FormApplication.Data<infer T, Options> ? T : {}
+    > extends SvelteApplication<Options, Data, ConcreteObject> {
 }
 
 /**
  * - Application shell contract for Svelte components.
  */
-type ApplicationShell = {
+type MountedAppShell = {
     /**
      * - The root element / exported prop.
      */
@@ -417,6 +387,7 @@ type ApplicationShell = {
      */
     elementTarget?: HTMLElement;
 };
+
 /**
  * - Provides a custom readable Svelte store for Application options state.
  */
@@ -469,4 +440,4 @@ type StoreUIOptions = {
     minimized: svelte_store.Readable<boolean>;
 };
 
-export { ApplicationShell, HandlebarsApplication, HandlebarsFormApplication, StoreAppOptions, StoreUIOptions };
+export { MountedAppShell, HandlebarsApplication, HandlebarsFormApplication, StoreAppOptions, StoreUIOptions };

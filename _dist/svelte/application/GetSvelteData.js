@@ -5,7 +5,7 @@
 class GetSvelteData
 {
    /**
-    * @type {ApplicationShell[]|null[]}
+    * @type {MountedAppShell[]|null[]}
     */
    #applicationShellHolder;
 
@@ -17,7 +17,7 @@ class GetSvelteData
    /**
     * Keep a direct reference to the SvelteData array in an associated {@link SvelteApplication}.
     *
-    * @param {ApplicationShell[]|null[]}  applicationShellHolder - A reference to the ApplicationShell array.
+    * @param {MountedAppShell[]|null[]}  applicationShellHolder - A reference to the MountedAppShell array.
     *
     * @param {SvelteData[]}  svelteData - A reference to the SvelteData array of mounted components.
     */
@@ -28,9 +28,9 @@ class GetSvelteData
    }
 
    /**
-    * Returns any mounted {@link ApplicationShell}.
+    * Returns any mounted {@link MountedAppShell}.
     *
-    * @returns {ApplicationShell|null} Any mounted application shell.
+    * @returns {MountedAppShell|null} Any mounted application shell.
     */
    get applicationShell() { return this.#applicationShellHolder[0]; }
 
@@ -107,6 +107,11 @@ class GetSvelteData
       return this.#svelteData.values();
    }
 
+   /**
+    * Returns the length of the mounted Svelte component list.
+    *
+    * @returns {number} Length of mounted Svelte component list.
+    */
    get length()
    {
       return this.#svelteData.length;
