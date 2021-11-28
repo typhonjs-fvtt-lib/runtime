@@ -3997,31 +3997,31 @@ function instance($$self, $$props, $$invalidate) {
 				// Update the main foundry options when data changes. Perform explicit checks against existing data in `foundryApp`.
 				const newDraggable = data.draggable ?? true;
 
-				if (foundryApp.draggable !== newDraggable) {
-					$$invalidate(2, foundryApp.draggable = newDraggable, foundryApp);
+				if (foundryApp.reactive.draggable !== newDraggable) {
+					$$invalidate(2, foundryApp.reactive.draggable = newDraggable, foundryApp);
 				}
 
 				const newPopOut = data.popOut ?? true;
 
-				if (foundryApp.popOut !== newPopOut) {
-					$$invalidate(2, foundryApp.popOut = newPopOut, foundryApp);
+				if (foundryApp.reactive.popOut !== newPopOut) {
+					$$invalidate(2, foundryApp.reactive.popOut = newPopOut, foundryApp);
 				}
 
 				const newResizable = data.resizable ?? false;
 
-				if (foundryApp.resizable !== newResizable) {
-					$$invalidate(2, foundryApp.resizable = newResizable, foundryApp);
+				if (foundryApp.reactive.resizable !== newResizable) {
+					$$invalidate(2, foundryApp.reactive.resizable = newResizable, foundryApp);
 				}
 
 				// Note foundryApp.title from Application localizes `options.title`, so compare with `foundryApp.options.title`.
 				const newTitle = data.title ?? 'Dialog';
 
 				if (newTitle !== foundryApp?.options?.title) {
-					$$invalidate(2, foundryApp.title = newTitle, foundryApp);
+					$$invalidate(2, foundryApp.reactive.title = newTitle, foundryApp);
 				}
 
-				if (foundryApp.zIndex !== zIndex) {
-					$$invalidate(2, foundryApp.zIndex = zIndex, foundryApp);
+				if (foundryApp.reactive.zIndex !== zIndex) {
+					$$invalidate(2, foundryApp.reactive.zIndex = zIndex, foundryApp);
 				}
 			}
 		}
