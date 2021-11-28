@@ -276,7 +276,7 @@ export class SvelteFormApplication extends FormApplication
       }
 
       // Make sure the store is updated with the latest header buttons. Also allows filtering buttons before display.
-      this.updateHeaderButtons();
+      this.reactive.updateHeaderButtons();
 
       if (Array.isArray(this.options.svelte))
       {
@@ -437,7 +437,7 @@ export class SvelteFormApplication extends FormApplication
    {
       if (!element.length) { return; }
 
-      this.updateHeaderButtons();
+      this.reactive.updateHeaderButtons();
    }
 
    /**
