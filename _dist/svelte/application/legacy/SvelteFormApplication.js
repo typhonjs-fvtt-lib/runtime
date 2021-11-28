@@ -855,8 +855,8 @@ class SvelteReactive
       return {
          appOptionsUpdate: this.#storeAppOptionsUpdate,
          uiOptionsUpdate: this.#storeUIOptionsUpdate,
-         subscribe: this.#storesSubscribe,
-         unsubscribe: this.#storesUnsubscribe
+         subscribe: this.#storesSubscribe.bind(this),
+         unsubscribe: this.#storesUnsubscribe.bind(this)
       };
    }
 
