@@ -172,7 +172,7 @@ export class TJSDialog extends SvelteApplication
     *
     * @param {TJSConfirmConfig} config - Confirm dialog options.
     *
-    * @return {Promise<*>} A promise which resolves once the user makes a choice or closes the window.
+    * @returns {Promise<*>} A promise which resolves once the user makes a choice or closes the window.
     *
     * @example
     * let d = Dialog.confirm({
@@ -184,8 +184,8 @@ export class TJSDialog extends SvelteApplication
     * });
     */
    static async confirm({ title, content, yes, no, render, defaultYes = true, rejectClose = false, options = {},
-                           buttons = {}, draggable = true, modal = false, modalOptions = {}, popOut = true, resizable = false, transition = {},
-                           zIndex } = {})
+    buttons = {}, draggable = true, modal = false, modalOptions = {}, popOut = true, resizable = false, transition = {},
+     zIndex } = {})
    {
       // Allow overwriting of default icon and labels.
       const mergedButtons = foundry.utils.mergeObject({
@@ -242,13 +242,13 @@ export class TJSDialog extends SvelteApplication
    /**
     * A helper factory method to display a basic "prompt" style Dialog with a single button
     *
-    * @param {TJSPromptConfig} - Prompt dialog options.
+    * @param {TJSPromptConfig} config - Prompt dialog options.
     *
-    * @return {Promise<*>} The returned value from the provided callback function, if any
+    * @returns {Promise<*>} The returned value from the provided callback function, if any
     */
    static async prompt({ title, content, label, callback, render, rejectClose = false, options = {}, draggable = true,
-                          icon = '<i class="fas fa-check"></i>', modal = false, modalOptions = {}, popOut = true, resizable = false,
-                          transition = {}, zIndex } = {})
+    icon = '<i class="fas fa-check"></i>', modal = false, modalOptions = {}, popOut = true, resizable = false,
+     transition = {}, zIndex } = {})
    {
       return new Promise((resolve, reject) =>
       {
