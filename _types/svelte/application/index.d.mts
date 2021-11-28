@@ -1,103 +1,5 @@
-import '@league-of-foundry-developers/foundry-vtt-types';
 import * as svelte_store from 'svelte/store';
-
-type SvelteData = {
-    /**
-     * -
-     */
-    config: object;
-
-    /**
-     * -
-     */
-    component: any;
-
-    /**
-     * -
-     */
-    element: HTMLElement;
-
-    /**
-     * -
-     */
-    eventbus: any;
-};
-/**
- * Provides a helper class for {@link SvelteApplication} by combining all methods that work on the {@link SvelteData[]}
- * of mounted components. This class is instantiated and can be retrieved by the getter `svelte` via SvelteApplication.
- */
-declare class GetSvelteData {
-    /**
-     * Keep a direct reference to the SvelteData array in an associated {@link SvelteApplication}.
-     *
-     * @param {MountedAppShell[]|null[]}  applicationShellHolder - A reference to the MountedAppShell array.
-     *
-     * @param {SvelteData[]}  svelteData - A reference to the SvelteData array of mounted components.
-     */
-    constructor(applicationShellHolder: any[] | null[], svelteData: SvelteData[]);
-
-    /**
-     * Returns any mounted {@link MountedAppShell}.
-     *
-     * @returns {MountedAppShell|null} Any mounted application shell.
-     */
-    get applicationShell(): any;
-
-    /**
-     * Returns the indexed Svelte component.
-     *
-     * @param {number}   index -
-     *
-     * @returns {object} The loaded Svelte component.
-     */
-    component(index: number): object;
-
-    /**
-     * Returns the Svelte component entries iterator.
-     *
-     * @returns {Generator<(number|*)[], void, *>} Svelte component entries iterator.
-     * @yields
-     */
-    componentEntries(): Generator<(number | any)[], void, any>;
-
-    /**
-     * Returns the Svelte component values iterator.
-     *
-     * @returns {Generator<*, void, *>} Svelte component values iterator.
-     * @yields
-     */
-    componentValues(): Generator<any, void, any>;
-
-    /**
-     * Returns the indexed SvelteData entry.
-     *
-     * @param {number}   index -
-     *
-     * @returns {object} The loaded Svelte config + component.
-     */
-    data(index: number): object;
-
-    /**
-     * Returns the SvelteData entries iterator.
-     *
-     * @returns {IterableIterator<[number, Object]>} SvelteData entries iterator.
-     */
-    dataEntries(): IterableIterator<[number, any]>;
-
-    /**
-     * Returns the SvelteData values iterator.
-     *
-     * @returns {IterableIterator<Object>} SvelteData values iterator.
-     */
-    dataValues(): IterableIterator<any>;
-
-    /**
-     * Returns the length of the mounted Svelte component list.
-     *
-     * @returns {number} Length of mounted Svelte component list.
-     */
-    get length(): number;
-}
+import * as svelte from 'svelte';
 
 /**
  * Provides a Svelte aware extension to Application to control the app lifecycle appropriately. You can declaratively
@@ -107,128 +9,54 @@ declare class GetSvelteData {
  *
  * A repository of demos will be available soon.
  */
-declare class SvelteApplication<P extends Application.Options = Application.Options> extends Application<P> {
-    constructor(options?: Partial<Application.Options>);
-
+declare class SvelteApplication {
     /**
-     * Sets `this.options.draggable` which is reactive for application shells.
+     * Specifies the default options that SvelteApplication supports.
      *
-     * @param {boolean}  draggable - Sets the draggable option.
+     * @returns {object} options - Application options.
+     * @see https://foundryvtt.com/api/Application.html#options
      */
-    set draggable(draggable);
-
+    static get defaultOptions(): any;
     /**
-     * Returns the draggable app option.
-     *
-     * @returns {boolean} Draggable app option.
+     * @inheritDoc
      */
-    get draggable(): boolean;
-
+    constructor(options: any);
     /**
      * Sets the content element.
      *
      * @param {HTMLElement} content - Content element.
      */
     set elementContent(content: HTMLElement);
-
     /**
      * Returns the content element if an application shell is mounted.
      *
      * @returns {HTMLElement} Content element.
      */
     get elementContent(): HTMLElement;
-
     /**
      * Sets the target element or main element if no target defined.
      *
      * @param {HTMLElement} target - Target element.
      */
     set elementTarget(target: HTMLElement);
-
     /**
      * Returns the target element or main element if no target defined.
      *
      * @returns {HTMLElement} Target element.
      */
     get elementTarget(): HTMLElement;
-
     /**
-     * Sets `this.options.minimizable` which is reactive for application shells that are also pop out.
+     * Returns the reactive accessors & Svelte stores for SvelteApplication.
      *
-     * @param {boolean}  minimizable - Sets the minimizable option.
+     * @returns {SvelteReactive} The reactive accessors & Svelte stores.
      */
-    set minimizable(minimizable: boolean);
-
-    /**
-     * Returns the minimizable app option.
-     *
-     * @returns {boolean} Minimizable app option.
-     */
-    get minimizable(): boolean;
-
-    /**
-     * Sets `this.options.popOut` which is reactive for application shells. This will add / remove this application
-     * from `ui.windows`.
-     *
-     * @param {boolean}  popOut - Sets the popOut option.
-     */
-    set popOut(popOut: boolean);
-
-    /**
-     * @inheritDoc
-     */
-    get popOut(): boolean;
-
-    /**
-     * Sets `this.options.resizable` which is reactive for application shells.
-     *
-     * @param {boolean}  resizable - Sets the resizable option.
-     */
-    set resizable(resizable: boolean);
-
-    /**
-     * Returns the resizable option.
-     *
-     * @returns {boolean} Resizable app option.
-     */
-    get resizable(): boolean;
-
+    get reactive(): SvelteReactive;
     /**
      * Returns the Svelte helper class w/ various methods to access mounted Svelte components.
      *
      * @returns {GetSvelteData} GetSvelteData
      */
     get svelte(): GetSvelteData;
-
-    /**
-     * Sets `this.options.title` which is reactive for application shells.
-     *
-     * @param {string}   title - Application title; will be localized, so a translation key is fine.
-     */
-    set title(title: string);
-
-    /**
-     * Returns the title accessor from the parent Application class.
-     * TODO: Application v2; note that super.title localizes `this.options.title`; IMHO it shouldn't.
-     *
-     * @returns {string} Title.
-     */
-    get title(): string;
-
-    /**
-     * Sets `this.options.zIndex` which is reactive for application shells.
-     *
-     * @param {number}   zIndex - Application z-index.
-     */
-    set zIndex(zIndex: number);
-
-    /**
-     * Returns the zIndex app option.
-     *
-     * @returns {number} z-index app option.
-     */
-    get zIndex(): number;
-
     /**
      * Note: This method is fully overridden and duplicated as Svelte components need to be destroyed manually and the
      * best visual result is to destroy them after the default JQuery slide up animation occurs, but before the element
@@ -247,30 +75,40 @@ declare class SvelteApplication<P extends Application.Options = Application.Opti
      *
      * @returns {Promise<void>}    A Promise which resolves once the application is closed
      */
-    override close(options?): Promise<void>;
+    close(options?: {
+        force: boolean;
+    }): Promise<void>;
 
     /**
-     * Provides a way to safely get this applications options given an accessor string which describes the
-     * entries to walk. To access deeper entries into the object format the accessor string with `.` between entries
-     * to walk.
+     * Inject the Svelte components defined in `this.options.svelte`. The Svelte component can attach to the existing
+     * pop-out of Application or provide no template and render into a document fragment which is then attached to the
+     * DOM.
      *
-     * // TODO DOCUMENT the accessor in more detail.
+     * @param {JQuery} html -
      *
-     * @param {string}   accessor - The path / key to set. You can set multiple levels.
-     *
-     * @param {*}        [defaultValue] - A default value returned if the accessor is not found.
-     *
-     * @returns {*} Value at the accessor.
+     * @inheritDoc
      */
-    getOptions(accessor: string, defaultValue?: any): any;
-
+    _injectHTML(html: JQuery): void;
     /**
-     * Provides a way to merge `options` into this applications options and update the appOptions store.
+     * Provides a mechanism to update the UI options store for minimized.
      *
-     * @param {object}   options - The options object to merge with `this.options`.
+     * Note: the sanity check is duplicated from {@link Application.maximize} and the store is updated _before_
+     * the actual parent method is invoked. This allows application shells to remove / show any resize handlers
+     * correctly.
+     *
+     * @inheritDoc
      */
-    mergeOptions(options: Partial<P>): void;
-
+    maximize(): Promise<any>;
+    /**
+     * Provides a mechanism to update the UI options store for minimized.
+     *
+     * Note: the sanity check is duplicated from {@link Application.minimize} and the store is updated _before_
+     * the actual parent method is invoked. This allows application shells to remove / show any resize handlers
+     * correctly.
+     *
+     * @inheritDoc
+     */
+    minimize(): Promise<any>;
     /**
      * Provides a callback after all Svelte components are initialized.
      *
@@ -287,23 +125,24 @@ declare class SvelteApplication<P extends Application.Options = Application.Opti
         elementContent?: HTMLElement;
         elementTarget?: HTMLElement;
     }): void;
-
     /**
-     * Provides a way to safely set this applications options given an accessor string which describes the
-     * entries to walk. To access deeper entries into the object format the accessor string with `.` between entries
-     * to walk.
+     * Override replacing HTML as Svelte components control the rendering process. Only potentially change the outer
+     * application frame / title for pop-out applications.
      *
-     * Additionally if an application shell Svelte component is mounted and exports the `appOptions` property then
-     * the application options is set to `appOptions` potentially updating the application shell / Svelte component.
-     *
-     * // TODO DOCUMENT the accessor in more detail.
-     *
-     * @param {string}   accessor - The path / key to set. You can set multiple levels.
-     *
-     * @param {*}        value - Value to set.
+     * @inheritDoc
      */
-    setOptions(accessor: string, value: any): void;
-
+    _replaceHTML(element: any, html: any): void;
+    /**
+     * Render the inner application content. Only render a template if one is defined otherwise provide an empty
+     * JQuery element.
+     *
+     * @param {Object} data         The data used to render the inner template
+     *
+     * @returns {Promise.<JQuery>}   A promise resolving to the constructed jQuery object
+     *
+     * @protected
+     */
+    protected _renderInner(data: any): Promise<JQuery>;
     /**
      * Modified Application `setPosition` to support QuestTrackerApp for switchable resizable globalThis.
      * Set the application position and store its new location.
@@ -342,7 +181,177 @@ declare class SvelteApplication<P extends Application.Options = Application.Opti
         height: number;
         scale: number;
     };
-
+}
+type SvelteData = {
+    /**
+     * -
+     */
+    config: object;
+    /**
+     * -
+     */
+    component: svelte.SvelteComponent;
+    /**
+     * -
+     */
+    element: HTMLElement;
+    /**
+     * -
+     */
+    injectHTML: boolean;
+};
+type SvelteStores = {
+    /**
+     * - Update function for app options store.
+     */
+    appOptionsUpdate: any;
+    /**
+     * - Subscribes to local stores.
+     */
+    subscribe: Function;
+    /**
+     * - Update function for UI options store.
+     */
+    uiOptionsUpdate: any;
+    /**
+     * - Unsubscribes from local stores.
+     */
+    unsubscribe: Function;
+};
+/**
+ * Contains the reactive functionality / Svelte stores associated with SvelteApplication.
+ */
+declare class SvelteReactive {
+    /**
+     * @param {SvelteApplication} application - The host Foundry application.
+     */
+    constructor(application: SvelteApplication);
+    /**
+     * Initializes reactive support. Package private for internal use.
+     *
+     * @returns {SvelteStores} Internal methods to interact with Svelte stores.
+     * @package
+     */
+    initialize(): SvelteStores;
+    /**
+     * Sets `this.options.draggable` which is reactive for application shells.
+     *
+     * @param {boolean}  draggable - Sets the draggable option.
+     */
+    set draggable(arg: boolean);
+    /**
+     * Returns the draggable app option.
+     *
+     * @returns {boolean} Draggable app option.
+     */
+    get draggable(): boolean;
+    /**
+     * Sets `this.options.minimizable` which is reactive for application shells that are also pop out.
+     *
+     * @param {boolean}  minimizable - Sets the minimizable option.
+     */
+    set minimizable(arg: boolean);
+    /**
+     * Returns the minimizable app option.
+     *
+     * @returns {boolean} Minimizable app option.
+     */
+    get minimizable(): boolean;
+    /**
+     * Sets `this.options.popOut` which is reactive for application shells. This will add / remove this application
+     * from `ui.windows`.
+     *
+     * @param {boolean}  popOut - Sets the popOut option.
+     */
+    set popOut(arg: boolean);
+    /**
+     * @inheritDoc
+     */
+    get popOut(): boolean;
+    /**
+     * Sets `this.options.resizable` which is reactive for application shells.
+     *
+     * @param {boolean}  resizable - Sets the resizable option.
+     */
+    set resizable(arg: boolean);
+    /**
+     * Returns the resizable option.
+     *
+     * @returns {boolean} Resizable app option.
+     */
+    get resizable(): boolean;
+    /**
+     * Returns the store for app options.
+     *
+     * @returns {StoreAppOptions} App options store.
+     */
+    get storeAppOptions(): any;
+    /**
+     * Returns the store for UI options.
+     *
+     * @returns {StoreUIOptions} UI options store.
+     */
+    get storeUIOptions(): any;
+    /**
+     * Sets `this.options.title` which is reactive for application shells.
+     *
+     * @param {string}   title - Application title; will be localized, so a translation key is fine.
+     */
+    set title(arg: string);
+    /**
+     * Returns the title accessor from the parent Application class.
+     * TODO: Application v2; note that super.title localizes `this.options.title`; IMHO it shouldn't.
+     *
+     * @returns {string} Title.
+     */
+    get title(): string;
+    /**
+     * Sets `this.options.zIndex` which is reactive for application shells.
+     *
+     * @param {number}   zIndex - Application z-index.
+     */
+    set zIndex(arg: number);
+    /**
+     * Returns the zIndex app option.
+     *
+     * @returns {number} z-index app option.
+     */
+    get zIndex(): number;
+    /**
+     * Provides a way to safely get this applications options given an accessor string which describes the
+     * entries to walk. To access deeper entries into the object format the accessor string with `.` between entries
+     * to walk.
+     *
+     * // TODO DOCUMENT the accessor in more detail.
+     *
+     * @param {string}   accessor - The path / key to set. You can set multiple levels.
+     *
+     * @param {*}        [defaultValue] - A default value returned if the accessor is not found.
+     *
+     * @returns {*} Value at the accessor.
+     */
+    getOptions(accessor: string, defaultValue?: any): any;
+    /**
+     * Provides a way to merge `options` into this applications options and update the appOptions store.
+     *
+     * @param {object}   options - The options object to merge with `this.options`.
+     */
+    mergeOptions(options: object): void;
+    /**
+     * Provides a way to safely set this applications options given an accessor string which describes the
+     * entries to walk. To access deeper entries into the object format the accessor string with `.` between entries
+     * to walk.
+     *
+     * Additionally if an application shell Svelte component is mounted and exports the `appOptions` property then
+     * the application options is set to `appOptions` potentially updating the application shell / Svelte component.
+     *
+     * // TODO DOCUMENT the accessor in more detail.
+     *
+     * @param {string}   accessor - The path / key to set. You can set multiple levels.
+     *
+     * @param {*}        value - Value to set.
+     */
+    setOptions(accessor: string, value: any): void;
     /**
      * Updates the UI Options store with the current header buttons. You may dynamically add / remove header buttons
      * if using an application shell Svelte component. In either overriding `_getHeaderButtons` or responding to the
@@ -353,20 +362,90 @@ declare class SvelteApplication<P extends Application.Options = Application.Opti
      * the header buttons.
      */
     updateHeaderButtons(): void;
+    #private;
+}
+/**
+ * Provides a helper class for {@link SvelteApplication} by combining all methods that work on the {@link SvelteData[]}
+ * of mounted components. This class is instantiated and can be retrieved by the getter `svelte` via SvelteApplication.
+ */
+declare class GetSvelteData {
+    /**
+     * Keep a direct reference to the SvelteData array in an associated {@link SvelteApplication}.
+     *
+     * @param {MountedAppShell[]|null[]}  applicationShellHolder - A reference to the MountedAppShell array.
+     *
+     * @param {SvelteData[]}  svelteData - A reference to the SvelteData array of mounted components.
+     */
+    constructor(applicationShellHolder: any[] | null[], svelteData: SvelteData[]);
+    /**
+     * Returns any mounted {@link MountedAppShell}.
+     *
+     * @returns {MountedAppShell|null} Any mounted application shell.
+     */
+    get applicationShell(): any;
+    /**
+     * Returns the indexed Svelte component.
+     *
+     * @param {number}   index -
+     *
+     * @returns {object} The loaded Svelte component.
+     */
+    component(index: number): object;
+    /**
+     * Returns the Svelte component entries iterator.
+     *
+     * @returns {Generator<(number|*)[], void, *>} Svelte component entries iterator.
+     * @yields
+     */
+    componentEntries(): Generator<(number | any)[], void, any>;
+    /**
+     * Returns the Svelte component values iterator.
+     *
+     * @returns {Generator<*, void, *>} Svelte component values iterator.
+     * @yields
+     */
+    componentValues(): Generator<any, void, any>;
+    /**
+     * Returns the indexed SvelteData entry.
+     *
+     * @param {number}   index -
+     *
+     * @returns {object} The loaded Svelte config + component.
+     */
+    data(index: number): object;
+    /**
+     * Returns the SvelteData entries iterator.
+     *
+     * @returns {IterableIterator<[number, Object]>} SvelteData entries iterator.
+     */
+    dataEntries(): IterableIterator<[number, any]>;
+    /**
+     * Returns the SvelteData values iterator.
+     *
+     * @returns {IterableIterator<Object>} SvelteData values iterator.
+     */
+    dataValues(): IterableIterator<any>;
+    /**
+     * Returns the length of the mounted Svelte component list.
+     *
+     * @returns {number} Length of mounted Svelte component list.
+     */
+    get length(): number;
+    #private;
 }
 
 /**
  * Provides a Foundry API compatible dialog alternative implemented w/ Svelte. There are several features including
  * a glasspane / modal option with various styling and transition capabilities.
  */
-declare class TJSDialog<D extends object, P extends Application.Options = Application.Options> extends SvelteApplication<P> {
+declare class TJSDialog extends SvelteApplication {
     /**
      * A helper factory method to create simple confirmation dialog windows which consist of simple yes/no prompts.
      * If you require more flexibility, a custom Dialog instance is preferred.
      *
      * @param {TJSConfirmConfig} config - Confirm dialog options.
      *
-     * @return {Promise<*>} A promise which resolves once the user makes a choice or closes the window.
+     * @returns {Promise<*>} A promise which resolves once the user makes a choice or closes the window.
      *
      * @example
      * let d = Dialog.confirm({
@@ -378,51 +457,50 @@ declare class TJSDialog<D extends object, P extends Application.Options = Applic
      * });
      */
     static confirm({ title, content, yes, no, render, defaultYes, rejectClose, options, buttons, draggable, modal, modalOptions, popOut, resizable, transition, zIndex }?: TJSConfirmConfig): Promise<any>;
-
     /**
      * A helper factory method to display a basic "prompt" style Dialog with a single button
      *
-     * @param {TJSPromptConfig} - Prompt dialog options.
+     * @param {TJSPromptConfig} config - Prompt dialog options.
      *
-     * @return {Promise<*>} The returned value from the provided callback function, if any
+     * @returns {Promise<*>} The returned value from the provided callback function, if any
      */
     static prompt({ title, content, label, callback, render, rejectClose, options, draggable, icon, modal, modalOptions, popOut, resizable, transition, zIndex }?: TJSPromptConfig): Promise<any>;
-
     /**
      * @param {object}   data - Dialog data.
      *
      * @param {object}   options -
      */
-    constructor(data?: Partial<D>, options?: Partial<Application.Options>);
-
+    constructor(data: object, options: object);
     /**
      * Sets the dialog data content field; this is reactive.
      *
      * @param {*} content - Content to set.
      */
-    set content(content: any);
-
+    set content(arg: any);
     /**
      * Returns the content field in dialog data.
      *
      * @returns {*} content field.
      */
     get content(): any;
-
     /**
      * Sets the dialog data; this is reactive.
      *
-     * @param {Partial<D>}   data - Dialog data.
+     * @param {object}   data - Dialog data.
      */
-    set data(data: Partial<D>);
-
+    set data(arg: any);
     /**
      * Returns the dialog data.
      *
-     * @returns {D} Dialog data.
+     * @returns {object} Dialog data.
      */
-    get data(): D;
-
+    get data(): any;
+    /**
+     * Implemented only for backwards compatibility w/ default Foundry {@link Dialog} API.
+     *
+     * @param {JQuery}   html - JQuery element for content area.
+     */
+    activateListeners(html: JQuery): void;
     /**
      * Provides a way to safely get this dialogs data given an accessor string which describes the
      * entries to walk. To access deeper entries into the object format the accessor string with `.` between entries
@@ -437,12 +515,10 @@ declare class TJSDialog<D extends object, P extends Application.Options = Applic
      * @returns {*} Value at the accessor.
      */
     getDialogData(accessor: string, defaultValue?: any): any;
-
     /**
-     * @param {Partial<D>} data - Merge provided data object into Dialog data.
+     * @param {object} data - Merge provided data object into Dialog data.
      */
-    mergeDialogData(data: Partial<D>): void;
-
+    mergeDialogData(data: object): void;
     /**
      * Provides a way to safely set this dialogs data given an accessor string which describes the
      * entries to walk. To access deeper entries into the object format the accessor string with `.` between entries
@@ -457,8 +533,8 @@ declare class TJSDialog<D extends object, P extends Application.Options = Applic
      * @param {*}        value - Value to set.
      */
     setDialogData(accessor: string, value: any): void;
+    #private;
 }
-
 /**
  * - Configuration options for the confirm dialog.
  */
@@ -528,7 +604,6 @@ type TJSConfirmConfig = {
      */
     zIndex?: number | null;
 };
-
 /**
  * - Configuration options for the confirm dialog.
  */
@@ -602,8 +677,7 @@ declare class TJSMenu {
     /**
      * Stores any active context menu.
      */
-    static "__#460634@#contextMenu": any;
-
+    static "__#460793@#contextMenu": any;
     /**
      * Creates and manages a game wide context menu.
      *
@@ -648,7 +722,6 @@ type MountedAppShell = {
      */
     elementTarget?: HTMLElement;
 };
-
 /**
  * - Provides a custom readable Svelte store for Application options state.
  */
@@ -682,7 +755,6 @@ type StoreAppOptions = {
      */
     zIndex: svelte_store.Readable<number>;
 };
-
 /**
  * - Provides a custom readable Svelte store for UI options state.
  */
@@ -702,4 +774,4 @@ type StoreUIOptions = {
     minimized: svelte_store.Readable<boolean>;
 };
 
-export { MountedAppShell, StoreAppOptions, StoreUIOptions, SvelteApplication, TJSConfirmConfig, TJSDialog, TJSMenu, TJSPromptConfig };
+export { MountedAppShell, StoreAppOptions, StoreUIOptions, SvelteApplication, SvelteData, SvelteStores, TJSConfirmConfig, TJSDialog, TJSMenu, TJSPromptConfig };

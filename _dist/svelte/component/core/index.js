@@ -890,15 +890,15 @@ class TJSHeaderButton extends SvelteComponent {
 
 function get_each_context$2(ctx, list, i) {
 	const child_ctx = ctx.slice();
-	child_ctx[12] = list[i];
+	child_ctx[11] = list[i];
 	return child_ctx;
 }
 
-// (51:4) {#each $storeHeaderButtons as button}
+// (50:4) {#each $storeHeaderButtons as button}
 function create_each_block$2(ctx) {
 	let tjsheaderbutton;
 	let current;
-	tjsheaderbutton = new TJSHeaderButton({ props: { button: /*button*/ ctx[12] } });
+	tjsheaderbutton = new TJSHeaderButton({ props: { button: /*button*/ ctx[11] } });
 
 	return {
 		c() {
@@ -910,7 +910,7 @@ function create_each_block$2(ctx) {
 		},
 		p(ctx, dirty) {
 			const tjsheaderbutton_changes = {};
-			if (dirty & /*$storeHeaderButtons*/ 8) tjsheaderbutton_changes.button = /*button*/ ctx[12];
+			if (dirty & /*$storeHeaderButtons*/ 8) tjsheaderbutton_changes.button = /*button*/ ctx[11];
 			tjsheaderbutton.$set(tjsheaderbutton_changes);
 		},
 		i(local) {
@@ -1058,8 +1058,7 @@ function instance$6($$self, $$props, $$invalidate) {
 	let $storeMinimizable;
 	let $storeTitle;
 	let $storeHeaderButtons;
-	const context = getContext('external');
-	const foundryApp = context.foundryApp;
+	const foundryApp = getContext('external').foundryApp;
 
 	const bringToTop = () => {
 		if (typeof foundryApp.options.popOut === 'boolean' && foundryApp.options.popOut) {
@@ -1067,13 +1066,13 @@ function instance$6($$self, $$props, $$invalidate) {
 		}
 	};
 
-	const storeTitle = context.storeAppOptions.title;
+	const storeTitle = foundryApp.reactive.storeAppOptions.title;
 	component_subscribe($$self, storeTitle, value => $$invalidate(2, $storeTitle = value));
-	const storeDraggable = context.storeAppOptions.draggable;
+	const storeDraggable = foundryApp.reactive.storeAppOptions.draggable;
 	component_subscribe($$self, storeDraggable, value => $$invalidate(0, $storeDraggable = value));
-	const storeHeaderButtons = context.storeUIOptions.headerButtons;
+	const storeHeaderButtons = foundryApp.reactive.storeUIOptions.headerButtons;
 	component_subscribe($$self, storeHeaderButtons, value => $$invalidate(3, $storeHeaderButtons = value));
-	const storeMinimizable = context.storeAppOptions.minimizable;
+	const storeMinimizable = foundryApp.reactive.storeAppOptions.minimizable;
 	component_subscribe($$self, storeMinimizable, value => $$invalidate(1, $storeMinimizable = value));
 
 	function minimizable(node, booleanStore) {
@@ -1167,15 +1166,14 @@ function instance$5($$self, $$props, $$invalidate) {
 	let $storeMinimized;
 	let $storeResizable;
 	let { isResizable = false } = $$props;
-	const context = getContext('external');
+	const foundryApp = getContext('external').foundryApp;
 
 	// Allows retrieval of the element root at runtime.
 	const getElementRoot = getContext('getElementRoot');
 
-	const foundryApp = context.foundryApp;
-	const storeResizable = context.storeAppOptions.resizable;
+	const storeResizable = foundryApp.reactive.storeAppOptions.resizable;
 	component_subscribe($$self, storeResizable, value => $$invalidate(1, $storeResizable = value));
-	const storeMinimized = context.storeUIOptions.minimized;
+	const storeMinimized = foundryApp.reactive.storeUIOptions.minimized;
 	component_subscribe($$self, storeMinimized, value => $$invalidate(6, $storeMinimized = value));
 	let elementResize;
 
