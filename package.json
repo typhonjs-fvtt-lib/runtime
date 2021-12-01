@@ -103,14 +103,11 @@
     "@rollup/plugin-virtual": "^2",
     "@types/jquery": "^3",
     "@typhonjs-build-test/esm-d-ts": "^0.0.2",
-    "@typhonjs-config/eslint-config": "^0.3.0",
-    "@typhonjs-fvtt/eslint-config-foundry.js": "^0.8.0",
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.0.0",
     "@typhonjs-plugin/manager": "^0.0.12",
     "@typhonjs-tinymce/oembed": "^0.1.0",
     "@typhonjs-utils/file-util": "^0.0.3",
     "dompurify": "^2",
-    "eslint": "^8",
     "fs-extra": "^10",
     "magic-string": "^0.25.0",
     "rollup": "^2",
@@ -119,7 +116,7 @@
   },
   "scripts": {
     "build": "rollup --config",
-    "eslint": "eslint ."
+    "prepublishOnly": "npm run build"
   },
   "homepage": "https://github.com/typhonjs-fvtt-lib/typhonjs#readme",
   "keywords": [
