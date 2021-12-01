@@ -4,4 +4,8 @@ empty.js
 .idea/
 _dist/
 docs/
+dompurify/
+plugin/
+svelte/
+tinymce/
 node_modules/
