@@ -2,5 +2,6 @@ package-lock.json
 empty.js
 .dts/
 .idea/
+_dist/
 docs/
 node_modules/
