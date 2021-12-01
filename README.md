@@ -36,6 +36,7 @@ The following roadmap contains a high level overview of aspects that will be add
 
 - Continue to add relevant core components useful in standard Foundry UI development.
   - Tab handler for SvelteApplication
+- Full support for GSAP / Greensock.
 - Integrate [Svelte Cubed](https://svelte-cubed.vercel.app/) for building Svelte powered [Three.js](https://threejs.org/) 
 interfaces.
 - Integrate a [PixiJS](https://pixijs.com/) Svelte powered library.
