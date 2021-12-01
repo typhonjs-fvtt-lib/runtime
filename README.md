@@ -31,6 +31,11 @@ The TRL uses the latest NPM / `package.json` submodule exports capability and al
 for Typescript `4.5` it was pushed back to `4.6` [at the last minute](https://devblogs.microsoft.com/typescript/announcing-typescript-4-5/#esm-nodejs). 
 Typescript developers will have to wait until Typescript `4.6` is released.
 
+## Direct Foundry Install Link
+The TRL library module is available from the Foundry VTT package manager, but you may install it directly with the 
+following link by pasting it into `manifest URL` field in the `add-on modules / install module` screen:
+`https://github.com/typhonjs-fvtt-lib/typhonjs/releases/latest/download/module.json`
+
 ## Roadmap:
 The following roadmap contains a high level overview of aspects that will be added to the TRL. 
 
