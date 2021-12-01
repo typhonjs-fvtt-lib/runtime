@@ -97,7 +97,6 @@
     "svelte-preprocess": "4.9.8"
   },
   "devDependencies": {
-    "@league-of-foundry-developers/foundry-vtt-types": "^0.8.9-7",
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@rollup/plugin-babel": "^5",
@@ -106,7 +105,7 @@
     "@typhonjs-build-test/esm-d-ts": "^0.0.2",
     "@typhonjs-config/eslint-config": "^0.3.0",
     "@typhonjs-fvtt/eslint-config-foundry.js": "^0.8.0",
-    "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte",
+    "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.0.0",
     "@typhonjs-plugin/manager": "^0.0.12",
     "@typhonjs-tinymce/oembed": "^0.1.0",
     "@typhonjs-utils/file-util": "^0.0.3",
