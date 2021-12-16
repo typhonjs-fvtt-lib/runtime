@@ -1,6 +1,6 @@
 {
   "name": "@typhonjs-fvtt/runtime",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Provides a common runtime library module for Foundry VTT distributing: @typhonjs-fvtt/svelte, @typhonjs-plugin/manager, and DOMPurify.",
   "license": "MPL-2.0",
   "type": "module",
@@ -93,7 +93,7 @@
   },
   "peerDependencies": {
     "rollup": "^2",
-    "svelte": "3.44.2",
+    "svelte": "3.44.3",
     "svelte-preprocess": "4.9.8"
   },
   "devDependencies": {
@@ -103,7 +103,7 @@
     "@rollup/plugin-virtual": "^2",
     "@types/jquery": "^3",
     "@typhonjs-build-test/esm-d-ts": "^0.0.2",
-    "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.0.0",
+    "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.0.1",
     "@typhonjs-plugin/manager": "^0.0.12",
     "@typhonjs-tinymce/oembed": "^0.1.0",
     "@typhonjs-utils/file-util": "^0.0.3",
@@ -111,7 +111,7 @@
     "fs-extra": "^10",
     "magic-string": "^0.25.0",
     "rollup": "^2",
-    "svelte": "^3.44.2",
+    "svelte": "^3.44.3",
     "upath": "^2"
   },
   "scripts": {
