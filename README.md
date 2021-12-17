@@ -13,7 +13,7 @@ developers to build advanced modules and game systems using [Svelte](https://sve
 built for Foundry and extensions to the core Foundry UI / Application framework make it easy to create declarative 
 Svelte based UIs in a method familiar to Foundry VTT developers. The core UI component framework contains reactive 
 "application shells" that provide an enhanced ability to control your UI / window experience including intro and outro
-transitions along with support key UI elements like context menus and a new backward compatible and API compliant Dialog
+transitions along with supporting key UI elements like context menus and a new backward compatible and API compliant Dialog
 component that features a modal dialog option.
 
 TRL is innovative as it delivers a runtime library module for Foundry that packages up the runtime in a way that
