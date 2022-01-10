@@ -92,8 +92,8 @@
   },
   "peerDependencies": {
     "rollup": "^2",
-    "svelte": "3.44.3",
-    "svelte-preprocess": "4.10.1"
+    "svelte": "^3.45.0",
+    "svelte-preprocess": "^4.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -110,7 +110,7 @@
     "fs-extra": "^10",
     "magic-string": "^0.25.0",
     "rollup": "^2",
-    "svelte": "^3.44.3",
+    "svelte": "^3.45.0",
     "upath": "^2"
   },
   "scripts": {
