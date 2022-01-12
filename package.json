@@ -92,7 +92,7 @@
   },
   "peerDependencies": {
     "rollup": "^2",
-    "svelte": "^3.45.0",
+    "svelte": "^3.46.0",
     "svelte-preprocess": "^4.10.0"
   },
   "devDependencies": {
