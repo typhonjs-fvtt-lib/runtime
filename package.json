@@ -14,6 +14,10 @@
       "types": "./.rollup/remote/index.d.ts",
       "import": "./.rollup/remote/index.js"
     },
+    "./color/chroma-js": {
+      "types": "./_dist/color/chroma-js/index.d.ts",
+      "import": "./_dist/color/chroma-js/index.js"
+    },
     "./dompurify": {
       "types": "./_dist/dompurify/index.d.ts",
       "import": "./_dist/dompurify/index.js"
@@ -21,6 +25,10 @@
     "./dompurify/plugin/system": {
       "types": "./_dist/dompurify/plugin/system/index.d.ts",
       "import": "./_dist/dompurify/plugin/system/index.js"
+    },
+    "./json/json5": {
+      "types": "./_dist/json/json5/index.d.ts",
+      "import": "./_dist/json/json5/index.js"
     },
     "./plugin/manager": {
       "types": "./_dist/plugin/manager/index.d.ts",
@@ -83,7 +91,7 @@
     "autoprefixer": "^10",
     "cssnano": "^5",
     "postcss": "^8",
-    "postcss-preset-env": "^6",
+    "postcss-preset-env": "^7",
     "rollup-plugin-postcss": "^4",
     "rollup-plugin-sourcemaps": "^0.6",
     "rollup-plugin-svelte": "^7",
@@ -99,18 +107,21 @@
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@rollup/plugin-babel": "^5",
+    "@rollup/plugin-commonjs": "^21",
     "@rollup/plugin-virtual": "^2",
     "@types/jquery": "^3",
     "@typhonjs-build-test/esm-d-ts": "^0.0.2",
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.0.2",
-    "@typhonjs-plugin/manager": "^0.0.12",
-    "@typhonjs-tinymce/oembed": "^0.1.0",
+    "@typhonjs-plugin/manager": "0.0.12",
+    "@typhonjs-tinymce/oembed": "0.1.0",
     "@typhonjs-utils/file-util": "^0.0.3",
-    "dompurify": "^2",
+    "chroma-js": "2.1.2",
+    "dompurify": "2.3.4",
     "fs-extra": "^10",
+    "json5": "2.2.0",
     "magic-string": "^0.25.0",
     "rollup": "^2",
-    "svelte": "^3.45.0",
+    "svelte": "^3.46.0",
     "upath": "^2"
   },
   "scripts": {

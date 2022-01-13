@@ -27,4 +27,4 @@ DOMPurify.sanitizeWithVideo = (dirty) =>
    });
 };
 
-export default DOMPurify;
+export { DOMPurify };

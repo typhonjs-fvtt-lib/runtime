@@ -14,6 +14,10 @@ export const externalPathsNPM = {
 
    '@typhonjs-plugin/manager': '@typhonjs-fvtt/runtime/plugin/manager',
 
+   'chroma-js': '@typhonjs-fvtt/runtime/color/chroma-js',
+
+   'json5': '@typhonjs-fvtt/runtime/json/json5',
+
    // Exclude as external, but do not translate module references.
    'svelte': 'svelte',
    'svelte/animate': 'svelte/animate',

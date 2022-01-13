@@ -1,5 +1,6 @@
 import path                from 'path';
 
+import commonjs            from '@rollup/plugin-commonjs';
 import resolve             from '@rollup/plugin-node-resolve';
 import { generateTSDef }   from '@typhonjs-build-test/esm-d-ts';
 import { getFileList }     from '@typhonjs-utils/file-util';
@@ -24,6 +25,45 @@ const sourcemap = s_SOURCEMAPS;
 // minified / mangled.
 const outputPlugins = s_COMPRESS ? [terser(terserConfig())] : [];
 
+const s_MODULES_CHROMAJS_LIB = [
+   {
+      input: '.build/color/chroma.js',
+      plugins: [
+         resolve({ browser: true }),
+         commonjs(),
+         sourcemaps()
+      ],
+      output: {
+         file: 'color/chroma.js',
+         format: 'es',
+         plugins: outputPlugins,
+         preferConst: true,
+         sourcemap
+      }
+   }
+];
+
+const s_MODULES_CHROMAJS_NPM = [
+   {
+      input: {
+         input: '.build/color/chroma.js',
+         plugins: [
+            resolve({ browser: true }),
+            commonjs(),
+            sourcemaps()
+         ]
+      },
+      output: {
+         output: {
+            file: '_dist/color/chroma-js/index.js',
+            format: 'es',
+            preferConst: true,
+            sourcemap
+         }
+      }
+   }
+];
+
 const s_MODULES_DOMPURIFY_LIB = [
    {
       input: '.build/dompurify/DOMPurify.js',
@@ -36,8 +76,7 @@ const s_MODULES_DOMPURIFY_LIB = [
          format: 'es',
          plugins: outputPlugins,
          preferConst: true,
-         sourcemap,
-         // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+         sourcemap
       }
    },
    {
@@ -51,8 +90,7 @@ const s_MODULES_DOMPURIFY_LIB = [
          format: 'es',
          plugins: outputPlugins,
          preferConst: true,
-         sourcemap,
-         // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+         sourcemap
       }
    }
 ];
@@ -71,8 +109,7 @@ const s_MODULES_DOMPURIFY_NPM = [
             file: '_dist/dompurify/index.js',
             format: 'es',
             preferConst: true,
-            sourcemap,
-            // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+            sourcemap
          }
       }
    },
@@ -89,8 +126,46 @@ const s_MODULES_DOMPURIFY_NPM = [
             file: '_dist/dompurify/plugin/system/index.js',
             format: 'es',
             preferConst: true,
-            sourcemap,
-            // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+            sourcemap
+         }
+      }
+   }
+];
+
+const s_MODULES_JSON5_LIB = [
+   {
+      input: '.build/json/json5.js',
+      plugins: [
+         resolve({ browser: true }),
+         commonjs(),
+         sourcemaps()
+      ],
+      output: {
+         file: 'json/json5.js',
+         format: 'es',
+         plugins: outputPlugins,
+         preferConst: true,
+         sourcemap
+      }
+   }
+];
+
+const s_MODULES_JSON5_NPM = [
+   {
+      input: {
+         input: '.build/json/json5.js',
+         plugins: [
+            resolve({ browser: true }),
+            commonjs(),
+            sourcemaps()
+         ]
+      },
+      output: {
+         output: {
+            file: '_dist/json/json5/index.js',
+            format: 'es',
+            preferConst: true,
+            sourcemap
          }
       }
    }
@@ -108,8 +183,7 @@ const s_MODULES_PLUGIN_LIB = [
          format: 'es',
          plugins: outputPlugins,
          preferConst: true,
-         sourcemap,
-         // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+         sourcemap
       }
    }
 ];
@@ -129,8 +203,7 @@ const s_MODULES_PLUGIN_NPM = [
             file: '_dist/plugin/manager/index.js',
             format: 'es',
             preferConst: true,
-            sourcemap,
-            // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+            sourcemap
          }
       }
    }
@@ -149,8 +222,7 @@ const s_MODULES_TINYMCE_LIB = [
          inlineDynamicImports: true,
          plugins: outputPlugins,
          preferConst: true,
-         sourcemap,
-         // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+         sourcemap
       }
    }
 ];
@@ -171,15 +243,16 @@ const s_MODULES_TINYMCE_NPM = [
             format: 'es',
             inlineDynamicImports: true,
             preferConst: true,
-            sourcemap,
-            // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+            sourcemap
          }
       }
    }
 ];
 
 const rollupPluginsNPM = [
+   ...s_MODULES_CHROMAJS_NPM,
    ...s_MODULES_DOMPURIFY_NPM,
+   ...s_MODULES_JSON5_NPM,
    ...s_MODULES_PLUGIN_NPM,
    ...createSvelteNPMConfig({ sourcemap: s_SOURCEMAPS, outputPlugins: [] }),
    ...s_MODULES_TINYMCE_NPM
@@ -241,7 +314,9 @@ await generateTSDef({
 export default () =>
 {
    return [
+      ...s_MODULES_CHROMAJS_LIB,
       ...s_MODULES_DOMPURIFY_LIB,
+      ...s_MODULES_JSON5_LIB,
       ...s_MODULES_PLUGIN_LIB,
       ...createSvelteLibConfig({ sourcemap: s_SOURCEMAPS, outputPlugins }),
       ...s_MODULES_TINYMCE_LIB

@@ -14,6 +14,10 @@ export const externalPathsLib = {
 
    '@typhonjs-plugin/manager': '/modules/typhonjs/plugin/manager.js',
 
+   'chroma-js': '/modules/typhonjs/color/chroma.js',
+
+   'json5': '/modules/typhonjs/json/json5.js',
+
    'svelte': '/modules/typhonjs/svelte/index.js',
    'svelte/animate': '/modules/typhonjs/svelte/animate.js',
    'svelte/easing': '/modules/typhonjs/svelte/easing.js',

@@ -1,0 +1,1 @@
+export { default as JSON5 } from 'json5/lib/index.js';

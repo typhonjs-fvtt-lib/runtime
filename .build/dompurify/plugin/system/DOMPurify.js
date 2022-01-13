@@ -1,4 +1,4 @@
-import DOMPurifyImpl from '@typhonjs-fvtt/runtime/dompurify';
+import { DOMPurify as DOMPurifyImpl } from '@typhonjs-fvtt/runtime/dompurify';
 
 export class DOMPurify
 {

@@ -10,6 +10,12 @@ import { postcssConfig }         from '../postcssConfig.js';
 import { exportsSveltePackage }  from './exportsSveltePackage.js';
 import { externalPathsNPM }      from './externalPathsNPM.js';
 
+// Defines the node-resolve config.
+const s_RESOLVE_CONFIG = {
+   browser: true,
+   dedupe: ['svelte', '@typhonjs-fvtt/svelte']
+};
+
 export function createSvelteNPMConfig({ sourcemap, outputPlugins })
 {
    const config = [];
@@ -44,10 +50,7 @@ export function createSvelteNPMConfig({ sourcemap, outputPlugins })
                      }
                   }),
                   postcss(postcssCore),
-                  resolve({
-                     browser: true,
-                     dedupe: ['svelte']
-                  }),
+                  resolve(s_RESOLVE_CONFIG),
                   typhonjsRuntime({ isLib: false, exclude: ['@typhonjs-fvtt/svelte/component/core'] }),
                ]
             },
@@ -58,8 +61,7 @@ export function createSvelteNPMConfig({ sourcemap, outputPlugins })
                   paths: externalPathsNPM,
                   plugins: outputPlugins,
                   preferConst: true,
-                  sourcemap,
-                  // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+                  sourcemap
                }
             }
          });
@@ -74,7 +76,7 @@ export function createSvelteNPMConfig({ sourcemap, outputPlugins })
                      pack: `export * from '@typhonjs-fvtt/svelte${entry}';`
                   }),
                   typhonjsRuntime({ isLib: false, exclude: [`@typhonjs-fvtt/svelte${entry}`] }),
-                  resolve({ browser: true }),
+                  resolve(s_RESOLVE_CONFIG),
                   sourcemaps()
                ]
             },
@@ -85,8 +87,7 @@ export function createSvelteNPMConfig({ sourcemap, outputPlugins })
                   paths: externalPathsNPM,
                   plugins: outputPlugins,
                   preferConst: true,
-                  sourcemap,
-                  // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+                  sourcemap
                }
             }
          });
