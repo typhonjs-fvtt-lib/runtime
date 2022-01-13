@@ -1,4 +1,7 @@
 # Changelog
+## Release 0.0.4
+- fixed current_component issue for tick & flush for the module / lib runtime version.
+ 
 ## Release 0.0.3
 - Updated @typhonjs-fvtt/svelte to ['0.0.3'](https://github.com/typhonjs-fvtt-lib/svelte/blob/main/CHANGELOG.md#release-003).
 - added `chroma-js` as @typhonjs-fvtt/runtime/color/chroma-js
