@@ -43,7 +43,7 @@ export function generatePluginOutput(isLib)
          }
 
          magicString.prepend(
-          `import { get_current_component, set_current_component } from ${isLib ? 
+          `import { current_component, get_current_component, set_current_component } from ${isLib ? 
            `'/modules/typhonjs/svelte/internal.js'` : `'@typhonjs-fvtt/runtime/svelte/internal'`};\n`);
 
          const map = magicString.generateMap({
