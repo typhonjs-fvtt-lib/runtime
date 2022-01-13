@@ -3,8 +3,12 @@ import { externalPathsLib } from '../local/externalPathsLib.js';
 export const externalPathsRemote = {
    ...externalPathsLib,
 
+   '@typhonjs-fvtt/runtime/color/chroma-js': '/modules/typhonjs/color/chroma.js',
+
    '@typhonjs-fvtt/runtime/dompurify': '/modules/typhonjs/dompurify/DOMPurify.js',
    '@typhonjs-fvtt/runtime/dompurify/plugin/system': '/modules/typhonjs/dompurify/plugin/system.js',
+
+   '@typhonjs-fvtt/runtime/json/json5': '/modules/typhonjs/json/json5.js',
 
    '@typhonjs-fvtt/runtime/plugin/manager': '/modules/typhonjs/plugin/manager.js',
 
