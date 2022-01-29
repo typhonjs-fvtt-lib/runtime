@@ -1,4 +1,7 @@
 # Changelog
+## Release 0.0.5
+- Updated @typhonjs-fvtt/svelte to ['0.0.5'](https://github.com/typhonjs-fvtt-lib/svelte/blob/main/CHANGELOG.md#release-005).
+
 ## Release 0.0.4
 - fixed current_component issue for tick & flush for the module / lib runtime version.
  
