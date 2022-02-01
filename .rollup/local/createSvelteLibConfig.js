@@ -81,6 +81,8 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins })
                {
                   // Suppress `a11y-missing-attribute` for missing href in <a> links.
                   if (warning.message.includes(`<a> element should have an href attribute`)) { return; }
+                  // Suppress a11y form label not associated w/ a control.
+                  if (warning.message.includes(`A form label must be associated with a control`)) { return; }
 
                   // Let Rollup handle all other warnings normally.
                   handler(warning);
