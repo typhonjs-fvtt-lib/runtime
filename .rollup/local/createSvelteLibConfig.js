@@ -14,9 +14,11 @@ const bundleMap = {
    // These are handled manually below:
    // 'svelte': ['svelte'],
    // 'svelte/component/core': ['../../node_modules/@typhonjs-fvtt/svelte/src/component/core'],
+   // 'svelte/component/dialog': ['../../node_modules/@typhonjs-fvtt/svelte/src/component/dialog'],
    'svelte/action': ['@typhonjs-fvtt/svelte/action'],
    'svelte/animate': ['svelte/animate'],
    'svelte/application': ['@typhonjs-fvtt/svelte/application'],
+   'svelte/application/dialog': ['@typhonjs-fvtt/svelte/application/dialog'],
    'svelte/application/legacy': ['@typhonjs-fvtt/svelte/application/legacy'],
    'svelte/easing': ['svelte/easing'],
    'svelte/gsap': ['@typhonjs-fvtt/svelte/gsap'],
@@ -95,7 +97,42 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins })
             }),
             typhonjsRuntime({ isLib, exclude: ['@typhonjs-fvtt/svelte/component/core'] }),
          ]
-      }];
+      },
+      {
+         input: 'pack',
+         output: {
+            file: './svelte/component/dialog.js',
+            format: 'es',
+            plugins: outputPlugins,
+            preferConst: true,
+            sourcemap,
+            // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+         },
+         plugins: [
+            virtual({
+               pack: `export * from './node_modules/@typhonjs-fvtt/svelte/src/component/dialog';`
+            }),
+            svelte({
+               onwarn: (warning, handler) =>
+               {
+                  // Suppress `a11y-missing-attribute` for missing href in <a> links.
+                  if (warning.message.includes(`<a> element should have an href attribute`)) { return; }
+                  // Suppress a11y form label not associated w/ a control.
+                  if (warning.message.includes(`A form label must be associated with a control`)) { return; }
+
+                  // Let Rollup handle all other warnings normally.
+                  handler(warning);
+               }
+            }),
+            postcss(postcssCore),
+            resolve({
+               browser: true,
+               dedupe: ['svelte']
+            }),
+            typhonjsRuntime({ isLib, exclude: ['@typhonjs-fvtt/svelte/component/dialog'] }),
+         ]
+      }
+   ];
 
    for (const [key, value] of Object.entries(bundleMap))
    {

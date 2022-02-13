@@ -41,12 +41,19 @@
     "./svelte/application": {
       "import": "./_dist/svelte/application/index.js"
     },
+    "./svelte/application/dialog": {
+      "import": "./_dist/svelte/application/dialog/index.js"
+    },
     "./svelte/application/legacy": {
       "import": "./_dist/svelte/application/legacy/index.js"
     },
     "./svelte/component/core": {
       "types": "./_dist/svelte/component/core/index.d.ts",
       "import": "./_dist/svelte/component/core/index.js"
+    },
+    "./svelte/component/dialog": {
+      "types": "./_dist/svelte/component/dialog/index.d.ts",
+      "import": "./_dist/svelte/component/dialog/index.js"
     },
     "./svelte/gsap": {
       "types": "./_dist/svelte/gsap/index.d.ts",
