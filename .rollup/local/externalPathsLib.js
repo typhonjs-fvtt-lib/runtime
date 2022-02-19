@@ -1,5 +1,6 @@
 export const externalPathsLib = {
    '@typhonjs-fvtt/svelte/action': '/modules/typhonjs/svelte/action.js',
+   '@typhonjs-fvtt/svelte/animate': '/modules/typhonjs/svelte/animate.js',
    '@typhonjs-fvtt/svelte/application': '/modules/typhonjs/svelte/application.js',
    '@typhonjs-fvtt/svelte/application/dialog': '/modules/typhonjs/svelte/application/dialog.js',
    '@typhonjs-fvtt/svelte/application/legacy': '/modules/typhonjs/svelte/application/legacy.js',
