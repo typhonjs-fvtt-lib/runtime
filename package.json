@@ -71,6 +71,10 @@
       "types": "./_dist/svelte/helper/index.d.ts",
       "import": "./_dist/svelte/helper/index.js"
     },
+    "./svelte/math": {
+      "types": "./_dist/svelte/math/index.d.ts",
+      "import": "./_dist/svelte/math/index.js"
+    },
     "./svelte/plugin/data": {
       "types": "./_dist/svelte/plugin/data/index.d.ts",
       "import": "./_dist/svelte/plugin/data/index.js"
