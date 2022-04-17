@@ -1,7 +1,7 @@
 {
   "name": "@typhonjs-fvtt/runtime",
   "version": "0.0.9",
-  "description": "Provides a common runtime library module for Foundry VTT distributing: @typhonjs-fvtt/svelte, @typhonjs-plugin/manager, and DOMPurify.",
+  "description": "Provides a common runtime library module for Foundry VTT distributing: @typhonjs-fvtt/svelte, @typhonjs-plugin/manager, and much more.",
   "license": "MPL-2.0",
   "type": "module",
   "author": "Michael Leahy <support@typhonjs.io> (https://github.com/typhonrt)",
