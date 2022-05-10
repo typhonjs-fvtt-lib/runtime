@@ -63,6 +63,12 @@
       "types": "./_dist/svelte/gsap/index.d.ts",
       "import": "./_dist/svelte/gsap/index.js"
     },
+    "./svelte/gsap/plugin/*": {
+      "import": "./_dist/svelte/gsap/plugin/*.js"
+    },
+    "./svelte/gsap/plugin/bonus/*": {
+      "import": "./_dist/svelte/gsap/plugin/bonus/*.js"
+    },
     "./svelte/handler": {
       "types": "./_dist/svelte/handler/index.d.ts",
       "import": "./_dist/svelte/handler/index.js"

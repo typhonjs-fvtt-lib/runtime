@@ -7,6 +7,8 @@ export const externalPathsNPM = {
    '@typhonjs-fvtt/svelte/component/core': '@typhonjs-fvtt/runtime/svelte/component/core',
    '@typhonjs-fvtt/svelte/component/dialog': '@typhonjs-fvtt/runtime/svelte/component/dialog',
    '@typhonjs-fvtt/svelte/gsap': '@typhonjs-fvtt/runtime/svelte/gsap',
+   '@typhonjs-fvtt/svelte/gsap/plugin': '@typhonjs-fvtt/runtime/svelte/gsap/plugin',
+   '@typhonjs-fvtt/svelte/gsap/plugin/bonus': '@typhonjs-fvtt/runtime/svelte/gsap/plugin/bonus',
    '@typhonjs-fvtt/svelte/handler': '@typhonjs-fvtt/runtime/svelte/handler',
    '@typhonjs-fvtt/svelte/helper': '@typhonjs-fvtt/runtime/svelte/helper',
    '@typhonjs-fvtt/svelte/math': '@typhonjs-fvtt/runtime/svelte/math',

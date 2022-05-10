@@ -270,10 +270,10 @@ for (const config of rollupPluginsNPM)
    const dtsFile = config.output.dtsFile || config.output.output.file || config.output.file;
    const outFile = config.output.output.file || config.output.file;
 
-   await generateTSDef({
-      main: dtsFile,
-      output: upath.changeExt(outFile, '.d.ts')
-   });
+   // await generateTSDef({
+   //    main: dtsFile,
+   //    output: upath.changeExt(outFile, '.d.ts')
+   // });
 
    fs.writeJSONSync(`${path.dirname(outFile)}/package.json`, {
       main: './index.js',
@@ -304,11 +304,23 @@ for (const dtsFile of dtsFiles)
    fs.writeFileSync(dtsFile, fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/'));
 }
 
+// Gsap Plugins
+// Handle @typhonjs-fvtt/svelte/gsap-plugins by copying the source and converting all import
+// package references from `@typhonjs-fvtt/svelte` to `@typhonjs-fvtt/runtime/svelte`.
+fs.emptyDirSync('./_dist/svelte/gsap/plugin');
+fs.copySync('./node_modules/@typhonjs-fvtt/svelte/_dist/gsap/plugin', './_dist/svelte/gsap/plugin');
+let gsapFiles = await getFileList({ dir: './_dist/svelte/gsap/plugin' });
+for (const gsapFile of gsapFiles)
+{
+   const fileData = fs.readFileSync(gsapFile, 'utf-8').toString();
+   fs.writeFileSync(gsapFile, fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/'));
+}
+
 // Generate types for remote rollup plugin.
-await generateTSDef({
-   main: './.rollup/remote/index.js',
-   output: './.rollup/remote/index.d.ts',
-});
+// await generateTSDef({
+//    main: './.rollup/remote/index.js',
+//    output: './.rollup/remote/index.d.ts',
+// });
 
 // We use rollup as per normal to generate the library bundles.
 export default () =>
