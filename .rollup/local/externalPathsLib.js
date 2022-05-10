@@ -28,7 +28,5 @@ export const externalPathsLib = {
    'svelte/internal': '/modules/typhonjs/svelte/internal.js',
    'svelte/motion': '/modules/typhonjs/svelte/motion.js',
    'svelte/store': '/modules/typhonjs/svelte/store.js',
-   'svelte/transition': '/modules/typhonjs/svelte/transition.js',
-
-   'foundry-gsap': '/scripts/greensock/esm/all.js'
+   'svelte/transition': '/modules/typhonjs/svelte/transition.js'
 };
