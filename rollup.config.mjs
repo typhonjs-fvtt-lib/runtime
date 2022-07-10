@@ -270,10 +270,10 @@ for (const config of rollupPluginsNPM)
    const dtsFile = config.output.dtsFile || config.output.output.file || config.output.file;
    const outFile = config.output.output.file || config.output.file;
 
-   // await generateTSDef({
-   //    main: dtsFile,
-   //    output: upath.changeExt(outFile, '.d.ts')
-   // });
+   await generateTSDef({
+      main: dtsFile,
+      output: upath.changeExt(outFile, '.d.ts')
+   });
 
    fs.writeJSONSync(`${path.dirname(outFile)}/package.json`, {
       main: './index.js',
@@ -317,10 +317,10 @@ for (const gsapFile of gsapFiles)
 }
 
 // Generate types for remote rollup plugin.
-// await generateTSDef({
-//    main: './.rollup/remote/index.js',
-//    output: './.rollup/remote/index.d.ts',
-// });
+await generateTSDef({
+   main: './.rollup/remote/index.js',
+   output: './.rollup/remote/index.d.ts',
+});
 
 // We use rollup as per normal to generate the library bundles.
 export default () =>
