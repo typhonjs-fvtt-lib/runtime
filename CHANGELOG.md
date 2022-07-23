@@ -1,4 +1,7 @@
 # Changelog
+## Release 0.0.18 (minor)
+- Updated @typhonjs-fvtt/svelte to ['0.0.18'](https://github.com/typhonjs-fvtt-lib/svelte/blob/main/CHANGELOG.md#release-0018).
+
 ## Release 0.0.17 (major dependency update)
 - Updated @typhonjs-fvtt/svelte to ['0.0.17'](https://github.com/typhonjs-fvtt-lib/svelte/blob/main/CHANGELOG.md#release-0017).
 - Switch to Vite as preferred bundler / dev build dependency
