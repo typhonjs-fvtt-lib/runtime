@@ -304,6 +304,17 @@ for (const dtsFile of dtsFiles)
    fs.writeFileSync(dtsFile, fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/'));
 }
 
+// Handle @typhonjs-fvtt/svelte/component/core & component/dialog by copying the source and converting all import
+// package references from `@typhonjs-fvtt/svelte` to `@typhonjs-fvtt/runtime/svelte`.
+fs.emptyDirSync('./_dist/svelte/component');
+fs.copySync('./node_modules/@typhonjs-fvtt/svelte/_dist/component', './_dist/svelte/component');
+const compFiles = await getFileList({ dir: './_dist/svelte/component' });
+for (const compFile of compFiles)
+{
+   const fileData = fs.readFileSync(compFile, 'utf-8').toString();
+   fs.writeFileSync(compFile, fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/'));
+}
+
 // Gsap Plugins
 // Handle @typhonjs-fvtt/svelte/gsap-plugins by copying the source and converting all import
 // package references from `@typhonjs-fvtt/svelte` to `@typhonjs-fvtt/runtime/svelte`.
