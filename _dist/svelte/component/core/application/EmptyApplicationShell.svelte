@@ -9,8 +9,8 @@
    // Bound to the content and root elements. Can be used by parent components. SvelteApplication will also
    // use 'elementRoot' to set the element of the Application. You can also provide `elementContent` and
    // `elementTarget`. Please see SvelteApplication lifecycle documentation.
-   export let elementContent;
-   export let elementRoot;
+   export let elementContent = void 0;
+   export let elementRoot = void 0;
 
    // If a parent component binds and sets `heightChanged` to true then it is bound to the content & root element
    // `clientHeight`.

@@ -17,19 +17,19 @@
    // Bound to the content and root elements. Can be used by parent components. SvelteApplication will also
    // use 'elementRoot' to set the element of the Application. You can also provide `elementContent` and
    // `elementTarget`. Please see SvelteApplication lifecycle documentation.
-   export let elementContent;
-   export let elementRoot;
+   export let elementContent = void 0;
+   export let elementRoot = void 0;
 
    // Allows custom draggable implementations to be forwarded to TJSApplicationHeader.
-   export let draggable;
-   export let draggableOptions;
+   export let draggable = void 0;
+   export let draggableOptions = void 0;
 
    // The children array can be specified by a parent via prop or is read below from the external context.
    export let children = void 0;
 
    // Explicit style overrides for the main app and content elements. Uses action `applyStyles`.
-   export let stylesApp;
-   export let stylesContent;
+   export let stylesApp = void 0;
+   export let stylesContent = void 0;
 
    // If a parent component binds and sets `appOffsetHeight` to true then a resizeObserver action is enabled on the
    // outer application `div`. Additionally, the SvelteApplication position resizeObserved store is updated.

@@ -7,9 +7,9 @@
 
    export let document = void 0;
 
-   export let packName;
-   export let merge;
-   export let keepId;
+   export let packName = void 0;
+   export let merge = void 0;
+   export let keepId = void 0;
 
    let selected;
 

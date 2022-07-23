@@ -7,8 +7,8 @@
    import TJSGlassPane                 from '../TJSGlassPane.svelte';
 
    // Application shell contract.
-   export let elementContent;
-   export let elementRoot;
+   export let elementContent = void 0;
+   export let elementRoot = void 0;
 
    // The dialog data.
    export let data = {};

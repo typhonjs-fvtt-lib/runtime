@@ -7,7 +7,7 @@
    import { applyStyles }   from '@typhonjs-fvtt/runtime/svelte/action';
    import { localize }      from '@typhonjs-fvtt/runtime/svelte/helper';
 
-   export let button;
+   export let button = void 0;
 
    const s_REGEX_HTML = /^\s*<.*>$/;
 

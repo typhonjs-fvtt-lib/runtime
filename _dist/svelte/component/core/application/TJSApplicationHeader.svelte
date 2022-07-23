@@ -9,10 +9,10 @@
 
    import { isSvelteComponent }     from '@typhonjs-fvtt/runtime/svelte/util';
 
-   export let draggable
-   export let draggableOptions;
-
    import TJSHeaderButton           from './TJSHeaderButton.svelte';
+
+   export let draggable = void 0;
+   export let draggableOptions = void 0;
 
    const application = getContext('external').application;
 
