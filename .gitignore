@@ -3,5 +3,6 @@
 /.dts/
 /.idea/
 /docs/
+/_dist/
 /remote/
 node_modules/
