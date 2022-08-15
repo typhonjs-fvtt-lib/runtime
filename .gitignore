@@ -3,10 +3,5 @@
 /.dts/
 /.idea/
 /docs/
-/color/
-/dompurify/
-/json/
-/plugin/
-/svelte/
-/tinymce/
+/remote/
 node_modules/
