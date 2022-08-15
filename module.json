@@ -18,7 +18,7 @@
   "compatibleCoreVersion": "9",
   "scripts": [],
   "styles": [
-    "./svelte/component/core.css"
+    "./remote/svelte/component/core.css"
   ],
   "system": [],
   "dependencies": [],
