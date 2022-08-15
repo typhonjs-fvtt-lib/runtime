@@ -126,13 +126,13 @@
     "svelte-preprocess": "^4.10.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^21",
+    "@rollup/plugin-commonjs": "22",
     "@rollup/plugin-virtual": "^2",
-    "@typhonjs-build-test/esm-d-ts": "^0.0.2",
+    "@typhonjs-build-test/esm-d-ts": "github:typhonjs-node-build-test/esm-d-ts",
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.0.18",
     "@typhonjs-plugin/manager": "0.0.12",
     "@typhonjs-tinymce/oembed": "0.1.0",
-    "@typhonjs-utils/file-util": "^0.0.3",
+    "@typhonjs-utils/file-util": "^0.0.6",
     "chroma-js": "2.4.2",
     "dompurify": "2.3.10",
     "fs-extra": "^10",
