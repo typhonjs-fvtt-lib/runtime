@@ -34,7 +34,7 @@ const s_MODULES_CHROMAJS_LIB = [
          sourcemaps()
       ],
       output: {
-         file: 'color/chroma.js',
+         file: 'remote/color/chroma.js',
          format: 'es',
          plugins: outputPlugins,
          preferConst: true,
@@ -72,7 +72,7 @@ const s_MODULES_DOMPURIFY_LIB = [
          sourcemaps()
       ],
       output: {
-         file: 'dompurify/DOMPurify.js',
+         file: 'remote/dompurify/DOMPurify.js',
          format: 'es',
          plugins: outputPlugins,
          preferConst: true,
@@ -86,7 +86,7 @@ const s_MODULES_DOMPURIFY_LIB = [
          sourcemaps()
       ],
       output: {
-         file: 'dompurify/plugin/system.js',
+         file: 'remote/dompurify/plugin/system.js',
          format: 'es',
          plugins: outputPlugins,
          preferConst: true,
@@ -141,7 +141,7 @@ const s_MODULES_JSON5_LIB = [
          sourcemaps()
       ],
       output: {
-         file: 'json/json5.js',
+         file: 'remote/json/json5.js',
          format: 'es',
          plugins: outputPlugins,
          preferConst: true,
@@ -179,7 +179,7 @@ const s_MODULES_PLUGIN_LIB = [
          sourcemaps()
       ],
       output: {
-         file: 'plugin/manager.js',
+         file: 'remote/plugin/manager.js',
          format: 'es',
          plugins: outputPlugins,
          preferConst: true,
@@ -217,7 +217,7 @@ const s_MODULES_TINYMCE_LIB = [
          sourcemaps()
       ],
       output: {
-         dir: 'tinymce',
+         dir: 'remote/tinymce',
          format: 'es',
          inlineDynamicImports: true,
          plugins: outputPlugins,
@@ -260,6 +260,8 @@ const rollupPluginsNPM = [
 
 for (const config of rollupPluginsNPM)
 {
+   console.log(`Generating bundle: ${config.input.input}`);
+
    const bundle = await rollup(config.input);
 
    await bundle.write(config.output);
@@ -267,13 +269,27 @@ for (const config of rollupPluginsNPM)
    // closes the bundle
    await bundle.close();
 
+   const copyDTS = config.output.copyDTS;
    const dtsFile = config.output.dtsFile || config.output.output.file || config.output.file;
    const outFile = config.output.output.file || config.output.file;
 
-   await generateTSDef({
-      main: dtsFile,
-      output: upath.changeExt(outFile, '.d.ts')
-   });
+   const outFileDTS = upath.changeExt(outFile, '.d.ts');
+
+   if (copyDTS)
+   {
+      console.log(`Copying TS Declaration: ${copyDTS}`);
+
+      fs.copySync(copyDTS, outFileDTS);
+   }
+   else
+   {
+      console.log(`Generating TS Declaration: ${config.input.input}`);
+
+      await generateTSDef({
+         main: dtsFile,
+         output: upath.changeExt(outFile, '.d.ts')
+      });
+   }
 
    fs.writeJSONSync(`${path.dirname(outFile)}/package.json`, {
       main: './index.js',
