@@ -1,9 +1,0 @@
-export { default as TJSDocumentCreate }      from './TJSDocumentCreate.svelte';
-export { default as TJSDocumentDelete }      from './TJSDocumentDelete.svelte';
-export { default as TJSDocumentImport }      from './TJSDocumentImport.svelte';
-export { default as TJSFolderCreateUpdate }  from './TJSFolderCreateUpdate.svelte';
-export { default as TJSFolderDelete }        from './TJSFolderDelete.svelte';
-export { default as TJSFolderExport }        from './TJSFolderExport.svelte';
-export { default as TJSFolderRemove }        from './TJSFolderRemove.svelte';
-export { default as TJSFolderRolltable }     from './TJSFolderRolltable.svelte';
-export { default as TJSPermissionControl }   from './TJSPermissionControl.svelte';
