@@ -1,14 +1,19 @@
-import resolve                   from '@rollup/plugin-node-resolve';
-import virtual                   from '@rollup/plugin-virtual';
-import postcss                   from 'rollup-plugin-postcss';
-import sourcemaps                from 'rollup-plugin-sourcemaps';
-import svelte                    from 'rollup-plugin-svelte';
+import path                   from 'path';
 
-import { typhonjsRuntime }       from './index.js';
-import { postcssConfig }         from '../postcssConfig.js';
+import resolve                from '@rollup/plugin-node-resolve';
+import virtual                from '@rollup/plugin-virtual';
+import sourcemaps             from 'rollup-plugin-sourcemaps';
+import svelte                 from 'rollup-plugin-svelte';
 
-import { exportsSveltePackage }  from './exportsSveltePackage.js';
-import { externalPathsNPM }      from './externalPathsNPM.js';
+import { typhonjsRuntime }    from './index.js';
+import { postcssConfig }      from '../postcssConfig.js';
+
+import {
+   distPath,
+   exportsSveltePackage }     from './exportsSveltePackage.js';
+
+import { externalPathsNPM }   from './externalPathsNPM.js';
+
 
 // Defines the node-resolve config.
 const s_RESOLVE_CONFIG = {
@@ -28,8 +33,9 @@ export function createSvelteNPMConfig({ sourcemap, outputPlugins })
 
    for (const entry of exportsSveltePackage)
    {
+      // NOTE: Svelte components are no longer compiled.
       // // Special handling for component/core to compile Svelte components.
-      // if (entry === '/component/core')
+      // if (entry === 'component/core')
       // {
       //    config.push({
       //       input: {
@@ -67,7 +73,7 @@ export function createSvelteNPMConfig({ sourcemap, outputPlugins })
       //    });
       // }
       // // Special handling for component/dialogg to compile Svelte components.
-      // else if (entry === '/component/dialog')
+      // else if (entry === 'component/dialog')
       // {
       //    config.push({
       //       input: {
@@ -104,7 +110,7 @@ export function createSvelteNPMConfig({ sourcemap, outputPlugins })
       //       }
       //    });
       // }
-      if (entry === '/component/core' || entry === '/component/dialog') { /* noop */ }
+      if (entry === 'component/core' || entry === 'component/dialog') { /* noop */ }
       else
       {
          config.push({
@@ -112,16 +118,17 @@ export function createSvelteNPMConfig({ sourcemap, outputPlugins })
                input: 'pack',
                plugins: [
                   virtual({
-                     pack: `export * from '@typhonjs-fvtt/svelte${entry}';`
+                     pack: `export * from '@typhonjs-fvtt/svelte/${entry}';`
                   }),
-                  typhonjsRuntime({ isLib: false, exclude: [`@typhonjs-fvtt/svelte${entry}`] }),
+                  typhonjsRuntime({ isLib: false, exclude: [`@typhonjs-fvtt/svelte/${entry}`] }),
                   resolve(s_RESOLVE_CONFIG),
                   sourcemaps()
                ]
             },
             output: {
+               copyDTS: `${distPath}${path.sep}${entry}${path.sep}index.d.ts`,   // Copy the declarations
                output: {
-                  file: `./_dist/svelte${entry}/index.js`,
+                  file: `./_dist/svelte/${entry}/index.js`,
                   format: 'es',
                   paths: externalPathsNPM,
                   plugins: outputPlugins,

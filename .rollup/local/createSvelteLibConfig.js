@@ -48,7 +48,7 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins })
       {
          input: 'pack',
          output: {
-            file: 'svelte/index.js',
+            file: 'remote/svelte/index.js',
             format: 'es',
             plugins: [typhonjsRuntimeOut({ isLib }), ...outputPlugins],
             preferConst: true,
@@ -67,7 +67,7 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins })
       {
          input: 'pack',
          output: {
-            file: './svelte/component/core.js',
+            file: 'remote/svelte/component/core.js',
             format: 'es',
             plugins: outputPlugins,
             preferConst: true,
@@ -101,7 +101,7 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins })
       {
          input: 'pack',
          output: {
-            file: './svelte/component/dialog.js',
+            file: 'remote/svelte/component/dialog.js',
             format: 'es',
             plugins: outputPlugins,
             preferConst: true,
@@ -141,7 +141,7 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins })
       config.push({
          input: 'pack',
          output: {
-            file: `${key}.js`,
+            file: `remote/${key}.js`,
             format: 'es',
             plugins: outputPlugins,
             preferConst: true,

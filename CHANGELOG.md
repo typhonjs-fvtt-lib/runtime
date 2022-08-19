@@ -1,4 +1,8 @@
 # Changelog
+## Release 0.0.19 (medium)
+- Updated @typhonjs-fvtt/svelte to ['0.0.19'](https://github.com/typhonjs-fvtt-lib/svelte/blob/main/CHANGELOG.md#release-0019).
+- Foundry v10 compatibility.
+
 ## Release 0.0.18 (minor)
 - Updated @typhonjs-fvtt/svelte to ['0.0.18'](https://github.com/typhonjs-fvtt-lib/svelte/blob/main/CHANGELOG.md#release-0018).
 
