@@ -1,7 +1,6 @@
 import resolve             from '@rollup/plugin-node-resolve';
 import virtual             from '@rollup/plugin-virtual';
 import postcss             from 'rollup-plugin-postcss';
-import sourcemaps          from 'rollup-plugin-sourcemaps';
 import svelte              from 'rollup-plugin-svelte';
 
 import {
@@ -61,7 +60,6 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins })
             }),
             typhonjsRuntime({ isLib, exclude: ['svelte'] }),
             resolve({ browser: true }),
-            sourcemaps()
          ]
       },
       {
@@ -152,7 +150,6 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins })
             virtual({ pack }),
             typhonjsRuntime({ isLib, exclude: value }),
             resolve({ browser: true }),
-            sourcemaps()
          ]
       });
    }

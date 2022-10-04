@@ -6,7 +6,6 @@ import { generateTSDef }   from '@typhonjs-build-test/esm-d-ts';
 import { getFileList }     from '@typhonjs-utils/file-util';
 import fs                  from 'fs-extra';
 import { rollup }          from 'rollup';
-import sourcemaps          from 'rollup-plugin-sourcemaps';
 import { terser }          from 'rollup-plugin-terser';
 import upath               from 'upath';
 
@@ -30,8 +29,7 @@ const s_MODULES_CHROMAJS_LIB = [
       input: '.build/color/chroma.js',
       plugins: [
          resolve({ browser: true }),
-         commonjs(),
-         sourcemaps()
+         commonjs()
       ],
       output: {
          file: 'remote/color/chroma.js',
@@ -49,8 +47,7 @@ const s_MODULES_CHROMAJS_NPM = [
          input: '.build/color/chroma.js',
          plugins: [
             resolve({ browser: true }),
-            commonjs(),
-            sourcemaps()
+            commonjs()
          ]
       },
       output: {
@@ -68,8 +65,7 @@ const s_MODULES_DOMPURIFY_LIB = [
    {
       input: '.build/dompurify/DOMPurify.js',
       plugins: [
-         resolve({ browser: true }),
-         sourcemaps()
+         resolve({ browser: true })
       ],
       output: {
          file: 'remote/dompurify/DOMPurify.js',
@@ -82,8 +78,7 @@ const s_MODULES_DOMPURIFY_LIB = [
    {
       input: '.build/dompurify/plugin/system/index.js',
       plugins: [
-         resolve({ browser: true }),
-         sourcemaps()
+         resolve({ browser: true })
       ],
       output: {
          file: 'remote/dompurify/plugin/system.js',
@@ -100,8 +95,7 @@ const s_MODULES_DOMPURIFY_NPM = [
       input: {
          input: '.build/dompurify/DOMPurify.js',
          plugins: [
-            resolve({ browser: true }),
-            sourcemaps()
+            resolve({ browser: true })
          ]
       },
       output: {
@@ -117,8 +111,7 @@ const s_MODULES_DOMPURIFY_NPM = [
       input: {
          input: '.build/dompurify/plugin/system/index.js',
          plugins: [
-            resolve({ browser: true }),
-            sourcemaps()
+            resolve({ browser: true })
          ]
       },
       output: {
@@ -137,8 +130,7 @@ const s_MODULES_JSON5_LIB = [
       input: '.build/json/json5.js',
       plugins: [
          resolve({ browser: true }),
-         commonjs(),
-         sourcemaps()
+         commonjs()
       ],
       output: {
          file: 'remote/json/json5.js',
@@ -156,8 +148,7 @@ const s_MODULES_JSON5_NPM = [
          input: '.build/json/json5.js',
          plugins: [
             resolve({ browser: true }),
-            commonjs(),
-            sourcemaps()
+            commonjs()
          ]
       },
       output: {
@@ -175,8 +166,7 @@ const s_MODULES_PLUGIN_LIB = [
    {
       input: '.build/plugin/manager.js',
       plugins: [
-         resolve({ browser: true }),
-         sourcemaps()
+         resolve({ browser: true })
       ],
       output: {
          file: 'remote/plugin/manager.js',
@@ -193,8 +183,7 @@ const s_MODULES_PLUGIN_NPM = [
       input: {
          input: '.build/plugin/manager.js',
          plugins: [
-            resolve({ browser: true }),
-            sourcemaps()
+            resolve({ browser: true })
          ]
       },
       output: {
@@ -213,8 +202,7 @@ const s_MODULES_TINYMCE_LIB = [
    {
       input: '.build/tinymce/initializePlugins.js',
       plugins: [
-         resolve({ browser: true }),
-         sourcemaps()
+         resolve({ browser: true })
       ],
       output: {
          dir: 'remote/tinymce',
@@ -232,8 +220,7 @@ const s_MODULES_TINYMCE_NPM = [
       input: {
          input: '.build/tinymce/initializePlugins.js',
          plugins: [
-            resolve({ browser: true }),
-            sourcemaps()
+            resolve({ browser: true })
          ]
       },
       output: {

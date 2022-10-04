@@ -2,7 +2,6 @@ import path                   from 'path';
 
 import resolve                from '@rollup/plugin-node-resolve';
 import virtual                from '@rollup/plugin-virtual';
-import sourcemaps             from 'rollup-plugin-sourcemaps';
 import svelte                 from 'rollup-plugin-svelte';
 
 import { typhonjsRuntime }    from './index.js';
@@ -122,7 +121,6 @@ export function createSvelteNPMConfig({ sourcemap, outputPlugins })
                   }),
                   typhonjsRuntime({ isLib: false, exclude: [`@typhonjs-fvtt/svelte/${entry}`] }),
                   resolve(s_RESOLVE_CONFIG),
-                  sourcemaps()
                ]
             },
             output: {
