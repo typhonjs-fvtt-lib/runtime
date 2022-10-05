@@ -1,3 +1,6 @@
+import initOembed_v5 from '@typhonjs-tinymce/oembed/v5/plugin';
+import initOembed_v6 from '@typhonjs-tinymce/oembed/v6/plugin';
+
 let initialized = false;
 
 /**
@@ -24,12 +27,12 @@ export function initializePlugins()
             if (isV10)
             {
                // Load oEmbed TinyMCE v6 plugin.
-               await import('./typhonjs-oembed-v6.js');
+               initOembed_v6();
             }
             else
             {
                // Load oEmbed TinyMCE v5 plugin.
-               await import('./typhonjs-oembed-v5.js');
+               initOembed_v5();
             }
          }
          catch (err)
