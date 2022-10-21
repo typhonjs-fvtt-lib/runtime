@@ -6,15 +6,12 @@ import { generateTSDef }   from '@typhonjs-build-test/esm-d-ts';
 import { getFileList }     from '@typhonjs-utils/file-util';
 import fs                  from 'fs-extra';
 import { rollup }          from 'rollup';
-import { terser }          from 'rollup-plugin-terser';
 import upath               from 'upath';
 
 import {
    createSvelteLibConfig,
-   createSvelteNPMConfig,
-   terserConfig }          from './.rollup/local/index.js';
+   createSvelteNPMConfig } from './.rollup/local/index.js';
 
-const s_COMPRESS = true;     // Compresses the module lib output. Not the NPM distribution bundles.
 const s_SOURCEMAPS = true;
 
 // Defines whether source maps are generated / loaded from the .env file.
@@ -22,7 +19,7 @@ const sourcemap = s_SOURCEMAPS;
 
 // Defines potential output plugins to use conditionally if the .env file indicates the bundles should be
 // minified / mangled.
-const outputPlugins = s_COMPRESS ? [terser(terserConfig())] : [];
+const outputPlugins = [];
 
 const s_MODULES_CHROMAJS_LIB = [
    {
@@ -34,8 +31,8 @@ const s_MODULES_CHROMAJS_LIB = [
       output: {
          file: 'remote/color/chroma.js',
          format: 'es',
+         generatedCode: { constBindings: true },
          plugins: outputPlugins,
-         preferConst: true,
          sourcemap
       }
    }
@@ -51,12 +48,10 @@ const s_MODULES_CHROMAJS_NPM = [
          ]
       },
       output: {
-         output: {
-            file: '_dist/color/chroma-js/index.js',
-            format: 'es',
-            preferConst: true,
-            sourcemap
-         }
+         file: '_dist/color/chroma-js/index.js',
+         format: 'es',
+         generatedCode: { constBindings: true },
+         sourcemap
       }
    }
 ];
@@ -70,8 +65,8 @@ const s_MODULES_DOMPURIFY_LIB = [
       output: {
          file: 'remote/dompurify/DOMPurify.js',
          format: 'es',
+         generatedCode: { constBindings: true },
          plugins: outputPlugins,
-         preferConst: true,
          sourcemap
       }
    },
@@ -83,8 +78,8 @@ const s_MODULES_DOMPURIFY_LIB = [
       output: {
          file: 'remote/dompurify/plugin/system.js',
          format: 'es',
+         generatedCode: { constBindings: true },
          plugins: outputPlugins,
-         preferConst: true,
          sourcemap
       }
    }
@@ -99,12 +94,10 @@ const s_MODULES_DOMPURIFY_NPM = [
          ]
       },
       output: {
-         output: {
-            file: '_dist/dompurify/index.js',
-            format: 'es',
-            preferConst: true,
-            sourcemap
-         }
+         file: '_dist/dompurify/index.js',
+         format: 'es',
+         generatedCode: { constBindings: true },
+         sourcemap
       }
    },
    {
@@ -115,12 +108,10 @@ const s_MODULES_DOMPURIFY_NPM = [
          ]
       },
       output: {
-         output: {
-            file: '_dist/dompurify/plugin/system/index.js',
-            format: 'es',
-            preferConst: true,
-            sourcemap
-         }
+         file: '_dist/dompurify/plugin/system/index.js',
+         format: 'es',
+         generatedCode: { constBindings: true },
+         sourcemap
       }
    }
 ];
@@ -135,8 +126,8 @@ const s_MODULES_JSON5_LIB = [
       output: {
          file: 'remote/json/json5.js',
          format: 'es',
+         generatedCode: { constBindings: true },
          plugins: outputPlugins,
-         preferConst: true,
          sourcemap
       }
    }
@@ -152,12 +143,10 @@ const s_MODULES_JSON5_NPM = [
          ]
       },
       output: {
-         output: {
-            file: '_dist/json/json5/index.js',
-            format: 'es',
-            preferConst: true,
-            sourcemap
-         }
+         file: '_dist/json/json5/index.js',
+         format: 'es',
+         generatedCode: { constBindings: true },
+         sourcemap
       }
    }
 ];
@@ -171,8 +160,8 @@ const s_MODULES_PLUGIN_LIB = [
       output: {
          file: 'remote/plugin/manager.js',
          format: 'es',
+         generatedCode: { constBindings: true },
          plugins: outputPlugins,
-         preferConst: true,
          sourcemap
       }
    }
@@ -186,14 +175,12 @@ const s_MODULES_PLUGIN_NPM = [
             resolve({ browser: true })
          ]
       },
+      dtsFile: '.build/plugin/manager.js',
       output: {
-         dtsFile: '.build/plugin/manager.js',
-         output: {
-            file: '_dist/plugin/manager/index.js',
-            format: 'es',
-            preferConst: true,
-            sourcemap
-         }
+         file: '_dist/plugin/manager/index.js',
+         format: 'es',
+         generatedCode: { constBindings: true },
+         sourcemap
       }
    }
 ];
@@ -207,9 +194,9 @@ const s_MODULES_TINYMCE_LIB = [
       output: {
          dir: 'remote/tinymce',
          format: 'es',
+         generatedCode: { constBindings: true },
          inlineDynamicImports: true,
          plugins: outputPlugins,
-         preferConst: true,
          sourcemap
       }
    }
@@ -223,15 +210,13 @@ const s_MODULES_TINYMCE_NPM = [
             resolve({ browser: true })
          ]
       },
+      file: './_dist/tinymce/initializePlugins.js',
       output: {
-         file: './_dist/tinymce/initializePlugins.js',
-         output: {
-            dir: '_dist/tinymce',
-            format: 'es',
-            inlineDynamicImports: true,
-            preferConst: true,
-            sourcemap
-         }
+         dir: '_dist/tinymce',
+         format: 'es',
+         generatedCode: { constBindings: true },
+         inlineDynamicImports: true,
+         sourcemap
       }
    }
 ];
@@ -257,8 +242,8 @@ for (const config of rollupPluginsNPM)
    await bundle.close();
 
    const copyDTS = config.output.copyDTS;
-   const dtsFile = config.output.dtsFile || config.output.output.file || config.output.file;
-   const outFile = config.output.output.file || config.output.file;
+   const dtsFile = config.dtsFile || config.output.file || config.file;
+   const outFile = config.output.file || config.file;
 
    const outFileDTS = upath.changeExt(outFile, '.d.ts');
 
