@@ -1,5 +1,3 @@
-import * as terser from 'terser';
-
 /**
  * Provides a function to return a new PostCSS configuration setting the extract parameter.
  *
@@ -42,7 +40,7 @@ declare function postcssConfig({ extract, compress, sourceMap }?: {
 declare function terserConfig({ keep_classnames, keep_fnames }?: {
     keep_classnames?: boolean;
     keep_fnames?: boolean | RegExp;
-}): terser.MinifyOptions;
+}): any;
 
 /**
  * Returns the TyphonJS Runtime Library module substitution plugin.

@@ -49,8 +49,8 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins })
          output: {
             file: 'remote/svelte/index.js',
             format: 'es',
+            generatedCode: { constBindings: true },
             plugins: [typhonjsRuntimeOut({ isLib }), ...outputPlugins],
-            preferConst: true,
             sourcemap,
             // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
          },
@@ -67,8 +67,8 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins })
          output: {
             file: 'remote/svelte/component/core.js',
             format: 'es',
+            generatedCode: { constBindings: true },
             plugins: outputPlugins,
-            preferConst: true,
             sourcemap,
             // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
          },
@@ -101,8 +101,8 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins })
          output: {
             file: 'remote/svelte/component/dialog.js',
             format: 'es',
+            generatedCode: { constBindings: true },
             plugins: outputPlugins,
-            preferConst: true,
             sourcemap,
             // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
          },
@@ -141,8 +141,8 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins })
          output: {
             file: `remote/${key}.js`,
             format: 'es',
+            generatedCode: { constBindings: true },
             plugins: outputPlugins,
-            preferConst: true,
             sourcemap,
             // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
          },

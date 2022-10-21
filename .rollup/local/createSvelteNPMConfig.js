@@ -2,7 +2,6 @@ import path                   from 'path';
 
 import resolve                from '@rollup/plugin-node-resolve';
 import virtual                from '@rollup/plugin-virtual';
-import svelte                 from 'rollup-plugin-svelte';
 
 import { typhonjsRuntime }    from './index.js';
 import { postcssConfig }      from '../postcssConfig.js';
@@ -123,16 +122,14 @@ export function createSvelteNPMConfig({ sourcemap, outputPlugins })
                   resolve(s_RESOLVE_CONFIG),
                ]
             },
+            copyDTS: `${distPath}${path.sep}${entry}${path.sep}index.d.ts`,   // Copy the declarations
             output: {
-               copyDTS: `${distPath}${path.sep}${entry}${path.sep}index.d.ts`,   // Copy the declarations
-               output: {
-                  file: `./_dist/svelte/${entry}/index.js`,
-                  format: 'es',
-                  paths: externalPathsNPM,
-                  plugins: outputPlugins,
-                  preferConst: true,
-                  sourcemap
-               }
+               file: `./_dist/svelte/${entry}/index.js`,
+               format: 'es',
+               generatedCode: { constBindings: true },
+               paths: externalPathsNPM,
+               plugins: outputPlugins,
+               sourcemap
             }
          });
       }
