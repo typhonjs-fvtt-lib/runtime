@@ -108,16 +108,12 @@
     "./package.json": "./package.json"
   },
   "dependencies": {
-    "@rollup/plugin-node-resolve": "^14",
+    "@rollup/plugin-node-resolve": "^15",
     "@sveltejs/vite-plugin-svelte": "^1",
     "autoprefixer": "^10",
     "cssnano": "^5",
     "postcss": "^8",
     "postcss-preset-env": "^7",
-    "rollup-plugin-postcss": "^4",
-    "rollup-plugin-sourcemaps": "^0.6",
-    "rollup-plugin-svelte": "^7",
-    "rollup-plugin-terser": "^7",
     "sass": "^1"
   },
   "peerDependencies": {
@@ -126,19 +122,21 @@
     "svelte-preprocess": "^4.10.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "22",
-    "@rollup/plugin-virtual": "^2",
-    "@typhonjs-build-test/esm-d-ts": "^0.0.5",
-    "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte",
+    "@rollup/plugin-commonjs": "23",
+    "@rollup/plugin-virtual": "^3",
+    "@typhonjs-build-test/esm-d-ts": "^0.0.6",
+    "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.0.20",
     "@typhonjs-plugin/manager": "0.0.12",
-    "@typhonjs-tinymce/oembed": "0.1.0",
+    "@typhonjs-tinymce/oembed": "^0.4.0",
     "@typhonjs-utils/file-util": "^0.0.6",
     "chroma-js": "2.4.2",
     "dompurify": "2.4.0",
     "fs-extra": "^10",
     "json5": "2.2.1",
     "magic-string": "^0.26.0",
-    "rollup": "^2",
+    "rollup": "^3",
+    "rollup-plugin-postcss": "^4",
+    "rollup-plugin-svelte": "^7",
     "svelte": "^3.50.0",
     "upath": "^2"
   },
