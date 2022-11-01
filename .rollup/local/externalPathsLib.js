@@ -20,6 +20,9 @@ export const externalPathsLib = {
 
    'chroma-js': '/modules/typhonjs/remote/color/chroma.js',
 
+   'colord': '/modules/typhonjs/remote/color/colord.js',
+   'colord-plugins': '/modules/typhonjs/remote/color/colord-plugins.js',
+
    'json5': '/modules/typhonjs/remote/json/json5.js',
 
    'svelte': '/modules/typhonjs/remote/svelte/index.js',

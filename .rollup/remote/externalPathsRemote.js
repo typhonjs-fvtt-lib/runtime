@@ -5,6 +5,9 @@ export const externalPathsRemote = {
 
    '@typhonjs-fvtt/runtime/color/chroma-js': '/modules/typhonjs/remote/color/chroma.js',
 
+   '@typhonjs-fvtt/runtime/color/colord': '/modules/typhonjs/remote/color/colord.js',
+   '@typhonjs-fvtt/runtime/color/colord/plugins': '/modules/typhonjs/remote/color/colord-plugins.js',
+
    '@typhonjs-fvtt/runtime/dompurify': '/modules/typhonjs/remote/dompurify/DOMPurify.js',
    '@typhonjs-fvtt/runtime/dompurify/plugin/system': '/modules/typhonjs/remote/dompurify/plugin/system.js',
 
