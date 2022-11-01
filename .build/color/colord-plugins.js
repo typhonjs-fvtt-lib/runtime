@@ -1,0 +1,10 @@
+export { default as a11yPlugin }       from 'colord/plugins/a11y';
+export { default as cmykPlugin }       from 'colord/plugins/cmyk';
+export { default as harmoniesPlugin }  from 'colord/plugins/harmonies';
+export { default as hwbPlugin }        from 'colord/plugins/hwb';
+export { default as labPlugin }        from 'colord/plugins/lab';
+export { default as lchPlugin }        from 'colord/plugins/lch';
+export { default as minifyPlugin }     from 'colord/plugins/minify';
+export { default as mixPlugin }        from 'colord/plugins/mix';
+export { default as namesPlugin }      from 'colord/plugins/names';
+export { default as xyzPlugin }        from 'colord/plugins/xyz';

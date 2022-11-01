@@ -56,6 +56,68 @@ const s_MODULES_CHROMAJS_NPM = [
    }
 ];
 
+const s_MODULES_COLORD_LIB = [
+   {
+      input: '.build/color/colord.js',
+      plugins: [
+         resolve({ browser: true })
+      ],
+      output: {
+         file: 'remote/color/colord.js',
+         format: 'es',
+         generatedCode: { constBindings: true },
+         plugins: outputPlugins,
+         sourcemap
+      }
+   },
+   {
+      input: '.build/color/colord-plugins.js',
+      plugins: [
+         resolve({ browser: true })
+      ],
+      output: {
+         file: 'remote/color/colord-plugins.js',
+         format: 'es',
+         generatedCode: { constBindings: true },
+         plugins: outputPlugins,
+         sourcemap
+      }
+   }
+];
+
+const s_MODULES_COLORD_NPM = [
+   {
+      input: {
+         input: '.build/color/colord.js',
+         plugins: [
+            resolve({ browser: true })
+         ]
+      },
+      skipDTS: true, // TODO FIX ESM-D-TS to bundle types of dependent packages.
+      output: {
+         file: '_dist/color/colord/index.js',
+         format: 'es',
+         generatedCode: { constBindings: true },
+         sourcemap
+      }
+   },
+   {
+      input: {
+         input: '.build/color/colord-plugins.js',
+         plugins: [
+            resolve({ browser: true })
+         ]
+      },
+      skipDTS: true, // TODO FIX ESM-D-TS to bundle types of dependent packages.
+      output: {
+         file: '_dist/color/colord-plugins/index.js',
+         format: 'es',
+         generatedCode: { constBindings: true },
+         sourcemap
+      }
+   }
+];
+
 const s_MODULES_DOMPURIFY_LIB = [
    {
       input: '.build/dompurify/DOMPurify.js',
@@ -223,6 +285,7 @@ const s_MODULES_TINYMCE_NPM = [
 
 const rollupPluginsNPM = [
    ...s_MODULES_CHROMAJS_NPM,
+   ...s_MODULES_COLORD_NPM,
    ...s_MODULES_DOMPURIFY_NPM,
    ...s_MODULES_JSON5_NPM,
    ...s_MODULES_PLUGIN_NPM,
@@ -241,9 +304,17 @@ for (const config of rollupPluginsNPM)
    // closes the bundle
    await bundle.close();
 
-   const copyDTS = config.output.copyDTS;
-   const dtsFile = config.dtsFile || config.output.file || config.file;
-   const outFile = config.output.file || config.file;
+   const copyDTS = config.copyDTS;
+   const skipDTS = config.skipDTS ?? false;
+   const dtsFile = config.dtsFile ?? config.output.file ?? config.file;
+   const outFile = config.output.file ?? config.file;
+
+   // Skip generating some DTS files.
+   if (skipDTS)
+   {
+      console.warn(`Skipping TS Declaration: ${config.input.input}`);
+      continue;
+   }
 
    const outFileDTS = upath.changeExt(outFile, '.d.ts');
 
@@ -326,6 +397,7 @@ export default () =>
 {
    return [
       ...s_MODULES_CHROMAJS_LIB,
+      ...s_MODULES_COLORD_LIB,
       ...s_MODULES_DOMPURIFY_LIB,
       ...s_MODULES_JSON5_LIB,
       ...s_MODULES_PLUGIN_LIB,
