@@ -1,4 +1,7 @@
 # Changelog
+## Release 0.0.21 (minor)
+- Updated @typhonjs-fvtt/svelte to ['0.0.21'](https://github.com/typhonjs-fvtt-lib/svelte/blob/main/CHANGELOG.md#release-0021).
+
 ## Release 0.0.20 (minor)
 - Updated @typhonjs-fvtt/svelte to ['0.0.20'](https://github.com/typhonjs-fvtt-lib/svelte/blob/main/CHANGELOG.md#release-0020).
 - Note: Updated to Rollup 3 / removed some unnecessary Rollup plugins no longer needed for Vite build.
