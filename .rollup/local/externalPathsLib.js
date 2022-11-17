@@ -20,8 +20,20 @@ export const externalPathsLib = {
 
    'chroma-js': '/modules/typhonjs/remote/color/chroma.js',
 
-   'colord': '/modules/typhonjs/remote/color/colord.js',
-   'colord-plugins': '/modules/typhonjs/remote/color/colord-plugins.js',
+   'colord': '/modules/typhonjs/remote/color/colord/index.js',
+   'colord/plugins/a11y': '/modules/typhonjs/remote/color/colord/plugins/a11y.js',
+   'colord/plugins/cmyk': '/modules/typhonjs/remote/color/colord/plugins/cmyk.js',
+   'colord/plugins/harmonies': '/modules/typhonjs/remote/color/colord/plugins/harmonies.js',
+   'colord/plugins/hwb': '/modules/typhonjs/remote/color/colord/plugins/hwb.js',
+   'colord/plugins/lab': '/modules/typhonjs/remote/color/colord/plugins/lab.js',
+   'colord/plugins/lch': '/modules/typhonjs/remote/color/colord/plugins/lch.js',
+   'colord/plugins/minify': '/modules/typhonjs/remote/color/colord/plugins/minify.js',
+   'colord/plugins/mix': '/modules/typhonjs/remote/color/colord/plugins/mix.js',
+   'colord/plugins/names': '/modules/typhonjs/remote/color/colord/plugins/names.js',
+   'colord/plugins/xyz': '/modules/typhonjs/remote/color/colord/plugins/xyz.js',
+
+   // 'colord': '/modules/typhonjs/remote/color/colord.js',
+   // 'colord-plugins': '/modules/typhonjs/remote/color/colord-plugins.js',
 
    'json5': '/modules/typhonjs/remote/json/json5.js',
 

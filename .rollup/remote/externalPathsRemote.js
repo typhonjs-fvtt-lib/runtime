@@ -5,8 +5,17 @@ export const externalPathsRemote = {
 
    '@typhonjs-fvtt/runtime/color/chroma-js': '/modules/typhonjs/remote/color/chroma.js',
 
-   '@typhonjs-fvtt/runtime/color/colord': '/modules/typhonjs/remote/color/colord.js',
-   '@typhonjs-fvtt/runtime/color/colord/plugins': '/modules/typhonjs/remote/color/colord-plugins.js',
+   '@typhonjs-fvtt/runtime/color/colord': '/modules/typhonjs/remote/color/colord/index.js',
+   '@typhonjs-fvtt/runtime/color/colord/plugins/a11y': '/modules/typhonjs/remote/color/colord/plugins/a11y.js',
+   '@typhonjs-fvtt/runtime/color/colord/plugins/cmyk': '/modules/typhonjs/remote/color/colord/plugins/cmyk.js',
+   '@typhonjs-fvtt/runtime/color/colord/plugins/harmonies': '/modules/typhonjs/remote/color/colord/plugins/harmonies.js',
+   '@typhonjs-fvtt/runtime/color/colord/plugins/hwb': '/modules/typhonjs/remote/color/colord/plugins/hwb.js',
+   '@typhonjs-fvtt/runtime/color/colord/plugins/lab': '/modules/typhonjs/remote/color/colord/plugins/lab.js',
+   '@typhonjs-fvtt/runtime/color/colord/plugins/lch': '/modules/typhonjs/remote/color/colord/plugins/lch.js',
+   '@typhonjs-fvtt/runtime/color/colord/plugins/minify': '/modules/typhonjs/remote/color/colord/plugins/minify.js',
+   '@typhonjs-fvtt/runtime/color/colord/plugins/mix': '/modules/typhonjs/remote/color/colord/plugins/mix.js',
+   '@typhonjs-fvtt/runtime/color/colord/plugins/names': '/modules/typhonjs/remote/color/colord/plugins/names.js',
+   '@typhonjs-fvtt/runtime/color/colord/plugins/xyz': '/modules/typhonjs/remote/color/colord/plugins/xyz.js',
 
    '@typhonjs-fvtt/runtime/dompurify': '/modules/typhonjs/remote/dompurify/DOMPurify.js',
    '@typhonjs-fvtt/runtime/dompurify/plugin/system': '/modules/typhonjs/remote/dompurify/plugin/system.js',

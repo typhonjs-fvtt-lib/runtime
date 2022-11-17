@@ -23,7 +23,16 @@ export const externalPathsNPM = {
    'chroma-js': '@typhonjs-fvtt/runtime/color/chroma-js',
 
    'colord': '@typhonjs-fvtt/runtime/color/colord',
-   'colord-plugins': '@typhonjs-fvtt/runtime/color/colord/plugins',
+   'colord/plugins/a11y': '@typhonjs-fvtt/runtime/color/colord/plugins/a11y',
+   'colord/plugins/cmyk': '@typhonjs-fvtt/runtime/color/colord/plugins/cmyk',
+   'colord/plugins/harmonies': '@typhonjs-fvtt/runtime/color/colord/plugins/harmonies',
+   'colord/plugins/hwb': '@typhonjs-fvtt/runtime/color/colord/plugins/hwb',
+   'colord/plugins/lab': '@typhonjs-fvtt/runtime/color/colord/plugins/lab',
+   'colord/plugins/lch': '@typhonjs-fvtt/runtime/color/colord/plugins/lch',
+   'colord/plugins/minify': '@typhonjs-fvtt/runtime/color/colord/plugins/minify',
+   'colord/plugins/mix': '@typhonjs-fvtt/runtime/color/colord/plugins/mix',
+   'colord/plugins/names': '@typhonjs-fvtt/runtime/color/colord/plugins/names',
+   'colord/plugins/xyz': '@typhonjs-fvtt/runtime/color/colord/plugins/xyz',
 
    'json5': '@typhonjs-fvtt/runtime/json/json5',
 

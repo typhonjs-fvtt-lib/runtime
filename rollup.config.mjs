@@ -56,68 +56,6 @@ const s_MODULES_CHROMAJS_NPM = [
    }
 ];
 
-const s_MODULES_COLORD_LIB = [
-   {
-      input: '.build/color/colord.js',
-      plugins: [
-         resolve({ browser: true })
-      ],
-      output: {
-         file: 'remote/color/colord.js',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         plugins: outputPlugins,
-         sourcemap
-      }
-   },
-   {
-      input: '.build/color/colord-plugins.js',
-      plugins: [
-         resolve({ browser: true })
-      ],
-      output: {
-         file: 'remote/color/colord-plugins.js',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         plugins: outputPlugins,
-         sourcemap
-      }
-   }
-];
-
-const s_MODULES_COLORD_NPM = [
-   {
-      input: {
-         input: '.build/color/colord.js',
-         plugins: [
-            resolve({ browser: true })
-         ]
-      },
-      skipDTS: true, // TODO FIX ESM-D-TS to bundle types of dependent packages.
-      output: {
-         file: '_dist/color/colord/index.js',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         sourcemap
-      }
-   },
-   {
-      input: {
-         input: '.build/color/colord-plugins.js',
-         plugins: [
-            resolve({ browser: true })
-         ]
-      },
-      skipDTS: true, // TODO FIX ESM-D-TS to bundle types of dependent packages.
-      output: {
-         file: '_dist/color/colord-plugins/index.js',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         sourcemap
-      }
-   }
-];
-
 const s_MODULES_DOMPURIFY_LIB = [
    {
       input: '.build/dompurify/DOMPurify.js',
@@ -285,7 +223,6 @@ const s_MODULES_TINYMCE_NPM = [
 
 const rollupPluginsNPM = [
    ...s_MODULES_CHROMAJS_NPM,
-   ...s_MODULES_COLORD_NPM,
    ...s_MODULES_DOMPURIFY_NPM,
    ...s_MODULES_JSON5_NPM,
    ...s_MODULES_PLUGIN_NPM,
@@ -342,6 +279,8 @@ for (const config of rollupPluginsNPM)
    });
 }
 
+// @typhonjs-fvtt/svelte/application & application/legacy ------------------------------------------------------------
+
 // Handle @typhonjs-fvtt/svelte/application & application/legacy by copying the source and converting all import
 // package references from `@typhonjs-fvtt/svelte` to `@typhonjs-fvtt/runtime/svelte`.
 fs.emptyDirSync('./_dist/svelte/application');
@@ -353,6 +292,8 @@ for (const appFile of appFiles)
    fs.writeFileSync(appFile, fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/'));
 }
 
+// @typhonjs-fvtt/svelte/application & application/legacy types ------------------------------------------------------
+
 // Handle @typhonjs-fvtt/svelte/application & application/legacy types by copying the declarations and converting all
 // import package references from `@typhonjs-fvtt/svelte` to `@typhonjs-fvtt/runtime/svelte`.
 fs.copySync('./node_modules/@typhonjs-fvtt/svelte/_types/application', './_types/svelte/application');
@@ -362,6 +303,8 @@ for (const dtsFile of dtsFiles)
    const fileData = fs.readFileSync(dtsFile, 'utf-8').toString();
    fs.writeFileSync(dtsFile, fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/'));
 }
+
+// @typhonjs-fvtt/svelte/component/core & component/dialog -----------------------------------------------------------
 
 // Handle @typhonjs-fvtt/svelte/component/core & component/dialog by copying the source and converting all import
 // package references from `@typhonjs-fvtt/svelte` to `@typhonjs-fvtt/runtime/svelte`.
@@ -374,7 +317,8 @@ for (const compFile of compFiles)
    fs.writeFileSync(compFile, fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/'));
 }
 
-// Gsap Plugins
+// Gsap Plugins ------------------------------------------------------------------------------------------------------
+
 // Handle @typhonjs-fvtt/svelte/gsap-plugins by copying the source and converting all import
 // package references from `@typhonjs-fvtt/svelte` to `@typhonjs-fvtt/runtime/svelte`.
 fs.emptyDirSync('./_dist/svelte/gsap/plugin');
@@ -392,12 +336,53 @@ await generateTSDef({
    output: './.rollup/remote/index.d.ts',
 });
 
+// Special handling for colord NPM module ----------------------------------------------------------------------------
+
+// Copy ESM distribution + TS declarations to `./_dist/color/colord/`
+fs.emptyDirSync('./_dist/color/colord/');
+let colordFiles = await getFileList({ dir: './node_modules/colord-typhonjs/dist' });
+for (const colordFile of colordFiles)
+{
+   let destFile;
+
+   if (colordFile.endsWith('.mjs'))
+   {
+      destFile = `./_dist/color/colord/${
+       path.relative('./node_modules/colord-typhonjs/dist', colordFile.replace(/\.mjs$/, '.js'))}`;
+   }
+   else if (colordFile.endsWith('.d.ts'))
+   {
+      destFile = `./_dist/color/colord/${
+       path.relative('./node_modules/colord-typhonjs/dist', colordFile)}`;
+   }
+   else
+   {
+      // Skip all other files.
+      continue;
+   }
+
+   fs.copySync(colordFile, destFile);
+}
+
+// Copy ESM files from `./_dist/color/colord/` to remote distribution.
+fs.emptyDirSync('./remote/color/colord/');
+colordFiles = await getFileList({ dir: './_dist/color/colord' });
+for (const colordFile of colordFiles)
+{
+   if (!colordFile.endsWith('.js')) { continue; }
+
+   const destFile = `./remote/color/colord/${path.relative('./_dist/color/colord', colordFile)}`;
+
+   fs.copySync(colordFile, destFile);
+}
+
+// -------------------------------------------------------------------------------------------------------------------
+
 // We use rollup as per normal to generate the library bundles.
 export default () =>
 {
    return [
       ...s_MODULES_CHROMAJS_LIB,
-      ...s_MODULES_COLORD_LIB,
       ...s_MODULES_DOMPURIFY_LIB,
       ...s_MODULES_JSON5_LIB,
       ...s_MODULES_PLUGIN_LIB,

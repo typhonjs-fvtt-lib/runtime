@@ -19,10 +19,12 @@
       "import": "./_dist/color/chroma-js/index.js"
     },
     "./color/colord": {
+      "types": "./_dist/color/colord/index.d.ts",
       "import": "./_dist/color/colord/index.js"
     },
-    "./color/colord-plugins": {
-      "import": "./_dist/color/colord-plugins/index.js"
+    "./color/colord/plugins/*": {
+      "types": "./_dist/color/colord/plugins/*.d.ts",
+      "import": "./_dist/color/colord/plugins/*.js"
     },
     "./dompurify": {
       "types": "./_dist/dompurify/index.d.ts",
@@ -135,7 +137,7 @@
     "@typhonjs-plugin/manager": "0.0.12",
     "@typhonjs-tinymce/oembed": "^0.4.0",
     "@typhonjs-utils/file-util": "^0.0.6",
-    "colord": "^2.9.3",
+    "colord-typhonjs": "github:typhonjs-node-utils/colord#0.0.1",
     "chroma-js": "2.4.2",
     "dompurify": "2.4.0",
     "fs-extra": "^10",
