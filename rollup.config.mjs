@@ -21,41 +21,6 @@ const sourcemap = s_SOURCEMAPS;
 // minified / mangled.
 const outputPlugins = [];
 
-const s_MODULES_CHROMAJS_LIB = [
-   {
-      input: '.build/color/chroma.js',
-      plugins: [
-         resolve({ browser: true }),
-         commonjs()
-      ],
-      output: {
-         file: 'remote/color/chroma.js',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         plugins: outputPlugins,
-         sourcemap
-      }
-   }
-];
-
-const s_MODULES_CHROMAJS_NPM = [
-   {
-      input: {
-         input: '.build/color/chroma.js',
-         plugins: [
-            resolve({ browser: true }),
-            commonjs()
-         ]
-      },
-      output: {
-         file: '_dist/color/chroma-js/index.js',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         sourcemap
-      }
-   }
-];
-
 const s_MODULES_DOMPURIFY_LIB = [
    {
       input: '.build/dompurify/DOMPurify.js',
@@ -222,7 +187,6 @@ const s_MODULES_TINYMCE_NPM = [
 ];
 
 const rollupPluginsNPM = [
-   ...s_MODULES_CHROMAJS_NPM,
    ...s_MODULES_DOMPURIFY_NPM,
    ...s_MODULES_JSON5_NPM,
    ...s_MODULES_PLUGIN_NPM,
@@ -382,7 +346,6 @@ for (const colordFile of colordFiles)
 export default () =>
 {
    return [
-      ...s_MODULES_CHROMAJS_LIB,
       ...s_MODULES_DOMPURIFY_LIB,
       ...s_MODULES_JSON5_LIB,
       ...s_MODULES_PLUGIN_LIB,

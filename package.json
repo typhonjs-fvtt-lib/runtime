@@ -14,10 +14,6 @@
       "types": "./.rollup/remote/index.d.ts",
       "import": "./.rollup/remote/index.js"
     },
-    "./color/chroma-js": {
-      "types": "./_dist/color/chroma-js/index.d.ts",
-      "import": "./_dist/color/chroma-js/index.js"
-    },
     "./color/colord": {
       "types": "./_dist/color/colord/index.d.ts",
       "import": "./_dist/color/colord/index.js"
