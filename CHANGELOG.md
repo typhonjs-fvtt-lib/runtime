@@ -1,4 +1,7 @@
 # Changelog
+## Release 0.0.22 (major)
+- Updated @typhonjs-fvtt/svelte to ['0.0.22'](https://github.com/typhonjs-fvtt-lib/svelte/blob/main/CHANGELOG.md#release-0022).
+
 ## Release 0.0.21 (minor)
 - Updated @typhonjs-fvtt/svelte to ['0.0.21'](https://github.com/typhonjs-fvtt-lib/svelte/blob/main/CHANGELOG.md#release-0021).
 
