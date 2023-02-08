@@ -1,6 +1,6 @@
 {
   "name": "@typhonjs-fvtt/runtime",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "description": "Provides a common runtime library module for Foundry VTT distributing: @typhonjs-fvtt/svelte, @typhonjs-plugin/manager, and much more.",
   "license": "MPL-2.0",
   "type": "module",
@@ -113,7 +113,7 @@
   },
   "dependencies": {
     "@rollup/plugin-node-resolve": "^15",
-    "@sveltejs/vite-plugin-svelte": "^1",
+    "@sveltejs/vite-plugin-svelte": "^2",
     "autoprefixer": "^10",
     "cssnano": "^5",
     "postcss": "^8",
@@ -121,28 +121,27 @@
     "sass": "^1"
   },
   "peerDependencies": {
-    "vite": "^3",
-    "svelte": "^3.50.0",
-    "svelte-preprocess": "^4.10.0"
+    "vite": "^4",
+    "svelte": "^3.55.0",
+    "svelte-preprocess": "^5"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "23",
+    "@rollup/plugin-commonjs": "^24",
     "@rollup/plugin-virtual": "^3",
-    "@typhonjs-build-test/esm-d-ts": "^0.0.6",
-    "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.0.21",
+    "@typhonjs-build-test/esm-d-ts": "^0.0.8",
+    "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.0.22",
     "@typhonjs-plugin/manager": "0.0.12",
     "@typhonjs-tinymce/oembed": "^0.4.0",
     "@typhonjs-utils/file-util": "^0.0.6",
     "colord-typhonjs": "github:typhonjs-node-utils/colord#0.0.1",
-    "chroma-js": "2.4.2",
-    "dompurify": "2.4.0",
-    "fs-extra": "^10",
-    "json5": "2.2.1",
-    "magic-string": "^0.26.0",
+    "dompurify": "2.4.3",
+    "fs-extra": "^11",
+    "json5": "2.2.3",
+    "magic-string": "^0.27.0",
     "rollup": "^3",
     "rollup-plugin-postcss": "^4",
     "rollup-plugin-svelte": "^7",
-    "svelte": "^3.50.0",
+    "svelte": "^3.55.0",
     "upath": "^2"
   },
   "scripts": {
