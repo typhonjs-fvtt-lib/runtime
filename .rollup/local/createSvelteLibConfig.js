@@ -28,6 +28,7 @@ const bundleMap = {
    'svelte/plugin/data': ['@typhonjs-fvtt/svelte/plugin/data'],
    'svelte/plugin/system': ['@typhonjs-fvtt/svelte/plugin/system'],
    'svelte/store': ['svelte/store', '@typhonjs-fvtt/svelte/store'],
+   'svelte/store/position': ['@typhonjs-fvtt/svelte/store/position'],
    'svelte/transition': ['svelte/transition', '@typhonjs-fvtt/svelte/transition'],
    'svelte/util': ['@typhonjs-fvtt/svelte/util'],
 };
@@ -51,8 +52,7 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins })
             format: 'es',
             generatedCode: { constBindings: true },
             plugins: [typhonjsRuntimeOut({ isLib }), ...outputPlugins],
-            sourcemap,
-            // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+            sourcemap
          },
          plugins: [
             virtual({
@@ -69,8 +69,7 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins })
             format: 'es',
             generatedCode: { constBindings: true },
             plugins: outputPlugins,
-            sourcemap,
-            // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+            sourcemap
          },
          plugins: [
             virtual({
@@ -103,8 +102,7 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins })
             format: 'es',
             generatedCode: { constBindings: true },
             plugins: outputPlugins,
-            sourcemap,
-            // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+            sourcemap
          },
          plugins: [
             virtual({
@@ -143,8 +141,7 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins })
             format: 'es',
             generatedCode: { constBindings: true },
             plugins: outputPlugins,
-            sourcemap,
-            // sourcemapPathTransform: (sourcePath) => sourcePath.replace(relativePath, `.`)
+            sourcemap
          },
          plugins: [
             virtual({ pack }),
