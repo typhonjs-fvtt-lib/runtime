@@ -2,7 +2,7 @@ import path                from 'path';
 
 import commonjs            from '@rollup/plugin-commonjs';
 import resolve             from '@rollup/plugin-node-resolve';
-import { generateTSDef }   from '@typhonjs-build-test/esm-d-ts';
+import { generateDTS }     from '@typhonjs-build-test/esm-d-ts';
 import { getFileList }     from '@typhonjs-utils/file-util';
 import fs                  from 'fs-extra';
 import { rollup }          from 'rollup';
@@ -223,24 +223,20 @@ for (const config of rollupPluginsNPM)
    {
       console.log(`Copying TS Declaration: ${copyDTS}`);
 
-      fs.copySync(copyDTS, outFileDTS);
+      let fileData = fs.readFileSync(copyDTS, 'utf-8');
+      fileData = fileData.replaceAll('_typhonjs_fvtt_svelte_', '_typhonjs_fvtt_runtime_svelte_');
+      fileData = fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/');
+      fs.writeFileSync(outFileDTS, fileData, 'utf-8');
    }
    else
    {
       console.log(`Generating TS Declaration: ${config.input.input}`);
 
-      await generateTSDef({
-         main: dtsFile,
+      await generateDTS({
+         input: dtsFile,
          output: upath.changeExt(outFile, '.d.ts')
       });
    }
-
-   fs.writeJSONSync(`${path.dirname(outFile)}/package.json`, {
-      main: './index.js',
-      module: './index.js',
-      type: 'module',
-      types: './index.d.ts'
-   });
 }
 
 // @typhonjs-fvtt/svelte/application & application/legacy ------------------------------------------------------------
@@ -252,8 +248,10 @@ fs.copySync('./node_modules/@typhonjs-fvtt/svelte/_dist/application', './_dist/s
 const appFiles = await getFileList({ dir: './_dist/svelte/application' });
 for (const appFile of appFiles)
 {
-   const fileData = fs.readFileSync(appFile, 'utf-8').toString();
-   fs.writeFileSync(appFile, fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/'));
+   let fileData = fs.readFileSync(appFile, 'utf-8').toString();
+   fileData = fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/')
+   fileData = fileData.replaceAll('@typhonjs-svelte/lib/', '@typhonjs-fvtt/runtime/svelte/')
+   fs.writeFileSync(appFile, fileData);
 }
 
 // @typhonjs-fvtt/svelte/application & application/legacy types ------------------------------------------------------
@@ -264,8 +262,10 @@ fs.copySync('./node_modules/@typhonjs-fvtt/svelte/_types/application', './_types
 const dtsFiles = await getFileList({ dir: './_types/svelte/application' });
 for (const dtsFile of dtsFiles)
 {
-   const fileData = fs.readFileSync(dtsFile, 'utf-8').toString();
-   fs.writeFileSync(dtsFile, fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/'));
+   let fileData = fs.readFileSync(dtsFile, 'utf-8').toString();
+   fileData = fileData.replaceAll('_typhonjs_fvtt_svelte_', '_typhonjs_fvtt_runtime_svelte_');
+   fileData = fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/');
+   fs.writeFileSync(dtsFile, fileData);
 }
 
 // @typhonjs-fvtt/svelte/component/core & component/dialog -----------------------------------------------------------
@@ -295,8 +295,8 @@ for (const gsapFile of gsapFiles)
 }
 
 // Generate types for remote rollup plugin.
-await generateTSDef({
-   main: './.rollup/remote/index.js',
+await generateDTS({
+   input: './.rollup/remote/index.js',
    output: './.rollup/remote/index.d.ts',
 });
 
