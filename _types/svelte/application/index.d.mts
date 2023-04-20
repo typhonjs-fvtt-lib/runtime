@@ -63,19 +63,22 @@ type SvelteApplicationOptions = {
      */
     positionable?: boolean;
     /**
-     * - A helper for initial position placement.
+     * - A helper
+     * for initial position placement.
      */
-    positionInitial?: import('@typhonjs-fvtt/runtime/svelte/store/position').PositionInitialHelper;
+    positionInitial?: import('@typhonjs-fvtt/runtime/svelte/store/position').TJSPositionInitialHelper;
     /**
-     * - When true Position is optimized for orthographic use.
+     * - When true TJSPosition is optimized for orthographic use.
      */
     positionOrtho?: boolean;
     /**
-     * - A validator function or data or list of validators.
+     * - A
+     * validator function or data or list of validators.
      */
-    positionValidator?: import('@typhonjs-fvtt/runtime/svelte/store/position').PositionValidatorOptions;
+    positionValidator?: import('@typhonjs-fvtt/runtime/svelte/store/position').TJSPositionValidatorOptions;
     /**
-     * - An instance of TJSSessionStorage to share across SvelteApplications.
+     * - An instance of
+     * TJSSessionStorage to share across SvelteApplications.
      */
     sessionStorage?: import('@typhonjs-fvtt/runtime/svelte/store').TJSSessionStorage;
     /**
@@ -243,7 +246,7 @@ type TJSDialogButtonData = {
 };
 
 import * as _typhonjs_fvtt_runtime_svelte_store_position from '@typhonjs-fvtt/runtime/svelte/store/position';
-import { Position } from '@typhonjs-fvtt/runtime/svelte/store/position';
+import { TJSPosition } from '@typhonjs-fvtt/runtime/svelte/store/position';
 import * as svelte from 'svelte';
 import * as svelte_store from 'svelte/store';
 import * as _typhonjs_fvtt_runtime_svelte_store from '@typhonjs-fvtt/runtime/svelte/store';
@@ -382,7 +385,7 @@ type ApplicationStateData = {
     /**
      * - Application position.
      */
-    position: _typhonjs_fvtt_runtime_svelte_store_position.PositionDataExtended;
+    position: _typhonjs_fvtt_runtime_svelte_store_position.TJSPositionDataExtended;
     /**
      * - Any application saved position state for #beforeMinimized
      */
@@ -996,17 +999,17 @@ declare class SvelteApplication {
         elementTarget?: HTMLElement;
     }): void;
     /**
-     * All calculation and updates of position are implemented in {@link Position.set}. This allows position to be fully
+     * All calculation and updates of position are implemented in {@link TJSPosition.set}. This allows position to be fully
      * reactive and in control of updating inline styles for the application.
      *
      * This method remains for backward compatibility with Foundry. If you have a custom override quite likely you need
-     * to update to using the {@link Position.validators} functionality.
+     * to update to using the {@link TJSPosition.validators} functionality.
      *
-     * @param {import('@typhonjs-fvtt/runtime/svelte/store/position').PositionDataExtended}   [position] - Position data.
+     * @param {import('@typhonjs-fvtt/runtime/svelte/store/position').TJSPositionDataExtended}   [position] - TJSPosition data.
      *
-     * @returns {Position} The updated position object for the application containing the new values
+     * @returns {TJSPosition} The updated position object for the application containing the new values
      */
-    setPosition(position?: _typhonjs_fvtt_runtime_svelte_store_position.PositionDataExtended): Position;
+    setPosition(position?: _typhonjs_fvtt_runtime_svelte_store_position.TJSPositionDataExtended): TJSPosition;
     #private;
 }
 
