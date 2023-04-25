@@ -1,6 +1,7 @@
 export const externalPathsLib = {
    '@typhonjs-fvtt/svelte/action': '/modules/typhonjs/remote/svelte/action.js',
    '@typhonjs-fvtt/svelte/animate': '/modules/typhonjs/remote/svelte/animate.js',
+   '@typhonjs-fvtt/svelte/animate/action': '/modules/typhonjs/remote/svelte/animate/action.js',
    '@typhonjs-fvtt/svelte/application': '/modules/typhonjs/remote/svelte/application.js',
    '@typhonjs-fvtt/svelte/application/dialog': '/modules/typhonjs/remote/svelte/application/dialog.js',
    '@typhonjs-fvtt/svelte/application/legacy': '/modules/typhonjs/remote/svelte/application/legacy.js',
@@ -32,9 +33,6 @@ export const externalPathsLib = {
    'colord/plugins/mix': '/modules/typhonjs/remote/color/colord/plugins/mix.js',
    'colord/plugins/names': '/modules/typhonjs/remote/color/colord/plugins/names.js',
    'colord/plugins/xyz': '/modules/typhonjs/remote/color/colord/plugins/xyz.js',
-
-   // 'colord': '/modules/typhonjs/remote/color/colord.js',
-   // 'colord-plugins': '/modules/typhonjs/remote/color/colord-plugins.js',
 
    'json5': '/modules/typhonjs/remote/json/json5.js',
 

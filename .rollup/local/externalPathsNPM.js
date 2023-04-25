@@ -1,6 +1,7 @@
 export const externalPathsNPM = {
    '@typhonjs-fvtt/svelte/action': '@typhonjs-fvtt/runtime/svelte/action',
    '@typhonjs-fvtt/svelte/animate': '@typhonjs-fvtt/runtime/svelte/animate',
+   '@typhonjs-fvtt/svelte/animate/action': '@typhonjs-fvtt/runtime/svelte/animate/action',
    '@typhonjs-fvtt/svelte/application': '@typhonjs-fvtt/runtime/svelte/application',
    '@typhonjs-fvtt/svelte/application/dialog': '@typhonjs-fvtt/runtime/svelte/application/dialog',
    '@typhonjs-fvtt/svelte/application/legacy': '@typhonjs-fvtt/runtime/svelte/application/legacy',
@@ -20,8 +21,6 @@ export const externalPathsNPM = {
    '@typhonjs-fvtt/svelte/util': '@typhonjs-fvtt/runtime/svelte/util',
 
    '@typhonjs-plugin/manager': '@typhonjs-fvtt/runtime/plugin/manager',
-
-   'chroma-js': '@typhonjs-fvtt/runtime/color/chroma-js',
 
    'colord': '@typhonjs-fvtt/runtime/color/colord',
    'colord/plugins/a11y': '@typhonjs-fvtt/runtime/color/colord/plugins/a11y',

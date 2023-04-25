@@ -5,9 +5,9 @@ import cssnano          from 'cssnano';
 /**
  * Provides a function to return a new PostCSS configuration setting the extract parameter.
  *
- * @param {object}   opts - Optional parameters.
+ * @param {object}   [opts] - Optional parameters.
  *
- * @param {string}   opts.extract - Name of CSS file to extract to...
+ * @param {string}   [opts.extract] - Name of CSS file to extract to...
  *
  * @param {boolean}  [opts.compress=false] - Compress CSS.
  *

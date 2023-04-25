@@ -1,9 +1,9 @@
 /**
  * Provides a function to return a new PostCSS configuration setting the extract parameter.
  *
- * @param {object}   opts - Optional parameters.
+ * @param {object}   [opts] - Optional parameters.
  *
- * @param {string}   opts.extract - Name of CSS file to extract to...
+ * @param {string}   [opts.extract] - Name of CSS file to extract to...
  *
  * @param {boolean}  [opts.compress=false] - Compress CSS.
  *
@@ -12,7 +12,7 @@
  * @returns {{extensions: string[], extract, sourceMap: boolean, plugins: (*)[], use: string[], inject: boolean}} PostCSS config
  */
 declare function postcssConfig({ extract, compress, sourceMap }?: {
-    extract: string;
+    extract?: string;
     compress?: boolean;
     sourceMap?: boolean;
 }): {

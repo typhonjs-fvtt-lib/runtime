@@ -3,8 +3,6 @@ import { externalPathsLib } from '../local/externalPathsLib.js';
 export const externalPathsRemote = {
    ...externalPathsLib,
 
-   '@typhonjs-fvtt/runtime/color/chroma-js': '/modules/typhonjs/remote/color/chroma.js',
-
    '@typhonjs-fvtt/runtime/color/colord': '/modules/typhonjs/remote/color/colord/index.js',
    '@typhonjs-fvtt/runtime/color/colord/plugins/a11y': '/modules/typhonjs/remote/color/colord/plugins/a11y.js',
    '@typhonjs-fvtt/runtime/color/colord/plugins/cmyk': '/modules/typhonjs/remote/color/colord/plugins/cmyk.js',
@@ -27,6 +25,7 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/svelte': '/modules/typhonjs/remote/svelte/index.js',
    '@typhonjs-fvtt/runtime/svelte/action': '/modules/typhonjs/remote/svelte/action.js',
    '@typhonjs-fvtt/runtime/svelte/animate': '/modules/typhonjs/remote/svelte/animate.js',
+   '@typhonjs-fvtt/runtime/svelte/animate/action': '/modules/typhonjs/remote/svelte/animate/action.js',
    '@typhonjs-fvtt/runtime/svelte/application': '/modules/typhonjs/remote/svelte/application.js',
    '@typhonjs-fvtt/runtime/svelte/application/dialog': '/modules/typhonjs/remote/svelte/application/dialog.js',
    '@typhonjs-fvtt/runtime/svelte/application/legacy': '/modules/typhonjs/remote/svelte/application/legacy.js',
