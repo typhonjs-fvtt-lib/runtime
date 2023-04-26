@@ -104,6 +104,10 @@
       "types": "./_dist/svelte/store/position/index.d.ts",
       "import": "./_dist/svelte/store/position/index.js"
     },
+    "./svelte/store/reducer": {
+      "types": "./_dist/svelte/store/reducer/index.d.ts",
+      "import": "./_dist/svelte/store/reducer/index.js"
+    },
     "./svelte/transition": {
       "types": "./_dist/svelte/transition/index.d.ts",
       "import": "./_dist/svelte/transition/index.js"
@@ -128,7 +132,7 @@
     "sass": "^1"
   },
   "peerDependencies": {
-    "vite": ">=4.2.0",
+    "vite": ">=4.3.0",
     "svelte": ">=3.58.0",
     "svelte-preprocess": ">=5.0.0"
   },

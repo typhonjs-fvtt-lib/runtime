@@ -30,6 +30,7 @@ const bundleMap = {
    'svelte/plugin/system': ['@typhonjs-fvtt/svelte/plugin/system'],
    'svelte/store': ['svelte/store', '@typhonjs-fvtt/svelte/store'],
    'svelte/store/position': ['@typhonjs-fvtt/svelte/store/position'],
+   'svelte/store/reducer': ['@typhonjs-fvtt/svelte/store/reducer'],
    'svelte/transition': ['svelte/transition', '@typhonjs-fvtt/svelte/transition'],
    'svelte/util': ['@typhonjs-fvtt/svelte/util'],
 };

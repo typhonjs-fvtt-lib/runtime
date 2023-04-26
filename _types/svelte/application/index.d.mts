@@ -33,9 +33,10 @@ type SvelteApplicationOptions = {
      */
     focusKeep?: boolean;
     /**
-     * - Defines A11yHelper focus source to apply when application closes.
+     * - Defines A11yHelper focus source to
+     * apply when application closes.
      */
-    focusSource?: object;
+    focusSource?: import('@typhonjs-fvtt/runtime/svelte/util').A11yFocusSource;
     /**
      * - If true then the close header button is removed.
      */
@@ -82,13 +83,15 @@ type SvelteApplicationOptions = {
      */
     sessionStorage?: import('@typhonjs-fvtt/runtime/svelte/store').TJSSessionStorage;
     /**
-     * - A Svelte configuration object defining the main component.
+     * - A Svelte configuration object defining
+     * the main component.
      */
-    svelte?: object;
+    svelte?: import('@typhonjs-fvtt/runtime/svelte/util').TJSSvelteConfig;
     /**
-     * - By default, 'top / left' respects rotation when minimizing.
+     * - By
+     * default, 'top / left' respects rotation when minimizing.
      */
-    transformOrigin?: string;
+    transformOrigin?: import('@typhonjs-fvtt/runtime/svelte/store/position').TJSTransformOrigin;
 };
 type SvelteData = {
     /**

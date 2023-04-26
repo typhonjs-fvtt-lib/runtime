@@ -40,6 +40,8 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/svelte/plugin/data': '/modules/typhonjs/remote/svelte/plugin/data.js',
    '@typhonjs-fvtt/runtime/svelte/plugin/system': '/modules/typhonjs/remote/svelte/plugin/system.js',
    '@typhonjs-fvtt/runtime/svelte/store': '/modules/typhonjs/remote/svelte/store.js',
+   '@typhonjs-fvtt/runtime/svelte/store/position': '/modules/typhonjs/remote/svelte/store/position.js',
+   '@typhonjs-fvtt/runtime/svelte/store/reducer': '/modules/typhonjs/remote/svelte/store/reducer.js',
    '@typhonjs-fvtt/runtime/svelte/transition': '/modules/typhonjs/remote/svelte/transition.js',
    '@typhonjs-fvtt/runtime/svelte/util': '/modules/typhonjs/remote/svelte/util.js',
 
