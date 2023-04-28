@@ -1,5 +1,6 @@
 export const externalPathsNPM = {
    '@typhonjs-fvtt/svelte/action': '@typhonjs-fvtt/runtime/svelte/action',
+   '@typhonjs-fvtt/svelte/action/dom': '@typhonjs-fvtt/runtime/svelte/action/dom',
    '@typhonjs-fvtt/svelte/animate': '@typhonjs-fvtt/runtime/svelte/animate',
    '@typhonjs-fvtt/svelte/animate/action': '@typhonjs-fvtt/runtime/svelte/animate/action',
    '@typhonjs-fvtt/svelte/application': '@typhonjs-fvtt/runtime/svelte/application',

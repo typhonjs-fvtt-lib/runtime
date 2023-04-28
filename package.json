@@ -41,6 +41,10 @@
       "types": "./_dist/svelte/action/index.d.ts",
       "import": "./_dist/svelte/action/index.js"
     },
+    "./svelte/action/dom": {
+      "types": "./_dist/svelte/action/dom/index.d.ts",
+      "import": "./_dist/svelte/action/dom/index.js"
+    },
     "./svelte/animate": {
       "types": "./_dist/svelte/animate/index.d.ts",
       "import": "./_dist/svelte/animate/index.js"

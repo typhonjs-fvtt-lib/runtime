@@ -24,6 +24,7 @@ export const externalPathsRemote = {
 
    '@typhonjs-fvtt/runtime/svelte': '/modules/typhonjs/remote/svelte/index.js',
    '@typhonjs-fvtt/runtime/svelte/action': '/modules/typhonjs/remote/svelte/action.js',
+   '@typhonjs-fvtt/runtime/svelte/action/dom': '/modules/typhonjs/remote/svelte/dom/action.js',
    '@typhonjs-fvtt/runtime/svelte/animate': '/modules/typhonjs/remote/svelte/animate.js',
    '@typhonjs-fvtt/runtime/svelte/animate/action': '/modules/typhonjs/remote/svelte/animate/action.js',
    '@typhonjs-fvtt/runtime/svelte/application': '/modules/typhonjs/remote/svelte/application.js',
