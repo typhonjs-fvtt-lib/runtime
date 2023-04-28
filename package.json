@@ -104,6 +104,10 @@
       "types": "./_dist/svelte/store/document/index.d.ts",
       "import": "./_dist/svelte/store/document/index.js"
     },
+    "./svelte/store/dom": {
+      "types": "./_dist/svelte/store/dom/index.d.ts",
+      "import": "./_dist/svelte/store/dom/index.js"
+    },
     "./svelte/store/position": {
       "types": "./_dist/svelte/store/position/index.d.ts",
       "import": "./_dist/svelte/store/position/index.js"
