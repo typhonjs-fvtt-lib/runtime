@@ -92,14 +92,6 @@
       "types": "./_dist/svelte/math/index.d.ts",
       "import": "./_dist/svelte/math/index.js"
     },
-    "./svelte/plugin/data": {
-      "types": "./_dist/svelte/plugin/data/index.d.ts",
-      "import": "./_dist/svelte/plugin/data/index.js"
-    },
-    "./svelte/plugin/system": {
-      "types": "./_dist/svelte/plugin/system/index.d.ts",
-      "import": "./_dist/svelte/plugin/system/index.js"
-    },
     "./svelte/store": {
       "types": "./_dist/svelte/store/index.d.ts",
       "import": "./_dist/svelte/store/index.js"
@@ -119,6 +111,14 @@
     "./svelte/store/reducer": {
       "types": "./_dist/svelte/store/reducer/index.d.ts",
       "import": "./_dist/svelte/store/reducer/index.js"
+    },
+    "./svelte/store/storage/web": {
+      "types": "./_dist/svelte/store/storage/web/index.d.ts",
+      "import": "./_dist/svelte/store/storage/web/index.js"
+    },
+    "./svelte/store/storage/web/plugin": {
+      "types": "./_dist/svelte/store/storage/web/plugin/index.d.ts",
+      "import": "./_dist/svelte/store/storage/web/plugin/index.js"
     },
     "./svelte/transition": {
       "types": "./_dist/svelte/transition/index.d.ts",
