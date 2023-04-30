@@ -81,7 +81,7 @@ type SvelteApplicationOptions = {
      * - An instance of
      * TJSSessionStorage to share across SvelteApplications.
      */
-    sessionStorage?: import('@typhonjs-fvtt/runtime/svelte/store').TJSSessionStorage;
+    sessionStorage?: import('@typhonjs-fvtt/runtime/svelte/store/storage/web').TJSSessionStorage;
     /**
      * - A Svelte configuration object defining
      * the main component.
@@ -252,7 +252,6 @@ import * as _typhonjs_fvtt_runtime_svelte_store_position from '@typhonjs-fvtt/ru
 import { TJSPosition } from '@typhonjs-fvtt/runtime/svelte/store/position';
 import * as svelte from 'svelte';
 import * as svelte_store from 'svelte/store';
-import * as _typhonjs_fvtt_runtime_svelte_store from '@typhonjs-fvtt/runtime/svelte/store';
 
 declare class HandlebarsApplication {
     /**
@@ -684,7 +683,7 @@ declare class SvelteReactive {
     /**
      * @returns {import('@typhonjs-fvtt/runtime/svelte/store').TJSSessionStorage} Returns TJSSessionStorage instance.
      */
-    get sessionStorage(): _typhonjs_fvtt_runtime_svelte_store.TJSSessionStorage;
+    get sessionStorage(): any;
     /**
      * Returns the store for app options.
      *

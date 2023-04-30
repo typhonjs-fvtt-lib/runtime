@@ -37,6 +37,8 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/svelte/handler': '/modules/typhonjs/remote/svelte/handler.js',
    '@typhonjs-fvtt/runtime/svelte/helper': '/modules/typhonjs/remote/svelte/helper.js',
    '@typhonjs-fvtt/runtime/svelte/internal': '/modules/typhonjs/remote/svelte/internal.js',
+   '@typhonjs-fvtt/runtime/svelte/math': '/modules/typhonjs/remote/svelte/math.js',
+   '@typhonjs-fvtt/runtime/svelte/math/gl-matrix': '/modules/typhonjs/remote/svelte/math/gl-matrix.js',
    '@typhonjs-fvtt/runtime/svelte/motion': '/modules/typhonjs/remote/svelte/motion.js',
    '@typhonjs-fvtt/runtime/svelte/store': '/modules/typhonjs/remote/svelte/store.js',
    '@typhonjs-fvtt/runtime/svelte/store/document': '/modules/typhonjs/remote/svelte/store/document.js',

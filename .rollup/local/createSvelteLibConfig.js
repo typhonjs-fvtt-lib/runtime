@@ -25,6 +25,7 @@ const bundleMap = {
    'svelte/handler': ['@typhonjs-fvtt/svelte/handler'],
    'svelte/helper': ['@typhonjs-fvtt/svelte/helper'],
    'svelte/math': ['@typhonjs-fvtt/svelte/math'],
+   'svelte/math/gl-matrix': ['@typhonjs-fvtt/svelte/math/gl-matrix'],
    'svelte/internal': ['svelte/internal'],
    'svelte/motion': ['svelte/motion'],
    'svelte/store': ['svelte/store', '@typhonjs-fvtt/svelte/store'],

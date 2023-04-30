@@ -12,6 +12,7 @@ export const externalPathsLib = {
    '@typhonjs-fvtt/svelte/handler': '/modules/typhonjs/remote/svelte/handler.js',
    '@typhonjs-fvtt/svelte/helper': '/modules/typhonjs/remote/svelte/helper.js',
    '@typhonjs-fvtt/svelte/math': '/modules/typhonjs/remote/svelte/math.js',
+   '@typhonjs-fvtt/svelte/math/gl-matrix': '/modules/typhonjs/remote/svelte/math/gl-matrix.js',
    '@typhonjs-fvtt/svelte/store': '/modules/typhonjs/remote/svelte/store.js',
    '@typhonjs-fvtt/svelte/store/document': '/modules/typhonjs/remote/svelte/store/document.js',
    '@typhonjs-fvtt/svelte/store/dom': '/modules/typhonjs/remote/svelte/store/dom.js',
