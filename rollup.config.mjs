@@ -251,21 +251,11 @@ for (const appFile of appFiles)
    let fileData = fs.readFileSync(appFile, 'utf-8').toString();
    fileData = fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/')
    fileData = fileData.replaceAll('@typhonjs-svelte/lib/', '@typhonjs-fvtt/runtime/svelte/')
-   fs.writeFileSync(appFile, fileData);
-}
 
-// @typhonjs-fvtt/svelte/application & application/legacy types ------------------------------------------------------
-
-// Handle @typhonjs-fvtt/svelte/application & application/legacy types by copying the declarations and converting all
-// import package references from `@typhonjs-fvtt/svelte` to `@typhonjs-fvtt/runtime/svelte`.
-fs.copySync('./node_modules/@typhonjs-fvtt/svelte/_types/application', './_types/svelte/application');
-const dtsFiles = await getFileList({ dir: './_types/svelte/application' });
-for (const dtsFile of dtsFiles)
-{
-   let fileData = fs.readFileSync(dtsFile, 'utf-8').toString();
+   // For types
    fileData = fileData.replaceAll('_typhonjs_fvtt_svelte_', '_typhonjs_fvtt_runtime_svelte_');
-   fileData = fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/');
-   fs.writeFileSync(dtsFile, fileData);
+
+   fs.writeFileSync(appFile, fileData);
 }
 
 // @typhonjs-fvtt/svelte/component/core & component/dialog -----------------------------------------------------------
