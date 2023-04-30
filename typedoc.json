@@ -1,0 +1,28 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "./_dist/dompurify/index.d.ts",
+    "./_dist/dompurify/plugin/system/index.d.ts",
+    "./_dist/json/json5/index.d.ts",
+    "./_dist/svelte/action/dom/index.d.ts",
+    "./_dist/svelte/animate/index.d.ts",
+    "./_dist/svelte/animate/action/index.d.ts",
+    "./_dist/svelte/application/index.d.ts",
+    "./_dist/svelte/gsap/index.d.ts",
+    "./_dist/svelte/math/index.d.ts",
+    "./_dist/svelte/math/gl-matrix/index.d.ts",
+    "./_dist/svelte/store/index.d.ts",
+    "./_dist/svelte/store/dom/index.d.ts",
+    "./_dist/svelte/store/document/index.d.ts",
+    "./_dist/svelte/store/position/index.d.ts",
+    "./_dist/svelte/store/reducer/index.d.ts",
+    "./_dist/svelte/store/storage/web/index.d.ts",
+    "./_dist/svelte/store/storage/web/plugin/index.d.ts",
+    "./_dist/svelte/transition/index.d.ts",
+    "./_dist/svelte/util/index.d.ts"
+  ],
+  "out": "docs",
+  "tsconfig": false,
+
+
+}
