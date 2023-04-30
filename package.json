@@ -64,11 +64,9 @@
       "import": "./_dist/svelte/application/legacy/index.js"
     },
     "./svelte/component/core": {
-      "types": "./_dist/svelte/component/core/index.d.ts",
       "import": "./_dist/svelte/component/core/index.js"
     },
     "./svelte/component/dialog": {
-      "types": "./_dist/svelte/component/dialog/index.d.ts",
       "import": "./_dist/svelte/component/dialog/index.js"
     },
     "./svelte/gsap": {
@@ -169,6 +167,7 @@
     "rollup": "^3",
     "rollup-plugin-postcss": "^4",
     "rollup-plugin-svelte": "^7",
+    "typedoc" : "^0.24.6",
     "upath": "^2"
   },
   "scripts": {
