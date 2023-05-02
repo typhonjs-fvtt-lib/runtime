@@ -154,7 +154,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24",
     "@rollup/plugin-virtual": "^3",
-    "@typhonjs-build-test/esm-d-ts": "^0.0.16",
+    "@typhonjs-build-test/esm-d-ts": "^0.0.23",
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.0.22",
     "@typhonjs-plugin/manager": "0.0.12",
     "@typhonjs-tinymce/oembed": "^0.4.0",
