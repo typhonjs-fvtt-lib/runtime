@@ -167,7 +167,6 @@
     "rollup": "^3",
     "rollup-plugin-postcss": "^4",
     "rollup-plugin-svelte": "^7",
-    "typedoc" : "^0.24.6",
     "upath": "^2"
   },
   "scripts": {
