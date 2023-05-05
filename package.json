@@ -138,7 +138,8 @@
   },
   "sideEffects": [
     "./_dist/svelte/gsap/plugin/*.js",
-    "./_dist/svelte/gsap/plugin/bonus/*.js"
+    "./_dist/svelte/gsap/plugin/bonus/*.js",
+    "./_dist/tinymce/initializePlugins.js"
   ],
   "dependencies": {
     "@rollup/plugin-node-resolve": "^15",
