@@ -8,7 +8,6 @@
   "contributors": [
     "Michael Leahy <support@typhonjs.io> (https://github.com/typhonrt)"
   ],
-  "sideEffects": false,
   "exports": {
     "./rollup": {
       "types": "./.rollup/remote/index.d.ts",
@@ -137,6 +136,10 @@
     },
     "./package.json": "./package.json"
   },
+  "sideEffects": [
+    "./_dist/svelte/gsap/plugin/*.js",
+    "./_dist/svelte/gsap/plugin/bonus/*.js"
+  ],
   "dependencies": {
     "@rollup/plugin-node-resolve": "^15",
     "@sveltejs/vite-plugin-svelte": "^2",
