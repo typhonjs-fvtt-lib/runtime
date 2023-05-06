@@ -37,6 +37,14 @@
       "types": "./_dist/plugin/manager/index.d.ts",
       "import": "./_dist/plugin/manager/index.js"
     },
+    "./plugin/manager/eventbus": {
+      "types": "./_dist/plugin/manager/eventbus/index.d.ts",
+      "import": "./_dist/plugin/manager/eventbus/index.js"
+    },
+    "./plugin/manager/eventbus/buses": {
+      "types": "./_dist/plugin/manager/eventbus/buses/index.d.ts",
+      "import": "./_dist/plugin/manager/eventbus/buses/index.js"
+    },
     "./svelte/action": {
       "types": "./_dist/svelte/action/index.d.ts",
       "import": "./_dist/svelte/action/index.js"
@@ -160,7 +168,7 @@
     "@rollup/plugin-virtual": "^3",
     "@typhonjs-build-test/esm-d-ts": "^0.0.23",
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.0.22",
-    "@typhonjs-plugin/manager": "0.0.12",
+    "@typhonjs-plugin/manager": "0.0.15",
     "@typhonjs-tinymce/oembed": "^0.4.0",
     "@typhonjs-utils/file-util": "^0.0.6",
     "colord-typhonjs": "github:typhonjs-node-utils/colord#0.0.1",

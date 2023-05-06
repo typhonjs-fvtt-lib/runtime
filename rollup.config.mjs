@@ -12,14 +12,11 @@ import {
    createSvelteLibConfig,
    createSvelteNPMConfig } from './.rollup/local/index.js';
 
-const s_SOURCEMAPS = true;
-
 // Defines whether source maps are generated / loaded from the .env file.
-const sourcemap = s_SOURCEMAPS;
+const sourcemap = true;
 
-// Defines potential output plugins to use conditionally if the .env file indicates the bundles should be
-// minified / mangled.
-const outputPlugins = [];
+// Bundle all top level external package exports.
+const dtsPluginOptions = { bundlePackageExports: true };
 
 const s_MODULES_DOMPURIFY_LIB = [
    {
@@ -31,7 +28,6 @@ const s_MODULES_DOMPURIFY_LIB = [
          file: 'remote/dompurify/DOMPurify.js',
          format: 'es',
          generatedCode: { constBindings: true },
-         plugins: outputPlugins,
          sourcemap
       }
    },
@@ -44,7 +40,6 @@ const s_MODULES_DOMPURIFY_LIB = [
          file: 'remote/dompurify/plugin/system.js',
          format: 'es',
          generatedCode: { constBindings: true },
-         plugins: outputPlugins,
          sourcemap
       }
    }
@@ -92,7 +87,6 @@ const s_MODULES_JSON5_LIB = [
          file: 'remote/json/json5.js',
          format: 'es',
          generatedCode: { constBindings: true },
-         plugins: outputPlugins,
          sourcemap
       }
    }
@@ -118,7 +112,7 @@ const s_MODULES_JSON5_NPM = [
 
 const s_MODULES_PLUGIN_LIB = [
    {
-      input: '.build/plugin/manager.js',
+      input: '.build/plugin/manager/index.js',
       plugins: [
          resolve({ browser: true })
       ],
@@ -126,7 +120,30 @@ const s_MODULES_PLUGIN_LIB = [
          file: 'remote/plugin/manager.js',
          format: 'es',
          generatedCode: { constBindings: true },
-         plugins: outputPlugins,
+         sourcemap
+      }
+   },
+   {
+      input: '.build/plugin/manager/eventbus/index.js',
+      plugins: [
+         resolve({ browser: true })
+      ],
+      output: {
+         file: 'remote/plugin/manager/eventbus.js',
+         format: 'es',
+         generatedCode: { constBindings: true },
+         sourcemap
+      }
+   },
+   {
+      input: '.build/plugin/manager/eventbus/buses/index.js',
+      plugins: [
+         resolve({ browser: true })
+      ],
+      output: {
+         file: 'remote/plugin/manager/eventbus/buses.js',
+         format: 'es',
+         generatedCode: { constBindings: true },
          sourcemap
       }
    }
@@ -135,14 +152,46 @@ const s_MODULES_PLUGIN_LIB = [
 const s_MODULES_PLUGIN_NPM = [
    {
       input: {
-         input: '.build/plugin/manager.js',
+         input: '.build/plugin/manager/index.js',
          plugins: [
             resolve({ browser: true })
          ]
       },
-      dtsFile: '.build/plugin/manager.js',
+      copyDTS: './node_modules/@typhonjs-plugin/manager/dist/manager/browser/index.d.ts',
       output: {
          file: '_dist/plugin/manager/index.js',
+         format: 'es',
+         generatedCode: { constBindings: true },
+         sourcemap
+      }
+   },
+   {
+      input: {
+         input: '.build/plugin/manager/eventbus/index.js',
+         plugins: [
+            resolve({ browser: true })
+         ]
+      },
+      // dtsFile: '.build/plugin/manager/eventbus.js',
+      copyDTS: './node_modules/@typhonjs-plugin/manager/dist/eventbus/index.d.ts',
+      output: {
+         file: '_dist/plugin/manager/eventbus/index.js',
+         format: 'es',
+         generatedCode: { constBindings: true },
+         sourcemap
+      }
+   },
+   {
+      input: {
+         input: '.build/plugin/manager/eventbus/buses/index.js',
+         plugins: [
+            resolve({ browser: true })
+         ]
+      },
+      // dtsFile: '.build/plugin/manager/eventbus.js',
+      copyDTS: './node_modules/@typhonjs-plugin/manager/dist/eventbus/buses/index.d.ts',
+      output: {
+         file: '_dist/plugin/manager/eventbus/buses/index.js',
          format: 'es',
          generatedCode: { constBindings: true },
          sourcemap
@@ -161,7 +210,6 @@ const s_MODULES_TINYMCE_LIB = [
          format: 'es',
          generatedCode: { constBindings: true },
          inlineDynamicImports: true,
-         plugins: outputPlugins,
          sourcemap
       }
    }
@@ -190,7 +238,7 @@ const rollupPluginsNPM = [
    ...s_MODULES_DOMPURIFY_NPM,
    ...s_MODULES_JSON5_NPM,
    ...s_MODULES_PLUGIN_NPM,
-   ...createSvelteNPMConfig({ sourcemap: s_SOURCEMAPS, outputPlugins: [] }),
+   ...createSvelteNPMConfig({ sourcemap }),
    ...s_MODULES_TINYMCE_NPM
 ];
 
@@ -224,8 +272,15 @@ for (const config of rollupPluginsNPM)
       console.log(`Copying TS Declaration: ${copyDTS}`);
 
       let fileData = fs.readFileSync(copyDTS, 'utf-8');
+
+      // For @typhonjs-plugin/manager
+      fileData = fileData.replaceAll('@typhonjs-plugin/manager/eventbus',
+       '@typhonjs-fvtt/runtime/plugin/manager/eventbus');
+
+      // For @typhonjs-fvtt/svelte
       fileData = fileData.replaceAll('_typhonjs_fvtt_svelte_', '_typhonjs_fvtt_runtime_svelte_');
       fileData = fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/');
+
       fs.writeFileSync(outFileDTS, fileData, 'utf-8');
    }
    else
@@ -234,7 +289,8 @@ for (const config of rollupPluginsNPM)
 
       await generateDTS({
          input: dtsFile,
-         output: upath.changeExt(outFile, '.d.ts')
+         output: upath.changeExt(outFile, '.d.ts'),
+         bundlePackageExports: true
       });
    }
 }
@@ -339,7 +395,7 @@ export default () =>
       ...s_MODULES_DOMPURIFY_LIB,
       ...s_MODULES_JSON5_LIB,
       ...s_MODULES_PLUGIN_LIB,
-      ...createSvelteLibConfig({ sourcemap: s_SOURCEMAPS, outputPlugins }),
+      ...createSvelteLibConfig({ sourcemap }),
       ...s_MODULES_TINYMCE_LIB
    ];
 }
