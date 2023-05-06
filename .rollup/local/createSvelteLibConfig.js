@@ -39,7 +39,7 @@ const bundleMap = {
    'svelte/util': ['@typhonjs-fvtt/svelte/util'],
 };
 
-export function createSvelteLibConfig({ sourcemap, outputPlugins })
+export function createSvelteLibConfig({ sourcemap, outputPlugins = [] })
 {
    const isLib = true;
 

@@ -19,7 +19,7 @@ const s_RESOLVE_CONFIG = {
    dedupe: ['svelte', '@typhonjs-fvtt/svelte']
 };
 
-export function createSvelteNPMConfig({ sourcemap, outputPlugins })
+export function createSvelteNPMConfig({ sourcemap, outputPlugins = [] })
 {
    const config = [];
 
