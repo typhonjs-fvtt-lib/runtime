@@ -166,11 +166,11 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24",
     "@rollup/plugin-virtual": "^3",
-    "@typhonjs-build-test/esm-d-ts": "^0.0.23",
+    "@typhonjs-build-test/esm-d-ts": "^0.0.25",
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.0.22",
     "@typhonjs-plugin/manager": "0.0.15",
     "@typhonjs-tinymce/oembed": "^0.4.0",
-    "@typhonjs-utils/file-util": "^0.0.6",
+    "@typhonjs-utils/file-util": "^0.0.8",
     "colord-typhonjs": "github:typhonjs-node-utils/colord#0.0.1",
     "dompurify": "3.0.2",
     "fs-extra": "^11",
