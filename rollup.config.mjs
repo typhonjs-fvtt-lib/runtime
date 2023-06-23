@@ -301,7 +301,7 @@ for (const config of rollupPluginsNPM)
 // package references from `@typhonjs-fvtt/svelte` to `@typhonjs-fvtt/runtime/svelte`.
 fs.emptyDirSync('./_dist/svelte/application');
 fs.copySync('./node_modules/@typhonjs-fvtt/svelte/_dist/application', './_dist/svelte/application');
-const appFiles = await getFileList({ dir: './_dist/svelte/application' });
+const appFiles = await getFileList({ dir: './_dist/svelte/application', resolve: true, walk: true });
 for (const appFile of appFiles)
 {
    let fileData = fs.readFileSync(appFile, 'utf-8').toString();
@@ -320,7 +320,7 @@ for (const appFile of appFiles)
 // package references from `@typhonjs-fvtt/svelte` to `@typhonjs-fvtt/runtime/svelte`.
 fs.emptyDirSync('./_dist/svelte/component');
 fs.copySync('./node_modules/@typhonjs-fvtt/svelte/_dist/component', './_dist/svelte/component');
-const compFiles = await getFileList({ dir: './_dist/svelte/component' });
+const compFiles = await getFileList({ dir: './_dist/svelte/component', resolve: true, walk: true });
 for (const compFile of compFiles)
 {
    const fileData = fs.readFileSync(compFile, 'utf-8').toString();
@@ -333,7 +333,7 @@ for (const compFile of compFiles)
 // package references from `@typhonjs-fvtt/svelte` to `@typhonjs-fvtt/runtime/svelte`.
 fs.emptyDirSync('./_dist/svelte/gsap/plugin');
 fs.copySync('./node_modules/@typhonjs-fvtt/svelte/_dist/gsap/plugin', './_dist/svelte/gsap/plugin');
-let gsapFiles = await getFileList({ dir: './_dist/svelte/gsap/plugin' });
+let gsapFiles = await getFileList({ dir: './_dist/svelte/gsap/plugin', resolve: true, walk: true });
 for (const gsapFile of gsapFiles)
 {
    const fileData = fs.readFileSync(gsapFile, 'utf-8').toString();
@@ -350,7 +350,7 @@ await generateDTS({
 
 // Copy ESM distribution + TS declarations to `./_dist/color/colord/`
 fs.emptyDirSync('./_dist/color/colord/');
-let colordFiles = await getFileList({ dir: './node_modules/colord-typhonjs/dist' });
+let colordFiles = await getFileList({ dir: './node_modules/colord-typhonjs/dist', resolve: true, walk: true });
 for (const colordFile of colordFiles)
 {
    let destFile;
@@ -376,7 +376,7 @@ for (const colordFile of colordFiles)
 
 // Copy ESM files from `./_dist/color/colord/` to remote distribution.
 fs.emptyDirSync('./remote/color/colord/');
-colordFiles = await getFileList({ dir: './_dist/color/colord' });
+colordFiles = await getFileList({ dir: './_dist/color/colord', resolve: true, walk: true });
 for (const colordFile of colordFiles)
 {
    if (!colordFile.endsWith('.js')) { continue; }
