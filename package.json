@@ -145,6 +145,7 @@
     "./package.json": "./package.json"
   },
   "sideEffects": [
+    "./_dist/svelte/component/core/index.js",
     "./_dist/svelte/gsap/plugin/*.js",
     "./_dist/svelte/gsap/plugin/bonus/*.js",
     "./_dist/tinymce/initializePlugins.js"
