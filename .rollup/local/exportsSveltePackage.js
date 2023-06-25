@@ -1,5 +1,5 @@
-import fs      from 'fs';
-import module  from 'module';
+import fs      from 'node:fs';
+import module  from 'node:module';
 
 const requireMod = module.createRequire(import.meta.url);
 const packageJSONPath = requireMod.resolve('@typhonjs-fvtt/svelte/package.json');

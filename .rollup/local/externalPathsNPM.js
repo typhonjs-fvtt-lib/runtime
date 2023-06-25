@@ -14,7 +14,6 @@ export const externalPathsNPM = {
    '@typhonjs-fvtt/svelte/handler': '@typhonjs-fvtt/runtime/svelte/handler',
    '@typhonjs-fvtt/svelte/helper': '@typhonjs-fvtt/runtime/svelte/helper',
    '@typhonjs-fvtt/svelte/math': '@typhonjs-fvtt/runtime/svelte/math',
-   '@typhonjs-fvtt/svelte/math/gl-matrix': '@typhonjs-fvtt/runtime/svelte/math/gl-matrix',
    '@typhonjs-fvtt/svelte/store': '@typhonjs-fvtt/runtime/svelte/store',
    '@typhonjs-fvtt/svelte/store/document': '@typhonjs-fvtt/runtime/svelte/store/document',
    '@typhonjs-fvtt/svelte/store/dom': '@typhonjs-fvtt/runtime/svelte/store/dom',
@@ -25,7 +24,25 @@ export const externalPathsNPM = {
    '@typhonjs-fvtt/svelte/transition': '@typhonjs-fvtt/runtime/svelte/transition',
    '@typhonjs-fvtt/svelte/util': '@typhonjs-fvtt/runtime/svelte/util',
 
-   '@typhonjs-plugin/manager': '@typhonjs-fvtt/runtime/plugin/manager',
+   '@typhonjs-svelte/runtime-base/data/compress': '@typhonjs-fvtt/runtime/data/compress',
+   '@typhonjs-svelte/runtime-base/data/format/base64': '@typhonjs-fvtt/runtime/data/format/base64',
+   '@typhonjs-svelte/runtime-base/data/format/json5': '@typhonjs-fvtt/runtime/data/format/json5',
+   '@typhonjs-svelte/runtime-base/data/format/msgpack': '@typhonjs-fvtt/runtime/data/format/msgpack',
+   '@typhonjs-svelte/runtime-base/data/format/msgpack/compress': '@typhonjs-fvtt/runtime/data/format/msgpack/compress',
+   '@typhonjs-svelte/runtime-base/data/format/unicode': '@typhonjs-fvtt/runtime/data/format/unicode',
+   '@typhonjs-svelte/runtime-base/data/struct/cache/quick-lru': '@typhonjs-fvtt/runtime/data/struct/cache/quick-lru',
+   '@typhonjs-svelte/runtime-base/data/struct/hash/array': '@typhonjs-fvtt/runtime/data/struct/hash/array',
+   '@typhonjs-svelte/runtime-base/data/struct/search/trie': '@typhonjs-fvtt/runtime/data/struct/search/trie',
+   '@typhonjs-svelte/runtime-base/data/struct/search/trie/query': '@typhonjs-fvtt/runtime/data/struct/search/trie/query',
+   '@typhonjs-svelte/runtime-base/data/struct/store/reducer': '@typhonjs-fvtt/runtime/data/struct/store/reducer',
+   '@typhonjs-svelte/runtime-base/math/gl-matrix': '@typhonjs-fvtt/runtime/math/gl-matrix',
+   '@typhonjs-svelte/runtime-base/math/interpolate': '@typhonjs-fvtt/runtime/math/interpolate',
+   '@typhonjs-svelte/runtime-base/math/physics': '@typhonjs-fvtt/runtime/math/physics',
+   '@typhonjs-svelte/runtime-base/math/util': '@typhonjs-fvtt/runtime/math/util',
+   '@typhonjs-svelte/runtime-base/plugin/manager': '@typhonjs-fvtt/runtime/plugin/manager',
+   '@typhonjs-svelte/runtime-base/plugin/manager/eventbus': '@typhonjs-fvtt/runtime/plugin/manager/eventbus',
+   '@typhonjs-svelte/runtime-base/plugin/manager/eventbus/buses': '@typhonjs-fvtt/runtime/plugin/manager/eventbus/buses',
+   '@typhonjs-svelte/runtime-base/util/object': '@typhonjs-fvtt/runtime/util/object',
 
    'colord': '@typhonjs-fvtt/runtime/color/colord',
    'colord/plugins/a11y': '@typhonjs-fvtt/runtime/color/colord/plugins/a11y',
@@ -38,8 +55,6 @@ export const externalPathsNPM = {
    'colord/plugins/mix': '@typhonjs-fvtt/runtime/color/colord/plugins/mix',
    'colord/plugins/names': '@typhonjs-fvtt/runtime/color/colord/plugins/names',
    'colord/plugins/xyz': '@typhonjs-fvtt/runtime/color/colord/plugins/xyz',
-
-   'json5': '@typhonjs-fvtt/runtime/json/json5',
 
    // Exclude as external, but do not translate module references.
    'svelte': 'svelte',

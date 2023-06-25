@@ -1,4 +1,4 @@
-import path                   from 'path';
+import path                   from 'node:path';
 
 import resolve                from '@rollup/plugin-node-resolve';
 import virtual                from '@rollup/plugin-virtual';
