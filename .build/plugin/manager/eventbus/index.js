@@ -1,1 +1,0 @@
-export * from '@typhonjs-plugin/manager/eventbus';
