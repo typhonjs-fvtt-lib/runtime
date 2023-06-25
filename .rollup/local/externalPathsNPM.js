@@ -30,7 +30,7 @@ export const externalPathsNPM = {
    '@typhonjs-svelte/runtime-base/data/format/msgpack': '@typhonjs-fvtt/runtime/data/format/msgpack',
    '@typhonjs-svelte/runtime-base/data/format/msgpack/compress': '@typhonjs-fvtt/runtime/data/format/msgpack/compress',
    '@typhonjs-svelte/runtime-base/data/format/unicode': '@typhonjs-fvtt/runtime/data/format/unicode',
-   '@typhonjs-svelte/runtime-base/data/struct/cache/quick-lru': '@typhonjs-fvtt/runtime/data/struct/cache/quick-lru',
+   // Has default export '@typhonjs-svelte/runtime-base/data/struct/cache/quick-lru': '@typhonjs-fvtt/runtime/data/struct/cache/quick-lru',
    '@typhonjs-svelte/runtime-base/data/struct/hash/array': '@typhonjs-fvtt/runtime/data/struct/hash/array',
    '@typhonjs-svelte/runtime-base/data/struct/search/trie': '@typhonjs-fvtt/runtime/data/struct/search/trie',
    '@typhonjs-svelte/runtime-base/data/struct/search/trie/query': '@typhonjs-fvtt/runtime/data/struct/search/trie/query',

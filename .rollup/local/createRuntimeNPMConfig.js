@@ -19,7 +19,29 @@ const s_RESOLVE_CONFIG = {
 
 export function createRuntimeNPMConfig({ sourcemap, outputPlugins = [] })
 {
-   const config = [];
+   const config = [
+      {
+         input: {
+            input: 'pack',
+            plugins: [
+               virtual({
+                  pack: `export { default } from '@typhonjs-svelte/runtime-base/data/struct/cache/quick-lru';`
+               }),
+               typhonjsRuntime({ isLib: false, exclude: ['@typhonjs-svelte/runtime-base/data/struct/cache/quick-lru'] }),
+               resolve(s_RESOLVE_CONFIG),
+            ]
+         },
+         copyDTS: `${distPath}${path.sep}data/struct/cache/quick-lru${path.sep}index.d.ts`,   // Copy the declarations
+         output: {
+            file: `./_dist/data/struct/cache/quick-lru/index.js`,
+            format: 'es',
+            generatedCode: { constBindings: true },
+            paths: externalPathsNPM,
+            plugins: outputPlugins,
+            sourcemap
+         },
+      }
+   ];
 
    for (const entry of exportsRuntimePackage)
    {
