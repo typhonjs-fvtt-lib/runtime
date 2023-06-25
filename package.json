@@ -21,6 +21,50 @@
       "types": "./_dist/color/colord/plugins/*.d.ts",
       "import": "./_dist/color/colord/plugins/*.js"
     },
+    "./data/compress": {
+      "types": "./_dist/data/compress/index.d.ts",
+      "import": "./_dist/data/compress/index.js"
+    },
+    "./data/format/base64": {
+      "types": "./_dist/data/format/base64/index.d.ts",
+      "import": "./_dist/data/format/base64/index.js"
+    },
+    "./data/format/json5": {
+      "types": "./_dist/data/format/json5/index.d.ts",
+      "import": "./_dist/data/format/json5/index.js"
+    },
+    "./data/format/msgpack": {
+      "types": "./_dist/data/format/msgpack/index.d.ts",
+      "import": "./_dist/data/format/msgpack/index.js"
+    },
+    "./data/format/msgpack/compress": {
+      "types": "./_dist/data/format/msgpack/compress/index.d.ts",
+      "import": "./_dist/data/format/msgpack/compress/index.js"
+    },
+    "./data/format/unicode": {
+      "types": "./_dist/data/format/unicode/index.d.ts",
+      "import": "./_dist/data/format/unicode/index.js"
+    },
+    "./data/struct/cache/quick-lru": {
+      "types": "./_dist/data/struct/cache/quick-lru/index.d.ts",
+      "import": "./_dist/data/struct/cache/quick-lru/index.js"
+    },
+    "./data/struct/hash/array": {
+      "types": "./_dist/data/struct/hash/array/index.d.ts",
+      "import": "./_dist/data/struct/hash/array/index.js"
+    },
+    "./data/struct/search/trie": {
+      "types": "./_dist/data/struct/search/trie/index.d.ts",
+      "import": "./_dist/data/struct/search/trie/index.js"
+    },
+    "./data/struct/search/trie/query": {
+      "types": "./_dist/data/struct/search/trie/query/index.d.ts",
+      "import": "./_dist/data/struct/search/trie/query/index.js"
+    },
+    "./data/struct/store/reducer": {
+      "types": "./_dist/data/struct/store/reducer/index.d.ts",
+      "import": "./_dist/data/struct/store/reducer/index.js"
+    },
     "./dompurify": {
       "types": "./_dist/dompurify/index.d.ts",
       "import": "./_dist/dompurify/index.js"
@@ -29,9 +73,21 @@
       "types": "./_dist/dompurify/plugin/system/index.d.ts",
       "import": "./_dist/dompurify/plugin/system/index.js"
     },
-    "./json/json5": {
-      "types": "./_dist/json/json5/index.d.ts",
-      "import": "./_dist/json/json5/index.js"
+    "./math/gl-matrix": {
+      "types": "./_dist/math/gl-matrix/index.d.ts",
+      "import": "./_dist/math/gl-matrix/index.js"
+    },
+    "./math/interpolate": {
+      "types": "./_dist/math/interpolate/index.d.ts",
+      "import": "./_dist/math/interpolate/index.js"
+    },
+    "./math/physics": {
+      "types": "./_dist/math/physics/index.d.ts",
+      "import": "./_dist/math/physics/index.js"
+    },
+    "./math/util": {
+      "types": "./_dist/math/util/index.d.ts",
+      "import": "./_dist/math/util/index.js"
     },
     "./plugin/manager": {
       "types": "./_dist/plugin/manager/index.d.ts",
@@ -142,6 +198,10 @@
       "types": "./_dist/tinymce/initializePlugins.d.ts",
       "import": "./_dist/tinymce/initializePlugins.js"
     },
+    "./util/object": {
+      "types": "./_dist/util/object/index.d.ts",
+      "import": "./_dist/util/object/index.js"
+    },
     "./package.json": "./package.json"
   },
   "sideEffects": [
@@ -170,6 +230,7 @@
     "@typhonjs-build-test/esm-d-ts": "^0.0.26",
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.0.22",
     "@typhonjs-plugin/manager": "0.0.16",
+    "@typhonjs-svelte/runtime-base": "github:typhonjs-svelte/runtime-base",
     "@typhonjs-tinymce/oembed": "^0.4.0",
     "@typhonjs-utils/file-util": "^0.0.10",
     "colord-typhonjs": "github:typhonjs-node-utils/colord#0.0.1",

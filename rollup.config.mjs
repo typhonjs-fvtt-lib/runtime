@@ -1,6 +1,5 @@
 import path                from 'path';
 
-import commonjs            from '@rollup/plugin-commonjs';
 import resolve             from '@rollup/plugin-node-resolve';
 import { generateDTS }     from '@typhonjs-build-test/esm-d-ts';
 import { getFileList }     from '@typhonjs-utils/file-util';
@@ -9,6 +8,8 @@ import { rollup }          from 'rollup';
 import upath               from 'upath';
 
 import {
+   createRuntimeLibConfig,
+   createRuntimeNPMConfig,
    createSvelteLibConfig,
    createSvelteNPMConfig } from './.rollup/local/index.js';
 
@@ -76,129 +77,6 @@ const s_MODULES_DOMPURIFY_NPM = [
    }
 ];
 
-const s_MODULES_JSON5_LIB = [
-   {
-      input: '.build/json/json5.js',
-      plugins: [
-         resolve({ browser: true }),
-         commonjs()
-      ],
-      output: {
-         file: 'remote/json/json5.js',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         sourcemap
-      }
-   }
-];
-
-const s_MODULES_JSON5_NPM = [
-   {
-      input: {
-         input: '.build/json/json5.js',
-         plugins: [
-            resolve({ browser: true }),
-            commonjs()
-         ]
-      },
-      output: {
-         file: '_dist/json/json5/index.js',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         sourcemap
-      }
-   }
-];
-
-const s_MODULES_PLUGIN_LIB = [
-   {
-      input: '.build/plugin/manager/index.js',
-      plugins: [
-         resolve({ browser: true })
-      ],
-      output: {
-         file: 'remote/plugin/manager.js',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         sourcemap
-      }
-   },
-   {
-      input: '.build/plugin/manager/eventbus/index.js',
-      plugins: [
-         resolve({ browser: true })
-      ],
-      output: {
-         file: 'remote/plugin/manager/eventbus.js',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         sourcemap
-      }
-   },
-   {
-      input: '.build/plugin/manager/eventbus/buses/index.js',
-      plugins: [
-         resolve({ browser: true })
-      ],
-      output: {
-         file: 'remote/plugin/manager/eventbus/buses.js',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         sourcemap
-      }
-   }
-];
-
-const s_MODULES_PLUGIN_NPM = [
-   {
-      input: {
-         input: '.build/plugin/manager/index.js',
-         plugins: [
-            resolve({ browser: true })
-         ]
-      },
-      copyDTS: './node_modules/@typhonjs-plugin/manager/dist/manager/browser/index.d.ts',
-      output: {
-         file: '_dist/plugin/manager/index.js',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         sourcemap
-      }
-   },
-   {
-      input: {
-         input: '.build/plugin/manager/eventbus/index.js',
-         plugins: [
-            resolve({ browser: true })
-         ]
-      },
-      // dtsFile: '.build/plugin/manager/eventbus.js',
-      copyDTS: './node_modules/@typhonjs-plugin/manager/dist/eventbus/index.d.ts',
-      output: {
-         file: '_dist/plugin/manager/eventbus/index.js',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         sourcemap
-      }
-   },
-   {
-      input: {
-         input: '.build/plugin/manager/eventbus/buses/index.js',
-         plugins: [
-            resolve({ browser: true })
-         ]
-      },
-      // dtsFile: '.build/plugin/manager/eventbus.js',
-      copyDTS: './node_modules/@typhonjs-plugin/manager/dist/eventbus/buses/index.d.ts',
-      output: {
-         file: '_dist/plugin/manager/eventbus/buses/index.js',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         sourcemap
-      }
-   }
-];
-
 const s_MODULES_TINYMCE_LIB = [
    {
       input: '.build/tinymce/initializePlugins.js',
@@ -236,8 +114,7 @@ const s_MODULES_TINYMCE_NPM = [
 
 const rollupPluginsNPM = [
    ...s_MODULES_DOMPURIFY_NPM,
-   ...s_MODULES_JSON5_NPM,
-   ...s_MODULES_PLUGIN_NPM,
+   ...createRuntimeNPMConfig({ sourcemap }),
    ...createSvelteNPMConfig({ sourcemap }),
    ...s_MODULES_TINYMCE_NPM
 ];
@@ -273,9 +150,8 @@ for (const config of rollupPluginsNPM)
 
       let fileData = fs.readFileSync(copyDTS, 'utf-8');
 
-      // For @typhonjs-plugin/manager
-      fileData = fileData.replaceAll('@typhonjs-plugin/manager/eventbus',
-       '@typhonjs-fvtt/runtime/plugin/manager/eventbus');
+      // For @typhonjs-svelte/runtime-base
+      fileData = fileData.replaceAll('@typhonjs-svelte/runtime-base/', '@typhonjs-fvtt/runtime/');
 
       // For @typhonjs-fvtt/svelte
       fileData = fileData.replaceAll('_typhonjs_fvtt_svelte_', '_typhonjs_fvtt_runtime_svelte_');
@@ -393,8 +269,7 @@ export default () =>
 {
    return [
       ...s_MODULES_DOMPURIFY_LIB,
-      ...s_MODULES_JSON5_LIB,
-      ...s_MODULES_PLUGIN_LIB,
+      ...createRuntimeLibConfig({ sourcemap }),
       ...createSvelteLibConfig({ sourcemap }),
       ...s_MODULES_TINYMCE_LIB
    ];
