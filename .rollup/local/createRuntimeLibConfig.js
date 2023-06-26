@@ -28,7 +28,8 @@ const bundleMap = {
    'util': ['@typhonjs-svelte/runtime-base/util'],
    'util/async': ['@typhonjs-svelte/runtime-base/util/async'],
    'util/browser': ['@typhonjs-svelte/runtime-base/util/browser'],
-   'util/object': ['@typhonjs-svelte/runtime-base/util/object']
+   'util/object': ['@typhonjs-svelte/runtime-base/util/object'],
+   'util/store': ['@typhonjs-svelte/runtime-base/util/store']
 };
 
 export function createRuntimeLibConfig({ sourcemap, outputPlugins = [] })

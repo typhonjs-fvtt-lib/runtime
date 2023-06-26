@@ -8,6 +8,10 @@
   "contributors": [
     "Michael Leahy <support@typhonjs.io> (https://github.com/typhonrt)"
   ],
+  "imports": {
+    "#runtime/*": "@typhonjs-fvtt/runtime/*",
+    "#svelte-fvtt/*": "@typhonjs-fvtt/runtime/svelte/*"
+  },
   "exports": {
     "./rollup": {
       "types": "./.rollup/remote/index.d.ts",
@@ -142,10 +146,6 @@
     "./svelte/gsap/plugin/bonus/*": {
       "import": "./_dist/svelte/gsap/plugin/bonus/*.js"
     },
-    "./svelte/handler": {
-      "types": "./_dist/svelte/handler/index.d.ts",
-      "import": "./_dist/svelte/handler/index.js"
-    },
     "./svelte/helper": {
       "types": "./_dist/svelte/helper/index.d.ts",
       "import": "./_dist/svelte/helper/index.js"
@@ -158,17 +158,17 @@
       "types": "./_dist/svelte/math/gl-matrix/index.d.ts",
       "import": "./_dist/svelte/math/gl-matrix/index.js"
     },
-    "./svelte/store": {
-      "types": "./_dist/svelte/store/index.d.ts",
-      "import": "./_dist/svelte/store/index.js"
-    },
-    "./svelte/store/document": {
-      "types": "./_dist/svelte/store/document/index.d.ts",
-      "import": "./_dist/svelte/store/document/index.js"
+    "./svelte/store/derived": {
+      "types": "./_dist/svelte/store/derived/index.d.ts",
+      "import": "./_dist/svelte/store/derived/index.js"
     },
     "./svelte/store/dom": {
       "types": "./_dist/svelte/store/dom/index.d.ts",
       "import": "./_dist/svelte/store/dom/index.js"
+    },
+    "./svelte/store/fvtt": {
+      "types": "./_dist/svelte/store/fvtt/index.d.ts",
+      "import": "./_dist/svelte/store/fvtt/index.js"
     },
     "./svelte/store/position": {
       "types": "./_dist/svelte/store/position/index.d.ts",
@@ -198,9 +198,25 @@
       "types": "./_dist/tinymce/initializePlugins.d.ts",
       "import": "./_dist/tinymce/initializePlugins.js"
     },
+    "./util": {
+      "types": "./_dist/util/index.d.ts",
+      "import": "./_dist/util/index.js"
+    },
+    "./util/async": {
+      "types": "./_dist/util/async/index.d.ts",
+      "import": "./_dist/util/async/index.js"
+    },
+    "./util/browser": {
+      "types": "./_dist/util/browser/index.d.ts",
+      "import": "./_dist/util/browser/index.js"
+    },
     "./util/object": {
       "types": "./_dist/util/object/index.d.ts",
       "import": "./_dist/util/object/index.js"
+    },
+    "./util/store": {
+      "types": "./_dist/util/store/index.d.ts",
+      "import": "./_dist/util/store/index.js"
     },
     "./package.json": "./package.json"
   },
@@ -227,16 +243,15 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25",
     "@rollup/plugin-virtual": "^3",
+    "@rollup/plugin-replace": "^5.0.2",
     "@typhonjs-build-test/esm-d-ts": "^0.0.26",
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.0.22",
-    "@typhonjs-plugin/manager": "0.0.16",
     "@typhonjs-svelte/runtime-base": "github:typhonjs-svelte/runtime-base",
     "@typhonjs-tinymce/oembed": "^0.4.0",
     "@typhonjs-utils/file-util": "^0.0.10",
     "colord-typhonjs": "github:typhonjs-node-utils/colord#0.0.1",
     "dompurify": "3.0.3",
     "fs-extra": "^11",
-    "json5": "2.2.3",
     "magic-string": "^0.30.0",
     "rollup": "^3",
     "rollup-plugin-postcss": "^4",
