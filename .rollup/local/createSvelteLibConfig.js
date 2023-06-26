@@ -22,7 +22,6 @@ const bundleMap = {
    'svelte/application/legacy': ['@typhonjs-fvtt/svelte/application/legacy'],
    'svelte/easing': ['svelte/easing'],
    'svelte/gsap': ['@typhonjs-fvtt/svelte/gsap'],
-   'svelte/handler': ['@typhonjs-fvtt/svelte/handler'],
    'svelte/helper': ['@typhonjs-fvtt/svelte/helper'],
    'svelte/internal': ['svelte/internal'],
    'svelte/motion': ['svelte/motion'],
