@@ -1,12 +1,9 @@
 import resolve             from '@rollup/plugin-node-resolve';
 import virtual             from '@rollup/plugin-virtual';
-import postcss             from 'rollup-plugin-postcss';
-import svelte              from 'rollup-plugin-svelte';
 
 import {
    typhonjsRuntime,
    typhonjsRuntimeOut }    from './index.js';
-import { postcssConfig }   from '../postcssConfig.js';
 
 const bundleMap = {
    // Handled separately (default export):
@@ -28,6 +25,8 @@ const bundleMap = {
    'plugin/manager': ['@typhonjs-svelte/runtime-base/plugin/manager'],
    'plugin/manager/eventbus': ['@typhonjs-svelte/runtime-base/plugin/manager/eventbus'],
    'plugin/manager/eventbus/buses': ['@typhonjs-svelte/runtime-base/plugin/manager/eventbus/buses'],
+   'util/async': ['@typhonjs-svelte/runtime-base/util/async'],
+   'util/browser': ['@typhonjs-svelte/runtime-base/util/browser'],
    'util/object': ['@typhonjs-svelte/runtime-base/util/object']
 };
 

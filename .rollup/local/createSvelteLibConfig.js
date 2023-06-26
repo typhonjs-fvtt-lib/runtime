@@ -24,7 +24,6 @@ const bundleMap = {
    'svelte/gsap': ['@typhonjs-fvtt/svelte/gsap'],
    'svelte/handler': ['@typhonjs-fvtt/svelte/handler'],
    'svelte/helper': ['@typhonjs-fvtt/svelte/helper'],
-   'svelte/math': ['@typhonjs-fvtt/svelte/math'],
    'svelte/internal': ['svelte/internal'],
    'svelte/motion': ['svelte/motion'],
    'svelte/store': ['svelte/store', '@typhonjs-fvtt/svelte/store'],
@@ -78,7 +77,7 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins = [] })
          },
          plugins: [
             virtual({
-               pack: `export * from './node_modules/@typhonjs-fvtt/svelte/src/component/core';`
+               pack: `export * from './node_modules/@typhonjs-fvtt/svelte/_dist/component/core';`
             }),
             svelte({
                onwarn: (warning, handler) =>
@@ -111,7 +110,7 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins = [] })
          },
          plugins: [
             virtual({
-               pack: `export * from './node_modules/@typhonjs-fvtt/svelte/src/component/dialog';`
+               pack: `export * from './node_modules/@typhonjs-fvtt/svelte/_dist/component/dialog';`
             }),
             svelte({
                onwarn: (warning, handler) =>
