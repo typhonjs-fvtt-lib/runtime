@@ -122,7 +122,6 @@ const rollupPluginsNPM = [
 for (const config of rollupPluginsNPM)
 {
    console.log(`Generating bundle: ${config.input.input}`);
-   console.log(`Generating bundle output: ${config.output.file}`);
 
    const bundle = await rollup(config.input);
 
@@ -170,7 +169,7 @@ for (const config of rollupPluginsNPM)
       await generateDTS({
          input: dtsFile,
          output: upath.changeExt(outFile, '.d.ts'),
-         bundlePackageExports: true
+         ...dtsPluginOptions
       });
    }
 }
