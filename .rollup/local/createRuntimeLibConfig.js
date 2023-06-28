@@ -18,6 +18,7 @@ const bundleMap = {
    'data/struct/search/trie': ['@typhonjs-svelte/runtime-base/data/struct/search/trie'],
    'data/struct/search/trie/query': ['@typhonjs-svelte/runtime-base/data/struct/search/trie/query'],
    'data/struct/store/reducer': ['@typhonjs-svelte/runtime-base/data/struct/store/reducer'],
+   'data/struct/store/reducer/array-object': ['@typhonjs-svelte/runtime-base/data/struct/store/reducer/array-object'],
    'math/gl-matrix': ['@typhonjs-svelte/runtime-base/math/gl-matrix'],
    'math/interpolate': ['@typhonjs-svelte/runtime-base/math/interpolate'],
    'math/physics': ['@typhonjs-svelte/runtime-base/math/physics'],

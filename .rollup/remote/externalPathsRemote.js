@@ -18,6 +18,7 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/dompurify': '/modules/typhonjs/remote/dompurify/DOMPurify.js',
    '@typhonjs-fvtt/runtime/dompurify/plugin/system': '/modules/typhonjs/remote/dompurify/plugin/system.js',
 
+   // runtime-base mapping:
    '@typhonjs-fvtt/runtime/data/compress': '/modules/typhonjs/remote/data/compress.js',
    '@typhonjs-fvtt/runtime/data/format/base64': '/modules/typhonjs/remote/data/format/base64.js',
    '@typhonjs-fvtt/runtime/data/format/json5': '/modules/typhonjs/remote/data/format/json5.js',
@@ -29,6 +30,7 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/data/struct/search/trie': '/modules/typhonjs/remote/data/struct/search/trie.js',
    '@typhonjs-fvtt/runtime/data/struct/search/trie/query': '/modules/typhonjs/remote/data/struct/search/trie/query.js',
    '@typhonjs-fvtt/runtime/data/struct/store/reducer': '/modules/typhonjs/remote/data/struct/store/reducer.js',
+   '@typhonjs-fvtt/runtime/data/struct/store/reducer/array-object': '/modules/typhonjs/remote/data/struct/store/reducer/array-object.js',
    '@typhonjs-fvtt/runtime/math/gl-matrix': '/modules/typhonjs/remote/math/gl-matrix.js',
    '@typhonjs-fvtt/runtime/math/interpolate': '/modules/typhonjs/remote/math/interpolate.js',
    '@typhonjs-fvtt/runtime/math/physics': '/modules/typhonjs/remote/math/physics.js',
@@ -42,6 +44,7 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/util/object': '/modules/typhonjs/remote/util/object.js',
    '@typhonjs-fvtt/runtime/util/store': '/modules/typhonjs/remote/util/store.js',
 
+   // typhonjs-fvtt/svelte mapping:
    '@typhonjs-fvtt/runtime/svelte': '/modules/typhonjs/remote/svelte/index.js',
    '@typhonjs-fvtt/runtime/svelte/action/dom': '/modules/typhonjs/remote/svelte/dom/action.js',
    '@typhonjs-fvtt/runtime/svelte/animate': '/modules/typhonjs/remote/svelte/animate.js',
@@ -61,7 +64,6 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/svelte/store/dom': '/modules/typhonjs/remote/svelte/store/dom.js',
    '@typhonjs-fvtt/runtime/svelte/store/fvtt': '/modules/typhonjs/remote/svelte/store/fvtt.js',
    '@typhonjs-fvtt/runtime/svelte/store/position': '/modules/typhonjs/remote/svelte/store/position.js',
-   '@typhonjs-fvtt/runtime/svelte/store/reducer': '/modules/typhonjs/remote/svelte/store/reducer.js',
    '@typhonjs-fvtt/runtime/svelte/store/storage/web': '/modules/typhonjs/remote/svelte/store/storage/web.js',
    '@typhonjs-fvtt/runtime/svelte/store/storage/web/plugin': '/modules/typhonjs/remote/svelte/store/storage/web/plugin.js',
    '@typhonjs-fvtt/runtime/svelte/transition': '/modules/typhonjs/remote/svelte/transition.js',
