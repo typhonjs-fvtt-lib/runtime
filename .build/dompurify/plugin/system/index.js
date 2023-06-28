@@ -1,1 +1,1 @@
-export * from './DOMPurify.js';
+export * from './PDOMPurify.js';

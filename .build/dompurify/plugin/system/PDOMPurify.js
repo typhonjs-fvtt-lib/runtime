@@ -1,15 +1,15 @@
-import { DOMPurify as DOMPurifyImpl } from '@typhonjs-fvtt/runtime/dompurify';
+import { DOMPurify } from '@typhonjs-fvtt/runtime/dompurify';
 
-export class DOMPurify
+export class PDOMPurify
 {
    static sanitize(dirty)
    {
-      return DOMPurifyImpl.sanitize(dirty);
+      return DOMPurify.sanitize(dirty);
    }
 
    static sanitizeWithVideo(dirty)
    {
-      return DOMPurifyImpl.sanitizeWithVideo(dirty);
+      return DOMPurify.sanitizeWithVideo(dirty);
    }
 
    static onPluginLoad(ev)
