@@ -186,6 +186,14 @@
       "types": "./_dist/svelte/store/storage/web/plugin/index.d.ts",
       "import": "./_dist/svelte/store/storage/web/plugin/index.js"
     },
+    "./svelte/store/web-storage": {
+      "types": "./_dist/svelte/store/web-storage/index.d.ts",
+      "import": "./_dist/svelte/store/web-storage/index.js"
+    },
+    "./svelte/store/web-storage/msgpack": {
+      "types": "./_dist/svelte/store/web-storage/msgpack/index.d.ts",
+      "import": "./_dist/svelte/store/web-storage/msgpack/index.js"
+    },
     "./svelte/transition": {
       "types": "./_dist/svelte/transition/index.d.ts",
       "import": "./_dist/svelte/transition/index.js"
@@ -237,7 +245,7 @@
   },
   "peerDependencies": {
     "vite": ">=4.3.0",
-    "svelte": "3.59.2",
+    "svelte": ">4.x.x",
     "svelte-preprocess": ">=5.0.0"
   },
   "devDependencies": {

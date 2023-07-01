@@ -38,6 +38,8 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/plugin/manager': '/modules/typhonjs/remote/plugin/manager.js',
    '@typhonjs-fvtt/runtime/plugin/manager/eventbus': '/modules/typhonjs/remote/plugin/manager/eventbus.js',
    '@typhonjs-fvtt/runtime/plugin/manager/eventbus/buses': '/modules/typhonjs/remote/plugin/manager/eventbus/buses.js',
+   '@typhonjs-fvtt/runtime/svelte/store/web-storage': '/modules/typhonjs/remote/svelte/store/web-storage.js',
+   '@typhonjs-fvtt/runtime/svelte/store/web-storage/msgpack': '/modules/typhonjs/remote/svelte/store/web-storage/msgpack.js',
    '@typhonjs-fvtt/runtime/util': '/modules/typhonjs/remote/util.js',
    '@typhonjs-fvtt/runtime/util/async': '/modules/typhonjs/remote/util/async.js',
    '@typhonjs-fvtt/runtime/util/browser': '/modules/typhonjs/remote/util/browser.js',
