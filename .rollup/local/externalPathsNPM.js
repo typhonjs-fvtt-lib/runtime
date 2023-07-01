@@ -15,7 +15,6 @@ export const externalPathsNPM = {
    '@typhonjs-fvtt/svelte/store/dom': '@typhonjs-fvtt/runtime/svelte/store/dom',
    '@typhonjs-fvtt/svelte/store/fvtt': '@typhonjs-fvtt/runtime/svelte/store/fvtt',
    '@typhonjs-fvtt/svelte/store/position': '@typhonjs-fvtt/runtime/svelte/store/position',
-   '@typhonjs-fvtt/svelte/store/storage/web': '@typhonjs-fvtt/runtime/svelte/store/storage/web',
    '@typhonjs-fvtt/svelte/store/storage/web/plugin': '@typhonjs-fvtt/runtime/svelte/store/storage/web/plugin',
    '@typhonjs-fvtt/svelte/transition': '@typhonjs-fvtt/runtime/svelte/transition',
    '@typhonjs-fvtt/svelte/util': '@typhonjs-fvtt/runtime/svelte/util',

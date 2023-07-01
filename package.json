@@ -178,10 +178,6 @@
       "types": "./_dist/svelte/store/position/index.d.ts",
       "import": "./_dist/svelte/store/position/index.js"
     },
-    "./svelte/store/storage/web": {
-      "types": "./_dist/svelte/store/storage/web/index.d.ts",
-      "import": "./_dist/svelte/store/storage/web/index.js"
-    },
     "./svelte/store/storage/web/plugin": {
       "types": "./_dist/svelte/store/storage/web/plugin/index.d.ts",
       "import": "./_dist/svelte/store/storage/web/plugin/index.js"

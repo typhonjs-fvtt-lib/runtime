@@ -14,7 +14,6 @@ export const externalPathsLib = {
    '@typhonjs-fvtt/svelte/store/dom': '/modules/typhonjs/remote/svelte/store/dom.js',
    '@typhonjs-fvtt/svelte/store/fvtt': '/modules/typhonjs/remote/svelte/store/fvtt.js',
    '@typhonjs-fvtt/svelte/store/position': '/modules/typhonjs/remote/svelte/store/position.js',
-   '@typhonjs-fvtt/svelte/store/storage/web': '/modules/typhonjs/remote/svelte/store/storage/web.js',
    '@typhonjs-fvtt/svelte/store/storage/web/plugin': '/modules/typhonjs/remote/svelte/store/storage/web/plugin.js',
    '@typhonjs-fvtt/svelte/transition': '/modules/typhonjs/remote/svelte/transition.js',
    '@typhonjs-fvtt/svelte/util': '/modules/typhonjs/remote/svelte/util.js',
