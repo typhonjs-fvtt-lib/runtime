@@ -38,6 +38,8 @@ export const externalPathsLib = {
    '@typhonjs-svelte/runtime-base/plugin/manager': '/modules/typhonjs/remote/plugin/manager.js',
    '@typhonjs-svelte/runtime-base/plugin/manager/eventbus': '/modules/typhonjs/remote/plugin/manager/eventbus.js',
    '@typhonjs-svelte/runtime-base/plugin/manager/eventbus/buses': '/modules/typhonjs/remote/plugin/manager/eventbus/buses.js',
+   '@typhonjs-svelte/runtime-base/svelte/store/web-storage': '/modules/typhonjs/remote/svelte/store/web-storage.js',
+   '@typhonjs-svelte/runtime-base/svelte/store/web-storage/msgpack': '/modules/typhonjs/remote/svelte/store/web-storage/msgpack.js',
    '@typhonjs-svelte/runtime-base/util': '/modules/typhonjs/remote/util.js',
    '@typhonjs-svelte/runtime-base/util/async': '/modules/typhonjs/remote/util/async.js',
    '@typhonjs-svelte/runtime-base/util/browser': '/modules/typhonjs/remote/util/browser.js',
