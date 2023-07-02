@@ -1,5 +1,4 @@
 export const externalPathsNPM = {
-   '@typhonjs-fvtt/svelte/action/dom': '@typhonjs-fvtt/runtime/svelte/action/dom',
    '@typhonjs-fvtt/svelte/animate': '@typhonjs-fvtt/runtime/svelte/animate',
    '@typhonjs-fvtt/svelte/animate/action': '@typhonjs-fvtt/runtime/svelte/animate/action',
    '@typhonjs-fvtt/svelte/application': '@typhonjs-fvtt/runtime/svelte/application',
@@ -36,6 +35,7 @@ export const externalPathsNPM = {
    '@typhonjs-svelte/runtime-base/plugin/manager': '@typhonjs-fvtt/runtime/plugin/manager',
    '@typhonjs-svelte/runtime-base/plugin/manager/eventbus': '@typhonjs-fvtt/runtime/plugin/manager/eventbus',
    '@typhonjs-svelte/runtime-base/plugin/manager/eventbus/buses': '@typhonjs-fvtt/runtime/plugin/manager/eventbus/buses',
+   '@typhonjs-svelte/runtime-base/svelte/action/dom': '@typhonjs-fvtt/runtime/svelte/action/dom',
    '@typhonjs-svelte/runtime-base/svelte/store/web-storage': '@typhonjs-fvtt/runtime/svelte/store/web-storage',
    '@typhonjs-svelte/runtime-base/svelte/store/web-storage/msgpack': '@typhonjs-fvtt/runtime/svelte/store/web-storage/msgpack',
    '@typhonjs-svelte/runtime-base/svelte/store/writable-derived': '@typhonjs-fvtt/runtime/svelte/store/writable-derived',
