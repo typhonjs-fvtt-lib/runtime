@@ -194,6 +194,10 @@
       "types": "./_dist/util/index.d.ts",
       "import": "./_dist/util/index.js"
     },
+    "./util/animate": {
+      "types": "./_dist/util/animate/index.d.ts",
+      "import": "./_dist/util/animate/index.js"
+    },
     "./util/async": {
       "types": "./_dist/util/async/index.d.ts",
       "import": "./_dist/util/async/index.js"
