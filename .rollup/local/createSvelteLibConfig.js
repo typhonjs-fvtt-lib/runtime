@@ -26,7 +26,6 @@ const bundleMap = {
    'svelte/internal': ['svelte/internal'],
    'svelte/motion': ['svelte/motion'],
    'svelte/store': ['svelte/store'],
-   'svelte/store/derived': ['@typhonjs-fvtt/svelte/store/derived'],
    'svelte/store/dom': ['@typhonjs-fvtt/svelte/store/dom'],
    'svelte/store/fvtt': ['@typhonjs-fvtt/svelte/store/fvtt'],
    'svelte/store/position': ['@typhonjs-fvtt/svelte/store/position'],

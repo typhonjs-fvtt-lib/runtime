@@ -154,18 +154,6 @@
       "types": "./_dist/svelte/helper/index.d.ts",
       "import": "./_dist/svelte/helper/index.js"
     },
-    "./svelte/math": {
-      "types": "./_dist/svelte/math/index.d.ts",
-      "import": "./_dist/svelte/math/index.js"
-    },
-    "./svelte/math/gl-matrix": {
-      "types": "./_dist/svelte/math/gl-matrix/index.d.ts",
-      "import": "./_dist/svelte/math/gl-matrix/index.js"
-    },
-    "./svelte/store/derived": {
-      "types": "./_dist/svelte/store/derived/index.d.ts",
-      "import": "./_dist/svelte/store/derived/index.js"
-    },
     "./svelte/store/dom": {
       "types": "./_dist/svelte/store/dom/index.d.ts",
       "import": "./_dist/svelte/store/dom/index.js"
@@ -189,6 +177,10 @@
     "./svelte/store/web-storage/msgpack": {
       "types": "./_dist/svelte/store/web-storage/msgpack/index.d.ts",
       "import": "./_dist/svelte/store/web-storage/msgpack/index.js"
+    },
+    "./svelte/store/writable-derived": {
+      "types": "./_dist/svelte/store/writable-derived/index.d.ts",
+      "import": "./_dist/svelte/store/writable-derived/index.js"
     },
     "./svelte/transition": {
       "types": "./_dist/svelte/transition/index.d.ts",
