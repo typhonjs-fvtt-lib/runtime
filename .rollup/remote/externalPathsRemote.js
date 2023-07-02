@@ -40,6 +40,7 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/plugin/manager/eventbus/buses': '/modules/typhonjs/remote/plugin/manager/eventbus/buses.js',
    '@typhonjs-fvtt/runtime/svelte/action/animate': '/modules/typhonjs/remote/svelte/action/animate.js',
    '@typhonjs-fvtt/runtime/svelte/action/dom': '/modules/typhonjs/remote/svelte/action/dom.js',
+   '@typhonjs-fvtt/runtime/svelte/animate': '/modules/typhonjs/remote/svelte/animate.js',
    '@typhonjs-fvtt/runtime/svelte/store/web-storage': '/modules/typhonjs/remote/svelte/store/web-storage.js',
    '@typhonjs-fvtt/runtime/svelte/store/web-storage/msgpack': '/modules/typhonjs/remote/svelte/store/web-storage/msgpack.js',
    '@typhonjs-fvtt/runtime/svelte/store/writable-derived': '/modules/typhonjs/remote/svelte/store/writable-derived.js',
@@ -53,7 +54,6 @@ export const externalPathsRemote = {
 
    // typhonjs-fvtt/svelte mapping:
    '@typhonjs-fvtt/runtime/svelte': '/modules/typhonjs/remote/svelte/index.js',
-   '@typhonjs-fvtt/runtime/svelte/animate': '/modules/typhonjs/remote/svelte/animate.js',
    '@typhonjs-fvtt/runtime/svelte/application': '/modules/typhonjs/remote/svelte/application.js',
    '@typhonjs-fvtt/runtime/svelte/application/dialog': '/modules/typhonjs/remote/svelte/application/dialog.js',
    '@typhonjs-fvtt/runtime/svelte/application/legacy': '/modules/typhonjs/remote/svelte/application/legacy.js',

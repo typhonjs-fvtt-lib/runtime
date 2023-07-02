@@ -1,5 +1,4 @@
 export const externalPathsLib = {
-   '@typhonjs-fvtt/svelte/animate': '/modules/typhonjs/remote/svelte/animate.js',
    '@typhonjs-fvtt/svelte/application': '/modules/typhonjs/remote/svelte/application.js',
    '@typhonjs-fvtt/svelte/application/dialog': '/modules/typhonjs/remote/svelte/application/dialog.js',
    '@typhonjs-fvtt/svelte/application/legacy': '/modules/typhonjs/remote/svelte/application/legacy.js',
@@ -7,7 +6,6 @@ export const externalPathsLib = {
    '@typhonjs-fvtt/svelte/component/dialog': '/modules/typhonjs/remote/svelte/component/dialog.js',
    '@typhonjs-fvtt/svelte/gsap': '/modules/typhonjs/remote/svelte/gsap.js',
    '@typhonjs-fvtt/svelte/helper': '/modules/typhonjs/remote/svelte/helper.js',
-   '@typhonjs-fvtt/svelte/math': '/modules/typhonjs/remote/svelte/math.js',
    '@typhonjs-fvtt/svelte/store/dom': '/modules/typhonjs/remote/svelte/store/dom.js',
    '@typhonjs-fvtt/svelte/store/fvtt': '/modules/typhonjs/remote/svelte/store/fvtt.js',
    '@typhonjs-fvtt/svelte/store/position': '/modules/typhonjs/remote/svelte/store/position.js',
@@ -35,6 +33,7 @@ export const externalPathsLib = {
    '@typhonjs-svelte/runtime-base/plugin/manager/eventbus/buses': '/modules/typhonjs/remote/plugin/manager/eventbus/buses.js',
    '@typhonjs-svelte/runtime-base/svelte/action/animate': '/modules/typhonjs/remote/svelte/action/animate.js',
    '@typhonjs-svelte/runtime-base/svelte/action/dom': '/modules/typhonjs/remote/svelte/action/dom.js',
+   '@typhonjs-svelte/runtime-base/svelte/animate': '/modules/typhonjs/remote/svelte/animate.js',
    '@typhonjs-svelte/runtime-base/svelte/store/web-storage': '/modules/typhonjs/remote/svelte/store/web-storage.js',
    '@typhonjs-svelte/runtime-base/svelte/store/web-storage/msgpack': '/modules/typhonjs/remote/svelte/store/web-storage/msgpack.js',
    '@typhonjs-svelte/runtime-base/svelte/store/writable-derived': '/modules/typhonjs/remote/svelte/store/writable-derived.js',
