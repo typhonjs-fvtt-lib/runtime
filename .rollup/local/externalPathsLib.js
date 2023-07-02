@@ -40,6 +40,7 @@ export const externalPathsLib = {
    '@typhonjs-svelte/runtime-base/svelte/store/writable-derived': '/modules/typhonjs/remote/svelte/store/writable-derived.js',
    '@typhonjs-svelte/runtime-base/svelte/transition': '/modules/typhonjs/remote/svelte/transition.js',
    '@typhonjs-svelte/runtime-base/util': '/modules/typhonjs/remote/util.js',
+   '@typhonjs-svelte/runtime-base/util/animate': '/modules/typhonjs/remote/util/animate.js',
    '@typhonjs-svelte/runtime-base/util/async': '/modules/typhonjs/remote/util/async.js',
    '@typhonjs-svelte/runtime-base/util/browser': '/modules/typhonjs/remote/util/browser.js',
    '@typhonjs-svelte/runtime-base/util/object': '/modules/typhonjs/remote/util/object.js',
