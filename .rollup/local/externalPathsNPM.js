@@ -15,7 +15,6 @@ export const externalPathsNPM = {
    '@typhonjs-fvtt/svelte/store/fvtt': '@typhonjs-fvtt/runtime/svelte/store/fvtt',
    '@typhonjs-fvtt/svelte/store/position': '@typhonjs-fvtt/runtime/svelte/store/position',
    '@typhonjs-fvtt/svelte/store/storage/web/plugin': '@typhonjs-fvtt/runtime/svelte/store/storage/web/plugin',
-   '@typhonjs-fvtt/svelte/transition': '@typhonjs-fvtt/runtime/svelte/transition',
    '@typhonjs-fvtt/svelte/util': '@typhonjs-fvtt/runtime/svelte/util',
 
    '@typhonjs-svelte/runtime-base/data/compress': '@typhonjs-fvtt/runtime/data/compress',
@@ -40,6 +39,7 @@ export const externalPathsNPM = {
    '@typhonjs-svelte/runtime-base/svelte/store/web-storage': '@typhonjs-fvtt/runtime/svelte/store/web-storage',
    '@typhonjs-svelte/runtime-base/svelte/store/web-storage/msgpack': '@typhonjs-fvtt/runtime/svelte/store/web-storage/msgpack',
    '@typhonjs-svelte/runtime-base/svelte/store/writable-derived': '@typhonjs-fvtt/runtime/svelte/store/writable-derived',
+   '@typhonjs-svelte/runtime-base/svelte/transition': '@typhonjs-fvtt/runtime/svelte/transition',
    '@typhonjs-svelte/runtime-base/util': '@typhonjs-fvtt/runtime/util',
    '@typhonjs-svelte/runtime-base/util/async': '@typhonjs-fvtt/runtime/util/async',
    '@typhonjs-svelte/runtime-base/util/browser': '@typhonjs-fvtt/runtime/util/browser',
