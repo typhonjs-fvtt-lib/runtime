@@ -26,6 +26,7 @@ const bundleMap = {
    'plugin/manager': ['@typhonjs-svelte/runtime-base/plugin/manager'],
    'plugin/manager/eventbus': ['@typhonjs-svelte/runtime-base/plugin/manager/eventbus'],
    'plugin/manager/eventbus/buses': ['@typhonjs-svelte/runtime-base/plugin/manager/eventbus/buses'],
+   'svelte/action/animate': ['@typhonjs-svelte/runtime-base/svelte/action/animate'],
    'svelte/action/dom': ['@typhonjs-svelte/runtime-base/svelte/action/dom'],
    'svelte/store/web-storage': ['@typhonjs-svelte/runtime-base/svelte/store/web-storage'],
    'svelte/store/web-storage/msgpack': ['@typhonjs-svelte/runtime-base/svelte/store/web-storage/msgpack'],

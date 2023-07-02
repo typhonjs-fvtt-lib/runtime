@@ -109,9 +109,9 @@
       "types": "./_dist/plugin/manager/eventbus/buses/index.d.ts",
       "import": "./_dist/plugin/manager/eventbus/buses/index.js"
     },
-    "./svelte/action": {
-      "types": "./_dist/svelte/action/index.d.ts",
-      "import": "./_dist/svelte/action/index.js"
+    "./svelte/action/animate": {
+      "types": "./_dist/svelte/action/animate/index.d.ts",
+      "import": "./_dist/svelte/action/animate/index.js"
     },
     "./svelte/action/dom": {
       "types": "./_dist/svelte/action/dom/index.d.ts",
@@ -120,10 +120,6 @@
     "./svelte/animate": {
       "types": "./_dist/svelte/animate/index.d.ts",
       "import": "./_dist/svelte/animate/index.js"
-    },
-    "./svelte/animate/action": {
-      "types": "./_dist/svelte/animate/action/index.d.ts",
-      "import": "./_dist/svelte/animate/action/index.js"
     },
     "./svelte/application": {
       "import": "./_dist/svelte/application/index.js"
