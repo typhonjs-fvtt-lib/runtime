@@ -30,6 +30,7 @@ const bundleMap = {
    'svelte/action/dom': ['@typhonjs-svelte/runtime-base/svelte/action/dom'],
    'svelte/animate': ['svelte/animate', '@typhonjs-svelte/runtime-base/svelte/animate'],
    'svelte/store/dom': ['@typhonjs-svelte/runtime-base/svelte/store/dom'],
+   'svelte/store/position': ['@typhonjs-svelte/runtime-base/svelte/store/position'],
    'svelte/store/web-storage': ['@typhonjs-svelte/runtime-base/svelte/store/web-storage'],
    'svelte/store/web-storage/msgpack': ['@typhonjs-svelte/runtime-base/svelte/store/web-storage/msgpack'],
    'svelte/store/writable-derived': ['@typhonjs-svelte/runtime-base/svelte/store/writable-derived'],

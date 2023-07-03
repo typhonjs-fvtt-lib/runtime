@@ -17,15 +17,15 @@ const bundleMap = {
    'svelte/application': ['@typhonjs-fvtt/svelte/application'],
    'svelte/application/dialog': ['@typhonjs-fvtt/svelte/application/dialog'],
    'svelte/application/legacy': ['@typhonjs-fvtt/svelte/application/legacy'],
-   'svelte/easing': ['svelte/easing'],
    'svelte/gsap': ['@typhonjs-fvtt/svelte/gsap'],
    'svelte/helper': ['@typhonjs-fvtt/svelte/helper'],
+   'svelte/store/fvtt': ['@typhonjs-fvtt/svelte/store/fvtt'],
+   'svelte/store/storage/web/plugin': ['@typhonjs-fvtt/svelte/store/storage/web/plugin'],
+
+   'svelte/easing': ['svelte/easing'],
    'svelte/internal': ['svelte/internal'],
    'svelte/motion': ['svelte/motion'],
-   'svelte/store': ['svelte/store'],
-   'svelte/store/fvtt': ['@typhonjs-fvtt/svelte/store/fvtt'],
-   'svelte/store/position': ['@typhonjs-fvtt/svelte/store/position'],
-   'svelte/store/storage/web/plugin': ['@typhonjs-fvtt/svelte/store/storage/web/plugin']
+   'svelte/store': ['svelte/store']
 };
 
 export function createSvelteLibConfig({ sourcemap, outputPlugins = [] })

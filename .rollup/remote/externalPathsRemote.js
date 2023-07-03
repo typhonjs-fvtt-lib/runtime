@@ -42,6 +42,7 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/svelte/action/dom': '/modules/typhonjs/remote/svelte/action/dom.js',
    '@typhonjs-fvtt/runtime/svelte/animate': '/modules/typhonjs/remote/svelte/animate.js',
    '@typhonjs-fvtt/runtime/svelte/store/dom': '/modules/typhonjs/remote/svelte/store/dom.js',
+   '@typhonjs-fvtt/runtime/svelte/store/position': '/modules/typhonjs/remote/svelte/store/position.js',
    '@typhonjs-fvtt/runtime/svelte/store/web-storage': '/modules/typhonjs/remote/svelte/store/web-storage.js',
    '@typhonjs-fvtt/runtime/svelte/store/web-storage/msgpack': '/modules/typhonjs/remote/svelte/store/web-storage/msgpack.js',
    '@typhonjs-fvtt/runtime/svelte/store/writable-derived': '/modules/typhonjs/remote/svelte/store/writable-derived.js',
@@ -55,19 +56,15 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/util/store': '/modules/typhonjs/remote/util/store.js',
 
    // typhonjs-fvtt/svelte mapping:
-   '@typhonjs-fvtt/runtime/svelte': '/modules/typhonjs/remote/svelte/index.js',
    '@typhonjs-fvtt/runtime/svelte/application': '/modules/typhonjs/remote/svelte/application.js',
    '@typhonjs-fvtt/runtime/svelte/application/dialog': '/modules/typhonjs/remote/svelte/application/dialog.js',
    '@typhonjs-fvtt/runtime/svelte/application/legacy': '/modules/typhonjs/remote/svelte/application/legacy.js',
    '@typhonjs-fvtt/runtime/svelte/component/core': '/modules/typhonjs/remote/svelte/component/core.js',
    '@typhonjs-fvtt/runtime/svelte/component/dialog': '/modules/typhonjs/remote/svelte/component/dialog.js',
-   '@typhonjs-fvtt/runtime/svelte/easing': '/modules/typhonjs/remote/svelte/easing.js',
    '@typhonjs-fvtt/runtime/svelte/gsap': '/modules/typhonjs/remote/svelte/gsap.js',
    '@typhonjs-fvtt/runtime/svelte/helper': '/modules/typhonjs/remote/svelte/helper.js',
    '@typhonjs-fvtt/runtime/svelte/internal': '/modules/typhonjs/remote/svelte/internal.js',
-   '@typhonjs-fvtt/runtime/svelte/motion': '/modules/typhonjs/remote/svelte/motion.js',
    '@typhonjs-fvtt/runtime/svelte/store/fvtt': '/modules/typhonjs/remote/svelte/store/fvtt.js',
-   '@typhonjs-fvtt/runtime/svelte/store/position': '/modules/typhonjs/remote/svelte/store/position.js',
    '@typhonjs-fvtt/runtime/svelte/store/storage/web/plugin': '/modules/typhonjs/remote/svelte/store/storage/web/plugin.js',
 
    '@typhonjs-fvtt/runtime/tinymce': '/modules/typhonjs/remote/tinymce/initializePlugins.js'
