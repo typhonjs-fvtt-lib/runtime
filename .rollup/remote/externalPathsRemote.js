@@ -49,8 +49,8 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/svelte/transition': '/modules/typhonjs/remote/svelte/transition.js',
    '@typhonjs-fvtt/runtime/svelte/util': '/modules/typhonjs/remote/svelte/util.js',
    '@typhonjs-fvtt/runtime/util': '/modules/typhonjs/remote/util.js',
-   '@typhonjs-fvtt/runtime/util/async': '/modules/typhonjs/remote/util/async.js',
    '@typhonjs-fvtt/runtime/util/animate': '/modules/typhonjs/remote/util/animate.js',
+   '@typhonjs-fvtt/runtime/util/async': '/modules/typhonjs/remote/util/async.js',
    '@typhonjs-fvtt/runtime/util/browser': '/modules/typhonjs/remote/util/browser.js',
    '@typhonjs-fvtt/runtime/util/object': '/modules/typhonjs/remote/util/object.js',
    '@typhonjs-fvtt/runtime/util/store': '/modules/typhonjs/remote/util/store.js',
@@ -62,6 +62,7 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/svelte/component/core': '/modules/typhonjs/remote/svelte/component/core.js',
    '@typhonjs-fvtt/runtime/svelte/component/dialog': '/modules/typhonjs/remote/svelte/component/dialog.js',
    '@typhonjs-fvtt/runtime/svelte/gsap': '/modules/typhonjs/remote/svelte/gsap.js',
+    // Note: `@typhonjs-fvtt/runtime/svelte/gsap/plugin` and `plugin/bonus` are compiled into end user package and not in the library.
    '@typhonjs-fvtt/runtime/svelte/helper': '/modules/typhonjs/remote/svelte/helper.js',
    '@typhonjs-fvtt/runtime/svelte/internal': '/modules/typhonjs/remote/svelte/internal.js',
    '@typhonjs-fvtt/runtime/svelte/store/fvtt': '/modules/typhonjs/remote/svelte/store/fvtt.js',
