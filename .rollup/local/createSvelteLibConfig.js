@@ -69,18 +69,7 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins = [] })
             virtual({
                pack: `export * from './node_modules/@typhonjs-fvtt/svelte/_dist/component/core';`
             }),
-            svelte({
-               onwarn: (warning, handler) =>
-               {
-                  // Suppress `a11y-missing-attribute` for missing href in <a> links.
-                  if (warning.message.includes(`<a> element should have an href attribute`)) { return; }
-                  // Suppress a11y form label not associated w/ a control.
-                  if (warning.message.includes(`A form label must be associated with a control`)) { return; }
-
-                  // Let Rollup handle all other warnings normally.
-                  handler(warning);
-               }
-            }),
+            svelte(),
             postcss(postcssCore),
             resolve({
                browser: true,
@@ -102,18 +91,7 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins = [] })
             virtual({
                pack: `export * from './node_modules/@typhonjs-fvtt/svelte/_dist/component/dialog';`
             }),
-            svelte({
-               onwarn: (warning, handler) =>
-               {
-                  // Suppress `a11y-missing-attribute` for missing href in <a> links.
-                  if (warning.message.includes(`<a> element should have an href attribute`)) { return; }
-                  // Suppress a11y form label not associated w/ a control.
-                  if (warning.message.includes(`A form label must be associated with a control`)) { return; }
-
-                  // Let Rollup handle all other warnings normally.
-                  handler(warning);
-               }
-            }),
+            svelte(),
             postcss(postcssCore),
             resolve({
                browser: true,
