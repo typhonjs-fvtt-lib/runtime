@@ -5,6 +5,7 @@ export const externalPathsLib = {
    '@typhonjs-fvtt/svelte/component/core': '/modules/typhonjs/remote/svelte/component/core.js',
    '@typhonjs-fvtt/svelte/component/dialog': '/modules/typhonjs/remote/svelte/component/dialog.js',
    '@typhonjs-fvtt/svelte/gsap': '/modules/typhonjs/remote/svelte/gsap.js',
+   // Note: `@typhonjs-fvtt/svelte/gsap/plugin` and `plugin/bonus` are compiled into end user package and not in the library.
    '@typhonjs-fvtt/svelte/helper': '/modules/typhonjs/remote/svelte/helper.js',
    '@typhonjs-fvtt/svelte/store/fvtt': '/modules/typhonjs/remote/svelte/store/fvtt.js',
 
