@@ -65,14 +65,6 @@
       "types": "./_dist/data/struct/search/trie/query/index.d.ts",
       "import": "./_dist/data/struct/search/trie/query/index.js"
     },
-    "./data/struct/store/reducer": {
-      "types": "./_dist/data/struct/store/reducer/index.d.ts",
-      "import": "./_dist/data/struct/store/reducer/index.js"
-    },
-    "./data/struct/store/reducer/array-object": {
-      "types": "./_dist/data/struct/store/reducer/array-object/index.d.ts",
-      "import": "./_dist/data/struct/store/reducer/array-object/index.js"
-    },
     "./dompurify": {
       "types": "./_dist/dompurify/index.d.ts",
       "import": "./_dist/dompurify/index.js"
@@ -161,6 +153,14 @@
     "./svelte/store/position": {
       "types": "./_dist/svelte/store/position/index.d.ts",
       "import": "./_dist/svelte/store/position/index.js"
+    },
+    "./svelte/store/reducer": {
+      "types": "./_dist/svelte/store/reducer/index.d.ts",
+      "import": "./_dist/svelte/store/reducer/index.js"
+    },
+    "./svelte/store/reducer/array-object": {
+      "types": "./_dist/svelte/store/reducer/array-object/index.d.ts",
+      "import": "./_dist/svelte/store/reducer/array-object/index.js"
     },
     "./svelte/store/storage/web/plugin": {
       "types": "./_dist/svelte/store/storage/web/plugin/index.d.ts",
