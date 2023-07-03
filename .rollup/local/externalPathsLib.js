@@ -7,7 +7,6 @@ export const externalPathsLib = {
    '@typhonjs-fvtt/svelte/gsap': '/modules/typhonjs/remote/svelte/gsap.js',
    '@typhonjs-fvtt/svelte/helper': '/modules/typhonjs/remote/svelte/helper.js',
    '@typhonjs-fvtt/svelte/store/fvtt': '/modules/typhonjs/remote/svelte/store/fvtt.js',
-   '@typhonjs-fvtt/svelte/store/storage/web/plugin': '/modules/typhonjs/remote/svelte/store/storage/web/plugin.js',
 
    '@typhonjs-svelte/runtime-base/data/compress': '/modules/typhonjs/remote/data/compress.js',
    '@typhonjs-svelte/runtime-base/data/format/base64': '/modules/typhonjs/remote/data/format/base64.js',

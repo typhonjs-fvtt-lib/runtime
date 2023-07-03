@@ -20,7 +20,6 @@ const bundleMap = {
    'svelte/gsap': ['@typhonjs-fvtt/svelte/gsap'],
    'svelte/helper': ['@typhonjs-fvtt/svelte/helper'],
    'svelte/store/fvtt': ['@typhonjs-fvtt/svelte/store/fvtt'],
-   'svelte/store/storage/web/plugin': ['@typhonjs-fvtt/svelte/store/storage/web/plugin'],
 
    'svelte/easing': ['svelte/easing'],
    'svelte/internal': ['svelte/internal'],

@@ -65,7 +65,6 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/svelte/helper': '/modules/typhonjs/remote/svelte/helper.js',
    '@typhonjs-fvtt/runtime/svelte/internal': '/modules/typhonjs/remote/svelte/internal.js',
    '@typhonjs-fvtt/runtime/svelte/store/fvtt': '/modules/typhonjs/remote/svelte/store/fvtt.js',
-   '@typhonjs-fvtt/runtime/svelte/store/storage/web/plugin': '/modules/typhonjs/remote/svelte/store/storage/web/plugin.js',
 
    '@typhonjs-fvtt/runtime/tinymce': '/modules/typhonjs/remote/tinymce/initializePlugins.js'
 }
