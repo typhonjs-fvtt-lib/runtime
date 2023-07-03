@@ -33,6 +33,7 @@ const bundleMap = {
    'svelte/store/web-storage/msgpack': ['@typhonjs-svelte/runtime-base/svelte/store/web-storage/msgpack'],
    'svelte/store/writable-derived': ['@typhonjs-svelte/runtime-base/svelte/store/writable-derived'],
    'svelte/transition': ['svelte/transition', '@typhonjs-svelte/runtime-base/svelte/transition'],
+   'svelte/util': ['@typhonjs-svelte/runtime-base/svelte/util'],
    'util': ['@typhonjs-svelte/runtime-base/util'],
    'util/animate': ['@typhonjs-svelte/runtime-base/util/animate'],
    'util/async': ['@typhonjs-svelte/runtime-base/util/async'],

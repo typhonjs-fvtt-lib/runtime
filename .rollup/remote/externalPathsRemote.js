@@ -45,6 +45,7 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/svelte/store/web-storage/msgpack': '/modules/typhonjs/remote/svelte/store/web-storage/msgpack.js',
    '@typhonjs-fvtt/runtime/svelte/store/writable-derived': '/modules/typhonjs/remote/svelte/store/writable-derived.js',
    '@typhonjs-fvtt/runtime/svelte/transition': '/modules/typhonjs/remote/svelte/transition.js',
+   '@typhonjs-fvtt/runtime/svelte/util': '/modules/typhonjs/remote/svelte/util.js',
    '@typhonjs-fvtt/runtime/util': '/modules/typhonjs/remote/util.js',
    '@typhonjs-fvtt/runtime/util/async': '/modules/typhonjs/remote/util/async.js',
    '@typhonjs-fvtt/runtime/util/animate': '/modules/typhonjs/remote/util/animate.js',
@@ -63,13 +64,11 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/svelte/gsap': '/modules/typhonjs/remote/svelte/gsap.js',
    '@typhonjs-fvtt/runtime/svelte/helper': '/modules/typhonjs/remote/svelte/helper.js',
    '@typhonjs-fvtt/runtime/svelte/internal': '/modules/typhonjs/remote/svelte/internal.js',
-   '@typhonjs-fvtt/runtime/svelte/math': '/modules/typhonjs/remote/svelte/math.js',
    '@typhonjs-fvtt/runtime/svelte/motion': '/modules/typhonjs/remote/svelte/motion.js',
    '@typhonjs-fvtt/runtime/svelte/store/dom': '/modules/typhonjs/remote/svelte/store/dom.js',
    '@typhonjs-fvtt/runtime/svelte/store/fvtt': '/modules/typhonjs/remote/svelte/store/fvtt.js',
    '@typhonjs-fvtt/runtime/svelte/store/position': '/modules/typhonjs/remote/svelte/store/position.js',
    '@typhonjs-fvtt/runtime/svelte/store/storage/web/plugin': '/modules/typhonjs/remote/svelte/store/storage/web/plugin.js',
-   '@typhonjs-fvtt/runtime/svelte/util': '/modules/typhonjs/remote/svelte/util.js',
 
    '@typhonjs-fvtt/runtime/tinymce': '/modules/typhonjs/remote/tinymce/initializePlugins.js'
 }
