@@ -31,18 +31,6 @@ const s_MODULES_DOMPURIFY_LIB = [
          generatedCode: { constBindings: true },
          sourcemap
       }
-   },
-   {
-      input: '.build/dompurify/plugin/system/index.js',
-      plugins: [
-         resolve({ browser: true })
-      ],
-      output: {
-         file: 'remote/dompurify/plugin/system.js',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         sourcemap
-      }
    }
 ];
 
@@ -56,20 +44,6 @@ const s_MODULES_DOMPURIFY_NPM = [
       },
       output: {
          file: '_dist/dompurify/index.js',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         sourcemap
-      }
-   },
-   {
-      input: {
-         input: '.build/dompurify/plugin/system/index.js',
-         plugins: [
-            resolve({ browser: true })
-         ]
-      },
-      output: {
-         file: '_dist/dompurify/plugin/system/index.js',
          format: 'es',
          generatedCode: { constBindings: true },
          sourcemap

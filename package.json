@@ -69,10 +69,6 @@
       "types": "./_dist/dompurify/index.d.ts",
       "import": "./_dist/dompurify/index.js"
     },
-    "./dompurify/plugin/system": {
-      "types": "./_dist/dompurify/plugin/system/index.d.ts",
-      "import": "./_dist/dompurify/plugin/system/index.js"
-    },
     "./math/gl-matrix": {
       "types": "./_dist/math/gl-matrix/index.d.ts",
       "import": "./_dist/math/gl-matrix/index.js"
