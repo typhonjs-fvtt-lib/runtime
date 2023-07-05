@@ -5,7 +5,7 @@ const requireMod = module.createRequire(import.meta.url);
 const packageJSONPath = requireMod.resolve('@typhonjs-svelte/runtime-base/package.json');
 const packageJSON = JSON.parse(fs.readFileSync(packageJSONPath, 'utf-8'));
 
-const s_EXCLUDE = ['./package.json', './data/struct/cache/quick-lru'];
+const s_EXCLUDE = ['./package.json'];
 
 const distPath = packageJSONPath.replace('package.json', '_dist');
 

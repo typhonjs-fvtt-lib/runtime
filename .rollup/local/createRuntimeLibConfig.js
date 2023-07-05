@@ -6,8 +6,6 @@ import {
    typhonjsRuntimeOut }    from './index.js';
 
 const bundleMap = {
-   // Handled separately (default export):
-   // 'data/struct/cache/quick-lru': ['@typhonjs-svelte/runtime-base/data/struct/cache/quick-lru'],
    'data/compress': ['@typhonjs-svelte/runtime-base/data/compress'],
    'data/format/base64': ['@typhonjs-svelte/runtime-base/data/format/base64'],
    'data/format/json5': ['@typhonjs-svelte/runtime-base/data/format/json5'],
@@ -15,6 +13,7 @@ const bundleMap = {
    'data/format/msgpack/compress': ['@typhonjs-svelte/runtime-base/data/format/msgpack/compress'],
    'data/format/unicode': ['@typhonjs-svelte/runtime-base/data/format/unicode'],
    'data/struct/hash/array': ['@typhonjs-svelte/runtime-base/data/struct/hash/array'],
+   'data/struct/cache/quick-lru': ['@typhonjs-svelte/runtime-base/data/struct/cache/quick-lru'],
    'data/struct/search/trie': ['@typhonjs-svelte/runtime-base/data/struct/search/trie'],
    'data/struct/search/trie/query': ['@typhonjs-svelte/runtime-base/data/struct/search/trie/query'],
    'math/gl-matrix': ['@typhonjs-svelte/runtime-base/math/gl-matrix'],
@@ -48,25 +47,7 @@ export function createRuntimeLibConfig({ sourcemap, outputPlugins = [] })
 {
    const isLib = true;
 
-   const config = [
-      {
-         input: 'pack',
-         output: {
-            file: `remote/data/struct/cache/quick-lru.js`,
-            format: 'es',
-            generatedCode: { constBindings: true },
-            plugins: outputPlugins,
-            sourcemap
-         },
-         plugins: [
-            virtual({
-               pack: `export { default } from '@typhonjs-svelte/runtime-base/data/struct/cache/quick-lru';`
-            }),
-            typhonjsRuntime({ isLib, exclude: ['@typhonjs-svelte/runtime-base/data/struct/cache/quick-lru'] }),
-            resolve({ browser: true }),
-         ]
-      }
-   ];
+   const config = [];
 
    for (const [key, value] of Object.entries(bundleMap))
    {
