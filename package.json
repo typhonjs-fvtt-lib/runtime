@@ -225,19 +225,19 @@
   },
   "peerDependencies": {
     "vite": ">=4.3.0",
-    "svelte": ">4.x.x",
+    "svelte": ">=4.x.x",
     "svelte-preprocess": ">=5.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25",
     "@rollup/plugin-virtual": "^3",
     "@rollup/plugin-replace": "^5.0.2",
-    "@typhonjs-build-test/esm-d-ts": "^0.0.26",
+    "@typhonjs-build-test/esm-d-ts": "^0.0.27",
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.0.22",
     "@typhonjs-svelte/runtime-base": "github:typhonjs-svelte/runtime-base",
     "@typhonjs-tinymce/oembed": "^0.4.0",
     "@typhonjs-utils/file-util": "^0.0.10",
-    "colord-typhonjs": "github:typhonjs-node-utils/colord#0.0.1",
+    "colord-typhonjs": "github:typhonjs-svelte-scratch/colord#0.0.2",
     "dompurify": "3.0.3",
     "fs-extra": "^11",
     "magic-string": "^0.30.0",

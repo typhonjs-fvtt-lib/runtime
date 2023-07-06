@@ -225,15 +225,9 @@ for (const colordFile of colordFiles)
 {
    let destFile;
 
-   if (colordFile.endsWith('.mjs'))
+   if (colordFile.endsWith('.js') || colordFile.endsWith('.d.ts'))
    {
-      destFile = `./_dist/color/colord/${
-       path.relative('./node_modules/colord-typhonjs/dist', colordFile.replace(/\.mjs$/, '.js'))}`;
-   }
-   else if (colordFile.endsWith('.d.ts'))
-   {
-      destFile = `./_dist/color/colord/${
-       path.relative('./node_modules/colord-typhonjs/dist', colordFile)}`;
+      destFile = `./_dist/color/colord/${path.relative('./node_modules/colord-typhonjs/dist', colordFile)}`;
    }
    else
    {
