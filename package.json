@@ -1,7 +1,7 @@
 {
   "name": "@typhonjs-fvtt/runtime",
   "version": "0.0.22",
-  "description": "Provides a common runtime library module for Foundry VTT distributing: @typhonjs-fvtt/svelte, @typhonjs-plugin/manager, and much more.",
+  "description": "Provides an integrated runtime library for Foundry VTT & Svelte.",
   "license": "MPL-2.0",
   "type": "module",
   "author": "Michael Leahy <support@typhonjs.io> (https://github.com/typhonrt)",
@@ -235,7 +235,7 @@
     "@rollup/plugin-commonjs": "^25",
     "@rollup/plugin-virtual": "^3",
     "@rollup/plugin-replace": "^5.0.2",
-    "@typhonjs-build-test/esm-d-ts": "^0.0.28",
+    "@typhonjs-build-test/esm-d-ts": "^0.0.29",
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.0.22",
     "@typhonjs-svelte/runtime-base": "github:typhonjs-svelte/runtime-base",
     "@typhonjs-tinymce/oembed": "^0.4.0",
