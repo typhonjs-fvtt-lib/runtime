@@ -146,6 +146,14 @@
       "types": "./_dist/svelte/store/fvtt/index.d.ts",
       "import": "./_dist/svelte/store/fvtt/index.js"
     },
+    "./svelte/store/fvtt/document": {
+      "types": "./_dist/svelte/store/fvtt/document/index.d.ts",
+      "import": "./_dist/svelte/store/fvtt/document/index.js"
+    },
+    "./svelte/store/fvtt/settings": {
+      "types": "./_dist/svelte/store/fvtt/settings/index.d.ts",
+      "import": "./_dist/svelte/store/fvtt/settings/index.js"
+    },
     "./svelte/store/position": {
       "types": "./_dist/svelte/store/position/index.d.ts",
       "import": "./_dist/svelte/store/position/index.js"

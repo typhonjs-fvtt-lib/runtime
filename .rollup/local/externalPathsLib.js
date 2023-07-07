@@ -8,6 +8,8 @@ export const externalPathsLib = {
    // Note: `@typhonjs-fvtt/svelte/gsap/plugin` and `plugin/bonus` are compiled into end user package and not in the library.
    '@typhonjs-fvtt/svelte/helper': '/modules/typhonjs/remote/svelte/helper.js',
    '@typhonjs-fvtt/svelte/store/fvtt': '/modules/typhonjs/remote/svelte/store/fvtt.js',
+   '@typhonjs-fvtt/svelte/store/fvtt/document': '/modules/typhonjs/remote/svelte/store/fvtt/document.js',
+   '@typhonjs-fvtt/svelte/store/fvtt/settings': '/modules/typhonjs/remote/svelte/store/fvtt/settings.js',
 
    '@typhonjs-svelte/runtime-base/data/compress': '/modules/typhonjs/remote/data/compress.js',
    '@typhonjs-svelte/runtime-base/data/format/base64': '/modules/typhonjs/remote/data/format/base64.js',
