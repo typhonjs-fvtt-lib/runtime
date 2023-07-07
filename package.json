@@ -65,10 +65,6 @@
       "types": "./_dist/data/struct/search/trie/query/index.d.ts",
       "import": "./_dist/data/struct/search/trie/query/index.js"
     },
-    "./dompurify": {
-      "types": "./_dist/dompurify/index.d.ts",
-      "import": "./_dist/dompurify/index.js"
-    },
     "./math/gl-matrix": {
       "types": "./_dist/math/gl-matrix/index.d.ts",
       "import": "./_dist/math/gl-matrix/index.js"
@@ -96,6 +92,10 @@
     "./plugin/manager/eventbus/buses": {
       "types": "./_dist/plugin/manager/eventbus/buses/index.d.ts",
       "import": "./_dist/plugin/manager/eventbus/buses/index.js"
+    },
+    "./security/client/dompurify": {
+      "types": "./_dist/security/client/dompurify/index.d.ts",
+      "import": "./_dist/security/client/dompurify/index.js"
     },
     "./svelte/action/animate": {
       "types": "./_dist/svelte/action/animate/index.d.ts",

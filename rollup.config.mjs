@@ -21,12 +21,12 @@ const dtsPluginOptions = { bundlePackageExports: true };
 
 const s_MODULES_DOMPURIFY_LIB = [
    {
-      input: '.build/dompurify/DOMPurify.js',
+      input: '.build/dompurify/index.js',
       plugins: [
          resolve({ browser: true })
       ],
       output: {
-         file: 'remote/dompurify/DOMPurify.js',
+         file: 'remote/security/client/dompurify.js',
          format: 'es',
          generatedCode: { constBindings: true },
          sourcemap
@@ -37,13 +37,13 @@ const s_MODULES_DOMPURIFY_LIB = [
 const s_MODULES_DOMPURIFY_NPM = [
    {
       input: {
-         input: '.build/dompurify/DOMPurify.js',
+         input: '.build/dompurify/index.js',
          plugins: [
             resolve({ browser: true })
          ]
       },
       output: {
-         file: '_dist/dompurify/index.js',
+         file: '_dist/security/client/dompurify/index.js',
          format: 'es',
          generatedCode: { constBindings: true },
          sourcemap

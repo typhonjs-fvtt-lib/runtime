@@ -15,9 +15,6 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/color/colord/plugins/names': '/modules/typhonjs/remote/color/colord/plugins/names.js',
    '@typhonjs-fvtt/runtime/color/colord/plugins/xyz': '/modules/typhonjs/remote/color/colord/plugins/xyz.js',
 
-   '@typhonjs-fvtt/runtime/dompurify': '/modules/typhonjs/remote/dompurify/DOMPurify.js',
-   '@typhonjs-fvtt/runtime/dompurify/plugin/system': '/modules/typhonjs/remote/dompurify/plugin/system.js',
-
    // runtime-base mapping:
    '@typhonjs-fvtt/runtime/data/compress': '/modules/typhonjs/remote/data/compress.js',
    '@typhonjs-fvtt/runtime/data/format/base64': '/modules/typhonjs/remote/data/format/base64.js',
@@ -68,6 +65,8 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/svelte/store/fvtt': '/modules/typhonjs/remote/svelte/store/fvtt.js',
    '@typhonjs-fvtt/runtime/svelte/store/fvtt/document': '/modules/typhonjs/remote/svelte/store/fvtt/document.js',
    '@typhonjs-fvtt/runtime/svelte/store/fvtt/settings': '/modules/typhonjs/remote/svelte/store/fvtt/settings.js',
+
+   '@typhonjs-fvtt/runtime/security/client/dompurify': '/modules/typhonjs/remote/security/client/dompurify.js',
 
    '@typhonjs-fvtt/runtime/tinymce': '/modules/typhonjs/remote/tinymce/initializePlugins.js'
 }

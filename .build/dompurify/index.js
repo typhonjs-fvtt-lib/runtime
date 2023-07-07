@@ -1,7 +1,7 @@
 import DOMPurify from '../../node_modules/dompurify/dist/purify.es.js';
 
 // Only allow YouTube and Vimeo embeds through.
-const s_REGEX = new RegExp('^(https://www.youtube.com/embed/|https://player.vimeo.com/)');
+const s_REGEX_DOMPURIFY = new RegExp('^(https://www.youtube.com/embed/|https://player.vimeo.com/)');
 
 // When 'iframes' are allowed only accept ones where 'src' starts with a YouTube embed link; reject all others.
 DOMPurify.addHook('uponSanitizeElement', (node, data) =>
@@ -9,15 +9,20 @@ DOMPurify.addHook('uponSanitizeElement', (node, data) =>
    if (data.tagName === 'iframe')
    {
       const src = node.getAttribute('src') || '';
-      if (!s_REGEX.test(src))
+      if (!s_REGEX_DOMPURIFY.test(src))
       {
          return node.parentNode.removeChild(node);
       }
    }
 });
 
-// Provide a new method that allows 'iframe' but with the 'src' requirement defined above.
-// FORCE_BODY allows 'style' tags to be entered into TinyMCE code editor.
+/**
+ * Provides a sanitize method that allows 'iframe' but only with sources from YouTube and Vimeo.
+ *
+ * @param {string | Node}   dirty - The content to sanitize.
+ *
+ * @returns {any}
+ */
 DOMPurify.sanitizeWithVideo = (dirty) =>
 {
    return DOMPurify.sanitize(dirty, {
@@ -28,6 +33,7 @@ DOMPurify.sanitizeWithVideo = (dirty) =>
          attributeNameCheck: () => true,        // allow all attributes.
          allowCustomizedBuiltInElements: true   // allow customized built-ins.
       },
+      // Note: FORCE_BODY allows 'style' tags to be entered into TinyMCE code editor.
       FORCE_BODY: true
    });
 };
