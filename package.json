@@ -231,16 +231,11 @@
     "postcss-preset-env": "^8",
     "sass": "^1"
   },
-  "peerDependencies": {
-    "vite": ">=4.3.0",
-    "svelte": ">=4.x.x",
-    "svelte-preprocess": ">=5.0.0"
-  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25",
     "@rollup/plugin-virtual": "^3",
     "@rollup/plugin-replace": "^5.0.2",
-    "@typhonjs-build-test/esm-d-ts": "^0.0.27",
+    "@typhonjs-build-test/esm-d-ts": "^0.0.28",
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.0.22",
     "@typhonjs-svelte/runtime-base": "github:typhonjs-svelte/runtime-base",
     "@typhonjs-tinymce/oembed": "^0.4.0",
@@ -253,6 +248,14 @@
     "rollup-plugin-postcss": "^4",
     "rollup-plugin-svelte": "^7",
     "upath": "^2"
+  },
+  "peerDependencies": {
+    "vite": ">=4.3.0",
+    "svelte": ">=4.x.x",
+    "svelte-preprocess": ">=5.0.0"
+  },
+  "engines": {
+    "node": ">=16"
   },
   "scripts": {
     "build": "rollup --config",
