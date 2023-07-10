@@ -8,42 +8,54 @@
 [![License](https://img.shields.io/badge/license-MPLv2-yellowgreen.svg?style=flat)](https://github.com/typhonjs-fvtt/fvttdev/blob/main/LICENSE)
 
 ## About:
-The TyphonJS Runtime Library (TRL) brings an exciting new library resource for all [Foundry VTT](https://foundryvtt.com/) 
+The TyphonJS Runtime Library (TRL) brings an exciting new library resource for all [Foundry VTT](https://foundryvtt.com/)
 developers to build advanced modules and game systems using [Svelte](https://svelte.dev/). A Svelte UI component library
-built for Foundry and extensions to the core Foundry UI / Application framework make it easy to create declarative 
-Svelte based UIs in a method familiar to Foundry VTT developers. The core UI component framework contains reactive 
+built for Foundry and extensions to the core Foundry UI / Application framework make it easy to create declarative
+Svelte based UIs in a method familiar to Foundry VTT developers. The core UI component framework contains reactive
 "application shells" that provide an enhanced ability to control your UI / window experience including intro and outro
 transitions along with supporting key UI elements like context menus and a new backward compatible and API compliant Dialog
 component that features a modal dialog option.
 
 TRL is innovative as it delivers a runtime library module for Foundry that packages up the runtime in a way that
 can be shared across any number of modules / game systems utilizing it thereby saving a lot of space in any given
-module or game system and across all Foundry packages that incorporate the runtime library module. Optionally, it is 
-possible to also bundle TRL directly into your module or game system. The TRL is both a Foundry library module and a
-NPM package providing the development dependency utilized while authoring a Foundry package. 
+module or game system and across all Foundry packages that incorporate the runtime library module. Optionally, it is
+possible to also bundle TRL directly into your module or game system. The TRL is both a Foundry library module
+(forthcoming) and a NPM package providing the development dependency utilized while authoring a Foundry package.
+
+## Installation:
+In your `package.json` `imports` and `dependencies` include:
+```json
+{
+  "imports": {
+    "#runtime/*": "@typhonjs-fvtt/runtime/*"
+  },
+  "dependencies": {
+    "@typhonjs-fvtt/runtime": "^0.1.0",
+    "svelte": "^4.0.0"
+  }
+}
+```
+
+You may use the highest released Svelte version greater than `4.0.0`. It is recommended that you view the demo examples
+for the rest of the standard configuration details which use Vite for building your package.
+
+## API Documentation:
+The initial beta release of TRL now has unified API documentation for all ESM packages
+[available here](https://typhonjs-fvtt-lib.github.io/api-docs/). Work is still ongoing to provide type declarations and
+documentation for all of the Svelte components available in TRL.
 
 ## ES Module Demo Module:
-- [essential-svelte-esm](https://github.com/typhonjs-fvtt-demo/essential-svelte-esm) for a demo repo 
+- [essential-svelte-esm](https://github.com/typhonjs-fvtt-demo/essential-svelte-esm) for a demo repo
 w/ several basic TRL / Foundry examples utilizing the TRL.
 
-- [template-svelte-esm](https://github.com/typhonjs-fvtt-demo/template-svelte-esm) for a starter bare bones template 
+- [template-svelte-esm](https://github.com/typhonjs-fvtt-demo/template-svelte-esm) for a starter bare bones template
 repo to duplicate for your own module.
 
-- [typhonjs-fvtt-demo organization](https://github.com/typhonjs-fvtt-demo/) for  
+- [typhonjs-fvtt-demo organization](https://github.com/typhonjs-fvtt-demo/) for
 all demo repos.
 
-## Typescript Demo Module (forthcoming):
-The TRL uses the latest NPM / `package.json` submodule exports capability and alas while support for this was slated 
-for Typescript `4.5` it was pushed back to `4.7` [at the last minute](https://devblogs.microsoft.com/typescript/announcing-typescript-4-5/#esm-nodejs). 
-Typescript developers will have to wait until Typescript `4.7` is released.
-
-## Direct Foundry Install Link (experimental)
-The TRL library module is available from the Foundry VTT package manager, but you may install it directly with the 
-following link by pasting it into `manifest URL` field in the `add-on modules / install module` screen:
-`https://github.com/typhonjs-fvtt-lib/typhonjs/releases/latest/download/module.json`
-
 ## Roadmap:
-The following roadmap contains a high level overview of aspects that will be added to the TRL. 
+The following roadmap contains a high level overview of aspects that will be added to the TRL.
 
-- Complete built in Position animation system
+- Complete native Svelte drag and drop support with support for reactive embedded collections.
 - Continue to add relevant core components useful in standard Foundry UI development.
