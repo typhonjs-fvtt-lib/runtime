@@ -1,6 +1,7 @@
 # Changelog
 ## Release 0.1.0 (major)
 - Updated @typhonjs-fvtt/svelte to ['0.1.0'](https://github.com/typhonjs-fvtt-lib/svelte/blob/main/CHANGELOG.md#release-010-major).
+- Many import paths have changed; please refer to release notes and discussion in Discord.
 - Svelte v4+ required.
 
 ## Release 0.0.22 (major)
