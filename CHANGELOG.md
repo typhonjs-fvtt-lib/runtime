@@ -1,4 +1,8 @@
 # Changelog
+## Release 0.1.0 (major)
+- Updated @typhonjs-fvtt/svelte to ['0.1.0'](https://github.com/typhonjs-fvtt-lib/svelte/blob/main/CHANGELOG.md#release-010-major).
+- Svelte v4+ required.
+
 ## Release 0.0.22 (major)
 - Updated @typhonjs-fvtt/svelte to ['0.0.22'](https://github.com/typhonjs-fvtt-lib/svelte/blob/main/CHANGELOG.md#release-0022).
 
@@ -20,7 +24,7 @@
 ## Release 0.0.17 (major dependency update)
 - Updated @typhonjs-fvtt/svelte to ['0.0.17'](https://github.com/typhonjs-fvtt-lib/svelte/blob/main/CHANGELOG.md#release-0017).
 - Switch to Vite as preferred bundler / dev build dependency
-- Full Svelte HMR support. 
+- Full Svelte HMR support.
 
 ## Release 0.0.16
 - Updated @typhonjs-fvtt/svelte to ['0.0.16'](https://github.com/typhonjs-fvtt-lib/svelte/blob/main/CHANGELOG.md#release-0016).
@@ -58,7 +62,7 @@
 
 ## Release 0.0.4
 - fixed current_component issue for tick & flush for the module / lib runtime version.
- 
+
 ## Release 0.0.3
 - Updated @typhonjs-fvtt/svelte to ['0.0.3'](https://github.com/typhonjs-fvtt-lib/svelte/blob/main/CHANGELOG.md#release-003).
 - added `chroma-js` as @typhonjs-fvtt/runtime/color/chroma-js
