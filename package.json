@@ -1,6 +1,6 @@
 {
   "name": "@typhonjs-fvtt/runtime",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Provides an integrated runtime library for Foundry VTT & Svelte.",
   "license": "MPL-2.0",
   "type": "module",
@@ -236,7 +236,7 @@
     "@rollup/plugin-virtual": "^3",
     "@rollup/plugin-replace": "^5.0.2",
     "@typhonjs-build-test/esm-d-ts": "^0.1.0",
-    "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.1.0",
+    "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.1.1",
     "@typhonjs-svelte/runtime-base": "github:typhonjs-svelte/runtime-base#0.1.0",
     "@typhonjs-tinymce/oembed": "^0.4.0",
     "@typhonjs-utils/file-util": "^0.0.10",
