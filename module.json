@@ -13,7 +13,7 @@
   "readme": "https://github.com/typhonjs-fvtt-lib/typhonjs/blob/master/README.md",
   "bugs": "https://github.com/typhonjs-fvtt-lib/typhonjs/issues",
   "changelog": "https://github.com/typhonjs-fvtt-lib/typhonjs/releases/latest/",
-  "version": "0.0.22",
+  "version": "0.1.2",
   "compatibility": {
     "minimum": "10",
     "verified": "11"
@@ -24,7 +24,7 @@
   ],
   "socket": false,
   "manifest": "https://github.com/typhonjs-fvtt-lib/typhonjs/releases/latest/download/module.json",
-  "download": "https://github.com/typhonjs-fvtt-lib/typhonjs/releases/download/0.0.20/module.zip",
+  "download": "https://github.com/typhonjs-fvtt-lib/typhonjs/releases/download/0.1.2/module.zip",
   "protected": false,
   "coreTranslation": false,
   "library": true
