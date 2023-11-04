@@ -112,17 +112,11 @@
     "./svelte/application": {
       "import": "./_dist/svelte/application/index.js"
     },
-    "./svelte/application/dialog": {
-      "import": "./_dist/svelte/application/dialog/index.js"
-    },
     "./svelte/application/legacy": {
       "import": "./_dist/svelte/application/legacy/index.js"
     },
     "./svelte/component/core": {
       "import": "./_dist/svelte/component/core/index.js"
-    },
-    "./svelte/component/dialog": {
-      "import": "./_dist/svelte/component/dialog/index.js"
     },
     "./svelte/gsap": {
       "types": "./_dist/svelte/gsap/index.d.ts",
@@ -217,6 +211,7 @@
     "./package.json": "./package.json"
   },
   "sideEffects": [
+    "./_dist/svelte/application/index.js",
     "./_dist/svelte/component/core/index.js",
     "./_dist/svelte/gsap/plugin/*.js",
     "./_dist/svelte/gsap/plugin/bonus/*.js",
@@ -241,7 +236,7 @@
     "@typhonjs-tinymce/oembed": "^0.4.0",
     "@typhonjs-utils/file-util": "^0.0.10",
     "colord-typhonjs": "github:typhonjs-svelte-scratch/colord#0.0.2",
-    "dompurify": "3.0.5",
+    "dompurify": "3.0.6",
     "fs-extra": "^11",
     "magic-string": "^0.30.0",
     "rollup": "^3",
