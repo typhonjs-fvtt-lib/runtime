@@ -24,7 +24,7 @@ export function createSvelteNPMConfig({ sourcemap, outputPlugins = [] })
 
    for (const entry of exportsSveltePackage)
    {
-      if (entry === 'component/core' || entry === 'component/dialog') { /* noop */ }
+      if (entry === 'component/core') { /* noop */ }
       else
       {
          config.push({

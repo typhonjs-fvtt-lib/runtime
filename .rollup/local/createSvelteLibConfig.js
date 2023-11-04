@@ -13,9 +13,7 @@ const bundleMap = {
    // These are handled manually below:
    // 'svelte': ['svelte'],
    // 'svelte/component/core': ['../../node_modules/@typhonjs-fvtt/svelte/src/component/core'],
-   // 'svelte/component/dialog': ['../../node_modules/@typhonjs-fvtt/svelte/src/component/dialog'],
    'svelte/application': ['@typhonjs-fvtt/svelte/application'],
-   'svelte/application/dialog': ['@typhonjs-fvtt/svelte/application/dialog'],
    'svelte/application/legacy': ['@typhonjs-fvtt/svelte/application/legacy'],
    'svelte/gsap': ['@typhonjs-fvtt/svelte/gsap'],
    'svelte/helper': ['@typhonjs-fvtt/svelte/helper'],
@@ -78,28 +76,6 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins = [] })
                dedupe: ['svelte']
             }),
             typhonjsRuntime({ isLib, exclude: ['@typhonjs-fvtt/svelte/component/core'] }),
-         ]
-      },
-      {
-         input: 'pack',
-         output: {
-            file: 'remote/svelte/component/dialog.js',
-            format: 'es',
-            generatedCode: { constBindings: true },
-            plugins: outputPlugins,
-            sourcemap
-         },
-         plugins: [
-            virtual({
-               pack: `export * from './node_modules/@typhonjs-fvtt/svelte/_dist/component/dialog';`
-            }),
-            svelte(),
-            postcss(postcssCore),
-            resolve({
-               browser: true,
-               dedupe: ['svelte']
-            }),
-            typhonjsRuntime({ isLib, exclude: ['@typhonjs-fvtt/svelte/component/dialog'] }),
          ]
       }
    ];
