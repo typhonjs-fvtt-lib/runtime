@@ -219,7 +219,7 @@
   ],
   "dependencies": {
     "@rollup/plugin-node-resolve": "^15",
-    "@sveltejs/vite-plugin-svelte": "^2",
+    "@sveltejs/vite-plugin-svelte": "^3",
     "autoprefixer": "^10",
     "cssnano": "^6",
     "postcss": "^8",
@@ -227,21 +227,21 @@
     "sass": "^1"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^25",
-    "@rollup/plugin-virtual": "^3",
-    "@rollup/plugin-replace": "^5.0.2",
-    "@typhonjs-build-test/esm-d-ts": "^0.1.0",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-virtual": "^3.0.2",
+    "@rollup/plugin-replace": "^5.0.5",
+    "@typhonjs-build-test/esm-d-ts": "0.2.0-next.1",
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.1.2",
     "@typhonjs-svelte/runtime-base": "github:typhonjs-svelte/runtime-base#0.1.1",
     "@typhonjs-tinymce/oembed": "^0.4.0",
     "@typhonjs-utils/file-util": "^0.0.10",
     "colord-typhonjs": "github:typhonjs-svelte-scratch/colord#0.0.2",
     "dompurify": "3.0.6",
-    "fs-extra": "^11",
-    "magic-string": "^0.30.0",
-    "rollup": "^3",
-    "rollup-plugin-postcss": "^4",
-    "rollup-plugin-svelte": "^7",
+    "fs-extra": "^11.1.1",
+    "magic-string": "^0.30.5",
+    "rollup": "^4.4.1",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-svelte": "^7.1.6",
     "upath": "^2"
   },
   "peerDependencies": {
@@ -250,7 +250,7 @@
     "svelte-preprocess": ">=5.0.0"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "scripts": {
     "build": "rollup --config",
