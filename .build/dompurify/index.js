@@ -1,4 +1,4 @@
-import DOMPurify from '../../node_modules/dompurify/dist/purify.es.js';
+import DOMPurify from '../../node_modules/dompurify/dist/purify.es.mjs';
 
 // Only allow YouTube and Vimeo embeds through.
 const s_REGEX_DOMPURIFY = new RegExp('^(https://www.youtube.com/embed/|https://player.vimeo.com/)');
