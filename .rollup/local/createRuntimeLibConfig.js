@@ -39,6 +39,7 @@ const bundleMap = {
    'util/animate': ['@typhonjs-svelte/runtime-base/util/animate'],
    'util/async': ['@typhonjs-svelte/runtime-base/util/async'],
    'util/browser': ['@typhonjs-svelte/runtime-base/util/browser'],
+   'util/loader-module': ['@typhonjs-svelte/runtime-base/util/loader-module'],
    'util/object': ['@typhonjs-svelte/runtime-base/util/object'],
    'util/store': ['@typhonjs-svelte/runtime-base/util/store']
 };

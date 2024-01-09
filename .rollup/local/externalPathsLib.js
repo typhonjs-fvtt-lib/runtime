@@ -42,6 +42,7 @@ export const externalPathsLib = {
    '@typhonjs-svelte/runtime-base/util/animate': '/modules/typhonjs/remote/util/animate.js',
    '@typhonjs-svelte/runtime-base/util/async': '/modules/typhonjs/remote/util/async.js',
    '@typhonjs-svelte/runtime-base/util/browser': '/modules/typhonjs/remote/util/browser.js',
+   '@typhonjs-svelte/runtime-base/util/loader-module': '/modules/typhonjs/remote/util/loader-module.js',
    '@typhonjs-svelte/runtime-base/util/object': '/modules/typhonjs/remote/util/object.js',
    '@typhonjs-svelte/runtime-base/util/store': '/modules/typhonjs/remote/util/store.js',
 
