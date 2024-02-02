@@ -13,6 +13,7 @@ const bundleMap = {
    // These are handled manually below:
    // 'svelte': ['svelte'],
    // 'svelte/component/core': ['../../node_modules/@typhonjs-fvtt/svelte/src/component/core'],
+   // 'svelte/component/internal': ['../../node_modules/@typhonjs-fvtt/svelte/src/component/internal'],
    'svelte/application': ['@typhonjs-fvtt/svelte/application'],
    'svelte/application/legacy': ['@typhonjs-fvtt/svelte/application/legacy'],
    'svelte/gsap': ['@typhonjs-fvtt/svelte/gsap'],
@@ -33,6 +34,12 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins = [] })
 
    const postcssCore = postcssConfig({
       extract: 'core.css',
+      compress: true,
+      sourceMap: sourcemap
+   });
+
+   const postcssInternal = postcssConfig({
+      extract: 'internal.css',
       compress: true,
       sourceMap: sourcemap
    });
@@ -76,6 +83,28 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins = [] })
                dedupe: ['svelte']
             }),
             typhonjsRuntime({ isLib, exclude: ['@typhonjs-fvtt/svelte/component/core'] }),
+         ]
+      },
+      {
+         input: 'pack',
+         output: {
+            file: 'remote/svelte/component/internal.js',
+            format: 'es',
+            generatedCode: { constBindings: true },
+            plugins: outputPlugins,
+            sourcemap
+         },
+         plugins: [
+            virtual({
+               pack: `export * from './node_modules/@typhonjs-fvtt/svelte/_dist/component/internal';`
+            }),
+            svelte(),
+            postcss(postcssInternal),
+            resolve({
+               browser: true,
+               dedupe: ['svelte']
+            }),
+            typhonjsRuntime({ isLib, exclude: ['@typhonjs-fvtt/svelte/component/internal'] }),
          ]
       }
    ];

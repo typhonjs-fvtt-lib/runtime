@@ -24,31 +24,29 @@ export function createSvelteNPMConfig({ sourcemap, outputPlugins = [] })
 
    for (const entry of exportsSveltePackage)
    {
-      if (entry === 'component/core') { /* noop */ }
-      else
-      {
-         config.push({
-            input: {
-               input: 'pack',
-               plugins: [
-                  virtual({
-                     pack: `export * from '@typhonjs-fvtt/svelte/${entry}';`
-                  }),
-                  typhonjsRuntime({ isLib: false, exclude: [`@typhonjs-fvtt/svelte/${entry}`] }),
-                  resolve(s_RESOLVE_CONFIG),
-               ]
-            },
-            copyDTS: `${distPath}${path.sep}${entry}${path.sep}index.d.ts`,   // Copy the declarations
-            output: {
-               file: `./_dist/svelte/${entry}/index.js`,
-               format: 'es',
-               generatedCode: { constBindings: true },
-               paths: externalPathsNPM,
-               plugins: outputPlugins,
-               sourcemap
-            }
-         });
-      }
+      if (entry === 'component/core' || entry === 'component/internal') { continue; }
+
+      config.push({
+         input: {
+            input: 'pack',
+            plugins: [
+               virtual({
+                  pack: `export * from '@typhonjs-fvtt/svelte/${entry}';`
+               }),
+               typhonjsRuntime({ isLib: false, exclude: [`@typhonjs-fvtt/svelte/${entry}`] }),
+               resolve(s_RESOLVE_CONFIG),
+            ]
+         },
+         copyDTS: `${distPath}${path.sep}${entry}${path.sep}index.d.ts`,   // Copy the declarations
+         output: {
+            file: `./_dist/svelte/${entry}/index.js`,
+            format: 'es',
+            generatedCode: { constBindings: true },
+            paths: externalPathsNPM,
+            plugins: outputPlugins,
+            sourcemap
+         }
+      });
    }
 
    return config;
