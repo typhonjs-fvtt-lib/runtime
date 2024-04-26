@@ -123,6 +123,10 @@
       "types": "./_dist/svelte/component/internal/index.d.ts",
       "import": "./_dist/svelte/component/internal/index.js"
     },
+    "./svelte/easing": {
+      "types": "./_dist/svelte/easing/index.d.ts",
+      "import": "./_dist/svelte/easing/index.js"
+    },
     "./svelte/gsap": {
       "types": "./_dist/svelte/gsap/index.d.ts",
       "import": "./_dist/svelte/gsap/index.js"
@@ -239,18 +243,18 @@
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-virtual": "^3.0.2",
     "@rollup/plugin-replace": "^5.0.5",
-    "@typhonjs-build-test/esm-d-ts": "^0.2.1",
+    "@typhonjs-build-test/esm-d-ts": "^0.3.0-next.3",
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte",
     "@typhonjs-svelte/runtime-base": "github:typhonjs-svelte/runtime-base",
     "@typhonjs-tinymce/oembed": "^0.4.0",
     "@typhonjs-utils/file-util": "^0.1.0",
     "colord-typhonjs": "github:typhonjs-svelte-scratch/colord#0.0.2",
-    "dompurify": "3.0.8",
+    "dompurify": "3.0.11",
     "fs-extra": "^11.2.0",
-    "magic-string": "^0.30.5",
-    "rollup": "^4.9.5",
+    "magic-string": "^0.30.8",
+    "rollup": "^4.13.2",
     "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-svelte": "^7.1.6",
+    "rollup-plugin-svelte": "^7.2.0",
     "upath": "^2"
   },
   "peerDependencies": {
