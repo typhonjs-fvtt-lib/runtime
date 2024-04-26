@@ -30,6 +30,7 @@ export const externalPathsLib = {
    '@typhonjs-svelte/runtime-base/svelte/action/animate': '/modules/typhonjs/remote/svelte/action/animate.js',
    '@typhonjs-svelte/runtime-base/svelte/action/dom': '/modules/typhonjs/remote/svelte/action/dom.js',
    '@typhonjs-svelte/runtime-base/svelte/animate': '/modules/typhonjs/remote/svelte/animate.js',
+   '@typhonjs-svelte/runtime-base/svelte/easing': '/modules/typhonjs/remote/svelte/easing.js',
    '@typhonjs-svelte/runtime-base/svelte/store/dom': '/modules/typhonjs/remote/svelte/store/dom.js',
    '@typhonjs-svelte/runtime-base/svelte/store/position': '/modules/typhonjs/remote/svelte/store/position.js',
    '@typhonjs-svelte/runtime-base/svelte/store/reducer': '/modules/typhonjs/remote/svelte/store/reducer.js',

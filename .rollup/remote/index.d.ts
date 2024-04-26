@@ -11,17 +11,21 @@
  *
  * @returns {{extensions: string[], extract, sourceMap: boolean, plugins: (*)[], use: string[], inject: boolean}} PostCSS config
  */
-declare function postcssConfig({ extract, compress, sourceMap }?: {
-    extract?: string;
-    compress?: boolean;
-    sourceMap?: boolean;
+declare function postcssConfig({
+  extract,
+  compress,
+  sourceMap,
+}?: {
+  extract?: string;
+  compress?: boolean;
+  sourceMap?: boolean;
 }): {
-    extensions: string[];
-    extract: any;
-    sourceMap: boolean;
-    plugins: (any)[];
-    use: string[];
-    inject: boolean;
+  extensions: string[];
+  extract: any;
+  sourceMap: boolean;
+  plugins: any[];
+  use: string[];
+  inject: boolean;
 };
 
 /**
@@ -37,9 +41,12 @@ declare function postcssConfig({ extract, compress, sourceMap }?: {
  *
  * @returns {import('terser').MinifyOptions} A Terser configuration file.
  */
-declare function terserConfig({ keep_classnames, keep_fnames }?: {
-    keep_classnames?: boolean;
-    keep_fnames?: boolean | RegExp;
+declare function terserConfig({
+  keep_classnames,
+  keep_fnames,
+}?: {
+  keep_classnames?: boolean;
+  keep_fnames?: boolean | RegExp;
 }): any;
 
 /**
@@ -50,8 +57,8 @@ declare function terserConfig({ keep_classnames, keep_fnames }?: {
  * @returns {{name: string, options(*): void}} The plugin.
  */
 declare function typhonjsRuntime(): {
-    name: string;
-    options(): void;
+  name: string;
+  options(): void;
 };
 
 export { postcssConfig, terserConfig, typhonjsRuntime };
