@@ -105,6 +105,10 @@
       "types": "./_dist/svelte/action/dom/index.d.ts",
       "import": "./_dist/svelte/action/dom/index.js"
     },
+    "./svelte/action/util": {
+      "types": "./_dist/svelte/action/util/index.d.ts",
+      "import": "./_dist/svelte/action/util/index.js"
+    },
     "./svelte/animate": {
       "types": "./_dist/svelte/animate/index.d.ts",
       "import": "./_dist/svelte/animate/index.js"

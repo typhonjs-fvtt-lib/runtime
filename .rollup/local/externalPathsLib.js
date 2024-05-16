@@ -29,6 +29,7 @@ export const externalPathsLib = {
    '@typhonjs-svelte/runtime-base/plugin/manager/eventbus/buses': '/modules/typhonjs/remote/plugin/manager/eventbus/buses.js',
    '@typhonjs-svelte/runtime-base/svelte/action/animate': '/modules/typhonjs/remote/svelte/action/animate.js',
    '@typhonjs-svelte/runtime-base/svelte/action/dom': '/modules/typhonjs/remote/svelte/action/dom.js',
+   '@typhonjs-svelte/runtime-base/svelte/action/util': '/modules/typhonjs/remote/svelte/action/util.js',
    '@typhonjs-svelte/runtime-base/svelte/animate': '/modules/typhonjs/remote/svelte/animate.js',
    '@typhonjs-svelte/runtime-base/svelte/easing': '/modules/typhonjs/remote/svelte/easing.js',
    '@typhonjs-svelte/runtime-base/svelte/store/dom': '/modules/typhonjs/remote/svelte/store/dom.js',
