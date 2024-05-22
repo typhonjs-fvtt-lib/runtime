@@ -1,6 +1,6 @@
 ![@typhonjs-fvtt/runtime](https://i.imgur.com/dxLcZrL.jpg)
 
-[![TyphonJS Discord](https://img.shields.io/discord/737953117999726592?label=TyphonJS%20Discord)](https://discord.gg/mnbgN8f)
+[![TyphonJS Discord](https://img.shields.io/discord/737953117999726592?label=TyphonJS%20Discord)](https://typhonjs.io/discord/)
 [![Twitch](https://img.shields.io/twitch/status/typhonrt?style=social)](https://www.twitch.tv/typhonrt)
 
 [![NPM](https://img.shields.io/npm/v/@typhonjs-fvtt/runtime.svg?label=npm)](https://www.npmjs.com/package/@typhonjs-fvtt/runtime)
