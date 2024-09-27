@@ -54,11 +54,12 @@ declare function terserConfig({
  *
  * Add this plugin to substitute NPM module paths for the Foundry VTT hosted module.
  *
- * @returns {{name: string, options(*): void}} The plugin.
+ * @returns {{name: string, options: (object) => void, outputOptions: (object) => void}} The plugin.
  */
 declare function typhonjsRuntime(): {
   name: string;
-  options(): void;
+  options: (object: any) => void;
+  outputOptions: (object: any) => void;
 };
 
 export { postcssConfig, terserConfig, typhonjsRuntime };
