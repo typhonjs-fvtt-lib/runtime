@@ -235,35 +235,35 @@
     "./_dist/tinymce/initializePlugins.js"
   ],
   "dependencies": {
-    "@rollup/plugin-node-resolve": "^15",
-    "@sveltejs/vite-plugin-svelte": "^3",
-    "autoprefixer": "^10",
-    "cssnano": "^6",
-    "postcss": "^8",
-    "postcss-preset-env": "^9",
-    "sass": "^1"
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@sveltejs/vite-plugin-svelte": "^3.1.2",
+    "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.6",
+    "postcss": "^8.4.47",
+    "postcss-preset-env": "^10.0.5",
+    "sass": "^1.79.3"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-commonjs": "^28.0.0",
     "@rollup/plugin-virtual": "^3.0.2",
-    "@rollup/plugin-replace": "^5.0.5",
-    "@typhonjs-build-test/esm-d-ts": "^0.3.0-next.3",
+    "@rollup/plugin-replace": "^6.0.1",
+    "@typhonjs-build-test/esm-d-ts": "^0.3.0-next.8",
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte",
     "@typhonjs-svelte/runtime-base": "github:typhonjs-svelte/runtime-base",
     "@typhonjs-tinymce/oembed": "^0.4.0",
     "@typhonjs-utils/file-util": "^0.1.0",
     "colord-typhonjs": "github:typhonjs-svelte-scratch/colord#0.0.2",
-    "dompurify": "3.0.11",
+    "dompurify": "3.1.7",
     "fs-extra": "^11.2.0",
-    "magic-string": "^0.30.8",
-    "rollup": "^4.13.2",
+    "magic-string": "^0.30.11",
+    "rollup": "^4.22.4",
     "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-svelte": "^7.2.0",
+    "rollup-plugin-svelte": "^7.2.2",
     "upath": "^2"
   },
   "peerDependencies": {
     "vite": ">=5.0.0",
-    "svelte": ">=4.x.x",
+    "svelte": ">=4.x.x <5",
     "svelte-preprocess": ">=5.1.0"
   },
   "engines": {
