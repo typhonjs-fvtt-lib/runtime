@@ -21,6 +21,7 @@ const bundleMap = {
    'svelte/store/fvtt': ['@typhonjs-fvtt/svelte/store/fvtt'],
    'svelte/store/fvtt/document': ['@typhonjs-fvtt/svelte/store/fvtt/document'],
    'svelte/store/fvtt/settings': ['@typhonjs-fvtt/svelte/store/fvtt/settings'],
+   'svelte/store/fvtt/settings/world': ['@typhonjs-fvtt/svelte/store/fvtt/settings/world'],
 
    // TODO: combining both packages here will duplicate the easing functions in the lib bundle.
    'svelte/easing': ['svelte/easing', '@typhonjs-svelte/runtime-base/svelte/easing'],

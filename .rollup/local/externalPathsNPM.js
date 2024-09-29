@@ -10,6 +10,7 @@ export const externalPathsNPM = {
    '@typhonjs-fvtt/svelte/store/fvtt': '@typhonjs-fvtt/runtime/svelte/store/fvtt',
    '@typhonjs-fvtt/svelte/store/fvtt/document': '@typhonjs-fvtt/runtime/svelte/store/fvtt/document',
    '@typhonjs-fvtt/svelte/store/fvtt/settings': '@typhonjs-fvtt/runtime/svelte/store/fvtt/settings',
+   '@typhonjs-fvtt/svelte/store/fvtt/settings/world': '@typhonjs-fvtt/runtime/svelte/store/fvtt/settings/world',
 
    '@typhonjs-svelte/runtime-base/data/compress': '@typhonjs-fvtt/runtime/data/compress',
    '@typhonjs-svelte/runtime-base/data/format/base64': '@typhonjs-fvtt/runtime/data/format/base64',

@@ -161,6 +161,10 @@
       "types": "./_dist/svelte/store/fvtt/settings/index.d.ts",
       "import": "./_dist/svelte/store/fvtt/settings/index.js"
     },
+    "./svelte/store/fvtt/settings/world": {
+      "types": "./_dist/svelte/store/fvtt/settings/world/index.d.ts",
+      "import": "./_dist/svelte/store/fvtt/settings/world/index.js"
+    },
     "./svelte/store/position": {
       "types": "./_dist/svelte/store/position/index.d.ts",
       "import": "./_dist/svelte/store/position/index.js"

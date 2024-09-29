@@ -9,6 +9,7 @@ export const externalPathsLib = {
    '@typhonjs-fvtt/svelte/store/fvtt': '/modules/typhonjs/remote/svelte/store/fvtt.js',
    '@typhonjs-fvtt/svelte/store/fvtt/document': '/modules/typhonjs/remote/svelte/store/fvtt/document.js',
    '@typhonjs-fvtt/svelte/store/fvtt/settings': '/modules/typhonjs/remote/svelte/store/fvtt/settings.js',
+   '@typhonjs-fvtt/svelte/store/fvtt/settings/world': '/modules/typhonjs/remote/svelte/store/fvtt/settings/world.js',
 
    '@typhonjs-svelte/runtime-base/data/compress': '/modules/typhonjs/remote/data/compress.js',
    '@typhonjs-svelte/runtime-base/data/format/base64': '/modules/typhonjs/remote/data/format/base64.js',
