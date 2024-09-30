@@ -11,6 +11,7 @@ export const externalPathsLib = {
    '@typhonjs-fvtt/svelte/store/fvtt/settings': '/modules/typhonjs/remote/svelte/store/fvtt/settings.js',
    '@typhonjs-fvtt/svelte/store/fvtt/settings/world': '/modules/typhonjs/remote/svelte/store/fvtt/settings/world.js',
 
+   '@typhonjs-svelte/runtime-base/data/color/colord': '/modules/typhonjs/remote/data/color/colord.js',
    '@typhonjs-svelte/runtime-base/data/compress': '/modules/typhonjs/remote/data/compress.js',
    '@typhonjs-svelte/runtime-base/data/format/base64': '/modules/typhonjs/remote/data/format/base64.js',
    '@typhonjs-svelte/runtime-base/data/format/json5': '/modules/typhonjs/remote/data/format/json5.js',
@@ -49,18 +50,6 @@ export const externalPathsLib = {
    '@typhonjs-svelte/runtime-base/util/loader-module': '/modules/typhonjs/remote/util/loader-module.js',
    '@typhonjs-svelte/runtime-base/util/object': '/modules/typhonjs/remote/util/object.js',
    '@typhonjs-svelte/runtime-base/util/store': '/modules/typhonjs/remote/util/store.js',
-
-   'colord': '/modules/typhonjs/remote/color/colord/index.js',
-   'colord/plugins/a11y': '/modules/typhonjs/remote/color/colord/plugins/a11y.js',
-   'colord/plugins/cmyk': '/modules/typhonjs/remote/color/colord/plugins/cmyk.js',
-   'colord/plugins/harmonies': '/modules/typhonjs/remote/color/colord/plugins/harmonies.js',
-   'colord/plugins/hwb': '/modules/typhonjs/remote/color/colord/plugins/hwb.js',
-   'colord/plugins/lab': '/modules/typhonjs/remote/color/colord/plugins/lab.js',
-   'colord/plugins/lch': '/modules/typhonjs/remote/color/colord/plugins/lch.js',
-   'colord/plugins/minify': '/modules/typhonjs/remote/color/colord/plugins/minify.js',
-   'colord/plugins/mix': '/modules/typhonjs/remote/color/colord/plugins/mix.js',
-   'colord/plugins/names': '/modules/typhonjs/remote/color/colord/plugins/names.js',
-   'colord/plugins/xyz': '/modules/typhonjs/remote/color/colord/plugins/xyz.js',
 
    'svelte': '/modules/typhonjs/remote/svelte/index.js',
    'svelte/animate': '/modules/typhonjs/remote/svelte/animate.js',

@@ -12,6 +12,7 @@ export const externalPathsNPM = {
    '@typhonjs-fvtt/svelte/store/fvtt/settings': '@typhonjs-fvtt/runtime/svelte/store/fvtt/settings',
    '@typhonjs-fvtt/svelte/store/fvtt/settings/world': '@typhonjs-fvtt/runtime/svelte/store/fvtt/settings/world',
 
+   '@typhonjs-svelte/runtime-base/data/color/colord': '@typhonjs-fvtt/runtime/data/color/colord',
    '@typhonjs-svelte/runtime-base/data/compress': '@typhonjs-fvtt/runtime/data/compress',
    '@typhonjs-svelte/runtime-base/data/format/base64': '@typhonjs-fvtt/runtime/data/format/base64',
    '@typhonjs-svelte/runtime-base/data/format/json5': '@typhonjs-fvtt/runtime/data/format/json5',
@@ -50,18 +51,6 @@ export const externalPathsNPM = {
    '@typhonjs-svelte/runtime-base/util/loader-module': '@typhonjs-fvtt/runtime/util/loader-module',
    '@typhonjs-svelte/runtime-base/util/object': '@typhonjs-fvtt/runtime/util/object',
    '@typhonjs-svelte/runtime-base/util/store': '@typhonjs-fvtt/runtime/util/store',
-
-   'colord': '@typhonjs-fvtt/runtime/color/colord',
-   'colord/plugins/a11y': '@typhonjs-fvtt/runtime/color/colord/plugins/a11y',
-   'colord/plugins/cmyk': '@typhonjs-fvtt/runtime/color/colord/plugins/cmyk',
-   'colord/plugins/harmonies': '@typhonjs-fvtt/runtime/color/colord/plugins/harmonies',
-   'colord/plugins/hwb': '@typhonjs-fvtt/runtime/color/colord/plugins/hwb',
-   'colord/plugins/lab': '@typhonjs-fvtt/runtime/color/colord/plugins/lab',
-   'colord/plugins/lch': '@typhonjs-fvtt/runtime/color/colord/plugins/lch',
-   'colord/plugins/minify': '@typhonjs-fvtt/runtime/color/colord/plugins/minify',
-   'colord/plugins/mix': '@typhonjs-fvtt/runtime/color/colord/plugins/mix',
-   'colord/plugins/names': '@typhonjs-fvtt/runtime/color/colord/plugins/names',
-   'colord/plugins/xyz': '@typhonjs-fvtt/runtime/color/colord/plugins/xyz',
 
    // Exclude as external, but do not translate module references.
    'svelte': 'svelte',

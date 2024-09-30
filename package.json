@@ -17,13 +17,9 @@
       "types": "./.rollup/remote/index.d.ts",
       "import": "./.rollup/remote/index.js"
     },
-    "./color/colord": {
-      "types": "./_dist/color/colord/index.d.ts",
-      "import": "./_dist/color/colord/index.js"
-    },
-    "./color/colord/plugins/*": {
-      "types": "./_dist/color/colord/plugins/*.d.ts",
-      "import": "./_dist/color/colord/plugins/*.js"
+    "./data/color/colord": {
+      "types": "./_dist/data/color/colord/index.d.ts",
+      "import": "./_dist/data/color/colord/index.js"
     },
     "./data/compress": {
       "types": "./_dist/data/compress/index.d.ts",
