@@ -1,5 +1,6 @@
 import path                from 'node:path';
 
+import alias               from '@rollup/plugin-alias';
 import resolve             from '@rollup/plugin-node-resolve';
 import { generateDTS }     from '@typhonjs-build-test/esm-d-ts';
 import { getFileList }     from '@typhonjs-utils/file-util';
@@ -12,6 +13,8 @@ import {
    createRuntimeNPMConfig,
    createSvelteLibConfig,
    createSvelteNPMConfig } from './.rollup/local/index.js';
+
+import { externalPathsRemote }   from './.rollup/remote/externalPathsRemote.js';
 
 // Defines whether source maps are generated / loaded from the .env file.
 const sourcemap = true;
@@ -86,11 +89,47 @@ const s_MODULES_TINYMCE_NPM = [
    }
 ];
 
+const s_MODULES_UTIL_I18N_LIB = [
+   {
+      input: '.build/i18n/index.js',
+      external: [/^@typhonjs-fvtt/],
+      plugins: [
+         resolve({ browser: true })
+      ],
+      output: {
+         file: 'remote/util/i18n.js',
+         paths: externalPathsRemote,
+         format: 'es',
+         generatedCode: { constBindings: true },
+         sourcemap
+      }
+   }
+];
+
+const s_MODULES_UTIL_I18N_NPM = [
+   {
+      input: {
+         external: [/^@typhonjs-fvtt/],
+         input: '.build/i18n/index.js',
+         plugins: [
+            resolve({ browser: true })
+         ]
+      },
+      output: {
+         file: '_dist/util/i18n/index.js',
+         format: 'es',
+         generatedCode: { constBindings: true },
+         sourcemap
+      }
+   }
+];
+
 const rollupPluginsNPM = [
    ...s_MODULES_DOMPURIFY_NPM,
    ...createRuntimeNPMConfig({ sourcemap }),
    ...createSvelteNPMConfig({ sourcemap }),
-   ...s_MODULES_TINYMCE_NPM
+   ...s_MODULES_TINYMCE_NPM,
+   ...s_MODULES_UTIL_I18N_NPM
 ];
 
 for (const config of rollupPluginsNPM)
@@ -259,6 +298,7 @@ export default () =>
       ...s_MODULES_DOMPURIFY_LIB,
       ...createRuntimeLibConfig({ sourcemap }),
       ...createSvelteLibConfig({ sourcemap }),
-      ...s_MODULES_TINYMCE_LIB
+      ...s_MODULES_TINYMCE_LIB,
+      ...s_MODULES_UTIL_I18N_LIB
    ];
 }
