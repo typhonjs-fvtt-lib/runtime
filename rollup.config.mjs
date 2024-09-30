@@ -255,40 +255,6 @@ await generateDTS({
    output: './.rollup/remote/index.d.ts',
 });
 
-// // Special handling for colord NPM module ----------------------------------------------------------------------------
-//
-// // Copy ESM distribution + TS declarations to `./_dist/color/colord/`
-// fs.emptyDirSync('./_dist/color/colord/');
-// let colordFiles = await getFileList({ dir: './node_modules/colord-typhonjs/dist', resolve: true, walk: true });
-// for (const colordFile of colordFiles)
-// {
-//    let destFile;
-//
-//    if (colordFile.endsWith('.js') || colordFile.endsWith('.d.ts'))
-//    {
-//       destFile = `./_dist/color/colord/${path.relative('./node_modules/colord-typhonjs/dist', colordFile)}`;
-//    }
-//    else
-//    {
-//       // Skip all other files.
-//       continue;
-//    }
-//
-//    fs.copySync(colordFile, destFile);
-// }
-//
-// // Copy ESM files from `./_dist/color/colord/` to remote distribution.
-// fs.emptyDirSync('./remote/color/colord/');
-// colordFiles = await getFileList({ dir: './_dist/color/colord', resolve: true, walk: true });
-// for (const colordFile of colordFiles)
-// {
-//    if (!colordFile.endsWith('.js')) { continue; }
-//
-//    const destFile = `./remote/color/colord/${path.relative('./_dist/color/colord', colordFile)}`;
-//
-//    fs.copySync(colordFile, destFile);
-// }
-
 // -------------------------------------------------------------------------------------------------------------------
 
 // We use rollup as per normal to generate the library bundles.
