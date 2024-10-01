@@ -213,6 +213,10 @@
       "types": "./_dist/util/browser/index.d.ts",
       "import": "./_dist/util/browser/index.js"
     },
+    "./util/dom/layout": {
+      "types": "./_dist/util/dom/layout/index.d.ts",
+      "import": "./_dist/util/dom/layout/index.js"
+    },
     "./util/dom/observer/resize": {
       "types": "./_dist/util/dom/observer/resize/index.d.ts",
       "import": "./_dist/util/dom/observer/resize/index.js"
