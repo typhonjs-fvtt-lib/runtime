@@ -201,6 +201,10 @@
       "types": "./_dist/util/index.d.ts",
       "import": "./_dist/util/index.js"
     },
+    "./util/a11y": {
+      "types": "./_dist/util/a11y/index.d.ts",
+      "import": "./_dist/util/a11y/index.js"
+    },
     "./util/animate": {
       "types": "./_dist/util/animate/index.d.ts",
       "import": "./_dist/util/animate/index.js"

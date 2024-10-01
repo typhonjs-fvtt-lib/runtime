@@ -39,6 +39,7 @@ const bundleMap = {
    'svelte/transition': ['svelte/transition', '@typhonjs-svelte/runtime-base/svelte/transition'],
    'svelte/util': ['@typhonjs-svelte/runtime-base/svelte/util'],
    'util': ['@typhonjs-svelte/runtime-base/util'],
+   'util/a11y': ['@typhonjs-svelte/runtime-base/util/a11y'],
    'util/animate': ['@typhonjs-svelte/runtime-base/util/animate'],
    'util/async': ['@typhonjs-svelte/runtime-base/util/async'],
    'util/browser': ['@typhonjs-svelte/runtime-base/util/browser'],
