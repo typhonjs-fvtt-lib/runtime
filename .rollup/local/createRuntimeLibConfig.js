@@ -9,6 +9,7 @@ const bundleMap = {
    'data/color/colord': ['@typhonjs-svelte/runtime-base/data/color/colord'],
    'data/compress': ['@typhonjs-svelte/runtime-base/data/compress'],
    'data/format/base64': ['@typhonjs-svelte/runtime-base/data/format/base64'],
+   'data/format/jsonc': ['@typhonjs-svelte/runtime-base/data/format/jsonc'],
    'data/format/json5': ['@typhonjs-svelte/runtime-base/data/format/json5'],
    'data/format/msgpack': ['@typhonjs-svelte/runtime-base/data/format/msgpack'],
    'data/format/msgpack/compress': ['@typhonjs-svelte/runtime-base/data/format/msgpack/compress'],

@@ -14,6 +14,7 @@ export const externalPathsLib = {
    '@typhonjs-svelte/runtime-base/data/color/colord': '/modules/typhonjs/remote/data/color/colord.js',
    '@typhonjs-svelte/runtime-base/data/compress': '/modules/typhonjs/remote/data/compress.js',
    '@typhonjs-svelte/runtime-base/data/format/base64': '/modules/typhonjs/remote/data/format/base64.js',
+   '@typhonjs-svelte/runtime-base/data/format/jsonc': '/modules/typhonjs/remote/data/format/jsonc.js',
    '@typhonjs-svelte/runtime-base/data/format/json5': '/modules/typhonjs/remote/data/format/json5.js',
    '@typhonjs-svelte/runtime-base/data/format/msgpack': '/modules/typhonjs/remote/data/format/msgpack.js',
    '@typhonjs-svelte/runtime-base/data/format/msgpack/compress': '/modules/typhonjs/remote/data/format/msgpack/compress.js',

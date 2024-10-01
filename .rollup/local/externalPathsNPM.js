@@ -15,6 +15,7 @@ export const externalPathsNPM = {
    '@typhonjs-svelte/runtime-base/data/color/colord': '@typhonjs-fvtt/runtime/data/color/colord',
    '@typhonjs-svelte/runtime-base/data/compress': '@typhonjs-fvtt/runtime/data/compress',
    '@typhonjs-svelte/runtime-base/data/format/base64': '@typhonjs-fvtt/runtime/data/format/base64',
+   '@typhonjs-svelte/runtime-base/data/format/jsonc': '@typhonjs-fvtt/runtime/data/format/jsonc',
    '@typhonjs-svelte/runtime-base/data/format/json5': '@typhonjs-fvtt/runtime/data/format/json5',
    '@typhonjs-svelte/runtime-base/data/format/msgpack': '@typhonjs-fvtt/runtime/data/format/msgpack',
    '@typhonjs-svelte/runtime-base/data/format/msgpack/compress': '@typhonjs-fvtt/runtime/data/format/msgpack/compress',

@@ -29,6 +29,10 @@
       "types": "./_dist/data/format/base64/index.d.ts",
       "import": "./_dist/data/format/base64/index.js"
     },
+    "./data/format/jsonc": {
+      "types": "./_dist/data/format/jsonc/index.d.ts",
+      "import": "./_dist/data/format/jsonc/index.js"
+    },
     "./data/format/json5": {
       "types": "./_dist/data/format/json5/index.d.ts",
       "import": "./_dist/data/format/json5/index.js"
