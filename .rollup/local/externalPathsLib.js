@@ -51,6 +51,7 @@ export const externalPathsLib = {
    '@typhonjs-svelte/runtime-base/util/dom/layout': '/modules/typhonjs/remote/dom/layout.js',
    '@typhonjs-svelte/runtime-base/util/dom/observer': '/modules/typhonjs/remote/dom/observer.js',
    '@typhonjs-svelte/runtime-base/util/dom/style': '/modules/typhonjs/remote/dom/style.js',
+   '@typhonjs-svelte/runtime-base/util/dom/tinykeys': '/modules/typhonjs/remote/dom/tinykeys.js',
    '@typhonjs-svelte/runtime-base/util/loader-module': '/modules/typhonjs/remote/util/loader-module.js',
    '@typhonjs-svelte/runtime-base/util/object': '/modules/typhonjs/remote/util/object.js',
    '@typhonjs-svelte/runtime-base/util/store': '/modules/typhonjs/remote/util/store.js',
