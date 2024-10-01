@@ -45,7 +45,7 @@ export const externalPathsRemote = {
    // typhonjs-fvtt/svelte mapping:
    '@typhonjs-fvtt/runtime/svelte/application': '/modules/typhonjs/remote/svelte/application.js',
    '@typhonjs-fvtt/runtime/svelte/application/legacy': '/modules/typhonjs/remote/svelte/application/legacy.js',
-   '@typhonjs-fvtt/runtime/svelte/component/core': '/modules/typhonjs/remote/svelte/component/core.js',
+   '@typhonjs-fvtt/runtime/svelte/component/application': '/modules/typhonjs/remote/svelte/component/application.js',
    '@typhonjs-fvtt/runtime/svelte/component/internal': '/modules/typhonjs/remote/svelte/component/internal.js',
    '@typhonjs-fvtt/runtime/svelte/gsap': '/modules/typhonjs/remote/svelte/gsap.js',
     // Note: `@typhonjs-fvtt/runtime/svelte/gsap/plugin` and `plugin/bonus` are compiled into end user package and not in the library.

@@ -119,9 +119,9 @@
     "./svelte/application/legacy": {
       "import": "./_dist/svelte/application/legacy/index.js"
     },
-    "./svelte/component/core": {
-      "types": "./_dist/svelte/component/core/index.d.ts",
-      "import": "./_dist/svelte/component/core/index.js"
+    "./svelte/component/application": {
+      "types": "./_dist/svelte/component/application/index.d.ts",
+      "import": "./_dist/svelte/component/application/index.js"
     },
     "./svelte/component/internal": {
       "types": "./_dist/svelte/component/internal/index.d.ts",
@@ -257,7 +257,7 @@
   },
   "sideEffects": [
     "./_dist/svelte/application/index.js",
-    "./_dist/svelte/component/core/index.js",
+    "./_dist/svelte/component/application/index.js",
     "./_dist/svelte/gsap/plugin/*.js",
     "./_dist/svelte/gsap/plugin/bonus/*.js",
     "./_dist/tinymce/initializePlugins.js"

@@ -20,7 +20,8 @@
   },
   "scripts": [],
   "styles": [
-    "./remote/svelte/component/core.css"
+    "./remote/svelte/component/application.css",
+    "./remote/svelte/component/internal.css"
   ],
   "socket": false,
   "manifest": "https://github.com/typhonjs-fvtt-lib/typhonjs/releases/latest/download/module.json",

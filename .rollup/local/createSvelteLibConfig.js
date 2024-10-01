@@ -34,8 +34,8 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins = [] })
 {
    const isLib = true;
 
-   const postcssCore = postcssConfig({
-      extract: 'core.css',
+   const postcssApplication = postcssConfig({
+      extract: 'application.css',
       compress: true,
       sourceMap: sourcemap
    });
@@ -46,7 +46,7 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins = [] })
       sourceMap: sourcemap
    });
 
-   // Provide special handling for `svelte` and `@typhonjs-fvtt/svelte/component/core`.
+   // Provide special handling for `svelte` and `@typhonjs-fvtt/svelte/component/application`.
    const config = [
       {
          input: 'pack',
@@ -68,7 +68,7 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins = [] })
       {
          input: 'pack',
          output: {
-            file: 'remote/svelte/component/core.js',
+            file: 'remote/svelte/component/application.js',
             format: 'es',
             generatedCode: { constBindings: true },
             plugins: outputPlugins,
@@ -76,15 +76,15 @@ export function createSvelteLibConfig({ sourcemap, outputPlugins = [] })
          },
          plugins: [
             virtual({
-               pack: `export * from './node_modules/@typhonjs-fvtt/svelte/_dist/component/core';`
+               pack: `export * from './node_modules/@typhonjs-fvtt/svelte/_dist/component/application';`
             }),
             svelte(),
-            postcss(postcssCore),
+            postcss(postcssApplication),
             resolve({
                browser: true,
                dedupe: ['svelte']
             }),
-            typhonjsRuntime({ isLib, exclude: ['@typhonjs-fvtt/svelte/component/core'] }),
+            typhonjsRuntime({ isLib, exclude: ['@typhonjs-fvtt/svelte/component/application'] }),
          ]
       },
       {
