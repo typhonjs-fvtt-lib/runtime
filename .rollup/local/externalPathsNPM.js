@@ -50,6 +50,7 @@ export const externalPathsNPM = {
    '@typhonjs-svelte/runtime-base/util/async': '@typhonjs-fvtt/runtime/util/async',
    '@typhonjs-svelte/runtime-base/util/browser': '@typhonjs-fvtt/runtime/util/browser',
    '@typhonjs-svelte/runtime-base/util/dom/layout': '@typhonjs-fvtt/runtime/util/dom/layout',
+   '@typhonjs-svelte/runtime-base/util/dom/observer': '@typhonjs-fvtt/runtime/util/dom/observer',
    '@typhonjs-svelte/runtime-base/util/dom/style': '@typhonjs-fvtt/runtime/util/dom/style',
    '@typhonjs-svelte/runtime-base/util/loader-module': '@typhonjs-fvtt/runtime/util/loader-module',
    '@typhonjs-svelte/runtime-base/util/object': '@typhonjs-fvtt/runtime/util/object',

@@ -221,9 +221,9 @@
       "types": "./_dist/util/dom/layout/index.d.ts",
       "import": "./_dist/util/dom/layout/index.js"
     },
-    "./util/dom/observer/resize": {
-      "types": "./_dist/util/dom/observer/resize/index.d.ts",
-      "import": "./_dist/util/dom/observer/resize/index.js"
+    "./util/dom/observer": {
+      "types": "./_dist/util/dom/observer/index.d.ts",
+      "import": "./_dist/util/dom/observer/index.js"
     },
     "./util/dom/style": {
       "types": "./_dist/util/dom/style/index.d.ts",

@@ -44,7 +44,7 @@ const bundleMap = {
    'util/async': ['@typhonjs-svelte/runtime-base/util/async'],
    'util/browser': ['@typhonjs-svelte/runtime-base/util/browser'],
    'util/dom/layout': ['@typhonjs-svelte/runtime-base/util/dom/layout'],
-   'util/dom/observer/resize': ['@typhonjs-svelte/runtime-base/util/dom/observer/resize'],
+   'util/dom/observer': ['@typhonjs-svelte/runtime-base/util/dom/observer'],
    'util/dom/style': ['@typhonjs-svelte/runtime-base/util/dom/style'],
    'util/loader-module': ['@typhonjs-svelte/runtime-base/util/loader-module'],
    'util/object': ['@typhonjs-svelte/runtime-base/util/object'],
