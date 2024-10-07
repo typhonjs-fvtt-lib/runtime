@@ -101,9 +101,21 @@
       "types": "./_dist/svelte/action/animate/index.d.ts",
       "import": "./_dist/svelte/action/animate/index.js"
     },
-    "./svelte/action/dom": {
-      "types": "./_dist/svelte/action/dom/index.d.ts",
-      "import": "./_dist/svelte/action/dom/index.js"
+    "./svelte/action/dom/focus": {
+      "types": "./_dist/svelte/action/dom/focus/index.d.ts",
+      "import": "./_dist/svelte/action/dom/focus/index.js"
+    },
+    "./svelte/action/dom/observer": {
+      "types": "./_dist/svelte/action/dom/observer/index.d.ts",
+      "import": "./_dist/svelte/action/dom/observer/index.js"
+    },
+    "./svelte/action/dom/properties": {
+      "types": "./_dist/svelte/action/dom/properties/index.d.ts",
+      "import": "./_dist/svelte/action/dom/properties/index.js"
+    },
+    "./svelte/action/dom/style": {
+      "types": "./_dist/svelte/action/dom/style/index.d.ts",
+      "import": "./_dist/svelte/action/dom/style/index.js"
     },
     "./svelte/action/util": {
       "types": "./_dist/svelte/action/util/index.d.ts",
