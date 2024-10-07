@@ -57,6 +57,9 @@ export const externalPathsNPM = {
    '@typhonjs-svelte/runtime-base/util/object': '@typhonjs-fvtt/runtime/util/object',
    '@typhonjs-svelte/runtime-base/util/store': '@typhonjs-fvtt/runtime/util/store',
 
+   // Special handling for local include of FVTT i18n implementation.
+   '@typhonjs-fvtt/runtime/util/i18n': '@typhonjs-fvtt/runtime/util/i18n',
+
    // Exclude as external, but do not translate module references.
    'svelte': 'svelte',
    'svelte/animate': 'svelte/animate',
