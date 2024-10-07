@@ -190,10 +190,6 @@
       "types": "./_dist/svelte/util/index.d.ts",
       "import": "./_dist/svelte/util/index.js"
     },
-    "./tinymce": {
-      "types": "./_dist/tinymce/initializePlugins.d.ts",
-      "import": "./_dist/tinymce/initializePlugins.js"
-    },
     "./util": {
       "types": "./_dist/util/index.d.ts",
       "import": "./_dist/util/index.js"
