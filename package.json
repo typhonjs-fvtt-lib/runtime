@@ -116,9 +116,6 @@
     "./svelte/application": {
       "import": "./_dist/svelte/application/index.js"
     },
-    "./svelte/application/legacy": {
-      "import": "./_dist/svelte/application/legacy/index.js"
-    },
     "./svelte/component/application": {
       "types": "./_dist/svelte/component/application/index.d.ts",
       "import": "./_dist/svelte/component/application/index.js"
@@ -140,10 +137,6 @@
     },
     "./svelte/gsap/plugin/bonus/*": {
       "import": "./_dist/svelte/gsap/plugin/bonus/*.js"
-    },
-    "./svelte/helper": {
-      "types": "./_dist/svelte/helper/index.d.ts",
-      "import": "./_dist/svelte/helper/index.js"
     },
     "./svelte/store/dom": {
       "types": "./_dist/svelte/store/dom/index.d.ts",

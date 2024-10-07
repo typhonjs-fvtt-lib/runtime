@@ -54,41 +54,6 @@ const s_MODULES_DOMPURIFY_NPM = [
    }
 ];
 
-const s_MODULES_TINYMCE_LIB = [
-   {
-      input: '.build/tinymce/initializePlugins.js',
-      plugins: [
-         resolve({ browser: true })
-      ],
-      output: {
-         dir: 'remote/tinymce',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         inlineDynamicImports: true,
-         sourcemap
-      }
-   }
-];
-
-const s_MODULES_TINYMCE_NPM = [
-   {
-      input: {
-         input: '.build/tinymce/initializePlugins.js',
-         plugins: [
-            resolve({ browser: true })
-         ]
-      },
-      file: './_dist/tinymce/initializePlugins.js',
-      output: {
-         dir: '_dist/tinymce',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         inlineDynamicImports: true,
-         sourcemap
-      }
-   }
-];
-
 const s_MODULES_UTIL_I18N_LIB = [
    {
       input: '.build/i18n/index.js',
@@ -128,7 +93,6 @@ const rollupPluginsNPM = [
    ...s_MODULES_DOMPURIFY_NPM,
    ...createRuntimeNPMConfig({ sourcemap }),
    ...createSvelteNPMConfig({ sourcemap }),
-   ...s_MODULES_TINYMCE_NPM,
    ...s_MODULES_UTIL_I18N_NPM
 ];
 
@@ -264,7 +228,6 @@ export default () =>
       ...s_MODULES_DOMPURIFY_LIB,
       ...createRuntimeLibConfig({ sourcemap }),
       ...createSvelteLibConfig({ sourcemap }),
-      ...s_MODULES_TINYMCE_LIB,
       ...s_MODULES_UTIL_I18N_LIB
    ];
 }
