@@ -1,11 +1,9 @@
 export const externalPathsLib = {
    '@typhonjs-fvtt/svelte/application': '/modules/typhonjs/remote/svelte/application.js',
-   '@typhonjs-fvtt/svelte/application/legacy': '/modules/typhonjs/remote/svelte/application/legacy.js',
    '@typhonjs-fvtt/svelte/component/application': '/modules/typhonjs/remote/svelte/component/application.js',
    '@typhonjs-fvtt/svelte/component/internal': '/modules/typhonjs/remote/svelte/component/internal.js',
    '@typhonjs-fvtt/svelte/gsap': '/modules/typhonjs/remote/svelte/gsap.js',
    // Note: `@typhonjs-fvtt/svelte/gsap/plugin` and `plugin/bonus` are compiled into end user package and not in the library.
-   '@typhonjs-fvtt/svelte/helper': '/modules/typhonjs/remote/svelte/helper.js',
    '@typhonjs-fvtt/svelte/store/fvtt': '/modules/typhonjs/remote/svelte/store/fvtt.js',
    '@typhonjs-fvtt/svelte/store/fvtt/document': '/modules/typhonjs/remote/svelte/store/fvtt/document.js',
    '@typhonjs-fvtt/svelte/store/fvtt/settings': '/modules/typhonjs/remote/svelte/store/fvtt/settings.js',
@@ -53,6 +51,7 @@ export const externalPathsLib = {
    '@typhonjs-svelte/runtime-base/util/dom/observer': '/modules/typhonjs/remote/dom/observer.js',
    '@typhonjs-svelte/runtime-base/util/dom/style': '/modules/typhonjs/remote/dom/style.js',
    '@typhonjs-svelte/runtime-base/util/dom/tinykeys': '/modules/typhonjs/remote/dom/tinykeys.js',
+   '@typhonjs-svelte/runtime-base/util/i18n': '/modules/typhonjs/remote/util/i18n.js',
    '@typhonjs-svelte/runtime-base/util/loader-module': '/modules/typhonjs/remote/util/loader-module.js',
    '@typhonjs-svelte/runtime-base/util/object': '/modules/typhonjs/remote/util/object.js',
    '@typhonjs-svelte/runtime-base/util/store': '/modules/typhonjs/remote/util/store.js',

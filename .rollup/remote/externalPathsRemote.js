@@ -46,18 +46,17 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/util/dom/observer': '/modules/typhonjs/remote/dom/observer.js',
    '@typhonjs-fvtt/runtime/util/dom/style': '/modules/typhonjs/remote/dom/style.js',
    '@typhonjs-fvtt/runtime/util/dom/tinykeys': '/modules/typhonjs/remote/dom/tinykeys.js',
+   '@typhonjs-fvtt/runtime/util/i18n': '/modules/typhonjs/remote/util/i18n.js',
    '@typhonjs-fvtt/runtime/util/loader-module': '/modules/typhonjs/remote/util/loader-module.js',
    '@typhonjs-fvtt/runtime/util/object': '/modules/typhonjs/remote/util/object.js',
    '@typhonjs-fvtt/runtime/util/store': '/modules/typhonjs/remote/util/store.js',
 
    // typhonjs-fvtt/svelte mapping:
    '@typhonjs-fvtt/runtime/svelte/application': '/modules/typhonjs/remote/svelte/application.js',
-   '@typhonjs-fvtt/runtime/svelte/application/legacy': '/modules/typhonjs/remote/svelte/application/legacy.js',
    '@typhonjs-fvtt/runtime/svelte/component/application': '/modules/typhonjs/remote/svelte/component/application.js',
    '@typhonjs-fvtt/runtime/svelte/component/internal': '/modules/typhonjs/remote/svelte/component/internal.js',
    '@typhonjs-fvtt/runtime/svelte/gsap': '/modules/typhonjs/remote/svelte/gsap.js',
     // Note: `@typhonjs-fvtt/runtime/svelte/gsap/plugin` and `plugin/bonus` are compiled into end user package and not in the library.
-   '@typhonjs-fvtt/runtime/svelte/helper': '/modules/typhonjs/remote/svelte/helper.js',
    '@typhonjs-fvtt/runtime/svelte/internal': '/modules/typhonjs/remote/svelte/internal.js',
    '@typhonjs-fvtt/runtime/svelte/store/fvtt': '/modules/typhonjs/remote/svelte/store/fvtt.js',
    '@typhonjs-fvtt/runtime/svelte/store/fvtt/document': '/modules/typhonjs/remote/svelte/store/fvtt/document.js',
@@ -65,6 +64,4 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/svelte/store/fvtt/settings/world': '/modules/typhonjs/remote/svelte/store/fvtt/settings/world.js',
 
    '@typhonjs-fvtt/runtime/security/client/dompurify': '/modules/typhonjs/remote/security/client/dompurify.js',
-
-   '@typhonjs-fvtt/runtime/tinymce': '/modules/typhonjs/remote/tinymce/initializePlugins.js'
 }
