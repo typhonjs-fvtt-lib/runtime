@@ -52,7 +52,6 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/util/i18n': '/modules/typhonjs/remote/util/i18n.js',
    '@typhonjs-fvtt/runtime/util/loader-module': '/modules/typhonjs/remote/util/loader-module.js',
    '@typhonjs-fvtt/runtime/util/object': '/modules/typhonjs/remote/util/object.js',
-   '@typhonjs-fvtt/runtime/util/store': '/modules/typhonjs/remote/util/store.js',
 
    // typhonjs-fvtt/svelte mapping:
    '@typhonjs-fvtt/runtime/svelte/application': '/modules/typhonjs/remote/svelte/application.js',

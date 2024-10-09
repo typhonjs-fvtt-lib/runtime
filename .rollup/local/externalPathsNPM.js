@@ -58,7 +58,6 @@ export const externalPathsNPM = {
    '@typhonjs-svelte/runtime-base/util/i18n': '@typhonjs-fvtt/runtime/util/i18n',
    '@typhonjs-svelte/runtime-base/util/loader-module': '@typhonjs-fvtt/runtime/util/loader-module',
    '@typhonjs-svelte/runtime-base/util/object': '@typhonjs-fvtt/runtime/util/object',
-   '@typhonjs-svelte/runtime-base/util/store': '@typhonjs-fvtt/runtime/util/store',
 
    // Special handling for local include of FVTT i18n implementation.
    '@typhonjs-fvtt/runtime/util/i18n': '@typhonjs-fvtt/runtime/util/i18n',

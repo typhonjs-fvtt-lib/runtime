@@ -53,8 +53,7 @@ const bundleMap = {
    'util/dom/style': ['@typhonjs-svelte/runtime-base/util/dom/style'],
    'util/dom/tinykeys': ['@typhonjs-svelte/runtime-base/util/dom/tinykeys'],
    'util/loader-module': ['@typhonjs-svelte/runtime-base/util/loader-module'],
-   'util/object': ['@typhonjs-svelte/runtime-base/util/object'],
-   'util/store': ['@typhonjs-svelte/runtime-base/util/store']
+   'util/object': ['@typhonjs-svelte/runtime-base/util/object']
 };
 
 export function createRuntimeLibConfig({ sourcemap, outputPlugins = [] })

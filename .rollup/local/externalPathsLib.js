@@ -58,7 +58,6 @@ export const externalPathsLib = {
    '@typhonjs-svelte/runtime-base/util/i18n': '/modules/typhonjs/remote/util/i18n.js',
    '@typhonjs-svelte/runtime-base/util/loader-module': '/modules/typhonjs/remote/util/loader-module.js',
    '@typhonjs-svelte/runtime-base/util/object': '/modules/typhonjs/remote/util/object.js',
-   '@typhonjs-svelte/runtime-base/util/store': '/modules/typhonjs/remote/util/store.js',
 
    // Special handling for local include of FVTT i18n implementation.
    '@typhonjs-fvtt/runtime/util/i18n': '/modules/typhonjs/remote/util/i18n.js',
