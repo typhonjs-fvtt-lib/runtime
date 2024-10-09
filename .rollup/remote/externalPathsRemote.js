@@ -34,7 +34,7 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/svelte/store/dom': '/modules/typhonjs/remote/svelte/store/dom.js',
    '@typhonjs-fvtt/runtime/svelte/store/position': '/modules/typhonjs/remote/svelte/store/position.js',
    '@typhonjs-fvtt/runtime/svelte/store/reducer': '/modules/typhonjs/remote/svelte/store/reducer.js',
-   '@typhonjs-fvtt/runtime/svelte/store/reducer/array-object': '/modules/typhonjs/remote/svelte/store/reducer/array-object.js',
+   '@typhonjs-fvtt/runtime/svelte/store/util': '/modules/typhonjs/remote/svelte/store/util.js',
    '@typhonjs-fvtt/runtime/svelte/store/web-storage': '/modules/typhonjs/remote/svelte/store/web-storage.js',
    '@typhonjs-fvtt/runtime/svelte/store/web-storage/msgpack': '/modules/typhonjs/remote/svelte/store/web-storage/msgpack.js',
    '@typhonjs-fvtt/runtime/svelte/store/writable-derived': '/modules/typhonjs/remote/svelte/store/writable-derived.js',

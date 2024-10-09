@@ -182,6 +182,10 @@
       "types": "./_dist/svelte/store/reducer/array-object/index.d.ts",
       "import": "./_dist/svelte/store/reducer/array-object/index.js"
     },
+    "./svelte/store/util": {
+      "types": "./_dist/svelte/store/util/index.d.ts",
+      "import": "./_dist/svelte/store/util/index.js"
+    },
     "./svelte/store/web-storage": {
       "types": "./_dist/svelte/store/web-storage/index.d.ts",
       "import": "./_dist/svelte/store/web-storage/index.js"

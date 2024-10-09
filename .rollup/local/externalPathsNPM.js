@@ -40,7 +40,7 @@ export const externalPathsNPM = {
    '@typhonjs-svelte/runtime-base/svelte/store/dom': '@typhonjs-fvtt/runtime/svelte/store/dom',
    '@typhonjs-svelte/runtime-base/svelte/store/position': '@typhonjs-fvtt/runtime/svelte/store/position',
    '@typhonjs-svelte/runtime-base/svelte/store/reducer': '@typhonjs-fvtt/runtime/svelte/store/reducer',
-   '@typhonjs-svelte/runtime-base/svelte/store/reducer/array-object': '@typhonjs-fvtt/runtime/svelte/store/reducer/array-object',
+   '@typhonjs-svelte/runtime-base/svelte/store/util': '@typhonjs-fvtt/runtime/svelte/store/util',
    '@typhonjs-svelte/runtime-base/svelte/store/web-storage': '@typhonjs-fvtt/runtime/svelte/store/web-storage',
    '@typhonjs-svelte/runtime-base/svelte/store/web-storage/msgpack': '@typhonjs-fvtt/runtime/svelte/store/web-storage/msgpack',
    '@typhonjs-svelte/runtime-base/svelte/store/writable-derived': '@typhonjs-fvtt/runtime/svelte/store/writable-derived',

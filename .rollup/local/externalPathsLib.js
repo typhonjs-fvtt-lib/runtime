@@ -40,6 +40,7 @@ export const externalPathsLib = {
    '@typhonjs-svelte/runtime-base/svelte/store/position': '/modules/typhonjs/remote/svelte/store/position.js',
    '@typhonjs-svelte/runtime-base/svelte/store/reducer': '/modules/typhonjs/remote/svelte/store/reducer.js',
    '@typhonjs-svelte/runtime-base/svelte/store/reducer/array-object': '/modules/typhonjs/remote/svelte/store/reducer/array-object.js',
+   '@typhonjs-svelte/runtime-base/svelte/store/util': '/modules/typhonjs/remote/svelte/store/util.js',
    '@typhonjs-svelte/runtime-base/svelte/store/web-storage': '/modules/typhonjs/remote/svelte/store/web-storage.js',
    '@typhonjs-svelte/runtime-base/svelte/store/web-storage/msgpack': '/modules/typhonjs/remote/svelte/store/web-storage/msgpack.js',
    '@typhonjs-svelte/runtime-base/svelte/store/writable-derived': '/modules/typhonjs/remote/svelte/store/writable-derived.js',
