@@ -93,10 +93,6 @@
       "types": "./_dist/plugin/manager/eventbus/buses/index.d.ts",
       "import": "./_dist/plugin/manager/eventbus/buses/index.js"
     },
-    "./security/client/dompurify": {
-      "types": "./_dist/security/client/dompurify/index.d.ts",
-      "import": "./_dist/security/client/dompurify/index.js"
-    },
     "./svelte/action/animate": {
       "types": "./_dist/svelte/action/animate/index.d.ts",
       "import": "./_dist/svelte/action/animate/index.js"

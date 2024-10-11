@@ -22,38 +22,6 @@ const sourcemap = true;
 // Bundle all top level external package exports.
 const dtsPluginOptions = { bundlePackageExports: true };
 
-const s_MODULES_DOMPURIFY_LIB = [
-   {
-      input: '.build/dompurify/index.js',
-      plugins: [
-         resolve({ browser: true })
-      ],
-      output: {
-         file: 'remote/security/client/dompurify.js',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         sourcemap
-      }
-   }
-];
-
-const s_MODULES_DOMPURIFY_NPM = [
-   {
-      input: {
-         input: '.build/dompurify/index.js',
-         plugins: [
-            resolve({ browser: true })
-         ]
-      },
-      output: {
-         file: '_dist/security/client/dompurify/index.js',
-         format: 'es',
-         generatedCode: { constBindings: true },
-         sourcemap
-      }
-   }
-];
-
 const s_MODULES_UTIL_I18N_LIB = [
    {
       input: '.build/i18n/index.js',
@@ -90,7 +58,6 @@ const s_MODULES_UTIL_I18N_NPM = [
 ];
 
 const rollupPluginsNPM = [
-   ...s_MODULES_DOMPURIFY_NPM,
    ...createRuntimeNPMConfig({ sourcemap }),
    ...createSvelteNPMConfig({ sourcemap }),
    ...s_MODULES_UTIL_I18N_NPM
@@ -225,7 +192,6 @@ await generateDTS({
 export default () =>
 {
    return [
-      ...s_MODULES_DOMPURIFY_LIB,
       ...createRuntimeLibConfig({ sourcemap }),
       ...createSvelteLibConfig({ sourcemap }),
       ...s_MODULES_UTIL_I18N_LIB
