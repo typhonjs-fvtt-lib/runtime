@@ -47,10 +47,10 @@ const bundleMap = {
    'util/animate': ['@typhonjs-svelte/runtime-base/util/animate'],
    'util/async': ['@typhonjs-svelte/runtime-base/util/async'],
    'util/browser': ['@typhonjs-svelte/runtime-base/util/browser'],
+   'util/dom/input/tinykeys': ['@typhonjs-svelte/runtime-base/util/dom/input/tinykeys'],
    'util/dom/layout': ['@typhonjs-svelte/runtime-base/util/dom/layout'],
    'util/dom/observer': ['@typhonjs-svelte/runtime-base/util/dom/observer'],
    'util/dom/style': ['@typhonjs-svelte/runtime-base/util/dom/style'],
-   'util/dom/tinykeys': ['@typhonjs-svelte/runtime-base/util/dom/tinykeys'],
    'util/loader-module': ['@typhonjs-svelte/runtime-base/util/loader-module'],
    'util/object': ['@typhonjs-svelte/runtime-base/util/object']
 };
