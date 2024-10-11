@@ -1,10 +1,10 @@
 export const externalPathsNPM = {
+   '@typhonjs-fvtt/svelte/animate/gsap': '@typhonjs-fvtt/runtime/svelte/animate/gsap',
+   '@typhonjs-fvtt/svelte/animate/gsap/plugin': '@typhonjs-fvtt/runtime/svelte/animate/gsap/plugin',
+   '@typhonjs-fvtt/svelte/animate/gsap/plugin/bonus': '@typhonjs-fvtt/runtime/svelte/animate/gsap/plugin/bonus',
    '@typhonjs-fvtt/svelte/application': '@typhonjs-fvtt/runtime/svelte/application',
    '@typhonjs-fvtt/svelte/component/application': '@typhonjs-fvtt/runtime/svelte/component/application',
    '@typhonjs-fvtt/svelte/component/internal': '@typhonjs-fvtt/runtime/svelte/component/internal',
-   '@typhonjs-fvtt/svelte/gsap': '@typhonjs-fvtt/runtime/svelte/gsap',
-   '@typhonjs-fvtt/svelte/gsap/plugin': '@typhonjs-fvtt/runtime/svelte/gsap/plugin',
-   '@typhonjs-fvtt/svelte/gsap/plugin/bonus': '@typhonjs-fvtt/runtime/svelte/gsap/plugin/bonus',
    '@typhonjs-fvtt/svelte/store/fvtt': '@typhonjs-fvtt/runtime/svelte/store/fvtt',
    '@typhonjs-fvtt/svelte/store/fvtt/document': '@typhonjs-fvtt/runtime/svelte/store/fvtt/document',
    '@typhonjs-fvtt/svelte/store/fvtt/settings': '@typhonjs-fvtt/runtime/svelte/store/fvtt/settings',

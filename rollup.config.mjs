@@ -196,11 +196,11 @@ for (const compFile of compFiles)
 
 // Gsap Plugins ------------------------------------------------------------------------------------------------------
 
-// Handle @typhonjs-fvtt/svelte/gsap-plugins by copying the source and converting all import
+// Handle @typhonjs-fvtt/svelte/gsap/plugins by copying the source and converting all import
 // package references from `@typhonjs-fvtt/svelte` to `@typhonjs-fvtt/runtime/svelte`.
-fs.emptyDirSync('./_dist/svelte/gsap/plugin');
-fs.copySync('./node_modules/@typhonjs-fvtt/svelte/_dist/gsap/plugin', './_dist/svelte/gsap/plugin');
-let gsapFiles = await getFileList({ dir: './_dist/svelte/gsap/plugin', resolve: true, walk: true });
+fs.emptyDirSync('./_dist/svelte/animate/gsap/plugin');
+fs.copySync('./node_modules/@typhonjs-fvtt/svelte/_dist/animate/gsap/plugin', './_dist/svelte/animate/gsap/plugin');
+let gsapFiles = await getFileList({ dir: './_dist/svelte/animate/gsap/plugin', resolve: true, walk: true });
 for (const gsapFile of gsapFiles)
 {
    let fileData = fs.readFileSync(gsapFile, 'utf-8').toString();
