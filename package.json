@@ -97,6 +97,10 @@
       "types": "./_dist/svelte/action/dom/focus/index.d.ts",
       "import": "./_dist/svelte/action/dom/focus/index.js"
     },
+    "./svelte/action/dom/input": {
+      "types": "./_dist/svelte/action/dom/input/index.d.ts",
+      "import": "./_dist/svelte/action/dom/input/index.js"
+    },
     "./svelte/action/dom/observer": {
       "types": "./_dist/svelte/action/dom/observer/index.d.ts",
       "import": "./_dist/svelte/action/dom/observer/index.js"
@@ -142,9 +146,9 @@
       "types": "./_dist/svelte/easing/index.d.ts",
       "import": "./_dist/svelte/easing/index.js"
     },
-    "./svelte/store/dom": {
-      "types": "./_dist/svelte/store/dom/index.d.ts",
-      "import": "./_dist/svelte/store/dom/index.js"
+    "./svelte/store/dom/input": {
+      "types": "./_dist/svelte/store/dom/input/index.d.ts",
+      "import": "./_dist/svelte/store/dom/input/index.js"
     },
     "./svelte/store/fvtt": {
       "types": "./_dist/svelte/store/fvtt/index.d.ts",
