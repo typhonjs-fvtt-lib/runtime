@@ -55,6 +55,8 @@ export const externalPathsNPM = {
    '@typhonjs-svelte/runtime-base/util/dom/layout': '@typhonjs-fvtt/runtime/util/dom/layout',
    '@typhonjs-svelte/runtime-base/util/dom/observer': '@typhonjs-fvtt/runtime/util/dom/observer',
    '@typhonjs-svelte/runtime-base/util/dom/style': '@typhonjs-fvtt/runtime/util/dom/style',
+   '@typhonjs-svelte/runtime-base/util/html': '@typhonjs-fvtt/runtime/util/html',
+   '@typhonjs-svelte/runtime-base/util/html/striptags': '@typhonjs-fvtt/runtime/util/html/striptags',
    '@typhonjs-svelte/runtime-base/util/i18n': '@typhonjs-fvtt/runtime/util/i18n',
    '@typhonjs-svelte/runtime-base/util/loader-module': '@typhonjs-fvtt/runtime/util/loader-module',
    '@typhonjs-svelte/runtime-base/util/object': '@typhonjs-fvtt/runtime/util/object',

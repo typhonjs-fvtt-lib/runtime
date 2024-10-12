@@ -238,6 +238,14 @@
       "types": "./_dist/util/dom/style/index.d.ts",
       "import": "./_dist/util/dom/style/index.js"
     },
+    "./util/html": {
+      "types": "./_dist/util/html/index.d.ts",
+      "import": "./_dist/util/html/index.js"
+    },
+    "./util/html/striptags": {
+      "types": "./_dist/util/html/striptags/index.d.ts",
+      "import": "./_dist/util/html/striptags/index.js"
+    },
     "./util/i18n": {
       "types": "./_dist/util/i18n/index.d.ts",
       "import": "./_dist/util/i18n/index.js"
