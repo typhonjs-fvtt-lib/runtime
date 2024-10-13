@@ -25,7 +25,6 @@ export const externalPathsLib = {
    '@typhonjs-svelte/runtime-base/math/util': '/modules/typhonjs/remote/math/util.js',
    '@typhonjs-svelte/runtime-base/plugin/manager': '/modules/typhonjs/remote/plugin/manager.js',
    '@typhonjs-svelte/runtime-base/plugin/manager/eventbus': '/modules/typhonjs/remote/plugin/manager/eventbus.js',
-   '@typhonjs-svelte/runtime-base/plugin/manager/eventbus/buses': '/modules/typhonjs/remote/plugin/manager/eventbus/buses.js',
    '@typhonjs-svelte/runtime-base/svelte/action/dom/focus': '/modules/typhonjs/remote/svelte/action/dom/focus.js',
    '@typhonjs-svelte/runtime-base/svelte/action/dom/input': '/modules/typhonjs/remote/svelte/action/dom/input.js',
    '@typhonjs-svelte/runtime-base/svelte/action/dom/observer': '/modules/typhonjs/remote/svelte/action/dom/observer.js',

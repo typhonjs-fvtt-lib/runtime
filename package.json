@@ -89,10 +89,6 @@
       "types": "./_dist/plugin/manager/eventbus/index.d.ts",
       "import": "./_dist/plugin/manager/eventbus/index.js"
     },
-    "./plugin/manager/eventbus/buses": {
-      "types": "./_dist/plugin/manager/eventbus/buses/index.d.ts",
-      "import": "./_dist/plugin/manager/eventbus/buses/index.js"
-    },
     "./svelte/action/dom/focus": {
       "types": "./_dist/svelte/action/dom/focus/index.d.ts",
       "import": "./_dist/svelte/action/dom/focus/index.js"

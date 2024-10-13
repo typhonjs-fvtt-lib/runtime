@@ -24,7 +24,6 @@ const bundleMap = {
    'math/util': ['@typhonjs-svelte/runtime-base/math/util'],
    'plugin/manager': ['@typhonjs-svelte/runtime-base/plugin/manager'],
    'plugin/manager/eventbus': ['@typhonjs-svelte/runtime-base/plugin/manager/eventbus'],
-   'plugin/manager/eventbus/buses': ['@typhonjs-svelte/runtime-base/plugin/manager/eventbus/buses'],
    'svelte/action/dom/focus': ['@typhonjs-svelte/runtime-base/svelte/action/dom/focus'],
    'svelte/action/dom/input': ['@typhonjs-svelte/runtime-base/svelte/action/dom/input'],
    'svelte/action/dom/observer': ['@typhonjs-svelte/runtime-base/svelte/action/dom/observer'],
