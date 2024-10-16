@@ -146,10 +146,6 @@
       "types": "./_dist/svelte/store/dom/input/index.d.ts",
       "import": "./_dist/svelte/store/dom/input/index.js"
     },
-    "./svelte/store/fvtt": {
-      "types": "./_dist/svelte/store/fvtt/index.d.ts",
-      "import": "./_dist/svelte/store/fvtt/index.js"
-    },
     "./svelte/store/fvtt/document": {
       "types": "./_dist/svelte/store/fvtt/document/index.d.ts",
       "import": "./_dist/svelte/store/fvtt/document/index.js"
@@ -269,7 +265,7 @@
     "cssnano": "^7.0.6",
     "postcss": "^8.4.47",
     "postcss-preset-env": "^10.0.5",
-    "sass": "^1.79.3"
+    "sass": "^1.79.5"
   },
   "devDependencies": {
     "@rollup/plugin-alias": "^5.1.1",

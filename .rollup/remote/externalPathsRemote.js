@@ -61,7 +61,6 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/svelte/component/application': '/modules/typhonjs/remote/svelte/component/application.js',
    '@typhonjs-fvtt/runtime/svelte/component/internal': '/modules/typhonjs/remote/svelte/component/internal.js',
    '@typhonjs-fvtt/runtime/svelte/internal': '/modules/typhonjs/remote/svelte/internal.js',
-   '@typhonjs-fvtt/runtime/svelte/store/fvtt': '/modules/typhonjs/remote/svelte/store/fvtt.js',
    '@typhonjs-fvtt/runtime/svelte/store/fvtt/document': '/modules/typhonjs/remote/svelte/store/fvtt/document.js',
    '@typhonjs-fvtt/runtime/svelte/store/fvtt/settings': '/modules/typhonjs/remote/svelte/store/fvtt/settings.js',
    '@typhonjs-fvtt/runtime/svelte/store/fvtt/settings/world': '/modules/typhonjs/remote/svelte/store/fvtt/settings/world.js',
@@ -126,7 +125,6 @@ export const externalPathsRemote = {
    '#runtime/svelte/animate/gsap': '/modules/typhonjs/remote/svelte/animate/gsap.js',
    // Note: `#runtime/svelte/animate/gsap/plugin` and `plugin/bonus` are compiled into end user package and not in the library.
    '#runtime/svelte/internal': '/modules/typhonjs/remote/svelte/internal.js',
-   '#runtime/svelte/store/fvtt': '/modules/typhonjs/remote/svelte/store/fvtt.js',
    '#runtime/svelte/store/fvtt/document': '/modules/typhonjs/remote/svelte/store/fvtt/document.js',
    '#runtime/svelte/store/fvtt/settings': '/modules/typhonjs/remote/svelte/store/fvtt/settings.js',
    '#runtime/svelte/store/fvtt/settings/world': '/modules/typhonjs/remote/svelte/store/fvtt/settings/world.js',

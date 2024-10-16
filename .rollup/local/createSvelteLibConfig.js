@@ -16,7 +16,6 @@ const bundleMap = {
    // 'svelte/component/internal': ['../../node_modules/@typhonjs-fvtt/svelte/src/component/internal'],
    'svelte/animate/gsap': ['@typhonjs-fvtt/svelte/animate/gsap'],
    'svelte/application': ['@typhonjs-fvtt/svelte/application'],
-   'svelte/store/fvtt': ['@typhonjs-fvtt/svelte/store/fvtt'],
    'svelte/store/fvtt/document': ['@typhonjs-fvtt/svelte/store/fvtt/document'],
    'svelte/store/fvtt/settings': ['@typhonjs-fvtt/svelte/store/fvtt/settings'],
    'svelte/store/fvtt/settings/world': ['@typhonjs-fvtt/svelte/store/fvtt/settings/world'],

@@ -2,7 +2,6 @@ export const externalPathsLib = {
    '@typhonjs-fvtt/svelte/animate/gsap': '/modules/typhonjs/remote/svelte/animate/gsap.js',
    // Note: `@typhonjs-fvtt/svelte/animate/gsap/plugin` and `plugin/bonus` are compiled into end user package and not in the library.
    '@typhonjs-fvtt/svelte/component/internal': '/modules/typhonjs/remote/svelte/component/internal.js',
-   '@typhonjs-fvtt/svelte/store/fvtt': '/modules/typhonjs/remote/svelte/store/fvtt.js',
    '@typhonjs-fvtt/svelte/store/fvtt/document': '/modules/typhonjs/remote/svelte/store/fvtt/document.js',
    '@typhonjs-fvtt/svelte/store/fvtt/settings': '/modules/typhonjs/remote/svelte/store/fvtt/settings.js',
    '@typhonjs-fvtt/svelte/store/fvtt/settings/world': '/modules/typhonjs/remote/svelte/store/fvtt/settings/world.js',
