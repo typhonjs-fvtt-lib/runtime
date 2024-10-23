@@ -1,6 +1,3 @@
-import path                from 'node:path';
-
-import alias               from '@rollup/plugin-alias';
 import resolve             from '@rollup/plugin-node-resolve';
 import { generateDTS }     from '@typhonjs-build-test/esm-d-ts';
 import { getFileList }     from '@typhonjs-utils/file-util';
