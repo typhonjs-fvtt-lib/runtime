@@ -30,7 +30,7 @@ In your `package.json` `imports` and `dependencies` include:
     "#runtime/*": "@typhonjs-fvtt/runtime/*"
   },
   "dependencies": {
-    "@typhonjs-fvtt/runtime": "^0.1.0",
+    "@typhonjs-fvtt/runtime": "^0.2.0",
     "svelte": "^4.0.0"
   }
 }
