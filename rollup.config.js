@@ -92,6 +92,7 @@ for (const config of rollupPluginsNPM)
       let fileData = fs.readFileSync(copyDTS, 'utf-8');
 
       // For @typhonjs-svelte/runtime-base
+      fileData = fileData.replaceAll('_typhonjs_svelte_runtime_base_', '_typhonjs_fvtt_runtime_');
       fileData = fileData.replaceAll('@typhonjs-svelte/runtime-base/', '@typhonjs-fvtt/runtime/');
 
       // For @typhonjs-fvtt/svelte
@@ -134,6 +135,7 @@ for (const appFile of appFiles)
    fileData = fileData.replaceAll('#runtime/', '@typhonjs-fvtt/runtime/');
 
    // For types
+   fileData = fileData.replaceAll('_typhonjs_svelte_runtime_base_', '_typhonjs_fvtt_runtime_');
    fileData = fileData.replaceAll('_typhonjs_fvtt_svelte_', '_typhonjs_fvtt_runtime_svelte_');
 
    fs.writeFileSync(appFile, fileData);
@@ -155,6 +157,10 @@ for (const compFile of compFiles)
 
    fileData = fileData.replaceAll('@typhonjs-svelte/runtime-base/', '@typhonjs-fvtt/runtime/');
 
+   // For types
+   fileData = fileData.replaceAll('_typhonjs_svelte_runtime_base_', '_typhonjs_fvtt_runtime_');
+   fileData = fileData.replaceAll('_typhonjs_fvtt_svelte_', '_typhonjs_fvtt_runtime_svelte_');
+
    fs.writeFileSync(compFile, fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/'));
 }
 
@@ -173,6 +179,10 @@ for (const gsapFile of gsapFiles)
    fileData = fileData.replaceAll('#runtime/', '@typhonjs-fvtt/runtime/');
 
    fileData = fileData.replaceAll('@typhonjs-svelte/runtime-base/', '@typhonjs-fvtt/runtime/');
+
+   // For types
+   fileData = fileData.replaceAll('_typhonjs_svelte_runtime_base_', '_typhonjs_fvtt_runtime_');
+   fileData = fileData.replaceAll('_typhonjs_fvtt_svelte_', '_typhonjs_fvtt_runtime_svelte_');
 
    fs.writeFileSync(gsapFile, fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/'));
 }
