@@ -1,6 +1,6 @@
 {
   "name": "@typhonjs-fvtt/runtime",
-  "version": "0.2.0-next.3",
+  "version": "0.2.0-next.4",
   "description": "Provides an integrated runtime library for Foundry VTT & Svelte.",
   "license": "MPL-2.0",
   "type": "module",
@@ -261,11 +261,12 @@
   "devDependencies": {
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-commonjs": "^28.0.0",
-    "@rollup/plugin-virtual": "^3.0.2",
+    "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-replace": "^6.0.1",
+    "@rollup/plugin-virtual": "^3.0.2",
     "@typhonjs-build-test/esm-d-ts": "^0.3.0-next.9",
-    "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.2.0-next.2",
-    "@typhonjs-svelte/runtime-base": "github:typhonjs-svelte/runtime-base#0.2.0-next.1",
+    "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.2.0-next.3",
+    "@typhonjs-svelte/runtime-base": "github:typhonjs-svelte/runtime-base#0.2.0-next.2",
     "@typhonjs-utils/file-util": "^0.1.0",
     "fs-extra": "^11.2.0",
     "magic-string": "^0.30.12",
@@ -275,7 +276,6 @@
     "upath": "^2"
   },
   "peerDependencies": {
-    "@rollup/plugin-node-resolve": ">=15",
     "@sveltejs/vite-plugin-svelte": ">=3.x.x <4",
     "autoprefixer": ">=10",
     "cssnano": ">=7",
