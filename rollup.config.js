@@ -100,7 +100,9 @@ for (const config of rollupPluginsNPM)
       fileData = fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/');
 
       fileData = fileData.replaceAll('#svelte-fvtt/', '@typhonjs-fvtt/runtime/svelte/');
-      fileData = fileData.replaceAll('#runtime/', '@typhonjs-fvtt/runtime/');
+
+      // Ignore any `{@link #runtime...}` enclosed references.
+      fileData = fileData.replaceAll(/(?<!\{@link\s*)#runtime\//g, '@typhonjs-fvtt/runtime/');
 
       fs.writeFileSync(outFileDTS, fileData, 'utf-8');
    }
@@ -132,7 +134,9 @@ for (const appFile of appFiles)
    fileData = fileData.replaceAll('@typhonjs-svelte/runtime-base/', '@typhonjs-fvtt/runtime/');
 
    fileData = fileData.replaceAll('#svelte-fvtt/', '@typhonjs-fvtt/runtime/svelte/');
-   fileData = fileData.replaceAll('#runtime/', '@typhonjs-fvtt/runtime/');
+
+   // Ignore any `{@link #runtime...}` enclosed references.
+   fileData = fileData.replaceAll(/(?<!\{@link\s*)#runtime\//g, '@typhonjs-fvtt/runtime/');
 
    // For types
    fileData = fileData.replaceAll('_typhonjs_svelte_runtime_base_', '_typhonjs_fvtt_runtime_');
@@ -153,7 +157,9 @@ for (const compFile of compFiles)
    let fileData = fs.readFileSync(compFile, 'utf-8').toString();
 
    fileData = fileData.replaceAll('#svelte-fvtt/', '@typhonjs-fvtt/runtime/svelte/');
-   fileData = fileData.replaceAll('#runtime/', '@typhonjs-fvtt/runtime/');
+
+   // Ignore any `{@link #runtime...}` enclosed references.
+   fileData = fileData.replaceAll(/(?<!\{@link\s*)#runtime\//g, '@typhonjs-fvtt/runtime/');
 
    fileData = fileData.replaceAll('@typhonjs-svelte/runtime-base/', '@typhonjs-fvtt/runtime/');
 
@@ -176,7 +182,9 @@ for (const gsapFile of gsapFiles)
    let fileData = fs.readFileSync(gsapFile, 'utf-8').toString();
 
    fileData = fileData.replaceAll('#svelte-fvtt/', '@typhonjs-fvtt/runtime/svelte/');
-   fileData = fileData.replaceAll('#runtime/', '@typhonjs-fvtt/runtime/');
+
+   // Ignore any `{@link #runtime...}` enclosed references.
+   fileData = fileData.replaceAll(/(?<!\{@link\s*)#runtime\//g, '@typhonjs-fvtt/runtime/');
 
    fileData = fileData.replaceAll('@typhonjs-svelte/runtime-base/', '@typhonjs-fvtt/runtime/');
 
