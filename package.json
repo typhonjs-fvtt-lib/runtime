@@ -128,7 +128,12 @@
       "import": "./_dist/svelte/animate/gsap/plugin/bonus/*.js"
     },
     "./svelte/application": {
+      "types": "./_dist/svelte/application/index.d.ts",
       "import": "./_dist/svelte/application/index.js"
+    },
+    "./svelte/application/ambient-ts": {
+      "types": "./_dist/svelte/application/ambient-ts/index.d.ts",
+      "import": "./_dist/svelte/application/ambient-ts/index.js"
     },
     "./svelte/component/application": {
       "types": "./_dist/svelte/component/application/index.d.ts",

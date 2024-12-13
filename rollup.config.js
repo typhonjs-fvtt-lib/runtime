@@ -118,10 +118,10 @@ for (const config of rollupPluginsNPM)
    }
 }
 
-// @typhonjs-fvtt/svelte/application & application/legacy ------------------------------------------------------------
+// @typhonjs-fvtt/svelte/application ---------------------------------------------------------------------------------
 
-// Handle @typhonjs-fvtt/svelte/application & application/legacy by copying the source and converting all import
-// package references from `@typhonjs-fvtt/svelte` to `@typhonjs-fvtt/runtime/svelte`.
+// Handle @typhonjs-fvtt/svelte/application by copying the source and converting all import package references from
+// `@typhonjs-fvtt/svelte` to `@typhonjs-fvtt/runtime/svelte`.
 fs.emptyDirSync('./_dist/svelte/application');
 fs.copySync('./node_modules/@typhonjs-fvtt/svelte/_dist/application', './_dist/svelte/application');
 const appFiles = await getFileList({ dir: './_dist/svelte/application', resolve: true, walk: true });
@@ -129,7 +129,6 @@ for (const appFile of appFiles)
 {
    let fileData = fs.readFileSync(appFile, 'utf-8').toString();
    fileData = fileData.replaceAll('@typhonjs-fvtt/svelte/', '@typhonjs-fvtt/runtime/svelte/');
-   fileData = fileData.replaceAll('@typhonjs-svelte/lib/', '@typhonjs-fvtt/runtime/svelte/');
 
    fileData = fileData.replaceAll('@typhonjs-svelte/runtime-base/', '@typhonjs-fvtt/runtime/');
 
