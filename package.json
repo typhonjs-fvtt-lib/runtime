@@ -294,7 +294,7 @@
     "build": "rollup --config",
     "prepublishOnly": "npm run build"
   },
-  "homepage": "https://github.com/typhonjs-fvtt-lib/typhonjs#readme",
+  "homepage": "https://github.com/typhonjs-fvtt-lib/runtime#readme",
   "keywords": [
     "foundry vtt",
     "fvtt",
@@ -310,6 +310,6 @@
     "/.rollup/remote",
     "/_dist"
   ],
-  "repository": "github:typhonjs-fvtt-lib/typhonjs",
-  "bugs": "https://github.com/typhonjs-fvtt-lib/typhonjs/issues"
+  "repository": "github:typhonjs-fvtt-lib/runtime",
+  "bugs": "https://github.com/typhonjs-fvtt-lib/runtime/issues"
 }
