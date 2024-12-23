@@ -195,6 +195,10 @@
       "types": "./_dist/svelte/util/index.d.ts",
       "import": "./_dist/svelte/util/index.js"
     },
+    "./types/fvtt-shim": {
+      "types": "./_dist/types/fvtt-shim/index.d.ts",
+      "import": "./_dist/types/fvtt-shim/index.js"
+    },
     "./util": {
       "types": "./_dist/util/index.d.ts",
       "import": "./_dist/util/index.js"
@@ -267,6 +271,7 @@
     "@rollup/plugin-virtual": "^3.0.2",
     "@typhonjs-build-test/esm-d-ts": "^0.3.0-next.9",
     "@typhonjs-fvtt/svelte": "github:typhonjs-fvtt-lib/svelte#0.2.0-next.5",
+    "@typhonjs-fvtt/types-fvtt-shim": "github:typhonjs-fvtt-lib/types-fvtt-shim",
     "@typhonjs-svelte/runtime-base": "github:typhonjs-svelte/runtime-base#0.2.0-next.2",
     "@typhonjs-utils/file-util": "^0.1.0",
     "fs-extra": "^11.2.0",

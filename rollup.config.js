@@ -200,6 +200,12 @@ await generateDTS({
    output: './.rollup/remote/index.d.ts',
 });
 
+// Copy @typhonjs-fvtt/types-fvtt-shim -------------------------------------------------------------------------------
+
+fs.ensureDirSync('./_dist/types/fvtt-shim');
+fs.emptyDirSync('./_dist/types/fvtt-shim');
+fs.copySync('./node_modules/@typhonjs-fvtt/types-fvtt-shim/dist', './_dist/types/fvtt-shim')
+
 // -------------------------------------------------------------------------------------------------------------------
 
 // We use rollup as per normal to generate the library bundles.
