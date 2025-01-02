@@ -195,8 +195,12 @@
       "types": "./_dist/svelte/util/index.d.ts",
       "import": "./_dist/svelte/util/index.js"
     },
-    "./types/fvtt-shim": {
-      "types": "./_dist/types/fvtt-shim/index.d.ts",
+    "./types/fvtt-shim/league": {
+      "types": "./_dist/types/fvtt-shim/league.d.ts",
+      "import": "./_dist/types/fvtt-shim/index.js"
+    },
+    "./types/fvtt-shim/pf2e": {
+      "types": "./_dist/types/fvtt-shim/pf2e.d.ts",
       "import": "./_dist/types/fvtt-shim/index.js"
     },
     "./util": {
