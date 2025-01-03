@@ -196,12 +196,12 @@
       "import": "./_dist/svelte/util/index.js"
     },
     "./types/fvtt-shim/league": {
-      "types": "./_dist/types/fvtt-shim/league.d.ts",
-      "import": "./_dist/types/fvtt-shim/index.js"
+      "types": "./_dist/types/fvtt-shim/league/index.d.ts",
+      "import": "./_dist/types/fvtt-shim/league/index.js"
     },
     "./types/fvtt-shim/pf2e": {
-      "types": "./_dist/types/fvtt-shim/pf2e.d.ts",
-      "import": "./_dist/types/fvtt-shim/index.js"
+      "types": "./_dist/types/fvtt-shim/pf2e/index.d.ts",
+      "import": "./_dist/types/fvtt-shim/pf2e/index.js"
     },
     "./util": {
       "types": "./_dist/util/index.d.ts",
