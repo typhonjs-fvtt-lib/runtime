@@ -195,6 +195,10 @@
       "types": "./_dist/svelte/util/index.d.ts",
       "import": "./_dist/svelte/util/index.js"
     },
+    "./types/fvtt-shim/guard": {
+      "types": "./_dist/types/fvtt-shim/guard/index.d.ts",
+      "import": "./_dist/types/fvtt-shim/guard/index.js"
+    },
     "./types/fvtt-shim/league": {
       "types": "./_dist/types/fvtt-shim/league/index.d.ts",
       "import": "./_dist/types/fvtt-shim/league/index.js"
