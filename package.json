@@ -263,6 +263,10 @@
       "types": "./_dist/util/object/index.d.ts",
       "import": "./_dist/util/object/index.js"
     },
+    "./util/semver": {
+      "types": "./_dist/util/semver/index.d.ts",
+      "import": "./_dist/util/semver/index.js"
+    },
     "./package.json": "./package.json"
   },
   "sideEffects": [
