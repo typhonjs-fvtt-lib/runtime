@@ -272,7 +272,8 @@
   "sideEffects": [
     "./_dist/svelte/animate/gsap/plugin/*.js",
     "./_dist/svelte/animate/gsap/plugin/bonus/*.js",
-    "./_dist/svelte/application/index.js"
+    "./_dist/svelte/application/index.js",
+    "./_dist/svelte/component/application/index.js"
   ],
   "devDependencies": {
     "@rollup/plugin-alias": "^5.1.1",
