@@ -1,4 +1,8 @@
 # Changelog
+## Release 0.3.0 (major)
+- Foundry v13+ / Theme v2 support.
+- Note: does not support Foundry versions before v13.
+
 ## Release 0.2.0 (major)
 - Various sub-path refactoring / removals.
 - Additional exported libraries.
