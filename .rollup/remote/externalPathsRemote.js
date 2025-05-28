@@ -53,6 +53,7 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/util/i18n': '/modules/typhonjs/remote/util/i18n.js',
    '@typhonjs-fvtt/runtime/util/loader-module': '/modules/typhonjs/remote/util/loader-module.js',
    '@typhonjs-fvtt/runtime/util/object': '/modules/typhonjs/remote/util/object.js',
+   '@typhonjs-fvtt/runtime/util/path': '/modules/typhonjs/remote/util/path.js',
    '@typhonjs-fvtt/runtime/util/semver': '/modules/typhonjs/remote/util/semver.js',
 
    // typhonjs-fvtt/svelte mapping:
@@ -118,6 +119,7 @@ export const externalPathsRemote = {
    '#runtime/util/i18n': '/modules/typhonjs/remote/util/i18n.js',
    '#runtime/util/loader-module': '/modules/typhonjs/remote/util/loader-module.js',
    '#runtime/util/object': '/modules/typhonjs/remote/util/object.js',
+   '#runtime/util/path': '/modules/typhonjs/remote/util/path.js',
    '#runtime/util/semver': '/modules/typhonjs/remote/util/semver.js',
 
    // typhonjs-fvtt/svelte mapping:

@@ -19,7 +19,7 @@ const sourcemap = true;
 // Bundle all top level external package exports.
 const dtsPluginOptions = { bundlePackageExports: true };
 
-const s_MODULES_UTIL_I18N_LIB = [
+const s_MODULES_UTIL_FVTT_PATCH_LIB = [
    {
       input: '.build/i18n/index.js',
       external: [/^@typhonjs-fvtt/],
@@ -33,10 +33,24 @@ const s_MODULES_UTIL_I18N_LIB = [
          generatedCode: { constBindings: true },
          sourcemap
       }
+   },
+   {
+      input: '.build/path/index.js',
+      external: [/^@typhonjs-fvtt/],
+      plugins: [
+         resolve({ browser: true })
+      ],
+      output: {
+         file: 'remote/util/path.js',
+         paths: externalPathsRemote,
+         format: 'es',
+         generatedCode: { constBindings: true },
+         sourcemap
+      }
    }
 ];
 
-const s_MODULES_UTIL_I18N_NPM = [
+const s_MODULES_UTIL_FVTT_PATCH_NPM = [
    {
       input: {
          external: [/^@typhonjs-fvtt/],
@@ -51,13 +65,28 @@ const s_MODULES_UTIL_I18N_NPM = [
          generatedCode: { constBindings: true },
          sourcemap
       }
+   },
+   {
+      input: {
+         external: [/^@typhonjs-fvtt/],
+         input: '.build/path/index.js',
+         plugins: [
+            resolve({ browser: true })
+         ]
+      },
+      output: {
+         file: '_dist/util/path/index.js',
+         format: 'es',
+         generatedCode: { constBindings: true },
+         sourcemap
+      }
    }
 ];
 
 const rollupPluginsNPM = [
    ...createRuntimeNPMConfig({ sourcemap }),
    ...createSvelteNPMConfig({ sourcemap }),
-   ...s_MODULES_UTIL_I18N_NPM
+   ...s_MODULES_UTIL_FVTT_PATCH_NPM
 ];
 
 for (const config of rollupPluginsNPM)
@@ -214,6 +243,6 @@ export default () =>
    return [
       ...createRuntimeLibConfig({ sourcemap }),
       ...createSvelteLibConfig({ sourcemap }),
-      ...s_MODULES_UTIL_I18N_LIB
+      ...s_MODULES_UTIL_FVTT_PATCH_LIB
    ];
 }

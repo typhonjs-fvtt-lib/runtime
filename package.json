@@ -1,6 +1,6 @@
 {
   "name": "@typhonjs-fvtt/runtime",
-  "version": "0.3.0-next.1",
+  "version": "0.3.0-next.2",
   "description": "Provides an integrated runtime library for Foundry VTT & Svelte.",
   "license": "MPL-2.0",
   "type": "module",
@@ -262,6 +262,10 @@
     "./util/object": {
       "types": "./_dist/util/object/index.d.ts",
       "import": "./_dist/util/object/index.js"
+    },
+    "./util/path": {
+      "types": "./_dist/util/path/index.d.ts",
+      "import": "./_dist/util/path/index.js"
     },
     "./util/semver": {
       "types": "./_dist/util/semver/index.d.ts",
