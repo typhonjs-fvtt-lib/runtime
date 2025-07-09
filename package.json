@@ -93,6 +93,10 @@
       "types": "./_dist/svelte/action/dom/focus/index.d.ts",
       "import": "./_dist/svelte/action/dom/focus/index.js"
     },
+    "./svelte/action/dom/inline-svg": {
+      "types": "./_dist/svelte/action/dom/inline-svg/index.d.ts",
+      "import": "./_dist/svelte/action/dom/inline-svg/index.js"
+    },
     "./svelte/action/dom/input": {
       "types": "./_dist/svelte/action/dom/input/index.d.ts",
       "import": "./_dist/svelte/action/dom/input/index.js"

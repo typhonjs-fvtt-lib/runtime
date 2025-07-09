@@ -28,6 +28,7 @@ export const externalPathsNPM = {
    '@typhonjs-svelte/runtime-base/plugin/manager': '@typhonjs-fvtt/runtime/plugin/manager',
    '@typhonjs-svelte/runtime-base/plugin/manager/eventbus': '@typhonjs-fvtt/runtime/plugin/manager/eventbus',
    '@typhonjs-svelte/runtime-base/svelte/action/dom/focus': '@typhonjs-fvtt/runtime/svelte/action/dom/focus',
+   '@typhonjs-svelte/runtime-base/svelte/action/dom/inline-svg': '@typhonjs-fvtt/runtime/svelte/action/dom/inline-svg',
    '@typhonjs-svelte/runtime-base/svelte/action/dom/input': '@typhonjs-fvtt/runtime/svelte/action/dom/input',
    '@typhonjs-svelte/runtime-base/svelte/action/dom/observer': '@typhonjs-fvtt/runtime/svelte/action/dom/observer',
    '@typhonjs-svelte/runtime-base/svelte/action/dom/properties': '@typhonjs-fvtt/runtime/svelte/action/dom/properties',
