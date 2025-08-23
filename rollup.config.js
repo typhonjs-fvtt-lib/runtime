@@ -21,8 +21,22 @@ const dtsPluginOptions = { bundlePackageExports: true };
 
 const s_MODULES_UTIL_FVTT_PATCH_LIB = [
    {
-      input: '.build/i18n/index.js',
-      external: [/^@typhonjs-fvtt/],
+      input: '.build/util/dom/theme/index.js',
+      external: [/^@typhonjs-fvtt/, /^svelte/],
+      plugins: [
+         resolve({ browser: true })
+      ],
+      output: {
+         file: 'remote/util/dom/theme.js',
+         paths: externalPathsRemote,
+         format: 'es',
+         generatedCode: { constBindings: true },
+         sourcemap
+      }
+   },
+   {
+      input: '.build/util/i18n/index.js',
+      external: [/^@typhonjs-fvtt/, /^svelte/],
       plugins: [
          resolve({ browser: true })
       ],
@@ -35,8 +49,8 @@ const s_MODULES_UTIL_FVTT_PATCH_LIB = [
       }
    },
    {
-      input: '.build/path/index.js',
-      external: [/^@typhonjs-fvtt/],
+      input: '.build/util/path/index.js',
+      external: [/^@typhonjs-fvtt/, /^svelte/],
       plugins: [
          resolve({ browser: true })
       ],
@@ -53,8 +67,23 @@ const s_MODULES_UTIL_FVTT_PATCH_LIB = [
 const s_MODULES_UTIL_FVTT_PATCH_NPM = [
    {
       input: {
-         external: [/^@typhonjs-fvtt/],
-         input: '.build/i18n/index.js',
+         external: [/^@typhonjs-fvtt/, /^svelte/],
+         input: '.build/util/dom/theme/index.js',
+         plugins: [
+            resolve({ browser: true })
+         ]
+      },
+      output: {
+         file: '_dist/util/dom/theme/index.js',
+         format: 'es',
+         generatedCode: { constBindings: true },
+         sourcemap
+      }
+   },
+   {
+      input: {
+         external: [/^@typhonjs-fvtt/, /^svelte/],
+         input: '.build/util/i18n/index.js',
          plugins: [
             resolve({ browser: true })
          ]
@@ -68,8 +97,8 @@ const s_MODULES_UTIL_FVTT_PATCH_NPM = [
    },
    {
       input: {
-         external: [/^@typhonjs-fvtt/],
-         input: '.build/path/index.js',
+         external: [/^@typhonjs-fvtt/, /^svelte/],
+         input: '.build/util/path/index.js',
          plugins: [
             resolve({ browser: true })
          ]

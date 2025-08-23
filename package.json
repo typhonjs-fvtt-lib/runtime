@@ -247,6 +247,10 @@
       "types": "./_dist/util/dom/style/index.d.ts",
       "import": "./_dist/util/dom/style/index.js"
     },
+    "./util/dom/theme": {
+      "types": "./_dist/util/dom/theme/index.d.ts",
+      "import": "./_dist/util/dom/theme/index.js"
+    },
     "./util/html": {
       "types": "./_dist/util/html/index.d.ts",
       "import": "./_dist/util/html/index.js"

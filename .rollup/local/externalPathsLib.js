@@ -52,6 +52,7 @@ export const externalPathsLib = {
    '@typhonjs-svelte/runtime-base/util/dom/layout': '/modules/typhonjs/remote/util/dom/layout.js',
    '@typhonjs-svelte/runtime-base/util/dom/observer': '/modules/typhonjs/remote/util/dom/observer.js',
    '@typhonjs-svelte/runtime-base/util/dom/style': '/modules/typhonjs/remote/util/dom/style.js',
+   '@typhonjs-svelte/runtime-base/util/dom/theme': '/modules/typhonjs/remote/util/dom/theme.js',
    '@typhonjs-svelte/runtime-base/util/html': '/modules/typhonjs/remote/util/html.js',
    '@typhonjs-svelte/runtime-base/util/html/striptags': '/modules/typhonjs/remote/util/html/striptags.js',
    '@typhonjs-svelte/runtime-base/util/i18n': '/modules/typhonjs/remote/util/i18n.js',
@@ -60,7 +61,8 @@ export const externalPathsLib = {
    '@typhonjs-svelte/runtime-base/util/path': '/modules/typhonjs/remote/util/path.js',
    '@typhonjs-svelte/runtime-base/util/semver': '/modules/typhonjs/remote/util/semver.js',
 
-   // Special handling for local include of FVTT i18n / path implementation.
+   // Special handling for local include of FVTT theme / i18n / path implementation.
+   '@typhonjs-fvtt/runtime/util/dom/theme': '/modules/typhonjs/remote/util/dom/theme.js',
    '@typhonjs-fvtt/runtime/util/i18n': '/modules/typhonjs/remote/util/i18n.js',
    '@typhonjs-fvtt/runtime/util/path': '/modules/typhonjs/remote/util/path.js',
 

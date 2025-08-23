@@ -54,6 +54,7 @@ export const externalPathsNPM = {
    '@typhonjs-svelte/runtime-base/util/dom/layout': '@typhonjs-fvtt/runtime/util/dom/layout',
    '@typhonjs-svelte/runtime-base/util/dom/observer': '@typhonjs-fvtt/runtime/util/dom/observer',
    '@typhonjs-svelte/runtime-base/util/dom/style': '@typhonjs-fvtt/runtime/util/dom/style',
+   '@typhonjs-svelte/runtime-base/util/dom/theme': '@typhonjs-fvtt/runtime/util/dom/theme',
    '@typhonjs-svelte/runtime-base/util/html': '@typhonjs-fvtt/runtime/util/html',
    '@typhonjs-svelte/runtime-base/util/html/striptags': '@typhonjs-fvtt/runtime/util/html/striptags',
    '@typhonjs-svelte/runtime-base/util/i18n': '@typhonjs-fvtt/runtime/util/i18n',
@@ -63,6 +64,7 @@ export const externalPathsNPM = {
    '@typhonjs-svelte/runtime-base/util/semver': '@typhonjs-fvtt/runtime/util/semver',
 
    // Special handling for local include of FVTT i18n / path implementation.
+   '@typhonjs-fvtt/runtime/util/dom/theme': '@typhonjs-fvtt/runtime/util/dom/theme',
    '@typhonjs-fvtt/runtime/util/i18n': '@typhonjs-fvtt/runtime/util/i18n',
    '@typhonjs-fvtt/runtime/util/path': '@typhonjs-fvtt/runtime/util/path',
 
