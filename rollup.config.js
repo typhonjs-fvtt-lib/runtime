@@ -21,6 +21,20 @@ const dtsPluginOptions = { bundlePackageExports: true };
 
 const s_MODULES_UTIL_FVTT_PATCH_LIB = [
    {
+      input: '.build/svelte/action/dom/tooltip/index.js',
+      external: [/^@typhonjs-fvtt/, /^svelte/],
+      plugins: [
+         resolve({ browser: true })
+      ],
+      output: {
+         file: 'remote/svelte/action/dom/tooltip.js',
+         paths: externalPathsRemote,
+         format: 'es',
+         generatedCode: { constBindings: true },
+         sourcemap
+      }
+   },
+   {
       input: '.build/util/dom/theme/index.js',
       external: [/^@typhonjs-fvtt/, /^svelte/],
       plugins: [
@@ -65,6 +79,21 @@ const s_MODULES_UTIL_FVTT_PATCH_LIB = [
 ];
 
 const s_MODULES_UTIL_FVTT_PATCH_NPM = [
+   {
+      input: {
+         external: [/^@typhonjs-fvtt/, /^svelte/],
+         input: '.build/svelte/action/dom/tooltip/index.js',
+         plugins: [
+            resolve({ browser: true })
+         ]
+      },
+      output: {
+         file: '_dist/svelte/action/dom/tooltip/index.js',
+         format: 'es',
+         generatedCode: { constBindings: true },
+         sourcemap
+      }
+   },
    {
       input: {
          external: [/^@typhonjs-fvtt/, /^svelte/],

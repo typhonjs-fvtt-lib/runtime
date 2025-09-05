@@ -5,10 +5,23 @@ const requireMod = module.createRequire(import.meta.url);
 const packageJSONPath = requireMod.resolve('@typhonjs-svelte/runtime-base/package.json');
 const packageJSON = JSON.parse(fs.readFileSync(packageJSONPath, 'utf-8'));
 
-// `util/dom/theme`, `util/i18n`, and `util/path` is skipped, because a platform specific implementation for
-// Foundry VTT is added locally.
-
-const s_EXCLUDE = ['./package.json', './util/dom/theme', './util/i18n', '.util/path'];
+/**
+ * The following `runtime-base` entries are skipped. Local platform specific implementations for Foundry are added for
+ * the following sub-path exports:
+ * - `svelte/action/dom/tooltip`
+ * - `util/dom/theme`
+ * - `util/i18n`
+ * - `util/path`
+ *
+ * @type {string[]}
+ */
+const s_EXCLUDE = [
+   './package.json',
+   './svelte/action/dom/tooltip',
+   './util/dom/theme',
+   './util/i18n',
+   '.util/path'
+];
 
 const distPath = packageJSONPath.replace('package.json', '_dist');
 

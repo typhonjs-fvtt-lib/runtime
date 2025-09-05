@@ -33,6 +33,7 @@ export const externalPathsNPM = {
    '@typhonjs-svelte/runtime-base/svelte/action/dom/observer': '@typhonjs-fvtt/runtime/svelte/action/dom/observer',
    '@typhonjs-svelte/runtime-base/svelte/action/dom/properties': '@typhonjs-fvtt/runtime/svelte/action/dom/properties',
    '@typhonjs-svelte/runtime-base/svelte/action/dom/style': '@typhonjs-fvtt/runtime/svelte/action/dom/style',
+   '@typhonjs-svelte/runtime-base/svelte/action/dom/tooltip': '@typhonjs-fvtt/runtime/svelte/action/dom/tooltip',
    '@typhonjs-svelte/runtime-base/svelte/action/util': '@typhonjs-fvtt/runtime/svelte/action/util',
    '@typhonjs-svelte/runtime-base/svelte/animate': '@typhonjs-fvtt/runtime/svelte/animate',
    '@typhonjs-svelte/runtime-base/svelte/easing': '@typhonjs-fvtt/runtime/svelte/easing',
@@ -63,7 +64,8 @@ export const externalPathsNPM = {
    '@typhonjs-svelte/runtime-base/util/path': '@typhonjs-fvtt/runtime/util/path',
    '@typhonjs-svelte/runtime-base/util/semver': '@typhonjs-fvtt/runtime/util/semver',
 
-   // Special handling for local include of FVTT i18n / path implementation.
+   // Special handling for local include of FVTT tooltip / theme / i18n / path implementation.
+   '@typhonjs-fvtt/runtime/svelte/action/dom/tooltip': '@typhonjs-fvtt/runtime/svelte/action/dom/tooltip',
    '@typhonjs-fvtt/runtime/util/dom/theme': '@typhonjs-fvtt/runtime/util/dom/theme',
    '@typhonjs-fvtt/runtime/util/i18n': '@typhonjs-fvtt/runtime/util/i18n',
    '@typhonjs-fvtt/runtime/util/path': '@typhonjs-fvtt/runtime/util/path',

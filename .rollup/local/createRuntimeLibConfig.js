@@ -5,8 +5,8 @@ import {
    typhonjsRuntime,
    typhonjsRuntimeOut }    from './index.js';
 
-// `util/dom/theme`, `util/i18n`, and `util/path` is skipped, because a platform specific implementation for
-// Foundry VTT is added locally.
+// `svelte/action/dom/tooltip`, `util/dom/theme`, `util/i18n`, and `util/path` are skipped, because a platform
+// specific implementation for Foundry VTT is added locally.
 
 const bundleMap = {
    'data/color/colord': ['@typhonjs-svelte/runtime-base/data/color/colord'],

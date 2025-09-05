@@ -113,6 +113,10 @@
       "types": "./_dist/svelte/action/dom/style/index.d.ts",
       "import": "./_dist/svelte/action/dom/style/index.js"
     },
+    "./svelte/action/dom/tooltip": {
+      "types": "./_dist/svelte/action/dom/tooltip/index.d.ts",
+      "import": "./_dist/svelte/action/dom/tooltip/index.js"
+    },
     "./svelte/action/util": {
       "types": "./_dist/svelte/action/util/index.d.ts",
       "import": "./_dist/svelte/action/util/index.js"
