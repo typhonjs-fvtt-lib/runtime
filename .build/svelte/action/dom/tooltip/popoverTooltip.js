@@ -11,7 +11,19 @@ import { localize }  from '@typhonjs-fvtt/runtime/util/i18n';
  */
 export function popoverTooltip(node, tooltip)
 {
-   node.setAttribute('data-tooltip', typeof tooltip === 'string' ? localize(tooltip) : null);
+   function setAttribute(current)
+   {
+      if (typeof current === 'string')
+      {
+         node.setAttribute('data-tooltip', localize(tooltip));
+      }
+      else
+      {
+         node.removeAttribute('data-tooltip');
+      }
+   }
+
+   setAttribute(tooltip);
 
    return {
       /**
@@ -20,7 +32,7 @@ export function popoverTooltip(node, tooltip)
       update: (newTooltip) =>
       {
          tooltip = newTooltip;
-         node.setAttribute('data-tooltip', typeof tooltip === 'string' ? localize(tooltip) : null);
+         setAttribute(tooltip);
       }
    };
 }
