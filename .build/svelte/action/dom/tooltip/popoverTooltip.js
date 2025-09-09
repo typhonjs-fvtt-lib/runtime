@@ -5,34 +5,58 @@ import { localize }  from '@typhonjs-fvtt/runtime/util/i18n';
  *
  * @param {HTMLElement} node - Target element.
  *
- * @param {string}  tooltip - The tooltip to set.
+ * @param {object}   [options] - Options.
  *
- * @returns {import('svelte/action').ActionReturn<string>} Lifecycle functions.
+ * @param {string}   [options.tooltip] - Tooltip value or language key.
+ *
+ * @returns {import('svelte/action').ActionReturn<{ tooltip?: string }>} Lifecycle functions.
  */
-export function popoverTooltip(node, tooltip)
+export function popoverTooltip(node, { tooltip, ariaLabel = false })
 {
-   function setAttribute(current)
+   function setAttributes()
    {
-      if (typeof current === 'string')
+      if (typeof tooltip === 'string')
       {
-         node.setAttribute('data-tooltip', localize(tooltip));
+         const value = localize(tooltip);
+
+         node.setAttribute('data-tooltip', value);
+
+         if (ariaLabel)
+         {
+            node.setAttribute('aria-label', value);
+         }
+         else
+         {
+            node.removeAttribute('aria-label');
+         }
       }
       else
       {
          node.removeAttribute('data-tooltip');
+         node.removeAttribute('aria-label');
       }
    }
 
-   setAttribute(tooltip);
+   setAttributes();
 
    return {
       /**
-       * @param {string}  newTooltip - Update tooltip.
+       * @param {TooltipOptions}  options - Update tooltip.
        */
-      update: (newTooltip) =>
+      update: (options) =>
       {
-         tooltip = newTooltip;
-         setAttribute(tooltip);
+         tooltip = typeof options?.tooltip === 'string' ? options.tooltip : void 0;
+         ariaLabel = typeof options?.ariaLabel === 'boolean' ? options.ariaLabel : false;
+
+         setAttributes();
       }
    };
 }
+
+/**
+ * @typedef {object} TooltipOptions
+ *
+ * @property {string} [tooltip] Tooltip value or language key.
+ *
+ * @property {boolean} [ariaLabel=false] When true, the tooltip value is also set to the `aria-label` attribute.
+ */
