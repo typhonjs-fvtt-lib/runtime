@@ -1,5 +1,7 @@
 /**
- * Provides a popover tooltip action for Foundry that uses the `data-tooltip` attribute.
+ * Provides a popover tooltip action for Foundry that provides a similar set of options as the core `TooltipManager`.
+ * A large benefit of this action is that on data changes the data attributes are updated and if the action Node is the
+ * same as the current tooltip element the tooltip is activated again providing reactivity.
  *
  * @param {HTMLElement} node - Target element.
  *
