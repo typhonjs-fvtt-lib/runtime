@@ -37,6 +37,7 @@ export const externalPathsNPM = {
    '@typhonjs-svelte/runtime-base/svelte/action/util': '@typhonjs-fvtt/runtime/svelte/action/util',
    '@typhonjs-svelte/runtime-base/svelte/animate': '@typhonjs-fvtt/runtime/svelte/animate',
    '@typhonjs-svelte/runtime-base/svelte/easing': '@typhonjs-fvtt/runtime/svelte/easing',
+   '@typhonjs-svelte/runtime-base/svelte/reactivity': '@typhonjs-fvtt/runtime/svelte/reactivity',
    '@typhonjs-svelte/runtime-base/svelte/store/dom/input': '@typhonjs-fvtt/runtime/svelte/store/dom/input',
    '@typhonjs-svelte/runtime-base/svelte/store/position': '@typhonjs-fvtt/runtime/svelte/store/position',
    '@typhonjs-svelte/runtime-base/svelte/store/reducer': '@typhonjs-fvtt/runtime/svelte/store/reducer',

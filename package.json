@@ -151,6 +151,10 @@
       "types": "./_dist/svelte/easing/index.d.ts",
       "import": "./_dist/svelte/easing/index.js"
     },
+    "./svelte/reactivity": {
+      "types": "./_dist/svelte/reactivity/index.d.ts",
+      "import": "./_dist/svelte/reactivity/index.js"
+    },
     "./svelte/store/dom/input": {
       "types": "./_dist/svelte/store/dom/input/index.d.ts",
       "import": "./_dist/svelte/store/dom/input/index.js"

@@ -36,6 +36,7 @@ const bundleMap = {
    'svelte/action/util': ['@typhonjs-svelte/runtime-base/svelte/action/util'],
    'svelte/animate': ['svelte/animate', '@typhonjs-svelte/runtime-base/svelte/animate'],
    'svelte/easing': ['svelte/easing', '@typhonjs-svelte/runtime-base/svelte/easing'],
+   'svelte/reactivity': ['@typhonjs-svelte/runtime-base/svelte/reactivity'],
    'svelte/store/dom/input': ['@typhonjs-svelte/runtime-base/svelte/store/dom/input'],
    'svelte/store/position': ['@typhonjs-svelte/runtime-base/svelte/store/position'],
    'svelte/store/reducer': ['@typhonjs-svelte/runtime-base/svelte/store/reducer'],
