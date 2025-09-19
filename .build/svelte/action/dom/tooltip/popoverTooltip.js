@@ -60,11 +60,11 @@ export function popoverTooltip(node, { tooltip, tooltipHTML, tooltipText, cssCla
 
       if (typeof locked === 'boolean' && locked)
       {
-         node.setAttribute('data-tooltip-locked', '');
+         node.setAttribute('data-locked', String(locked));
       }
       else
       {
-         node.removeAttribute('data-tooltip-locked');
+         node.removeAttribute('data-locked');
       }
 
       // Immediately reactivate tooltip w/ data changes for reactivity if `node` is the same as current tooltip element.
@@ -86,7 +86,7 @@ export function popoverTooltip(node, { tooltip, tooltipHTML, tooltipText, cssCla
          tooltipHTML = typeof options?.tooltipHTML === 'string' ? options.tooltipHTML : void 0;
          tooltipText = typeof options?.tooltipText === 'string' ? options.tooltipText : void 0;
          cssClass = typeof options?.cssClass === 'string' ? options.cssClass : void 0;
-         direction = typeof options?.cssClass === 'string' ? options.direction : void 0;
+         direction = typeof options?.direction === 'string' ? options.direction : void 0;
          locked = typeof options?.locked === 'boolean' ? options.locked : void 0;
 
          setAttributes();
