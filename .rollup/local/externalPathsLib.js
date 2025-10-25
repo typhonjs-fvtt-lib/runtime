@@ -4,7 +4,7 @@ export const externalPathsLib = {
    '@typhonjs-fvtt/svelte/component/internal': '/modules/typhonjs/remote/svelte/component/internal.js',
    '@typhonjs-fvtt/svelte/store/fvtt/document': '/modules/typhonjs/remote/svelte/store/fvtt/document.js',
    '@typhonjs-fvtt/svelte/store/fvtt/settings': '/modules/typhonjs/remote/svelte/store/fvtt/settings.js',
-   '@typhonjs-fvtt/svelte/store/fvtt/settings/world': '/modules/typhonjs/remote/svelte/store/fvtt/settings/world.js',
+   '@typhonjs-fvtt/svelte/store/fvtt/settings/array-object': '/modules/typhonjs/remote/svelte/store/fvtt/settings/array-object.js',
 
    '@typhonjs-svelte/runtime-base/data/color/colord': '/modules/typhonjs/remote/data/color/colord.js',
    '@typhonjs-svelte/runtime-base/data/compress': '/modules/typhonjs/remote/data/compress.js',

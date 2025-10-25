@@ -36,6 +36,7 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/svelte/store/dom/input': '/modules/typhonjs/remote/svelte/store/dom/input.js',
    '@typhonjs-fvtt/runtime/svelte/store/position': '/modules/typhonjs/remote/svelte/store/position.js',
    '@typhonjs-fvtt/runtime/svelte/store/reducer': '/modules/typhonjs/remote/svelte/store/reducer.js',
+   '@typhonjs-fvtt/runtime/svelte/store/reducer/array-object': '/modules/typhonjs/remote/svelte/store/reducer/array-object.js',
    '@typhonjs-fvtt/runtime/svelte/store/util': '/modules/typhonjs/remote/svelte/store/util.js',
    '@typhonjs-fvtt/runtime/svelte/store/web-storage': '/modules/typhonjs/remote/svelte/store/web-storage.js',
    '@typhonjs-fvtt/runtime/svelte/store/web-storage/msgpack': '/modules/typhonjs/remote/svelte/store/web-storage/msgpack.js',
@@ -69,7 +70,7 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/svelte/internal': '/modules/typhonjs/remote/svelte/internal.js',
    '@typhonjs-fvtt/runtime/svelte/store/fvtt/document': '/modules/typhonjs/remote/svelte/store/fvtt/document.js',
    '@typhonjs-fvtt/runtime/svelte/store/fvtt/settings': '/modules/typhonjs/remote/svelte/store/fvtt/settings.js',
-   '@typhonjs-fvtt/runtime/svelte/store/fvtt/settings/world': '/modules/typhonjs/remote/svelte/store/fvtt/settings/world.js',
+   '@typhonjs-fvtt/runtime/svelte/store/fvtt/settings/array-object': '/modules/typhonjs/remote/svelte/store/fvtt/settings/array-object.js',
 
    // #runtime mapping -----------------------------------------------------------------------------------------------
 
@@ -106,6 +107,7 @@ export const externalPathsRemote = {
    '#runtime/svelte/store/dom/input': '/modules/typhonjs/remote/svelte/store/dom/input.js',
    '#runtime/svelte/store/position': '/modules/typhonjs/remote/svelte/store/position.js',
    '#runtime/svelte/store/reducer': '/modules/typhonjs/remote/svelte/store/reducer.js',
+   '#runtime/svelte/store/reducer/array-object': '/modules/typhonjs/remote/svelte/store/reducer/array-object.js',
    '#runtime/svelte/store/util': '/modules/typhonjs/remote/svelte/store/util.js',
    '#runtime/svelte/store/web-storage': '/modules/typhonjs/remote/svelte/store/web-storage.js',
    '#runtime/svelte/store/web-storage/msgpack': '/modules/typhonjs/remote/svelte/store/web-storage/msgpack.js',
@@ -139,5 +141,5 @@ export const externalPathsRemote = {
    '#runtime/svelte/internal': '/modules/typhonjs/remote/svelte/internal.js',
    '#runtime/svelte/store/fvtt/document': '/modules/typhonjs/remote/svelte/store/fvtt/document.js',
    '#runtime/svelte/store/fvtt/settings': '/modules/typhonjs/remote/svelte/store/fvtt/settings.js',
-   '#runtime/svelte/store/fvtt/settings/world': '/modules/typhonjs/remote/svelte/store/fvtt/settings/world.js',
+   '#runtime/svelte/store/fvtt/settings/array-object': '/modules/typhonjs/remote/svelte/store/fvtt/settings/array-object.js',
 }

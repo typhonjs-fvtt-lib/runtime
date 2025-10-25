@@ -12,13 +12,13 @@ import { postcssConfig }   from '../postcssConfig.js';
 const bundleMap = {
    // These are handled manually below:
    // 'svelte': ['svelte'],
-   // 'svelte/component/core': ['../../node_modules/@typhonjs-fvtt/svelte/src/component/core'],
+   // 'svelte/component/application': ['../../node_modules/@typhonjs-fvtt/svelte/src/component/application'],
    // 'svelte/component/internal': ['../../node_modules/@typhonjs-fvtt/svelte/src/component/internal'],
    'svelte/animate/gsap': ['@typhonjs-fvtt/svelte/animate/gsap'],
    'svelte/application': ['@typhonjs-fvtt/svelte/application'],
    'svelte/store/fvtt/document': ['@typhonjs-fvtt/svelte/store/fvtt/document'],
    'svelte/store/fvtt/settings': ['@typhonjs-fvtt/svelte/store/fvtt/settings'],
-   'svelte/store/fvtt/settings/world': ['@typhonjs-fvtt/svelte/store/fvtt/settings/world'],
+   'svelte/store/fvtt/settings/array-object': ['@typhonjs-fvtt/svelte/store/fvtt/settings/array-object'],
 
    // TODO: combining both packages here will duplicate the easing functions in the lib bundle.
    'svelte/easing': ['svelte/easing', '@typhonjs-svelte/runtime-base/svelte/easing'],

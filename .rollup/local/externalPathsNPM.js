@@ -7,7 +7,7 @@ export const externalPathsNPM = {
    '@typhonjs-fvtt/svelte/component/internal': '@typhonjs-fvtt/runtime/svelte/component/internal',
    '@typhonjs-fvtt/svelte/store/fvtt/document': '@typhonjs-fvtt/runtime/svelte/store/fvtt/document',
    '@typhonjs-fvtt/svelte/store/fvtt/settings': '@typhonjs-fvtt/runtime/svelte/store/fvtt/settings',
-   '@typhonjs-fvtt/svelte/store/fvtt/settings/world': '@typhonjs-fvtt/runtime/svelte/store/fvtt/settings/world',
+   '@typhonjs-fvtt/svelte/store/fvtt/settings/array-object': '@typhonjs-fvtt/runtime/svelte/store/fvtt/settings/array-object',
 
    '@typhonjs-svelte/runtime-base/data/color/colord': '@typhonjs-fvtt/runtime/data/color/colord',
    '@typhonjs-svelte/runtime-base/data/compress': '@typhonjs-fvtt/runtime/data/compress',
@@ -41,6 +41,7 @@ export const externalPathsNPM = {
    '@typhonjs-svelte/runtime-base/svelte/store/dom/input': '@typhonjs-fvtt/runtime/svelte/store/dom/input',
    '@typhonjs-svelte/runtime-base/svelte/store/position': '@typhonjs-fvtt/runtime/svelte/store/position',
    '@typhonjs-svelte/runtime-base/svelte/store/reducer': '@typhonjs-fvtt/runtime/svelte/store/reducer',
+   '@typhonjs-svelte/runtime-base/svelte/store/reducer/array-object': '@typhonjs-fvtt/runtime/svelte/store/reducer/array-object',
    '@typhonjs-svelte/runtime-base/svelte/store/util': '@typhonjs-fvtt/runtime/svelte/store/util',
    '@typhonjs-svelte/runtime-base/svelte/store/web-storage': '@typhonjs-fvtt/runtime/svelte/store/web-storage',
    '@typhonjs-svelte/runtime-base/svelte/store/web-storage/msgpack': '@typhonjs-fvtt/runtime/svelte/store/web-storage/msgpack',
