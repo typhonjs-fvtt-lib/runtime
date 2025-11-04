@@ -1,4 +1,4 @@
-import { CrossWindow }  from '@typhonjs-fvtt/runtime/util/browser';
+import { CrossRealm }   from '@typhonjs-fvtt/runtime/util/browser';
 import { isIterable }   from '@typhonjs-fvtt/runtime/util/object';
 
 import { writable }     from 'svelte/store';
@@ -174,9 +174,9 @@ export class ThemeObserver
     */
    static nearestThemedTokens({ element, output = new Set(), override = true, strict = false })
    {
-      if (!CrossWindow.isSet(output)) { throw new TypeError(`'output' is not a Set.`); }
+      if (!CrossRealm.isSet(output)) { throw new TypeError(`'output' is not a Set.`); }
 
-      if (!CrossWindow.isElement(element)) { return output; }
+      if (!CrossRealm.isElement(element)) { return output; }
 
       // When override is false and theme classes are already present in result return early.
       if (!override && ThemeObserver.hasThemedTokens(output))
@@ -186,7 +186,7 @@ export class ThemeObserver
          return output;
       }
 
-      const nearestThemed = element.closest('.themed') ?? CrossWindow.getDocument(element).body;
+      const nearestThemed = element.closest('.themed') ?? CrossRealm.getDocument(element).body;
       const match = nearestThemed.className.match(/(?:^|\s)(theme-\w+)/);
       if (match)
       {
