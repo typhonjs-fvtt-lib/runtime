@@ -1,4 +1,4 @@
-import { CrossRealm }   from '@typhonjs-fvtt/runtime/util/browser';
+import { CrossRealm }   from '@typhonjs-fvtt/runtime/util';
 import { isIterable }   from '@typhonjs-fvtt/runtime/util/object';
 
 import { writable }     from 'svelte/store';
