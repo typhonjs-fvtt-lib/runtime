@@ -283,6 +283,10 @@
       "types": "./_dist/util/path/index.d.ts",
       "import": "./_dist/util/path/index.js"
     },
+    "./util/realm": {
+      "types": "./_dist/util/realm/index.d.ts",
+      "import": "./_dist/util/realm/index.js"
+    },
     "./util/semver": {
       "types": "./_dist/util/semver/index.d.ts",
       "import": "./_dist/util/semver/index.js"

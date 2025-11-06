@@ -20,7 +20,7 @@ const s_EXCLUDE = [
    './svelte/action/dom/tooltip',
    './util/dom/theme',
    './util/i18n',
-   '.util/path'
+   './util/path'
 ];
 
 const distPath = packageJSONPath.replace('package.json', '_dist');

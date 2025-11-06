@@ -61,6 +61,7 @@ export const externalPathsLib = {
    '@typhonjs-svelte/runtime-base/util/loader-module': '/modules/typhonjs/remote/util/loader-module.js',
    '@typhonjs-svelte/runtime-base/util/object': '/modules/typhonjs/remote/util/object.js',
    '@typhonjs-svelte/runtime-base/util/path': '/modules/typhonjs/remote/util/path.js',
+   '@typhonjs-svelte/runtime-base/util/realm': '/modules/typhonjs/remote/util/realm.js',
    '@typhonjs-svelte/runtime-base/util/semver': '/modules/typhonjs/remote/util/semver.js',
 
    // Special handling for local include of FVTT tooltip / theme / i18n / path implementation.

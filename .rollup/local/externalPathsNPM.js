@@ -64,6 +64,7 @@ export const externalPathsNPM = {
    '@typhonjs-svelte/runtime-base/util/loader-module': '@typhonjs-fvtt/runtime/util/loader-module',
    '@typhonjs-svelte/runtime-base/util/object': '@typhonjs-fvtt/runtime/util/object',
    '@typhonjs-svelte/runtime-base/util/path': '@typhonjs-fvtt/runtime/util/path',
+   '@typhonjs-svelte/runtime-base/util/realm': '@typhonjs-fvtt/runtime/util/realm',
    '@typhonjs-svelte/runtime-base/util/semver': '@typhonjs-fvtt/runtime/util/semver',
 
    // Special handling for local include of FVTT tooltip / theme / i18n / path implementation.
