@@ -1,5 +1,5 @@
-import { CrossRealm }   from '@typhonjs-fvtt/runtime/util';
 import { isIterable }   from '@typhonjs-fvtt/runtime/util/object';
+import { CrossRealm }   from '@typhonjs-fvtt/runtime/util/realm';
 
 import { writable }     from 'svelte/store';
 
@@ -9,6 +9,13 @@ import { writable }     from 'svelte/store';
  */
 export class ThemeObserver
 {
+   /**
+    * Matches Foundry theme CSS class.
+    *
+    * @type {RegExp}
+    */
+   static #regexThemeToken = /(?:^|\s)(theme-\w+)/;
+
    /**
     * All readable theme stores.
     *
@@ -174,9 +181,9 @@ export class ThemeObserver
     */
    static nearestThemedTokens({ element, output = new Set(), override = true, strict = false })
    {
-      if (!CrossRealm.isSet(output)) { throw new TypeError(`'output' is not a Set.`); }
+      if (!CrossRealm.lang.isSet(output)) { throw new TypeError(`'output' is not a Set.`); }
 
-      if (!CrossRealm.isElement(element)) { return output; }
+      if (!CrossRealm.browser.isElement(element)) { return output; }
 
       // When override is false and theme classes are already present in result return early.
       if (!override && ThemeObserver.hasThemedTokens(output))
@@ -186,8 +193,8 @@ export class ThemeObserver
          return output;
       }
 
-      const nearestThemed = element.closest('.themed') ?? CrossRealm.getDocument(element).body;
-      const match = nearestThemed.className.match(/(?:^|\s)(theme-\w+)/);
+      const nearestThemed = element.closest('.themed') ?? CrossRealm.browser.getDocument(element).body;
+      const match = nearestThemed.className.match(this.#regexThemeToken);
       if (match)
       {
          output.add('themed');
