@@ -1,6 +1,7 @@
 export const externalPathsLib = {
    '@typhonjs-fvtt/svelte/animate/gsap': '/modules/typhonjs/remote/svelte/animate/gsap.js',
    // Note: `@typhonjs-fvtt/svelte/animate/gsap/plugin` and `plugin/bonus` are compiled into end user package and not in the library.
+   '@typhonjs-fvtt/svelte/component/application': '/modules/typhonjs/remote/svelte/component/application.js',
    '@typhonjs-fvtt/svelte/component/internal': '/modules/typhonjs/remote/svelte/component/internal.js',
    '@typhonjs-fvtt/svelte/store/fvtt/document': '/modules/typhonjs/remote/svelte/store/fvtt/document.js',
    '@typhonjs-fvtt/svelte/store/fvtt/settings': '/modules/typhonjs/remote/svelte/store/fvtt/settings.js',
@@ -33,6 +34,7 @@ export const externalPathsLib = {
    '@typhonjs-svelte/runtime-base/svelte/action/dom/tooltip': '/modules/typhonjs/remote/svelte/action/dom/tooltip.js',
    '@typhonjs-svelte/runtime-base/svelte/action/util': '/modules/typhonjs/remote/svelte/action/util.js',
    '@typhonjs-svelte/runtime-base/svelte/animate': '/modules/typhonjs/remote/svelte/animate.js',
+   '@typhonjs-svelte/runtime-base/svelte/component/container': '/modules/typhonjs/remote/svelte/component/container.js',
    '@typhonjs-svelte/runtime-base/svelte/easing': '/modules/typhonjs/remote/svelte/easing.js',
    '@typhonjs-svelte/runtime-base/svelte/reactivity': '/modules/typhonjs/remote/svelte/reactivity.js',
    '@typhonjs-svelte/runtime-base/svelte/store/dom/input': '/modules/typhonjs/remote/svelte/store/dom/input.js',

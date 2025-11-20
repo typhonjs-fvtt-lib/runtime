@@ -2,13 +2,20 @@ import resolve             from '@rollup/plugin-node-resolve';
 import virtual             from '@rollup/plugin-virtual';
 
 import {
+   postcssConfig,
    typhonjsRuntime,
-   typhonjsRuntimeOut }    from './index.js';
+   typhonjsRuntimeOut
+} from './index.js';
+import svelte from "rollup-plugin-svelte";
+import postcss from "rollup-plugin-postcss";
 
 // `svelte/action/dom/tooltip`, `util/dom/theme`, `util/i18n`, and `util/path` are skipped, because a platform
 // specific implementation for Foundry VTT is added locally.
 
 const bundleMap = {
+   // These are handled manually below:
+   // 'svelte/component/container': ['../../node_modules/@typhonjs-svelte/runtime-base/svelte/src/svelte/component/container'],
+
    'data/color/colord': ['@typhonjs-svelte/runtime-base/data/color/colord'],
    'data/compress': ['@typhonjs-svelte/runtime-base/data/compress'],
    'data/format/base64': ['@typhonjs-svelte/runtime-base/data/format/base64'],
@@ -68,7 +75,36 @@ export function createRuntimeLibConfig({ sourcemap, outputPlugins = [] })
 {
    const isLib = true;
 
-   const config = [];
+   const postcssContainer = postcssConfig({
+      extract: 'container.css',
+      compress: true,
+      sourceMap: sourcemap
+   });
+
+   const config = [
+      {
+         input: 'pack',
+         output: {
+            file: 'remote/svelte/component/container.js',
+            format: 'es',
+            generatedCode: { constBindings: true },
+            plugins: outputPlugins,
+            sourcemap
+         },
+         plugins: [
+            virtual({
+               pack: `export * from './node_modules/@typhonjs-svelte/runtime-base/_dist/svelte/component/container';`
+            }),
+            svelte(),
+            postcss(postcssContainer),
+            resolve({
+               browser: true,
+               dedupe: ['svelte']
+            }),
+            typhonjsRuntime({ isLib, exclude: ['@typhonjs-svelte/runtime-base/svelte/component/container'] }),
+         ]
+      }
+   ];
 
    for (const [key, value] of Object.entries(bundleMap))
    {

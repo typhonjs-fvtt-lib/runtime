@@ -24,7 +24,8 @@ export function createSvelteNPMConfig({ sourcemap, outputPlugins = [] })
 
    for (const entry of exportsSveltePackage)
    {
-      if (entry === 'component/application' || entry === 'component/internal') { continue; }
+      // Skip all Svelte components.
+      if (entry.startsWith('component/')) { continue; }
 
       config.push({
          input: {

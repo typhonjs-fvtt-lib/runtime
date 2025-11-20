@@ -231,12 +231,18 @@ for (const appFile of appFiles)
    fs.writeFileSync(appFile, fileData);
 }
 
-// @typhonjs-fvtt/svelte/component/core & component/dialog -----------------------------------------------------------
+// @typhonjs-svelte/runtime-base/svelte/component & @typhonjs-fvtt/svelte/component ----------------------------------
 
-// Handle @typhonjs-fvtt/svelte/component/core & component/dialog by copying the source and converting all import
-// package references from `@typhonjs-fvtt/svelte` to `@typhonjs-fvtt/runtime/svelte`.
+// Handle Svelte components by copying the source and converting all imports.
 fs.emptyDirSync('./_dist/svelte/component');
+
+// @typhonjs-svelte/runtime-base/svelte/component
+fs.copySync('./node_modules/@typhonjs-svelte/runtime-base/_dist/svelte/component', './_dist/svelte/component');
+
+// @typhonjs-fvtt/svelte/component
 fs.copySync('./node_modules/@typhonjs-fvtt/svelte/_dist/component', './_dist/svelte/component');
+
+// package references from `@typhonjs-svelte/runtime-base` / `@typhonjs-fvtt/svelte` to `@typhonjs-fvtt/runtime/svelte`.
 const compFiles = await getFileList({ dir: './_dist/svelte/component', resolve: true, walk: true });
 for (const compFile of compFiles)
 {

@@ -23,6 +23,9 @@ export function createRuntimeNPMConfig({ sourcemap, outputPlugins = [] })
 
    for (const entry of exportsRuntimePackage)
    {
+      // Skip all Svelte components.
+      if (entry.startsWith('svelte/component')) { continue; }
+
       config.push({
          input: {
             input: 'pack',

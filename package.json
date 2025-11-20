@@ -143,6 +143,10 @@
       "types": "./_dist/svelte/component/application/index.d.ts",
       "import": "./_dist/svelte/component/application/index.js"
     },
+    "./svelte/component/container": {
+      "types": "./_dist/svelte/component/container/index.d.ts",
+      "import": "./_dist/svelte/component/container/index.js"
+    },
     "./svelte/component/internal": {
       "types": "./_dist/svelte/component/internal/index.d.ts",
       "import": "./_dist/svelte/component/internal/index.js"
