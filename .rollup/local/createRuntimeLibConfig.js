@@ -15,6 +15,7 @@ import postcss from "rollup-plugin-postcss";
 const bundleMap = {
    // These are handled manually below:
    // 'svelte/component/container': ['../../node_modules/@typhonjs-svelte/runtime-base/svelte/src/svelte/component/container'],
+   // 'svelte/component/dom/focus': ['../../node_modules/@typhonjs-svelte/runtime-base/svelte/src/svelte/component/dom/focus'],
 
    'data/color/colord': ['@typhonjs-svelte/runtime-base/data/color/colord'],
    'data/compress': ['@typhonjs-svelte/runtime-base/data/compress'],
@@ -81,6 +82,12 @@ export function createRuntimeLibConfig({ sourcemap, outputPlugins = [] })
       sourceMap: sourcemap
    });
 
+   const postcssDomFocus = postcssConfig({
+      extract: 'focus.css',
+      compress: true,
+      sourceMap: sourcemap
+   });
+
    const config = [
       {
          input: 'pack',
@@ -103,7 +110,29 @@ export function createRuntimeLibConfig({ sourcemap, outputPlugins = [] })
             }),
             typhonjsRuntime({ isLib, exclude: ['@typhonjs-svelte/runtime-base/svelte/component/container'] }),
          ]
-      }
+      },
+      {
+         input: 'pack',
+         output: {
+            file: 'remote/svelte/component/dom/focus.js',
+            format: 'es',
+            generatedCode: { constBindings: true },
+            plugins: outputPlugins,
+            sourcemap
+         },
+         plugins: [
+            virtual({
+               pack: `export * from './node_modules/@typhonjs-svelte/runtime-base/_dist/svelte/component/dom/focus';`
+            }),
+            svelte(),
+            postcss(postcssDomFocus),
+            resolve({
+               browser: true,
+               dedupe: ['svelte']
+            }),
+            typhonjsRuntime({ isLib, exclude: ['@typhonjs-svelte/runtime-base/svelte/component/dom/focus'] }),
+         ]
+      },
    ];
 
    for (const [key, value] of Object.entries(bundleMap))

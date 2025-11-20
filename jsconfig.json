@@ -5,5 +5,5 @@
     "moduleResolution" : "bundler",
     "target": "ES2022"
   },
-  "exclude": ["node_modules", "_dist"]
+  "exclude": ["node_modules"]
 }

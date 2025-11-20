@@ -147,6 +147,10 @@
       "types": "./_dist/svelte/component/container/index.d.ts",
       "import": "./_dist/svelte/component/container/index.js"
     },
+    "./svelte/component/dom/focus": {
+      "types": "./_dist/svelte/component/dom/focus/index.d.ts",
+      "import": "./_dist/svelte/component/dom/focus/index.js"
+    },
     "./svelte/component/internal": {
       "types": "./_dist/svelte/component/internal/index.d.ts",
       "import": "./_dist/svelte/component/internal/index.js"
