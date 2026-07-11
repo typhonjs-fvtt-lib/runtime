@@ -68,6 +68,7 @@ const bundleMap = {
    'util/html/striptags': ['@typhonjs-svelte/runtime-base/util/html/striptags'],
    'util/loader-module': ['@typhonjs-svelte/runtime-base/util/loader-module'],
    'util/object': ['@typhonjs-svelte/runtime-base/util/object'],
+   'util/predicate': ['@typhonjs-svelte/runtime-base/util/predicate'],
    'util/realm': ['@typhonjs-svelte/runtime-base/util/realm'],
    'util/semver': ['@typhonjs-svelte/runtime-base/util/semver']
 };

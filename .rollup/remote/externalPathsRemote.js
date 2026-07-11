@@ -59,6 +59,7 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/util/loader-module': '/modules/typhonjs/remote/util/loader-module.js',
    '@typhonjs-fvtt/runtime/util/object': '/modules/typhonjs/remote/util/object.js',
    '@typhonjs-fvtt/runtime/util/path': '/modules/typhonjs/remote/util/path.js',
+   '@typhonjs-fvtt/runtime/util/predicate': '/modules/typhonjs/remote/util/predicate.js',
    '@typhonjs-fvtt/runtime/util/realm': '/modules/typhonjs/remote/util/realm.js',
    '@typhonjs-fvtt/runtime/util/semver': '/modules/typhonjs/remote/util/semver.js',
 
@@ -131,6 +132,7 @@ export const externalPathsRemote = {
    '#runtime/util/loader-module': '/modules/typhonjs/remote/util/loader-module.js',
    '#runtime/util/object': '/modules/typhonjs/remote/util/object.js',
    '#runtime/util/path': '/modules/typhonjs/remote/util/path.js',
+   '#runtime/util/predicate': '/modules/typhonjs/remote/util/predicate.js',
    '#runtime/util/realm': '/modules/typhonjs/remote/util/realm.js',
    '#runtime/util/semver': '/modules/typhonjs/remote/util/semver.js',
 

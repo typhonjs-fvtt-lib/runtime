@@ -215,9 +215,9 @@
       "types": "./_dist/svelte/util/index.d.ts",
       "import": "./_dist/svelte/util/index.js"
     },
-    "./types/fvtt-shim/guard": {
-      "types": "./_dist/types/fvtt-shim/guard/index.d.ts",
-      "import": "./_dist/types/fvtt-shim/guard/index.js"
+    "./types/fvtt-shim/predicate": {
+      "types": "./_dist/types/fvtt-shim/predicate/index.d.ts",
+      "import": "./_dist/types/fvtt-shim/predicate/index.js"
     },
     "./types/fvtt-shim/league": {
       "types": "./_dist/types/fvtt-shim/league/index.d.ts",
@@ -290,6 +290,10 @@
     "./util/path": {
       "types": "./_dist/util/path/index.d.ts",
       "import": "./_dist/util/path/index.js"
+    },
+    "./util/predicate": {
+      "types": "./_dist/util/predicate/index.d.ts",
+      "import": "./_dist/util/predicate/index.js"
     },
     "./util/realm": {
       "types": "./_dist/util/realm/index.d.ts",
