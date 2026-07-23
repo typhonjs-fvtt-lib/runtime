@@ -303,6 +303,10 @@
       "types": "./_dist/util/semver/index.d.ts",
       "import": "./_dist/util/semver/index.js"
     },
+    "./util/types": {
+      "types": "./_dist/util/types/index.d.ts",
+      "import": "./_dist/util/types/index.js"
+    },
     "./package.json": "./package.json"
   },
   "sideEffects": [

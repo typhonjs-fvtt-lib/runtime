@@ -62,6 +62,7 @@ export const externalPathsRemote = {
    '@typhonjs-fvtt/runtime/util/predicate': '/modules/typhonjs/remote/util/predicate.js',
    '@typhonjs-fvtt/runtime/util/realm': '/modules/typhonjs/remote/util/realm.js',
    '@typhonjs-fvtt/runtime/util/semver': '/modules/typhonjs/remote/util/semver.js',
+   '@typhonjs-fvtt/runtime/util/types': '/modules/typhonjs/remote/util/types.js',
 
    // typhonjs-fvtt/svelte mapping:
    '@typhonjs-fvtt/runtime/svelte/application': '/modules/typhonjs/remote/svelte/application.js',
@@ -135,6 +136,7 @@ export const externalPathsRemote = {
    '#runtime/util/predicate': '/modules/typhonjs/remote/util/predicate.js',
    '#runtime/util/realm': '/modules/typhonjs/remote/util/realm.js',
    '#runtime/util/semver': '/modules/typhonjs/remote/util/semver.js',
+   '#runtime/util/types': '/modules/typhonjs/remote/util/types.js',
 
    // typhonjs-fvtt/svelte mapping:
    '#runtime/svelte/application': '/modules/typhonjs/remote/svelte/application.js',

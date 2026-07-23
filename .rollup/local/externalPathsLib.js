@@ -67,6 +67,7 @@ export const externalPathsLib = {
    '@typhonjs-svelte/runtime-base/util/predicate': '/modules/typhonjs/remote/util/predicate.js',
    '@typhonjs-svelte/runtime-base/util/realm': '/modules/typhonjs/remote/util/realm.js',
    '@typhonjs-svelte/runtime-base/util/semver': '/modules/typhonjs/remote/util/semver.js',
+   '@typhonjs-svelte/runtime-base/util/types': '/modules/typhonjs/remote/util/types.js',
 
    // Special handling for local include of FVTT tooltip / theme / i18n / path implementation.
    '@typhonjs-fvtt/runtime/svelte/action/dom/tooltip': '/modules/typhonjs/remote/svelte/action/dom/tooltip.js',

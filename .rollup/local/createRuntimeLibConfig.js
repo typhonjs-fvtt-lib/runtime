@@ -70,7 +70,8 @@ const bundleMap = {
    'util/object': ['@typhonjs-svelte/runtime-base/util/object'],
    'util/predicate': ['@typhonjs-svelte/runtime-base/util/predicate'],
    'util/realm': ['@typhonjs-svelte/runtime-base/util/realm'],
-   'util/semver': ['@typhonjs-svelte/runtime-base/util/semver']
+   'util/semver': ['@typhonjs-svelte/runtime-base/util/semver'],
+   'util/types': ['@typhonjs-svelte/runtime-base/util/types']
 };
 
 export function createRuntimeLibConfig({ sourcemap, outputPlugins = [] })
